@@ -1,0 +1,66 @@
+#TODO
+send functions need to send packets, currently commented out
+(priority) queues need to be implemented
+timers
+getState and saveState use memory size to count units; no direct memory access in python, there should be some equivalent
+Packet::free(pkt) -becomes-> del packet ?
+rand()
+common packet header
+misc
+
+
+
+
+
+
+
+
+
+void JoinAgent::recv(Packet* pkt, Handler*)
+
+packet types:
+	vnhdr vs hdr?
+		SYNC_MSG
+			ST_SYNCED
+			ST_VER
+		JOIN_MSG
+			HEART_BEAT
+			LEADER_REPLY
+			LEADER_ELECT
+			LEADER_REQUEST_REMOTE
+			LEADER_ACK_REMOTE
+			LEADER_ACK_ACK
+
+
+void JoinAgent::check_old_leader_status()
+	for each old_l in oldLeaderData array:
+		continue if not old_l.is_valid
+		if old_l.retries < 40:
+			if old_l.leader_ack == false:
+				old_l.retries++
+				broadcast(LEADER_ELECT MESSAGE)
+				old_leader_timer.resched(4*claim_period_); 
+			elif old_l.leader_ack_ack == false:
+				old_l.retries++
+				unicast(LEADER_ACK_REMOTE MESSAGE)
+				old_leader_timer.resched(4*claim_period_); 
+		else:
+			if old_l.leader_ack_ack:
+				old_l.is_valid = false
+				continue
+			old_l.retries = 0
+			old_l.leader_ack = true
+			old_l.leader_ack_ack = true
+			old_l.is_valid = false
+			
+			
+			
+void JoinAgent::check_leader_status()
+
+
+double JoinAgent::check_location()
+	get current position of node
+	check if region has changed
+	if region changed:
+		if leader_status = LEADER:
+			
