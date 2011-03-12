@@ -1,6 +1,12 @@
-#define CODE_VNC "VNC"
-#define SENDING 1		#queue not empty
-#define NOSENDING 0		#queue empty
+import time
+from header import *
+from log_parking import *
+from recurring_timer import *
+
+
+CODE_VNC = "VNC"
+SENDING = 1		#queue not empty
+NOSENDING = 0		#queue empty
 
 
 #Timer for sending buffer.
@@ -11,7 +17,7 @@
 #void SendingTimer::expire(Event *e)
 #	a_.check_buffer_status();
 
-class VNCAgent:
+class VNCAgent(object):
 	# Agent/VNCAgent constructor 
 	def __init__(self):
 		#bind("port_number_", &MY_PORT_);
@@ -24,18 +30,19 @@ class VNCAgent:
 
 #		srand(time(NULL)+nodeID_);
 
+#TODO priority queue
 		self.queue = []
 		#queue = (struct PacketQ *) malloc(sizeof(struct PacketQ *));
 		#queue.init();
 
-		self.sending_status_ = "NOSENDING";
+		self.sending_status_ = NOSENDING;
 
 		self.regionX_ = -1;
 		self.regionY_ = -1;
 
 		#TODO shmid log stuff
 		
-		self.app_code = "UNKNOWN";
+		self.app_code = UNKNOWN;
 
 
 	# The method processing every packet received by the agent
@@ -44,32 +51,32 @@ class VNCAgent:
 		#hdr_vns * hdr = hdr_vns::access(pkt);
 		vnhdr = pkt.vnhdr
 
-		if(vnhdr.type == "LEADER_MSG"):
-			if(vnhdr.subtype == "NEWLEADER"):
-				#log_info(CODE_ADDRC, "RECV_INTERNAL", "Agent/VNC: leader infomation received.");
+		if(vnhdr.type == LEADER_MSG):
+			if(vnhdr.subtype == NEWLEADER):
+				#log_info(CODE_ADDRC, RECV_INTERNAL, "Agent/VNC: leader infomation received.");
 				#The local server is the leader.
-				self.leader_status_ = "LEADER";
-			elif(vnhdr.subtype == "NONLEADER"):
-				#log_info(CODE_ADDRC, "RECV_INTERNAL", "Agent/VNC: leader infomation received.");
+				self.leader_status_ = LEADER;
+			elif(vnhdr.subtype == NONLEADER):
+				#log_info(CODE_ADDRC, RECV_INTERNAL, "Agent/VNC: leader infomation received.");
 				#the local server is non the leader
-				self.leader_status_ = "NON_LEADER";
-		elif(vnhdr.type == "REGION_MSG"):
-			if(vnhdr.subtype == "NEWREGION"):
+				self.leader_status_ = NON_LEADER;
+		elif(vnhdr.type == REGION_MSG):
+			if(vnhdr.subtype == NEWREGION):
 				self.regionX_ = vnhdr.regionX;#update the region id anyways
 				self.regionY_ = vnhdr.regionY;
 
-				if(self.client_state_ == "UNKNOWN"):#Do this only when a client node is uninitialized
+				if(self.client_state_ == UNKNOWN):#Do this only when a client node is uninitialized
 					self.init();
 				else:
 					self.reset();#reset something when later the node enters a new region.
-		elif(vnhdr.type == "SYNC_MSG"):
+		elif(vnhdr.type == SYNC_MSG):
 			pass #do nothing for SYN messages
 		#elif(hdr.type == SYN_REQUEST || hdr.type == SYN_ACK):
 			#pass #do nothing for SYN messages
-		elif(vnhdr.type == "APPL_MSG"):#unknown message type
-			if(self.client_state_ != "UNKNOWN"):
+		elif(vnhdr.type == APPL_MSG):#unknown message type
+			if(self.client_state_ != UNKNOWN):
 				#if(LOG_ENABLED):
-				#  log_info(CODE_VNC, "RECV_APPL", "Agent/VNC.");
+				#  log_info(CODE_VNC, RECV_APPL, "Agent/VNC.");
 				self.handle_packet(pkt);
 				self.send_packets();
 			else:
@@ -79,7 +86,7 @@ class VNCAgent:
 
 #TODO
 #		Packet::free(pkt);
-		#log_info(CODE_VNC, "PFREE", "packet freed");
+		#log_info(CODE_VNC, PFREE, "packet freed");
 		return
 	
 	
@@ -100,17 +107,17 @@ class VNCAgent:
 		
 	#send the messages in the message buffer, if there is any
 	def send_packets(self, ):
-		#log_info(CODE_VNC, "QUEUE", (double)sending_status_);
-		if(self.sending_status_ == "SENDING"):
+		#log_info(CODE_VNC, QUEUE, (double)sending_status_);
+		if(self.sending_status_ == SENDING):
 			#just wait for the next timeout
-			pass #log_info(CODE_VNS, "QUEUE", "sending ongoing, wait");
+			pass #log_info(CODE_VNS, QUEUE, "sending ongoing, wait");
 		else:
 			if(len(self.queue) != 0):
-				self.sending_status_ = "SENDING";
-				#log_info(CODE_VNS, "QUEUE", "sending enabled for the queue");
+				self.sending_status_ = SENDING;
+				#log_info(CODE_VNS, QUEUE, "sending enabled for the queue");
 				self.send_timer_.resched(self.send_wait_);
 			else:
-				pass #log_info(CODE_VNS, "QUEUE", "empty");
+				pass #log_info(CODE_VNS, QUEUE, "empty");
 				
 				
 	# Awaken by the client timer.
@@ -119,20 +126,20 @@ class VNCAgent:
 		p = None # Packet * p;
 		
 		if(len(self.queue) !=0):
-			self.sending_status_ = "SENDING";
+			self.sending_status_ = SENDING;
 			p = self.queue.dequeue();
 			if(p):
 				hdr = p.vnhdr
-				if(hdr.send_type == "SEND"):
+				if(hdr.send_type == SEND):
 					if(LOG_ENABLED):
-						self.log(self.app_code,"SEND",self.getAppHeader(p))
+						self.log(self.app_code,SEND,self.getAppHeader(p))
 				else:
 					pass
 #TODO			send(p,0)
 			self.send_timer_.resched(self.send_wait_);
 		else:
-			#log_info(CODE_ADDRC,"QUEUE","Queue emptied");
-			self.sending_status_ = "NOSENDING";
+			#log_info(CODE_ADDRC,QUEUE,"Queue emptied");
+			self.sending_status_ = NOSENDING;
 
 
 	#get application packet header into a string

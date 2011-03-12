@@ -7,7 +7,7 @@ FREE_SPOTS = 10
 class LogParkingFile:
 	m_version = [[0]*MAX_COLS for x in xrange(MAX_ROWS)]
 	m_num_nodes = [[0]*MAX_COLS for x in xrange(MAX_ROWS)]	
-	global_free_spaces = [[0]*MAX_COLS for x in xrange(3)]
+	global_free_spaces = [[0]*MAX_COLS for x in xrange(MAX_ROWS)]
 	region_leader = [[0]*MAX_COLS for x in xrange(MAX_ROWS)]
 	is_region_alive = [[0]*MAX_COLS for x in xrange(MAX_ROWS)]
 	has_active_leader = [[0]*MAX_COLS for x in xrange(MAX_ROWS)]

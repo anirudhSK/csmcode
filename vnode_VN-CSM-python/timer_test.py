@@ -1,14 +1,16 @@
 #!/bin/python
-from threading import Timer
+from recurring_timer import *
 
-class MyClass:
+class MyClass(object):
 	def __init__(self):
-		self.t = Timer(2.0, self.hello)
-		self.t.start()
+		self.joinTimer = RecurringTimer(2, self.do_something)
+		self.joinTimer.start()
+		self.count = 0
 	
-	def hello(self):
-		print 'hello, world!'
-		self.t = Timer(2.0, self.hello)
-		self.t.start()
-
+	def do_something(self):
+		self.count += 1
+		if self.count > 3:
+			self.joinTimer.resched(0.5)
+		print 'hello world %d' % self.count
+		
 mc = MyClass()

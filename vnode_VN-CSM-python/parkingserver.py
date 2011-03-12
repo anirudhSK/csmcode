@@ -1,40 +1,13 @@
-import vnserver
+from vnserver import *
 import time
 import copy
 import Queue
 
 
-# TODO timers
-
-#Timer for PARKING client
-#Time interval between data packet sendings
-#class ParkingServerTimer : public TimerHandler {
-#	public:
-#		ParkingServerTimer(ParkingServerAgent *a) : TimerHandler() { a_ = a; }
-#	protected:
-#		virtual void expire(Event *e);
-#		ParkingServerAgent *a_;
-#};
-#class ParkingResendingTimer : public TimerHandler {
-#	public:
-#		ParkingResendingTimer(ParkingServerAgent *a) : TimerHandler() { a_ = a; }
-#	protected:
-#		virtual void expire(Event *e);
-#		ParkingServerAgent *a_;
-#};
-# timer expiration action for data traffic generation
-#def ParkingServerTimer.expire(e)
-#	a_.parking_timeout(0);
-#
-#def ParkingResendingTimer.expire(e)
-#	a_.resending_timeout(0);
+CODE_PARKINGS = "PARKING" #code for application layer messages
 
 
-#struct ParkingState {
-#	int num_free_parking_spaces[MAX_ROWS][MAX_COLS];
-#};
-
-class ClientRequest:
+class ClientRequest(object):
 	def __init__(self):
 		self.origid = 0
 		self.m_count = 0
@@ -44,13 +17,13 @@ class ClientRequest:
 		self.expiration_time = 0
 		self.m_retries = 0
 
-class RemoteRequest:
+class RemoteRequest(object):
 	def __init__(self):
 		self.origid = 0
 		self.m_count = 0
 		self.isSuccess = 0
 
-class SharedState:
+class SharedState(object):
 	def __init__(self):
 		self.num_free_parking_spaces = 0
 		self.version = 0
@@ -81,33 +54,47 @@ class SharedState:
 #map<pair<int, int>, priority_queue<WriteUpdate> > LogParkingFile.central_m_write_updates[MAX_ROWS][MAX_COLS];
 
 
-class ParkingServerAgent(vnserver.VNSAgent):
+class ParkingServerAgent(VNSAgent):
 	
-	def parking_timeout(int):
+	def check_parking_status(self):
+		return
+	
+	def parking_timeout(self, int):
 		self.check_parking_status();
 		
-	def resending_timeout(int):
+	def resending_timeout(self, int):
 		self.check_resending_status();
 	
 	def __init__(self):
-#TODO	parking_timer_(this), resending_timer_(self, this):
-#		ParkingServerTimer parking_timer_; 	# syn status check timeout
-#		ParkingResendingTimer resending_timer_;  # resending timer
+		VNSAgent.__init__(self)
+
+# TODO timers
+#		self.resending_timer_ = RecurringTimer(3, somefunc)	# resending time 
+#		self.parking_timer_ = RecurringTimer(3, somefunc)	# syn status check timeout
+		
 		self.app_code = CODE_PARKINGS;
 		self.m_parkingstate = [[0]*MAX_COLS for x in xrange(MAX_ROWS)]
 		self.m_parkingstate = [[0]*MAX_COLS for x in xrange(MAX_ROWS)]
 		self.m_remote_requests = [] # vector<RemoteRequest>
+		self.m_resending_queue = Queue.PriorityQueue()
+		
+		# CSM data
+		self.g_seq = 0
+		self.l_seq = {} # map<pair<int, int>, int> l_seq;
+		self.m_seq_acks = {} # map<int, vector<pair<int, int> > > m_seq_acks;
+		self.m_write_updates = {} # map<pair<int, int>, priority_queue<WriteUpdate> > m_write_updates;
+
 
 	#initialize the server states when a server comes into a new region
 	def server_init(self, ):
 		for row in range(MAX_ROWS):
 			for col in range(MAX_COLS):
-				self.m_parkingstate.num_free_parking_spaces[row][col] = LogParkingFile.getFreeSpots(row, col);	
+				self.m_parkingstate[row][col] = LogParkingFile.getFreeSpots(row, col);	
 		
 		self.m_version = LogParkingFile.getVersion(self.regionX_, self.regionY_);
 		self.send_loopback(ST_VER, self.m_version);	
 
-		self.m_remote_requests.clear();
+		del self.m_remote_requests[0:len(self.m_remote_requests)] # self.m_remote_requests.clear();
 		while( not self.m_resending_queue.empty()):
 			self.m_resending_queue.popleft();
 
@@ -120,6 +107,7 @@ class ParkingServerAgent(vnserver.VNSAgent):
 			self.g_seq = copy.copy(LogParkingFile.central_g_seq[self.regionX_][self.regionY_]);
 			self.m_seq_acks = copy.copy(LogParkingFile.central_m_seq_acks[self.regionX_][self.regionY_]);
 			self.m_write_updates = copy.copy(LogParkingFile.central_m_write_updates[self.regionX_][self.regionY_]);
+
 
 	def handle_packet(self, pkt):
 		cmnhdr = pkt.vnhdr; #get the vnlayer common header
@@ -145,8 +133,8 @@ class ParkingServerAgent(vnserver.VNSAgent):
 							self.m_version+= 1;
 							self.send_loopback(ST_VER, self.m_version);	
 							doBroadcast = True;
-							assert(self.m_parkingstate.num_free_parking_spaces[self.regionX_][self.regionY_] == LogParkingFile.getFreeSpots(self.regionX_, self.regionY_));
-							self.m_parkingstate.num_free_parking_spaces[self.regionX_][self.regionY_] += hdr.isWrite;
+							assert(self.m_parkingstate[self.regionX_][self.regionY_] == LogParkingFile.getFreeSpots(self.regionX_, self.regionY_));
+							self.m_parkingstate[self.regionX_][self.regionY_] += hdr.isWrite;
 
 							if(hdr.isWrite == 1):
 								LogParkingFile.incrementFreeSpots(self.regionX_, self.regionY_);
@@ -154,24 +142,24 @@ class ParkingServerAgent(vnserver.VNSAgent):
 								LogParkingFile.decrementFreeSpots(self.regionX_, self.regionY_);
 
 							assert(self.m_version == LogParkingFile.getVersion(self.regionX_, self.regionY_));
-							assert(self.m_parkingstate.num_free_parking_spaces[self.regionX_][self.regionY_] == LogParkingFile.getFreeSpots(self.regionX_, self.regionY_));
+							assert(self.m_parkingstate[self.regionX_][self.regionY_] == LogParkingFile.getFreeSpots(self.regionX_, self.regionY_));
 						else:
 							pass
-						#	assert(m_parkingstate.num_free_parking_spaces[regionX_][regionY_] == LogParkingFile.getFreeSpots(regionX_, regionY_));
-						#	assert(m_parkingstate.num_free_parking_spaces[regionX_][regionY_] == LogParkingFile.getFreeSpots(regionX_, regionY_));
-						#	m_parkingstate.num_free_parking_spaces[regionX_][regionY_]-= 1;
+						#	assert(m_parkingstate[regionX_][regionY_] == LogParkingFile.getFreeSpots(regionX_, regionY_));
+						#	assert(m_parkingstate[regionX_][regionY_] == LogParkingFile.getFreeSpots(regionX_, regionY_));
+						#	m_parkingstate[regionX_][regionY_]-= 1;
 						#	LogParkingFile.decrementFreeSpots(regionX_, regionY_);
 						#	assert(m_version == LogParkingFile.getVersion(regionX_, regionY_));
-						#	assert(m_parkingstate.num_free_parking_spaces[regionX_][regionY_] == LogParkingFile.getFreeSpots(regionX_, regionY_));
+						#	assert(m_parkingstate[regionX_][regionY_] == LogParkingFile.getFreeSpots(regionX_, regionY_));
 					else:
 						if(hdr.isWrite != 0):	
 							self.m_version+= 1;
 							self.send_loopback(ST_VER, self.m_version);	
 							doBroadcast = True;
-							self.m_parkingstate.num_free_parking_spaces[self.regionX_][self.regionY_] += hdr.isWrite;
+							self.m_parkingstate[self.regionX_][self.regionY_] += hdr.isWrite;
 						else:
 							pass
-						#	m_parkingstate.num_free_parking_spaces[regionX_][regionY_]-= 1;
+						#	m_parkingstate[regionX_][regionY_]-= 1;
 					isSuccess = 1;
 					remote_req = RemoteRequest();
 					remote_req.origid = hdr.origid;
@@ -184,7 +172,7 @@ class ParkingServerAgent(vnserver.VNSAgent):
 				self.sendp(SENDLOOPBACK, SERVER_MESSAGE, self.nodeID_, self.client_port_, PARKING_ACK, hdr.origid, hdr.m_count, isSuccess, hdr.isWrite, self.regionX_, self.regionY_, self.regionX_, self.regionY_, self.regionX_, self.regionY_, -1);
 			
 				if(doBroadcast and (CSM == 1)):
-					self.sendp(SEND, WRITE_UPDATE, IP_BROADCAST, MY_PORT_, WRITE_UPDATE, -1, -1, self.m_parkingstate.num_free_parking_spaces[self.regionX_][self.regionY_], hdr.isWrite, self.regionX_, self.regionY_, self.regionX_, self.regionY_, -1, -1, self.g_seq);
+					self.sendp(SEND, WRITE_UPDATE, IP_BROADCAST, MY_PORT_, WRITE_UPDATE, -1, -1, self.m_parkingstate[self.regionX_][self.regionY_], hdr.isWrite, self.regionX_, self.regionY_, self.regionX_, self.regionY_, -1, -1, self.g_seq);
 			
 					region = (self.regionX_, self.regionY_);
 		
@@ -207,9 +195,9 @@ class ParkingServerAgent(vnserver.VNSAgent):
 						print "sender was - %d; SUCCESSFULL\n" % (hdr.origid);
 						print "sender was - %d; REQUEST-DONE!\n" % (hdr.origid);
 						print "sender was - %d; SENTTOCLIENT!\n" % (hdr.origid);
-						if(self.m_parkingstate.num_free_parking_spaces[hdr.destX][hdr.destY] != LogParkingFile.getFreeSpots(hdr.destX, hdr.destY)):
+						if(self.m_parkingstate[hdr.destX][hdr.destY] != LogParkingFile.getFreeSpots(hdr.destX, hdr.destY)):
 							print "sender was - %d; STALE-READ and hops = %d with max = %d\n" % (hdr.origid, dest_hops, MAX_HOP_SHARING);
-							print "local spots - %d; actual = %d\n" % (self.m_parkingstate.num_free_parking_spaces[hdr.destX][hdr.destY], LogParkingFile.getFreeSpots(hdr.destX, hdr.destY));
+							print "local spots - %d; actual = %d\n" % (self.m_parkingstate[hdr.destX][hdr.destY], LogParkingFile.getFreeSpots(hdr.destX, hdr.destY));
 					isSuccess = 1;
 					self.sendp(SEND, SERVER_MESSAGE, IP_BROADCAST, self.client_port_, PARKING_ACK, hdr.origid, hdr.m_count, isSuccess, hdr.isWrite, self.regionX_, self.regionY_, self.regionX_, self.regionY_, self.regionX_, self.regionY_, -1);
 					self.sendp(SENDLOOPBACK, SERVER_MESSAGE, self.nodeID_, self.client_port_, PARKING_ACK, hdr.origid, hdr.m_count, isSuccess, hdr.isWrite, self.regionX_, self.regionY_, self.regionX_, self.regionY_, self.regionX_, self.regionY_, -1);
@@ -270,28 +258,28 @@ class ParkingServerAgent(vnserver.VNSAgent):
 							self.m_version+= 1;
 							self.send_loopback(ST_VER, m_version);	
 							doBroadcast = True;	
-							assert(self.m_parkingstate.num_free_parking_spaces[self.regionX_][self.regionY_] == LogParkingFile.getFreeSpots(self.regionX_, self.regionY_));
-							self.m_parkingstate.num_free_parking_spaces[self.regionX_][self.regionY_] += hdr.isWrite;
+							assert(self.m_parkingstate[self.regionX_][self.regionY_] == LogParkingFile.getFreeSpots(self.regionX_, self.regionY_));
+							self.m_parkingstate[self.regionX_][self.regionY_] += hdr.isWrite;
 							if(hdr.isWrite == 1):
 								LogParkingFile.incrementFreeSpots(self.regionX_, self.regionY_);
 							else:
 								LogParkingFile.decrementFreeSpots(self.regionX_, self.regionY_);
-							assert(self.m_parkingstate.num_free_parking_spaces[self.regionX_][self.regionY_] == LogParkingFile.getFreeSpots(self.regionX_, self.regionY_));
+							assert(self.m_parkingstate[self.regionX_][self.regionY_] == LogParkingFile.getFreeSpots(self.regionX_, self.regionY_));
 						else:
 							pass
-						#	assert(m_parkingstate.num_free_parking_spaces[regionX_][regionY_] == LogParkingFile.getFreeSpots(regionX_, regionY_));
-						#	m_parkingstate.num_free_parking_spaces[regionX_][regionY_]-= 1;
+						#	assert(m_parkingstate[regionX_][regionY_] == LogParkingFile.getFreeSpots(regionX_, regionY_));
+						#	m_parkingstate[regionX_][regionY_]-= 1;
 						#	LogParkingFile.decrementFreeSpots(regionX_, regionY_);
-						#	assert(m_parkingstate.num_free_parking_spaces[regionX_][regionY_] == LogParkingFile.getFreeSpots(regionX_, regionY_));
+						#	assert(m_parkingstate[regionX_][regionY_] == LogParkingFile.getFreeSpots(regionX_, regionY_));
 					else:
 						if(hdr.isWrite != 0):	
 							self.m_version+= 1;
 							self.send_loopback(ST_VER, self.m_version);	
 							doBroadcast = True;
-							self.m_parkingstate.num_free_parking_spaces[self.regionX_][self.regionY_] += hdr.isWrite;
+							self.m_parkingstate[self.regionX_][self.regionY_] += hdr.isWrite;
 						else:
 							pass
-						#	m_parkingstate.num_free_parking_spaces[regionX_][regionY_]-= 1;
+						#	m_parkingstate[regionX_][regionY_]-= 1;
 					isSuccess = 1;
 					remote_req = RemoteRequest()
 					remote_req.origid = hdr.origid;
@@ -310,7 +298,7 @@ class ParkingServerAgent(vnserver.VNSAgent):
 				self.sendp(SEND, PARKING_REPLY, IP_BROADCAST, MY_PORT_, PARKING_REPLY, hdr.origid, hdr.m_count, isSuccess, hdr.isWrite, hdr.destX, hdr.destY, nextX, nextY, hdr.srcX, hdr.srcY, -1);
 
 				if(doBroadcast and (CSM == 1)):
-					self.sendp(SEND, WRITE_UPDATE, IP_BROADCAST, MY_PORT_, WRITE_UPDATE, -1, -1, m_parkingstate.num_free_parking_spaces[self.regionX_][self.regionY_], hdr.isWrite, self.regionX_, self.regionY_, self.regionX_, self.regionY_, -1, -1, self.g_seq);
+					self.sendp(SEND, WRITE_UPDATE, IP_BROADCAST, MY_PORT_, WRITE_UPDATE, -1, -1, m_parkingstate[self.regionX_][self.regionY_], hdr.isWrite, self.regionX_, self.regionY_, self.regionX_, self.regionY_, -1, -1, self.g_seq);
 					region = (self.regionX_, self.regionY_);
 
 					LogParkingFile.central_m_seq_acks[regionX_][regionY_][g_seq].append(region);
@@ -375,7 +363,7 @@ class ParkingServerAgent(vnserver.VNSAgent):
 						if(self.leader_status_ == LEADER):
 							print "NodeID_ - %d (%d, %d) UPDATING parking spots = %d for region (%d, %d)\n" % (self.nodeID_, self.regionX_, self.regionY_, up_req.parking_spots, region.first, region.second);		
 							
-						self.m_parkingstate.num_free_parking_spaces[up_req.reg_x][up_req.reg_y] = up_req.parking_spots;
+						self.m_parkingstate[up_req.reg_x][up_req.reg_y] = up_req.parking_spots;
 						self.m_write_updates[region].popleft();
 						
 						LogParkingFile.central_m_write_updates[self.regionX_][self.regionY_][region].popleft();
@@ -515,7 +503,7 @@ class ParkingServerAgent(vnserver.VNSAgent):
 		#queue.enqueue(pkt);
 		queue.append(pkt)
 
-#TODO jason: unsure about the porting of this function
+#TODO jason: getState - unsure about the porting of this function
 	def getState(self, ):
 		size = self.getStateSize();
 		buff = [SharedState()] # array of shared states?
@@ -530,7 +518,7 @@ class ParkingServerAgent(vnserver.VNSAgent):
 		for row in range(MAX_ROWS):
 			for col in range(MAX_COLS):
 				buff.append(SharedState())
-				buff[i].num_free_parking_spaces = self.m_parkingstate.num_free_parking_spaces[col][row];
+				buff[i].num_free_parking_spaces = self.m_parkingstate[col][row];
 				buff[i].isClientRequest = -1;
 				i+= 1;
 #TODO	assert(i == units - self.m_resending_queue.size() - self.m_remote_requests.size());
@@ -601,7 +589,7 @@ class ParkingServerAgent(vnserver.VNSAgent):
 		i = 1	
 		for row in range(MAX_ROWS):
 			for col in range(MAX_COLS):
-				self.m_parkingstate.num_free_parking_spaces[col][row] = buff[i].num_free_parking_spaces ;
+				self.m_parkingstate[col][row] = buff[i].num_free_parking_spaces ;
 				assert(buff[i].isClientRequest == -1);
 				i+= 1;
 		assert (i == 1 + MAX_COLS*MAX_ROWS);

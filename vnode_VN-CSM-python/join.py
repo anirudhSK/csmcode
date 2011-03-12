@@ -1,30 +1,42 @@
 #!/bin/python
-
-#State machine code for node motion
-
-NUM_NEIGHBORS = 8 #for square regions, the maximum number of neighbors is 8
-
-MAX_APPS = 10 	# number of apps ports that the agent report region and leadership status to
-				# [Might want to put this in TCL script later.]
-
 from log_parking import *
 from header import *
+from threading import Timer
 import time
-#import libnet
-#from libnet.constants import *
-import sys
 
-class Packet:
-	def __init__(self):
-		self.vnhdr = hdr_vncommon()
-		self.vns_hdr = hdr_vns()
-		self.join_hdr = hdr_join()
-		self.vnparking_hdr = hdr_vnparking()
-		return
+
+### DEFINE ###
+NEW_NODE = 0
+MOVING = 1
+STOPPED = 2
+NUM_NEIGHBORS = 8 #for square regions, the maximum number of neighbors is 8
+MAX_APPS = 10             #number of apps ports that the agent report region and leadership status to
+                          #[Might want to put this in TCL script later.]
+CODE_JOIN = "JOIN"        #code for leader election related events
+CODE_MOVE = "MOVE"        #code for node motion related events
+CODE_INFO = "INFO"        #code for other events
+
+
+class RecurringTimer:
+	def __init__(self, interval, f):
+		self.interval = interval
+		self.f = f
+		self.t = Timer(self.interval, self.expire)
 	
-	def broadcast(self):
-		print 'PACKET FROM %d to %d: %s.%s, %s' % (self.vnhdr.src, self.vnhdr.dst, self.vnhdr.type, self.vnhdr.subtype, self.join_hdr.type)
-		return
+	def start(self):
+		self.t.start()
+	
+	def expire(self):
+		self.f()
+		self.t = Timer(self.interval, self.expire)
+		self.t.start()
+	
+	def resched(self, interval):
+		self.t.cancel()
+		self.interval = interval
+		self.t = Timer(self.interval, self.expire)
+		self.t.start()
+
 
 class oldLeaderData:
 	def __init(self, ver, ox, oy, spots):
@@ -37,35 +49,6 @@ class oldLeaderData:
 		self.leader_ack = False	
 		self.leader_ack_ack = False
 		self.new_leader = -1
-
-
-# TODO TODO TODO
-# Timer for location checking
-#class JoinTimer : public TimerHandler {
-#	public:
-#		JoinTimer(JoinAgent *a) : TimerHandler() { a_ = a; }
-#	protected:
-#		virtual void expire(Event *e);
-#		JoinAgent *a_;
-#};
-
-# Timer for leader election
-#class LeaderReqTimer : public TimerHandler {
-#	public:
-#		LeaderReqTimer(JoinAgent *a) : TimerHandler() { a_ = a; }
-#	protected:
-#		virtual void expire(Event *e);
-#		JoinAgent *a_;
-#};
-
-# Timer for old leader 
-#class OldLeaderTimer : public TimerHandler {
-#	public:
-#		OldLeaderTimer(JoinAgent *a) : TimerHandler() { a_ = a; }
-#	protected:
-#		virtual void expire(Event *e);
-#		JoinAgent *a_;
-#};
 
 
 class JoinAgent:
@@ -82,22 +65,28 @@ class JoinAgent:
 		self.seq_ = 0
 #		bind("status_", &status_);
 #		bind("leader_", &leader_);
-		self.leader_status_ = "UNKNOWN"
+		self.leader_status_ = UNKNOWN
 		self.beat_period_ = 2
 #		bind("max_delay_", &max_delay_);
 #		bind("claim_period_",&claim_period_);
 #		bind("beat_miss_limit_",&beat_miss_limit_);
 #		bind("packetSize_", &size_);
-		self.leader_start_ = "UNKNOWN"
+		self.leader_start_ = UNKNOWN
 		
+#TODO what initial time to start out with? do we need to star them, or wait until reschedule event? # Timers
+		self.join_timer_ = RecurringTimer(3, self.check_location) # location check timeout
+		self.leader_req_timer_ = RecurringTimer(3, self.check_leader_status) # leader request timeout
+		self.old_leader_timer = RecurringTimer(3, self.check_old_leader_status)
 		
 		# Copied from Agent/Join constructor
 		self.beat_misses_ = 0
 		self.num_apps = 0
-#TODO	srand(time(NULL)+nodeID_)
+		
 		self.state_synced_ = False # state unknown
-		self.time_to_leave_ = "UNKNOWN" # TODO
+		self.time_to_leave_ = UNKNOWN # TODO
 		self.old_leader_retries = 0
+
+		# srand(time(NULL)+nodeID_) #TODO
 		
 #TODO shmid, logfile
 		
@@ -114,35 +103,35 @@ class JoinAgent:
 	
 	# The method processing every packet received by the agent
 	# void JoinAgent::recv(Packet* pkt, Handler*)
-	def recv(self, pkt): #TODO handler?
+	def recv(self, pkt):
 		print 'recv'
 		
 		vnhdr = pkt.vnhdr
 		
-		if(vnhdr.type == "SYNC_MSG"): # this must be a loopback message from the VNS thread 
-			if(vnhdr.subtype == "ST_SYNCED"): # Received a synchronization message 
+		if(vnhdr.type == SYNC_MSG): # this must be a loopback message from the VNS thread 
+			if(vnhdr.subtype == ST_SYNCED): # Received a synchronization message 
 				self.state_synced_ = True
 				self.leader_start_ = vnhdr.send_time
-			elif (vnhdr.subtype == "ST_VER"): # version synchronization message Do we really need loopbacks, can't we just have shared vairables , that are set by one thread and read by another.
+			elif (vnhdr.subtype == ST_VER): # version synchronization message Do we really need loopbacks, can't we just have shared vairables , that are set by one thread and read by another.
 				self.m_version = vnhdr.src # Just reusing the src field of vnhdr for sending version;
 		
-		elif(vnhdr.type == "JOIN_MSG"): # not a loopback message, but rather received from another node.
+		elif(vnhdr.type == JOIN_MSG): # not a loopback message, but rather received from another node.
 			hdr = pkt.join_hdr
 			
 			if(hdr.regionX != self.regionX_ or hdr.regionY != self.regionY_): # not the same region, Ask Niket: what is this?
-				if(hdr.type == "HEART_BEAT" and hdr.dst == -1 and abs(hdr.regionX - self.regionX_) <= 1 and abs(hdr.regionY - self.regionY_) <= 1):
+				if(hdr.type == HEART_BEAT and hdr.dst == -1 and abs(hdr.regionX - self.regionX_) <= 1 and abs(hdr.regionY - self.regionY_) <= 1):
 					self.copy_loopback(pkt, 17920) # what is this again ? 17920 is the port , HEART_BEAT is not used in Niket's code from what he says. Niket says it might be useful for geographic routing . Check for HEART BEAT elsewhere too
 			
 			# incoming packet has to be either destined for the node or broadcast, the source has to be in the same region.
 			if((hdr.dst == self.nodeID_ or hdr.dst == -1) and hdr.regionX == self.regionX_ and hdr.regionY == self.regionY_):
-#TODO			log(""JOIN"", "RECV", hdr.toString());
-				if (hdr.type == "LEADER_REQUEST"): # got a request message, this is received by a node already in the region when a new guy comes in 
-					if(self.leader_status_ == "LEADER"): #I am a leader already, absolutely say NO to  the other guy 
-						self.send_unicast("LEADER_REPLY", hdr.src, "CONSENT", hdr.seq) # CONSENT or DISSENT  ?? Ask Niket.
+#TODO			log(JOIN, RECV, hdr.toString());
+				if (hdr.type == LEADER_REQUEST): # got a request message, this is received by a node already in the region when a new guy comes in 
+					if(self.leader_status_ == LEADER): #I am a leader already, absolutely say NO to  the other guy 
+						self.send_unicast(LEADER_REPLY, hdr.src, CONSENT, hdr.seq) # CONSENT or DISSENT  ?? Ask Niket.
 	                    # This is telling the new node, ok you can come and join the region or no there are too many here already. This was never implemented though from what Niket told me.   
-				elif(hdr.type == "LEADER_REPLY"): # I got a reply message, this message is unicast, so it can be heard only by the requestor ie if I sent a LEADER_REQUEST 
-					if(self.leader_status_ == "REQUESTED" and hdr.dst == self.nodeID_ and hdr.seq== self.seq_): #the messages is for my last request, that is I sent a request, Niket:  where is REQUESTED set
-						self.leader_status_ = "UNKNOWN"  # back to being a lame non leader, because my LEADER_REQUEST was turned down by a LEADER_REPLY , when will a LEADER_REQUEST ever not get turned down ? 
+				elif(hdr.type == LEADER_REPLY): # I got a reply message, this message is unicast, so it can be heard only by the requestor ie if I sent a LEADER_REQUEST 
+					if(self.leader_status_ == REQUESTED and hdr.dst == self.nodeID_ and hdr.seq== self.seq_): #the messages is for my last request, that is I sent a request, Niket:  where is REQUESTED set
+						self.leader_status_ = UNKNOWN  # back to being a lame non leader, because my LEADER_REQUEST was turned down by a LEADER_REPLY , when will a LEADER_REQUEST ever not get turned down ? 
 #						if(hdr.answer == CONSENT) #Participate in the VN as non-leader
 #						{
 #							leader_ = hdr.src;
@@ -154,21 +143,21 @@ class JoinAgent:
 #							# Do nothing. 
 #						}
 			
-			if(hdr.type == "LEADER_ELECT" and (hdr.dst == -1) and (hdr.old_x == self.regionX_) and (hdr.old_y == self.regionY_)): # A just exited leader whose old region was this region is trying to elect a new leader -1 is for b'cast # you as a recipient of this message are among the "chosen" ones 
+			if(hdr.type == LEADER_ELECT and (hdr.dst == -1) and (hdr.old_x == self.regionX_) and (hdr.old_y == self.regionY_)): # A just exited leader whose old region was this region is trying to elect a new leader -1 is for b'cast # you as a recipient of this message are among the "chosen" ones 
 				# Start leader election
-				assert(self.leader_status_ != "LEADER"); #There cannot be leader in this region, ie I am not a leader for instance, the assert only checks that I am not a leader 
+				assert(self.leader_status_ != LEADER); #There cannot be leader in this region, ie I am not a leader for instance, the assert only checks that I am not a leader 
 				if(self.m_version == hdr.version):
 					#start the leader election process. 
-					self.leader_status_ = "PENDING"
-					self.send_left_unicast("LEADER_REQUEST_REMOTE", hdr.src, self.m_version, hdr.old_x, hdr.old_y, "UNKNOWN") # send a LEADER_REQUEST_REMOTE to the node in the other region who tried to elect a leader 
+					self.leader_status_ = PENDING
+					self.send_left_unicast(LEADER_REQUEST_REMOTE, hdr.src, self.m_version, hdr.old_x, hdr.old_y, UNKNOWN) # send a LEADER_REQUEST_REMOTE to the node in the other region who tried to elect a leader 
 					# This amounts to saying, ok you wanted to elect a leader in my region, so yes, now I request to be one
 					# It's a remote request since you are sending it to the guy in the next region, not your own. 
 				else:
 #TODO - non-sync nodes should be delayed a bit so that sync wins , Ask Niket why this is not done , wrong code version ?? Isn't the whole point to allow only synced nodes to be leader ? 
-					self.leader_status_ = "PENDING"
-					self.send_left_unicast("LEADER_REQUEST_REMOTE", hdr.src, self.m_version, hdr.old_x, hdr.old_y, "UNKNOWN")
+					self.leader_status_ = PENDING
+					self.send_left_unicast(LEADER_REQUEST_REMOTE, hdr.src, self.m_version, hdr.old_x, hdr.old_y, UNKNOWN)
 			
-			if(hdr.type == "LEADER_REQUEST_REMOTE" and (hdr.dst == self.nodeID_)): # This is received by the exited node ie the Elector node, ie the node in the next region  
+			if(hdr.type == LEADER_REQUEST_REMOTE and (hdr.dst == self.nodeID_)): # This is received by the exited node ie the Elector node, ie the node in the next region  
 																					# I don't understand why there are multiple old leader datas ? Or should I code this blindly 
 				pass
 				for l in range(len(self.old_leaders)):
@@ -180,26 +169,26 @@ class JoinAgent:
 							if(self.m_version == hdr.version or (old_l.retries >= 3)):
 								self.old_leaders[l].leader_ack = True
 								self.old_leaders[l].new_leader = hdr.src
-								self.send_left_unicast("LEADER_ACK_REMOTE", hdr.src, "UNKNOWN", old_l.old_x, old_l.old_y, "UNKNOWN")
+								self.send_left_unicast(LEADER_ACK_REMOTE, hdr.src, UNKNOWN, old_l.old_x, old_l.old_y, UNKNOWN)
 								# this says: Ok as a remote elector I guarantee you permission to be the leader of this region. 
 								break
 			
-			if(hdr.type == "LEADER_ACK_REMOTE" and hdr.dst == self.nodeID_ and (hdr.old_x == self.regionX_) and (hdr.old_y == self.regionY_)):
-				if(self.leader_status_ == "PENDING"): # my leader status was pending, and now I set myself leader.						
+			if(hdr.type == LEADER_ACK_REMOTE and hdr.dst == self.nodeID_ and (hdr.old_x == self.regionX_) and (hdr.old_y == self.regionY_)):
+				if(self.leader_status_ == PENDING): # my leader status was pending, and now I set myself leader.						
 					self.setNeighbors() # initiate neighbor set
 					#self.leader_start_ = Scheduler::instance().clock();
 					self.leader_start_ = time.time()
 					self.leader_ = self.nodeID_
-					self.leader_status_ = "LEADER"
-					self.send_left_unicast("LEADER_ACK_ACK", hdr.src, self.m_version, hdr.old_x, hdr.old_y, "UNKNOWN")
+					self.leader_status_ = LEADER
+					self.send_left_unicast(LEADER_ACK_ACK, hdr.src, self.m_version, hdr.old_x, hdr.old_y, UNKNOWN)
 					#LogParkingFile.setLeaderActive(self.regionX_, self.regionY_, True, Scheduler::instance().clock())
 					LogParkingFile.setLeaderActive(self.regionX_, self.regionY_, True, time.time())
 					self.state_synced_ = True
-					self.send_loopback("NEWLEADER")
-				elif(self.leader_status_ == "LEADER"):									# Ask Niket: When would this ever happen ? 
-					self.send_left_unicast("LEADER_ACK_ACK", hdr.src, self.m_version, hdr.old_x, hdr.old_y, "UNKNOWN")
+					self.send_loopback(NEWLEADER)
+				elif(self.leader_status_ == LEADER):									# Ask Niket: When would this ever happen ? 
+					self.send_left_unicast(LEADER_ACK_ACK, hdr.src, self.m_version, hdr.old_x, hdr.old_y, UNKNOWN)
 					
-			if(hdr.type == "LEADER_ACK_ACK" and (hdr.dst == self.nodeID_)): # The elector has now handed over responsibility. since it got an ACK ACK back from the newly elected node
+			if(hdr.type == LEADER_ACK_ACK and (hdr.dst == self.nodeID_)): # The elector has now handed over responsibility. since it got an ACK ACK back from the newly elected node
 																		# This is a 4 way handshake, LEADER_ELECT, LEADER_REQUEST_REMOTE, LEADER_ACK_REMOTE, LEADER_ACK_ACK
 				pass
 				for l in range(len(self.old_leaders)):
@@ -249,19 +238,19 @@ class JoinAgent:
 	# void JoinAgent::check_leader_status()
 	def check_leader_status(self):
 		print 'check_leader_status'
-		if(self.leader_status_ == "UNKNOWN"):
+		if(self.leader_status_ == UNKNOWN):
 			pass # Ignore since I should have got it. 
-		elif(self.leader_status_ == "REQUESTED"): # No response to leadership request. Check central server now. 
+		elif(self.leader_status_ == REQUESTED): # No response to leadership request. Check central server now. 
 			if not LogParkingFile.isRegionActive(self.regionX_, self.regionY_):
 				LogParkingFile.setRegionActive(self.regionX_, self.regionY_, self.nodeID_);
 				self.setNeighbors();
 				# self.leader_start_ = Scheduler::instance().clock();
 				self.leader_start_ = time.time()
 				self.leader_ = self.nodeID_;
-				self.leader_status_ = "LEADER";
+				self.leader_status_ = LEADER;
 				LogParkingFile.setLeaderActive(self.regionX_, self.regionY_, True, self.leader_start_);
 				self.state_synced_ = True;
-				self.send_loopback("NEWLEADER");
+				self.send_loopback(NEWLEADER);
 			else:
 				pass # Do nothing as there is already a VN running, which doesn't want me. 
 		return
@@ -296,36 +285,36 @@ class JoinAgent:
 			self.regionY_ = ry
 			
 			#tell other nodes in the region that the leader has left
-			if(self.leader_status_ == "LEADER"):
+			if(self.leader_status_ == LEADER):
 				LogParkingFile.setLeaderActive(orx, ory, False, time.time())
 				self.old_leader_retries = 0
-#TODO			self.old_leader_timer.resched(2*claim_period_)
+				self.old_leader_timer.resched(2*self.claim_period_)
 				spots = LogParkingFile.getFreeSpots(orx, ory) # shared state among threads 
 				old_l = oldLeaderData(self.m_version, orx, ory, spots)
 				self.old_leaders.append(old_l) # corner case
 				# is to augment the set of old leader data you have
-				self.send_left_broadcast("LEADER_ELECT", self.m_version, spots, orx, ory, "UNKNOWN")
+				self.send_left_broadcast(LEADER_ELECT, self.m_version, spots, orx, ory, UNKNOWN)
 			
 			self.status_reset()
-			self.leader_status_ = "REQUESTED" #REQUESTED, this is where it is set 
-			self.send_loopback("NEWREGION")# from join agent to parking server, Niket feels shared memory is just an implementation thing
-			self.send_broadcast("LEADER_REQUEST", "UNKNOWN")#send a leader request message
+			self.leader_status_ = REQUESTED #REQUESTED, this is where it is set 
+			self.send_loopback(NEWREGION)# from join agent to parking server, Niket feels shared memory is just an implementation thing
+			self.send_broadcast(LEADER_REQUEST, UNKNOWN)#send a leader request message
 #TODO		self.leader_req_timer_.resched(2*claim_period_) #wait for a claim period for someone to become leader ,
 	          # how long do you wait before concluding there is no leader, how do these affect performance ?
 	          # always check for state sanity  
 			
 			str = ""
 			
-			if(self.leader_status_ == "DEAD"):
+			if(self.leader_status_ == DEAD):
 				str = "(%d.%d),<,(-1.-1)" %(self.regionX_, self.regionY_)
 #				if(LOG_ENABLED):
-#					log(""MOVE"", "START", str)
+#					log(MOVE, START, str)
 			else:
 				str = "(%d.%d),<,(%d.%d)" % (self.regionX_, self.regionY_, orx, ory)
 #				if(LOG_ENABLED):
-#					log_info(""MOVE"","ENTER",str)
+#					log_info(MOVE,ENTER,str)
 #	     # ignore this is checkLocation polls repeatedly 
-#		#log_info("MOVE", "SPEED", "speed checking ...");
+#		#log_info(MOVE, SPEED, "speed checking ...");
 #		#get the speed and direction
 #		double destX,destY,speed;
 #		destX = this_node .destX();
@@ -341,14 +330,14 @@ class JoinAgent:
 #		this_node.getVelo(&speedX,&speedY,&speedZ);
 		
 		#schedule the next event
-		status_ = "MOVING"
+		status_ = MOVING
 #TODO is this a delta or an absolute time??
 		wait_time = 1 
 #TODO	join_timer_.resched(wait_time)
 #		if(LOG_ENABLED):
 #			char * str = (char *) malloc(MSG_STRING_SIZE);
 #			sprintf(str,"%.2f,%.2f,(%d.%d),>,%.2f,%.2f,(%d.%d),%.2f,(%.2f.%.2f)", x, y, rx, ry, destX,destY, drx, dry, speed, speedX, speedY);
-#			log("MOVE","MOVING",str);
+#			log(MOVE,MOVING,str);
 		
 		time_to_leave_ = time.time() + wait_time #set to wait time
 		return wait_time
@@ -369,7 +358,7 @@ class JoinAgent:
 #		iph.dport() = MY_PORT_;
 #		iph.ttl() = 1;
 		
-		pkt.vnhdr.type = "JOIN_MSG";
+		pkt.vnhdr.type = JOIN_MSG;
 		pkt.vnhdr.subtype = msgType;
 		
 		pkt.join_hdr.type = msgType; #leader request
@@ -396,7 +385,7 @@ class JoinAgent:
 		pkt.join_hdr.answer = answer; # 0 no, 1 yes
 		
 #		if(LOG_ENABLED)
-#			log(""JOIN"", "SEND", pkt.join_hdr.toString());
+#			log(JOIN, SEND, pkt.join_hdr.toString());
 #TODO	send(pkt, (Handler*) 0);
 		return
 		
@@ -418,7 +407,7 @@ class JoinAgent:
 #		iph.dport() = MY_PORT_;
 #		iph.ttl() = 1;
 		
-		pkt.vnhdr.type = "JOIN_MSG"
+		pkt.vnhdr.type = JOIN_MSG
 		pkt.vnhdr.subtype = msgType
 		
 		pkt.join_hdr.type = msgType; #leader request
@@ -439,7 +428,7 @@ class JoinAgent:
 		pkt.join_hdr.answer = answer # 0 no, 1 yes
 		
 #		if(LOG_ENABLED)
-#			log("JOIN", "SEND", join_hdr.toString());
+#			log(JOIN, SEND, join_hdr.toString());
 #TODO	send(pkt, (Handler*) 0);
 		return
 	
@@ -458,7 +447,7 @@ class JoinAgent:
 #		iph.dport() = MY_PORT_;
 #		iph.ttl() = 1;
 		
-		pkt.vnhdr.type = "JOIN_MSG"
+		pkt.vnhdr.type = JOIN_MSG
 		pkt.vnhdr.subtype = msgType
 		
 		pkt.join_hdr.type = msgType; #leader request
@@ -482,7 +471,7 @@ class JoinAgent:
 		pkt.join_hdr.seq = seq #sender's request sequence number
 		
 #		if(LOG_ENABLED)
-#			log("JOIN", "SEND", join_hdr.toString());
+#			log(JOIN, SEND, join_hdr.toString());
 		#Scheduler::instance().schedule(ll,pkt,0.0);
 #TODO	send(pkt, 0);
 		return
@@ -507,7 +496,7 @@ class JoinAgent:
 #		iph.dport() = MY_PORT_;
 #		iph.ttl() = 1;
 		
-		pkt.vnhdr.type = "JOIN_MSG";
+		pkt.vnhdr.type = JOIN_MSG;
 		pkt.vnhdr.subtype = msgType;
 		
 		pkt.join_hdr.type = msgType; #leader request
@@ -527,7 +516,7 @@ class JoinAgent:
 		pkt.join_hdr.answer = answer; # 0 no, 1 yes
 		
 #		if(LOG_ENABLED)
-#			log("JOIN", "SEND", join_hdr.toString());
+#			log(JOIN, SEND, join_hdr.toString());
 		#Scheduler::instance().schedule(ll,pkt,0.0);
 #TODO	send(pkt, 0);
 		return
@@ -556,7 +545,7 @@ class JoinAgent:
 		pkt.vns_hdr.regionY = self.regionY_; #sender's region Y
 		
 #		if(LOG_ENABLED)
-#			log("JOIN", "SENDTOPORT", vns_hdr.toString());
+#			log(JOIN, SENDTOPORT, vns_hdr.toString());
 #TODO	send(pkt, 0);
 		return
 	
@@ -581,7 +570,7 @@ class JoinAgent:
 #		iph_out.sport() = MY_PORT_; #no need
 #		iph_out.ttl() = 1;
 		
-		pkt_out.vnhdr.type = "JOIN_MSG";
+		pkt_out.vnhdr.type = JOIN_MSG;
 		pkt_out.vnhdr.subtype = join_hdr.type;
 		pkt_out.vnhdr.regionX = join_hdr.regionX;
 		pkt_out.vnhdr.regionY = join_hdr.regionY;
@@ -610,27 +599,27 @@ class JoinAgent:
 #			iph.ttl() = 1
 #			iph.dport() = app_port[i]
 			
-			if(msgType == "NEWREGION"):
-				pkt.vnhdr.type = "REGION_MSG"
-				pkt.vnhdr.subtype = "NEWREGION"
-			elif(msgType == "NEWLEADER"):
-				pkt.vnhdr.type = "LEADER_MSG"
-				pkt.vnhdr.subtype = "NEWLEADER"
+			if(msgType == NEWREGION):
+				pkt.vnhdr.type = REGION_MSG
+				pkt.vnhdr.subtype = NEWREGION
+			elif(msgType == NEWLEADER):
+				pkt.vnhdr.type = LEADER_MSG
+				pkt.vnhdr.subtype = NEWLEADER
 				pkt.vnhdr.dst = self.leader_
-			elif(msgType == "NONLEADER"):
-				pkt.vnhdr.type = "LEADER_MSG"
-				pkt.vnhdr.subtype = "NONLEADER"
+			elif(msgType == NONLEADER):
+				pkt.vnhdr.type = LEADER_MSG
+				pkt.vnhdr.subtype = NONLEADER
 				pkt.vnhdr.dst = self.leader_
-			elif(msgType == "OLDLEADER"):
-				pkt.vnhdr.type = "LEADER_MSG"
-				pkt.vnhdr.subtype = "OLDLEADER"
+			elif(msgType == OLDLEADER):
+				pkt.vnhdr.type = LEADER_MSG
+				pkt.vnhdr.subtype = OLDLEADER
 				pkt.vnhdr.dst = self.leader_
 			pkt.vnhdr.regionX = self.regionX_
 			pkt.vnhdr.regionY = self.regionY_
 			pkt.vnhdr.send_time = time.time()
 			
 			#the fields below are to be removed.
-			pkt.vns_hdr.message_class = "INTERNAL_MESSAGE" #internal loopback message
+			pkt.vns_hdr.message_class = INTERNAL_MESSAGE #internal loopback message
 			pkt.vns_hdr.type = msgType #leader request
 			pkt.vns_hdr.send_time = time.time()
 			#last_sent_ = join_hdr.send_time;
@@ -641,7 +630,7 @@ class JoinAgent:
 			pkt.vns_hdr.server_regionX = self.leader_
 			#Scheduler::instance().schedule(ll,pkt,0.0)
 			
-			#log_info("JOIN", "LOOPBACKSENTTO", app_port[i])
+			#log_info(JOIN, LOOPBACKSENTTO, app_port[i])
 #TODO		send(pkt, 0);
 		return
 	
@@ -680,11 +669,11 @@ class JoinAgent:
 	
 	# reset states related to leader election
 	def status_reset(self):
-		self.leader_ = "UNKNOWN"
-		self.leader_status_ = "UNKNOWN"
+		self.leader_ = UNKNOWN
+		self.leader_status_ = UNKNOWN
 		self.last_sent_ = 0
 		self.beat_misses_ = 0
-		self.leader_start_ = "UNKNOWN"
+		self.leader_start_ = UNKNOWN
 		self.state_synced_ = False
 	
 	# Upon region change, calculate the neighbor list and initialize the status of each neighbor
@@ -723,16 +712,16 @@ class JoinAgent:
 					self.neighbors[i][1] = -1
 				#set invalid neighbor flags to -1
 				if(self.neighbors[i][0] <0 or self.neighbors[i][0] >= self.columns_ or self.neighbors[i][1] <0 or self.neighbors[i][1] >= self.rows_):
-					self.neighbor_flags[i] = "INVALID";
+					self.neighbor_flags[i] = INVALID;
 					self.neighbor_timers[i] = 0;
 				else:
-					self.neighbor_flags[i] = "ACTIVE"; #set to ACTIVE here, we may want to set all the valid neighbors to inactive at first.
+					self.neighbor_flags[i] = ACTIVE; #set to ACTIVE here, we may want to set all the valid neighbors to inactive at first.
 					self.neighbor_timers[i] = time.time() + 3*self.beat_period_; #once a neighbor is active, if no heartbeat is heard for over 3 heartbeat periods, the neighbor is treated as inactive.
 		else: #set all neighbors to invalid
 			for i in range(NUM_NEIGHBORS):
 				self.neighbors[i][0] = -1;
 				self.neighbors[i][1] = -1;
-				self.neighbor_flags[i] = "INVALID";
+				self.neighbor_flags[i] = INVALID;
 				self.neighbor_timers[i] = 0;
 		return
 	

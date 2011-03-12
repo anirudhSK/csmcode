@@ -3,6 +3,7 @@ send functions need to send packets, currently commented out
 (priority) queues need to be implemented
 timers
 getState and saveState use memory size to count units; no direct memory access in python, there should be some equivalent
+GPS
 Packet::free(pkt) -becomes-> del packet ?
 rand()
 common packet header

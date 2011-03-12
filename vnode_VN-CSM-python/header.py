@@ -1,88 +1,127 @@
+# TODO rewrite with header.cc/.h from final vnode_VN-C_CSM implementation?
+# currently using the one Niket sent to Anirudh early on
+
+class Packet(object):
+	def __init__(self):
+		self.vnhdr = hdr_vncommon()
+		self.vns_hdr = hdr_vns()
+		self.join_hdr = hdr_join()
+		self.vnparking_hdr = hdr_vnparking()
+		return
+	
+	def broadcast(self):
+		print 'PACKET FROM %d to %d: %s.%s, %s' % (self.vnhdr.src, self.vnhdr.dst, self.vnhdr.type, self.vnhdr.subtype, self.join_hdr.type)
+		return
+
+
+CSM = 1 # Whether allow caching? 
+MAX_HOP_SHARING = 3 # How many hops of sharing
+
+MAX_ROWS = 10
+MAX_COLS = 10
+FREE_SPOTS = 10
+MAX_RETRIES = 10
+PERCENT_LOCAL = -1
+RESEND_BACKOFF = 5 # Conservative for now!
+
+KEYVALUE = 12345 #key to access the piece of shared memory for LogFile object
+MSG_STRING_SIZE = 500 #maximum string size
+
+MAX_ROUTE_LENGTH = 100 #maximum length of a source route
+
+LOG_ENABLED = 1 #logging enabled or not
+
+#boolean values
+TRUE = 1
+FALSE = 0
+
 #leader election state machine state id's
 #should be moved to join.h
-#define DEAD -2 		#a node that is powered off
-#define UNKNOWN -1		#a node that enters a region but doesn't know its leader status
-#define REQUESTED 0		#a node that starts leader election
-#define LEADER 1		#a node that claims to be the leader
-#define NON_LEADER 2		#a node that claims to be the non-leader
-#define UNSTABLE 3		#a node that missed at least one heartbeat message, TODO Is this really used in our case ? 
-#define PENDING 4		#requested from nearby VN 
-#define OLD_LEADER 5		#old leader
+DEAD = -2 		#a node that is powered off
+UNKNOWN = -1		#a node that enters a region but doesn't know its leader status
+REQUESTED = 0		#a node that starts leader election
+LEADER = 1		#a node that claims to be the leader
+NON_LEADER = 2	#a node that claims to be the non-leader
+UNSTABLE = 3		#a node that missed at least one heartbeat message
+PENDING = 4		#requested from nearby VN
+OLD_LEADER = 5		#old leader
 
 #leader election message types (struct hdr_join), for agent join
-#define LEADER_REQUEST 0#request for leadership
-#define LEADER_REPLY 1	#reply for leadership request
-#define HEART_BEAT 2	#heartbeat message used to claim leadership
-#define LEADER_LEFT 3	#the current leader has left
-#define HEART_BEAT_ACK 4 #response from secondary leader
-#define LEADER_LEFT_ACK 5 #ack for leader left msg
-#define LEADER_ELECT 6	#leadership election start
-#define LEADER_REQUEST_REMOTE 7	#leadership request from remote region
-#define LEADER_ACK_REMOTE 8	#leadership ack from remote region
-#define LEADER_ACK_ACK 9	#leadership ack_ack
+LEADER_REQUEST = 0#request for leadership
+LEADER_REPLY = 1	#reply for leadership request
+HEART_BEAT = 2	#heartbeat message used to claim leadership
+LEADER_LEFT = 3	#the current leader has left
+HEART_BEAT_ACK = 4 #response from secondary leader
+LEADER_LEFT_ACK = 5 #ack for leader left msg
+LEADER_ELECT = 6	#leadership election start
+LEADER_REQUEST_REMOTE = 7	#leadership request from remote region
+LEADER_ACK_REMOTE = 8	#leadership ack from remote region
+LEADER_ACK_ACK = 9	#leadership ack_ack
 
 #answer types for LEADER_REPLY messages
-#define CONSENT 1 #ok
-#define DISSENT 2 #need negotiation
-#define NOWAY 0 #rejection since the receiver is a leader
+CONSENT = 1 #ok
+DISSENT = 2 #need negotiation
+NOWAY = 0 #rejection since the receiver is a leader
 
 #INTERNAL loopback messages
-#define NEWLEADER 99 #from the join agent to the vns/vnc agent, notifying the change of leader status to leader
-#define NEWREGION 88 #from the join agent to the vns/vnc agent, notifying the change of region
-#define NONLEADER 77 #from the join agent to the vns/vnc agent, notifying the change of leader status to non-leader
-#define RG_UPDATE 66 #from the join agent to the vns agent, notifying the change of neighbor regions' activeness
-#define ST_SYNCED 55 #from the vns agent to the join agent, notifying that the local node has synchronized its state with the leader
-#define BCKLEADER 44 #secondary leader
-#define ST_VER 56 #from the vns agent to the join agent, notifying the version #
-#define OLDLEADER 33 #
+NEWLEADER = 99 #from the join agent to the vns/vnc agent, notifying the change of leader status to leader
+NEWREGION = 88 #from the join agent to the vns/vnc agent, notifying the change of region
+NONLEADER = 77 #from the join agent to the vns/vnc agent, notifying the change of leader status to non-leader
+RG_UPDATE = 66 #from the join agent to the vns agent, notifying the change of neighbor regions' activeness
+ST_SYNCED = 55 #from the vns agent to the join agent, notifying that the local node has synchronized its state with the leader
+BCKLEADER = 44 #secondary leader
+ST_VER = 56 #from the vns agent to the join agent, notifying the version #
+OLDLEADER = 33 #
 
 #VNS message types, struct header_vns
-#define SYN_REQUEST 0
-#define SYN_ACK 1
+SYN_REQUEST = 0
+SYN_ACK = 1
 
 #Application message types, type 0, 1, 99, 88, 77, 66 reserved for vns layer messages
-#define REQUEST 2
-#define OFFER 3
-#define ACQUIRE 4
-#define ACK 5
-#define RENEW 6
-#define RACK 7
+REQUEST = 2
+OFFER = 3
+ACQUIRE = 4
+ACK = 5
+RENEW = 6
+RACK = 7
 
 #message class, sub types in vns messages.
 #This is for convenience, actually the internal loopback messages, vns messages and application messages should use
 #separate message formats and data structures. However, it will be hard to tell from the
 #same receiving node which message are of which format. Hence, we use the same data structure to hold the two message types.
-#define INTERNAL_MESSAGE 0 			#internal loopback messsages, shall be limited at vnlayer
-#define SYNC_MESSAGE 1 				#sync_request and sync_ack messages, shall be limited at vnlayer
-#define SERVER_MESSAGE 2 			#server messages sent directly from the servers, this set of messages will be used in synchronization
-#define FORWARDED_SERVER_MESSAGE 3 	#forwarded server messages, needed for emptying sending queues of non-leader nodes, no need for synchronization
-#define FORWARDED_CLIENT_MESSAGE 4 	#forwarded client messages, needed for emptying sending queues of non-leader nodes, no need for synchronization
-#define CLIENT_MESSAGE 5			#messages sent directly from clients, this set of messages will be ignored by the vns layer packet processing
-##define SERVER_MESSAGE_AODV 6		#special message class designed for AODV/VN protocol. server messages will be sent to client port and
-#define PARKING_REQUEST 6
-#define PARKING_REPLY 7
-#define PARKING_ACK 8
-#define PARKING_REQUEST_RESEND 9
+INTERNAL_MESSAGE = 0 			#internal loopback messsages, shall be limited at vnlayer
+SYNC_MESSAGE = 1 				#sync_request and sync_ack messages, shall be limited at vnlayer
+SERVER_MESSAGE = 2 			#server messages sent directly from the servers, this set of messages will be used in synchronization
+FORWARDED_SERVER_MESSAGE = 3 	#forwarded server messages, needed for emptying sending queues of non-leader nodes, no need for synchronization
+FORWARDED_CLIENT_MESSAGE = 4 	#forwarded client messages, needed for emptying sending queues of non-leader nodes, no need for synchronization
+CLIENT_MESSAGE = 5			#messages sent directly from clients, this set of messages will be ignored by the vns layer packet processing
+#SERVER_MESSAGE_AODV = 6		#special message class designed for AODV/VN protocol. server messages will be sent to client port and
+PARKING_REQUEST = 6
+PARKING_REPLY = 7
+PARKING_ACK = 8
+PARKING_REQUEST_RESEND = 9
+WRITE_UPDATE = 10
+WRITE_UPDATE_REPLY = 11
 
 #transmission type
-#define FLOOD 0
-#define UNICAST 1
+FLOOD = 0
+UNICAST = 1
 
 #forwardingType
-#define LOCAL 0			#local forwarding, last hop
-#define INTER_REGION 1	#inter-region forwarding
+LOCAL = 0			#local forwarding, last hop
+INTER_REGION = 1	#inter-region forwarding
 
 #sending type
-#define SEND 0
-#define FORWARD 1
-#define SENDLOOPBACK 2 #no effect on bandwidth
+SEND = 0
+FORWARD = 1
+SENDLOOPBACK = 2 #no effect on bandwidth
 
 #neighbor status
-#define ACTIVE 1
-#define INACTIVE 0
-#define INVALID -1
+ACTIVE = 1
+INACTIVE = 0
+INVALID = -1
 
-#define PGEN_DMSG 333 #PGEN_DMSG
+PGEN_DMSG = 333 #PGEN_DMSG
 
 class hdr_pgen:
 	#int type; #packet type
@@ -98,11 +137,11 @@ class hdr_pgen:
 		return "%d,%.4f,%d,%d,%d" % (self.type, self.send_time, self.src, self.dst, self.seq)
 
 #common message header, message types
-#define JOIN_MSG	1 #JOIN agent messages, subtype LEADER_REQUEST, LEADER_REPLY, HEART_BEAT, LEADER_LEFT
-#define SYNC_MSG	2 #Synchronization messages, subtype SYN_REQUEST, SYN_ACK
-#define LEADER_MSG	3 #loopback messages, leadership info, subtype NEWLEADER, NONLEADER
-#define REGION_MSG	4 #loopback messages, region info, subtype NEWREGION
-#define APPL_MSG	5 #Application messages, to be passed on to the application layer, subtypes: INTERNAL_MESSAGE,
+JOIN_MSG	= 1 #JOINagent messages, subtype LEADER_REQUEST, LEADER_REPLY, HEART_BEAT, LEADER_LEFT
+SYNC_MSG	= 2 #Synchronizationmessages, subtype SYN_REQUEST, SYN_ACK
+LEADER_MSG	= 3 #loopbackmessages, leadership info, subtype NEWLEADER, NONLEADER
+REGION_MSG	= 4 #loopbackmessages, region info, subtype NEWREGION
+APPL_MSG	= 5 #Applicationmessages, to be passed on to the application layer, subtypes: INTERNAL_MESSAGE,
 
 
 
@@ -214,12 +253,12 @@ class hdr_join:
 
 
 ##AODV over VNLayer message types
-#define RREQ 1
-#define RREP 2
-#define RERR 3
-#define DMSG 10
-#define DACK 11
-#define CLCK 22
+RREQ = 1
+RREP = 2
+RERR = 3
+DMSG = 10
+DACK = 11
+CLCK = 22
 
 #
 # Message format of the AODV messages.
@@ -251,8 +290,8 @@ class hdr_vnaodv:
 		
 
 
-#define UPDATE 14   #route update
-#define QUERY 15	#explict route request
+UPDATE = 14 #route update
+QUERY = 15	#explict route request
 
 #
 # Message format of the parking messages.
@@ -283,10 +322,10 @@ class hdr_vnparking:
 
 
 ##SNSR network over VNLayer message types
-#define BEACON 1
-#define REPORT 2
-#define INFORM 3
-#define WAKEUP 4
+BEACON = 1
+REPORT = 2
+INFORM = 3
+WAKEUP = 4
 
 #
 # Message format of sensor network messages.

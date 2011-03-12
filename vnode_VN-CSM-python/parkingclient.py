@@ -1,5 +1,6 @@
-import vnclient
+from vnclient import *
 import time
+import copy
 import Queue
 
 ### DEFINE ###
@@ -16,7 +17,7 @@ class ClientRequest:
 		self.expiration_time = 0
 		self.m_retries = 0
 
-class ParkingClientAgent(vnclient.VNCAgent):
+class ParkingClientAgent(VNCAgent):
 	def __init__(self):
 		self.client_state_ = UNKNOWN;
 		self.app_code = CODE_PARKING;
