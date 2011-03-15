@@ -1,27 +1,17 @@
 What's left to do:
-send functions need to send packets, currently commented out
-(priority) queues need to be implemented
-timers
-getState and saveState use memory size to count units; no direct memory access in python, there should be some equivalent
-GPS
+send and recv packets pass off to VNode (vnode.py) class
+move queues to deque
+getState, getStateSize, and saveState ports
+what should timers be set for at the beginning? can't find initial values in C++ CSM code.
+read GPS coordinates from file
+synchronize on signal
+other initial values from Tcl not found
 
 
-secondary:
-Packet::free(pkt) -becomes-> del packet ?
+What's left to do secondary:
 rand()
 common packet header
-misc
-
-
-
-
-
-packet handling:
-for each received pkt, do:
-joinagent.recv(pkt, 0)
-parkingserver.recv(pkt,0)
-
-
+ip header
 
 
 
