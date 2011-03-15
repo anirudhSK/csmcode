@@ -1,11 +1,13 @@
 from vnserver import *
 import time
 import copy
-import Queue
+from collections import deque
+from operator import itemgetter, attrgetter
+
+# TODO move m_resending_queue and temp_queue to deque
 
 
 CODE_PARKINGS = "PARKING" #code for application layer messages
-
 
 class ClientRequest(object):
 	def __init__(self):
@@ -60,9 +62,9 @@ class ParkingServerAgent(VNSAgent):
 		print 'ParkingServerAgent.check_parking_status'
 		return
 	
-	def __init__(self):
+	def __init__(self, id, total_ordering_enabled_, total_ordering_mode_, sync_enabled_, rows_, columns_):
 		print 'ParkingServerAgent.__init__'
-		VNSAgent.__init__(self)
+		VNSAgent.__init__(self, id, total_ordering_enabled_, total_ordering_mode_, sync_enabled_, rows_, columns_)
 
 # TODO start timers
 		self.resending_timer_ = RecurringTimer(3, self.check_resending_status)
@@ -219,7 +221,7 @@ class ParkingServerAgent(VNSAgent):
 					client_req.destY = hdr.destY;
 					client_req.m_retries = 0;
 					client_req.expiration_time = time.time() + 0.25;			
-					self.m_resending_queue.append(client_req);
+					self.m_resending_queue.put(client_req);
 					
 					if(self.m_resending_queue.qsize() > 0):
 						wait = self.m_resending_queue.top().expiration_time - time.time()
@@ -445,7 +447,7 @@ class ParkingServerAgent(VNSAgent):
 			client_req.expiration_time = time.time() + 0.25;			
 
 			self.m_resending_queue.get();
-			self.m_resending_queue.append(client_req);
+			self.m_resending_queue.put(client_req);
 			if(self.m_resending_queue.qsize() > 0):
 				wait = self.m_resending_queue.top().expiration_time - time.time();
 				if(wait <= 0):
@@ -500,8 +502,7 @@ class ParkingServerAgent(VNSAgent):
 
 		pkt.vnparking_hdr.m_send_time = time.time()
 	
-		#queue.enqueue(pkt);
-		queue.append(pkt)
+		self.queue.append(pkt)
 
 #TODO jason: getState - unsure about the porting of this function
 	def getState(self, ):
@@ -524,11 +525,11 @@ class ParkingServerAgent(VNSAgent):
 				i+= 1;
 #TODO	assert(i == units - self.m_resending_queue.qsize() - len(self.m_remote_requests));
 		if(self.m_resending_queue.qsize() != 0):
-			temp_queue = Queue.PriorityQueue # priority_queue<ClientRequest> temp_queue;
+			temp_queue = Queue.PriorityQueue() # priority_queue<ClientRequest> temp_queue;
 			while( not self.m_resending_queue.empty()):
 				top_req = self.m_resending_queue.top(); # ClientRequest 
 				self.m_resending_queue.get();
-				temp_queue.append(top_req);
+				temp_queue.put(top_req);
 
 				buff[i].origid = top_req.origid;
 				buff[i].m_count = top_req.m_count;
@@ -543,7 +544,7 @@ class ParkingServerAgent(VNSAgent):
 			while(not temp_queue.empty()):
 				top_req = temp_queue.top(); # ClientRequest 
 				temp_queue.get();
-				self.m_resending_queue.append(top_req);
+				self.m_resending_queue.put(top_req);
 #TODO		assert(i == units - len(self.m_remote_requests));
 		if(len(self.m_remote_requests) != 0):
 			assert(i == (1 + MAX_ROWS*MAX_COLS + self.m_resending_queue.qsize())); 
@@ -612,7 +613,7 @@ class ParkingServerAgent(VNSAgent):
 				client_req.m_retries = buff[i].m_retries;
 				client_req.expiration_time = buff[i].expiration_time;
 				assert(buff[i].isSuccess == -1);
-				self.m_resending_queue.append(client_req);
+				self.m_resending_queue.put(client_req);
 				i+= 1;
 			elif(buff[i].isClientRequest == 0):
 				remote_req = RemoteRequest()
@@ -631,7 +632,7 @@ class ParkingServerAgent(VNSAgent):
 
 	def removeClientRequest(self, origid, m_count):
 		print 'ParkingServerAgent.removeClientRequest'
-		temp_queue = Queue.PriorityQueue # priority_queue<ClientRequest> temp_queue;
+		temp_queue = Queue.PriorityQueue() # priority_queue<ClientRequest> temp_queue;
 		
 		return_value = False;
 		
@@ -641,11 +642,11 @@ class ParkingServerAgent(VNSAgent):
 			if(top_req.origid == origid and top_req.m_count == m_count):
 				return_value = True;
 			else:
-				temp_queue.append(top_req);
+				temp_queue.put(top_req);
 		while( not temp_queue.empty()):
 			#ClientRequest top_req = temp_queue.top();
 			top_req = temp_queue.get();
-			self.m_resending_queue.append(top_req);
+			self.m_resending_queue.put(top_req);
 		return return_value;
 
 	#evaluate two server packets to see if they are for the same transaction     

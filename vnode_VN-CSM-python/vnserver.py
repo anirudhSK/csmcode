@@ -2,7 +2,10 @@ import time
 from header import *
 from log_parking import *
 from recurring_timer import *
-import Queue
+from collections import deque
+from operator import itemgetter, attrgetter
+
+# TODO move self.queue to deque
 
 CODE_VNS = "VNS"         #code for VN layer messages
 
@@ -41,8 +44,33 @@ FROM_TAIL = 1             #insertion into total ordering queue from tail
 
 
 class VNSAgent(object):
-	def __init__(self):
-		# TODO other binds
+	def __init__(self, id, total_ordering_enabled_, total_ordering_mode_, sync_enabled_, rows_, columns_):
+		# TODO binds
+#		self.port_number_ =
+#		self.client_port_ =
+#		self.join_port_ =
+		self.columns_ = columns_
+		self.rows_ = rows_
+#		self.maxX_ =
+#		self.maxY_ =
+		self.nodeID_ = id
+#		self.leader_ =
+#		self.leader_status_ =
+#		self.state_ =
+#		self.syn_wait_ =
+#		self.syn_interval_ =
+#		self.max_retries_ =
+		self.sync_enabled_ = sync_enabled_
+#		self.sync_delay_ =
+		self.total_ordering_enabled_ = total_ordering_enabled_
+		self.total_ordering_mode_ = total_ordering_mode_
+#		self.first_node_hold_off_ =
+#		self.ordering_delay_ =
+#		self.send_wait_ =
+#		self.packetSize_ =
+#		self.neighbor_timer_ =
+		# end binds
+		
 		
 		self.app_code = UNKNOWN
 		self.regionX_ = -1
@@ -55,15 +83,13 @@ class VNSAgent(object):
 		self.next_sync_ = 0;
 		
 		self.first_node_ = True;
-# what to set deadline?	self.first_node_deadline_ = 5;
+# TODO what to set deadline?
 		self.first_node_deadline_ = time.time() + 5
 
-		self.input_queue = Queue.Queue # hold Packets
-		self.queue = Queue.Queue # holds Packets
+		self.input_queue = Queue.Queue() # hold Packets
+		self.queue = Queue.Queue() # holds Packets
 		
 		# TODO log file shmid
-		
-		
 		return
 	
 	def check_neighbor_regions(self, pkt):
@@ -71,7 +97,7 @@ class VNSAgent(object):
 		
 	# The method processing every packet received by the agent
 	# void VNSAgent::recv(Packet* pkt, Handler*)
-	def recv(self, pkt): #TODO handler?
+	def recv(self, pkt):
 		vnhdr = pkt.vnhdr
 
 		timenow = time.time()
@@ -103,7 +129,7 @@ class VNSAgent(object):
 				if(self.state_ == BACKUP):
 					self.state_=SERVER;
 					self.server_init();
-#TODO				 	self.queue.empty(); #dump everything in the queue
+				 	self.queue = Queue.Queue(); #dump everything in the queue
 				else:
 					pass #Do nothing. 	
 			elif(vnhdr.subtype == NONLEADER):
@@ -169,11 +195,11 @@ class VNSAgent(object):
 				#this is not necessary is higher layer allows the processing of these messages
 				if(abs(vnhdr.regionX - self.regionX_)>1 or abs(vnhdr.regionY - self.regionY_)>1):
 					#log(CODE_VNS,LONGRECV,vnhdr.toString());
-#TODO					Packet::free(pkt);
+#					Packet::free(pkt);
 					return;
 				if(self.first_node_hold_off_ == True and self.first_node_ == True):
 					#log(CODE_VNS,FIRSTNODE,vnhdr.toString());
-#TODO					Packet::free(pkt);
+#					Packet::free(pkt);
 					return;
 				#put packet in total ordered input queue
 				if(self.total_ordering_enabled_ == True):
@@ -184,7 +210,7 @@ class VNSAgent(object):
 					assert ( 1 == 0);	
 					self.consistencyManager(pkt);#no sorting.
 					return;
-#TODO		Packet::free(pkt);
+#			Packet::free(pkt);
 		#log_info(CODE_VNS, PFREE, "packet freed");
 		return
 	
@@ -371,7 +397,7 @@ class VNSAgent(object):
 				#if(LOG_ENABLED):
 		  		#log(CODE_VNS, IGNORE, hdr.toString());
 
-#TODO	    Packet::free(pkt);
+#		    Packet::free(pkt);
 	    #log_info(CODE_VNS, PFREE, "packet freed");
 		return
 	
@@ -460,7 +486,7 @@ class VNSAgent(object):
 		self.leader_ = UNKNOWN;
 		self.leader_status_ = UNKNOWN;
 		self.first_node_ = False; #new node to the region
-		self.queue = []; #dump everything
+		self.queue = Queue.Queue(); #dump everything
 		
 	
 	#send the messages in the message buffer, if there is any
@@ -494,19 +520,28 @@ class VNSAgent(object):
 	#lookup a packet in the packet buffer for a match, using the equal method.
 	#once a match is found, remove the match from the buffer.
 	def lookup(self, queue, pkt):
-#TODO
-		return
+		if not queue or len(queue) == 0:
+			return 0
+		for i in range(len(queue)):
+			item = queue[i]
+			if item != pkt:
+				print '%s != %s' % (item, pkt)
+			else:
+				print '%s == %s, removing...' % (item, pkt)
+				del queue[i]
+				return 1
+		return 0
 
 
 	#check a packet queue, remove a packet if it is received a certain period of time ago
 	def queue_timeout(self, queue, time):
-#TODO
+#TODO port function. not necessary maybe?
 		return
 
 	#check the packet sending queue, remove a packet if it is older than the maximum response time
 	#check the head first, if the head is old, continue, else: quit
 	def check_head(self, time):
-#TODO
+#TODO port function. not necessary maybe?
 		return
 
 
@@ -527,7 +562,7 @@ class VNSAgent(object):
 	def server_broadcast(self, msgType, seq, buff_len, state_buffer):
 		pkt = Packet # Packet* pkt = allocpkt();
 
-#TODO			
+#TODO ip_hdr	
 #		hdr_ip* iph = HDR_IP(pkt);
 #		iph.saddr() = Agent::addr();
 #		iph.daddr() = IP_BROADCAST; 	#broadcasting address, should be -1
@@ -549,7 +584,7 @@ class VNSAgent(object):
 		pkt.vnhdr.dst = seq;#sequence number of the transaction
 		pkt.vnhdr.send_type = SEND;#sending, forwarding or loopback
 
-#TODO
+#TODO copy state_buffer into packet
 #		pkt.allocdata(buff_len);
 #		u_char * data = pkt.accessdata();
 #		memcpy(data, state_buffer, buff_len);
@@ -564,7 +599,7 @@ class VNSAgent(object):
 	#msgType: int message type
 	def send_loopback(self, msgType, seq):
 		pkt = Packet() # Packet* pkt = allocpkt();
-#TODO
+#TODO ip_hdr
 #		hdr_ip* iph = HDR_IP(pkt);
 #		iph.saddr() = Agent::addr();
 #		iph.daddr() = Agent::addr(); 	#broadcasting address, should be -1

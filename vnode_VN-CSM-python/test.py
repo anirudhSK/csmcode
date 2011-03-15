@@ -1,5 +1,6 @@
 #!/bin/python
 
+from vnode import *
 from header import *
 from vnserver import *
 from vnclient import *

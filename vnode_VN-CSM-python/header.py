@@ -1,29 +1,6 @@
 # TODO rewrite with header.cc/.h from final vnode_VN-C_CSM implementation?
 # currently using the one Niket sent to Anirudh early on
 
-class VNode(object):
-	def __init__(self, id):
-		self.id = id
-		self.join_agent = JoinAgent(self.id)
-		self.parking_server_agent = ParkingServerAgent()
-		self.parking_client_agent = ParkingClientAgent()
-		
-		self.join_agent.regionX_ = 1
-		self.join_agent.regionY_ = 0
-		self.join_agent.seq = 1
-		self.join_agent.m_version = 1
-
-	def recv(self, pkt):
-		self.join_agent.recv(pkt)
-		self.parking_server_agent.recv(pkt)
-		self.parking_client_agent.recv(pkt)
-	
-	def print_status(self):
-		print '### NODE %d: join_agent.state_synced_: %s' % (self.id, str(self.join_agent.state_synced_))
-		print '### NODE %d: join_agent.leader_start_: %s' % (self.id, str(self.join_agent.leader_start_))
-		print '### NODE %d: join_agent.leader_status_: %s' % (self.id, str(self.join_agent.leader_status_))
-		print '\n'
-
 class Packet(object):
 	def __init__(self):
 		self.vnhdr = hdr_vncommon()
@@ -36,7 +13,6 @@ def send(pkt, handler):
 	#print 'SENDING PACKET FROM %d to %d: %s.%s, %s' % (pkt.vnhdr.src, pkt.vnhdr.dst, pkt.vnhdr.type, pkt.vnhdr.subtype, pkt.join_hdr.type)
 	print 'SENDING PACKET: vnhdr.type: %s\tvnhdr.subtype: %s' % (pkt.vnhdr.type, pkt.vnhdr.subtype)
 	# TODO actually send packet
-
 
 CSM = 1 # Whether allow caching? 
 MAX_HOP_SHARING = 3 # How many hops of sharing

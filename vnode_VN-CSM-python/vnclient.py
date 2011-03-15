@@ -2,8 +2,11 @@ import time
 from header import *
 from log_parking import *
 from recurring_timer import *
-import Queue
+from collections import deque
+from operator import itemgetter, attrgetter
 
+
+# TODO move self.queue to deque
 
 CODE_VNC = "VNC"
 SENDING = 1		#queue not empty
@@ -20,24 +23,25 @@ NOSENDING = 0		#queue empty
 
 class VNCAgent(object):
 	# Agent/VNCAgent constructor 
-	def __init__(self):
-		#bind("port_number_", &MY_PORT_);
-		#bind("server_port_", &server_port_);
-		#bind("nodeID_",&nodeID_);
-		#bind("send_wait_",&send_wait_);
-		#bind("packetSize_", &size_);
-		#bind("client_state_", &client_state_);
-		#bind("leader_status_", &leader_status_);
+	def __init__(self, id, max_node_id_, sn_size_, num_srcs_, clock_msg_enabled_):
+		# TODO binds
+		#bind_offset(&hdr_vns::offset_);
+#		self.port_number_ =
+#		self.server_port_ =
+		self.nodeID_ = id
+#		self.send_wait_ =
+#		self.packetSize_ =
+#		self.client_state_ =
+#		self.leader_status_ =
+		# end binds
 
 #		srand(time(NULL)+nodeID_);
 
-#TODO priority queue
-		self.queue = []
-		#queue = (struct PacketQ *) malloc(sizeof(struct PacketQ *));
-		#queue.init();
+		self.queue = deque([]) #queue = (struct PacketQ *) malloc(sizeof(struct PacketQ *)); #queue.init();
 
 		self.sending_status_ = NOSENDING;
-
+		
+		# TODO set initial region
 		self.regionX_ = -1;
 		self.regionY_ = -1;
 
@@ -127,7 +131,7 @@ class VNCAgent(object):
 		
 		if(len(self.queue) !=0):
 			self.sending_status_ = SENDING;
-			p = self.queue.dequeue();
+			p = self.queue.get();
 			if(p):
 				hdr = p.vnhdr
 				if(hdr.send_type == SEND):

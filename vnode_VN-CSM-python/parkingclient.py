@@ -1,7 +1,11 @@
 from vnclient import *
 import time
 import copy
-import Queue
+from collections import deque
+from operator import itemgetter, attrgetter
+
+
+#TODO move m_resending_queue and temp_queue to deque
 
 ### DEFINE ###
 CODE_PARKING = "PARKING"
@@ -18,11 +22,12 @@ class ClientRequest:
 		self.m_retries = 0
 
 class ParkingClientAgent(VNCAgent):
-	def __init__(self):
+	def __init__(self, id, max_node_id_, sn_size_, num_srcs_, clock_msg_enabled_):
 		self.client_state_ = UNKNOWN;
 		self.app_code = CODE_PARKING;
 		self.m_count = 0;
 		self.m_resending_queue = Queue.PriorityQueue()
+		VNCAgent.__init__(self, id, max_node_id_, sn_size_, num_srcs_, clock_msg_enabled_)
 
 
 #TODO timer start
@@ -257,13 +262,13 @@ class ParkingClientAgent(VNCAgent):
 			pkt = Packet()
 			
 			
-#TODO			#common header
+#TODO cmn_hdr
 #			hdr_cmn * cmn_hdr = hdr_cmn::access(pkt);
 #			cmn_hdr.ptype() = PT_VNPARKING;
 #			cmn_hdr.size() = size_ + IP_HDR_LEN; # add in IP header
 #			cmn_hdr.next_hop_ = dest;
 
-#TODO			#ip header
+#TODO ip_hdr
 #			hdr_ip* iph = HDR_IP(pkt);
 #			iph.saddr() = Agent.addr();
 #			iph.daddr() = dest; #broadcasting address, should be -1
@@ -300,7 +305,7 @@ class ParkingClientAgent(VNCAgent):
 			pkt.vnparking_hdr.isWrite = isWrite;
 			pkt.vnparking_hdr.m_count = m_count;
 
-			queue.enqueue(pkt); 
+			self.queue.append(pkt); 
 			#send another one for the server located on the same node
 			send_loopback(msgType, self.nodeID_, m_count, isWrite, dest_regionX, dest_regionY);
 	#		send_packets(); # NIKET - changed this
@@ -347,7 +352,7 @@ class ParkingClientAgent(VNCAgent):
 			pkt.vnparking_hdr.isWrite = isWrite;
 			pkt.vnparking_hdr.m_count = m_count;
 
-			queue.enqueue(pkt);
+			self.queue.append(pkt);
 
 	def handle_packet(self, pkt):
 		#hdr_vncommon * vnhdr = hdr_vncommon::access(pkt); #get the vnlayer header

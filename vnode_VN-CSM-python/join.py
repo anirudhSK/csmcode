@@ -32,25 +32,33 @@ class oldLeaderData:
 
 
 class JoinAgent:
-	def __init__(self, id):
-#TODO	WHERE ARE THESE VALUES COMING FROM AT CONSTRUCTION / INITIALIZATION???
-#		self.port_number_ = MY_PORT
-		self.maxX_ = 100
-		self.maxY_ = 100
-		self.columns_ = 10
-		self.rows_ = 10
+	def __init__(self, id, slowInterval_, interval_, maxX_, maxY_, rows_, columns_, ):
+		# TODO binds
+		#bind_offset(&hdr_vns::offset_);
+		#bind_offset(&hdr_vncommon::offset_);
+		#bind_offset(&hdr_join::offset_);
+#		self.port_number_ = 
+		self.maxX_ = maxX_
+		self.maxY_ = maxY_
+		self.columns_ = columns_
+		self.rows_ = rows_
 		self.nodeID_ = id
-#		bind("regionX_", &regionX_);
-#		bind("regionY_", &regionY_);
+#		self.regionX_ = 
+#		self.regionY_ = 
 		self.seq_ = 0
-#		bind("status_", &status_);
-#TODO	self.leader_ = UNKNOWN
+#		self.status_ = 
+#		self.leader_ = 
 		self.leader_status_ = UNKNOWN
 		self.beat_period_ = 2
-#		bind("max_delay_", &max_delay_);
-		self.claim_period_ = 1 # TODO set correctly
-#		bind("beat_miss_limit_",&beat_miss_limit_);
-#		bind("packetSize_", &size_);
+#		self.max_delay_ = 
+		self.claim_period_ = 1
+#		self.beat_miss_limit_ = 
+		self.interval_ = interval_
+		self.slowInterval_ = slowInterval_
+#		self.zeroDistance_ = 
+#		self.packetSize_ = 
+		# end binds
+		
 		self.leader_start_ = UNKNOWN
 		
 #TODO what initial time to start out with? do we need to star them, or wait until reschedule event? # Timers
@@ -66,7 +74,7 @@ class JoinAgent:
 		self.time_to_leave_ = UNKNOWN # TODO
 		self.old_leader_retries = 0
 
-		# srand(time(NULL)+nodeID_) #TODO
+		# srand(time(NULL)+nodeID_) #TODO rand seed
 		
 #TODO shmid, logfile
 		
@@ -241,7 +249,7 @@ class JoinAgent:
 	def check_location(self):
 		print 'JoinAgent.check_location'
 		
-#TODO	get location from traces or from simulation somehow
+#TODO gps	get location from traces or from simulation somehow
 		x = 0
 		y = 0
 		
