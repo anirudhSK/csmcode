@@ -2,6 +2,7 @@ import time
 from header import *
 from log_parking import *
 from recurring_timer import *
+import Queue
 
 CODE_VNS = "VNS"         #code for VN layer messages
 
@@ -54,11 +55,11 @@ class VNSAgent(object):
 		self.next_sync_ = 0;
 		
 		self.first_node_ = True;
-		self.first_node_deadline_ = 5;
+# what to set deadline?	self.first_node_deadline_ = 5;
+		self.first_node_deadline_ = time.time() + 5
 
-# TODO priority queue		
-		self.input_queue = [] # hold Packets
-		self.queue = [] # holds Packets
+		self.input_queue = Queue.Queue # hold Packets
+		self.queue = Queue.Queue # holds Packets
 		
 		# TODO log file shmid
 		
@@ -204,7 +205,7 @@ class VNSAgent(object):
 		insertedUnit = None
 
 	  	if(size == 0):#first packet
-			insertedUnit = self.input_queue.enqueue(pkt);
+			insertedUnit = self.input_queue.put(pkt);
 			insertedUnit.deadline = deadline;
 
 			#if(LOG_ENABLED):
@@ -237,7 +238,7 @@ class VNSAgent(object):
 							current_unit = current_unit.next;
 							count += 1;
 						else:
-							insertedUnit = self.input_queue.enqueue(pkt);
+							insertedUnit = self.input_queue.put(pkt);
 							insertedUnit.deadline = deadline;
 							#if(LOG_ENABLED):
 							#	log(CODE_VNS,BUFFERED_END,hdr.toString());
@@ -274,7 +275,7 @@ class VNSAgent(object):
 	# check against sending queue if the packet is not a local client message
 	# do synchronization for local server messages
 	# void VNSAgent::consistencyManager(Packet * pkt)
-	def consistency_manager(self, pkt):
+	def consistencyManager(self, pkt):
 		# Access the vns message header for the received packet:
 	  	hdr = pkt.vnhdr
 	  	handled = False; #not dealt with by vns
@@ -406,7 +407,7 @@ class VNSAgent(object):
 		p = None # Packet
 
 		while(len(self.input_queue) > 0):
-			p = self.input_queue.dequeue();
+			p = self.input_queue.get();
 			if(p):
 				#if(LOG_ENABLED):
 				#	hdr_vns * hdr = hdr_vns::access(p);
@@ -430,7 +431,7 @@ class VNSAgent(object):
 		if(self.state_ == SERVER):
 			if(len(self.queue) != 0):
 				self.sending_state_ = SENDING;
-				p = self.queue.dequeue();
+				p = self.queue.get();
 				if(p):
 					hdr = p.vnhdr
 					if(hdr.send_type == SEND):
@@ -445,7 +446,7 @@ class VNSAgent(object):
 					else:
 						pass
 					assert(self.leader_status_ == LEADER);
-#TODO				send(p,0);
+					send(p,0);
 				self.server_timer_.resched(self.send_wait_);
 			else:
 				#log_info(app_code,QUEUE,"Queue emptied");
@@ -554,7 +555,7 @@ class VNSAgent(object):
 #		memcpy(data, state_buffer, buff_len);
 
 		#Scheduler::instance().schedule(ll,pkt,0.0);
-#TODO	send(pkt, (Handler*) 0);#this send relies on the routing function, may not work for flooding mode
+		send(pkt, 0);#this send relies on the routing function, may not work for flooding mode
 		if(LOG_ENABLED):
 			log(CODE_VNS, SEND, vnhdr.toString());
 		return
@@ -588,7 +589,7 @@ class VNSAgent(object):
 		#log_info(CODE_VNS, LOOPBACKSENTTO, (double) vnhdr.subtype);
 		#if(LOG_ENABLED):
 		#	log(CODE_VNS, SEND, vnhdr.toString());
-#TODO		send(pkt, (Handler*) 0);#this send relies on the routing function, may not work for flooding mode
+		send(pkt, 0);#this send relies on the routing function, may not work for flooding mode
 		return
 
 

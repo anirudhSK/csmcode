@@ -22,14 +22,22 @@ class ParkingClientAgent(VNCAgent):
 		self.client_state_ = UNKNOWN;
 		self.app_code = CODE_PARKING;
 		self.m_count = 0;
-		#TODO Timers
+		self.m_resending_queue = Queue.PriorityQueue()
+
+
+#TODO timer start
+		self.resending_timer_ = RecurringTimer(3, self.check_resending_status) #syn status check timeout
+		self.parking_timer_ = RecurringTimer(3, self.check_parking_status)
+		self.clock_timer_ = RecurringTimer(3, self.check_clock_status)#resending timer
 	
 	def check_clock_status(self, ):
+		print 'ParkingClientAgent.check_clock_status'
 		if(self.client_state_ == UP):
 			pass
 		return
 	
 	def check_parking_status(self):
+		print 'ParkingClientAgent.check_parking_status'
 		if(self.client_state_ == UP):
 			isWrite = 0;
 			if(self.nodeID_ % 2 == 0):
@@ -124,7 +132,7 @@ class ParkingClientAgent(VNCAgent):
 				client_req.expiration_time = time.time() + RESEND_BACKOFF;
 
 				self.m_resending_queue.push(client_req);
-				if(self.m_resending_queue.size() > 0):
+				if(self.m_resending_queue.qsize() > 0):
 					wait = self.m_resending_queue.top().expiration_time - time.time();
 					if(wait <= 0):
 						wait = 0.00001;
@@ -155,18 +163,19 @@ class ParkingClientAgent(VNCAgent):
 			elif(self.m_count >= 1):
 				for hop in range(4):
 					avg_res_time = 0.0;
-					for i in range(self.m_response_time[hop].size()):
+					for i in range(self.m_response_time[hop].qsize()):
 						avg_res_time += self.m_response_time[hop][i];
-					if(self.m_response_time[hop].size() > 0):
-						print "Node-%d:: Average response time for %d hops = %f\n" % (self.nodeID_, hop, avg_res_time/self.m_response_time[hop].size()); 
-				if(self.m_res_time.size() > 0):	
-					print "Node-%d:: Msgs send = %d; Msgs acked = %d;\n" % (self.nodeID_, self.m_count, self.m_res_time.size()); 
+					if(self.m_response_time[hop].qsize() > 0):
+						print "Node-%d:: Average response time for %d hops = %f\n" % (self.nodeID_, hop, avg_res_time/self.m_response_time[hop].qsize()); 
+				if(self.m_res_time.qsize() > 0):	
+					print "Node-%d:: Msgs send = %d; Msgs acked = %d;\n" % (self.nodeID_, self.m_count, self.m_res_time.qsize()); 
 					print "Node-%d:: zero_hop = %d, one_hop = %d, two_hop = %d, three_hop = %d\n" % (self.nodeID_, self.msg_hops[0], self.msg_hops[1], self.msg_hops[2], self.msg_hops[3]); 	
 			self.parking_timer_.resched(100); # every X cycles a node requests a parking spot. Think of a better way to get this done. 
 		return
 		
 	
 	def check_resending_status(self, ):
+		print 'ParkingClientAgent.check_resending_status'
 		if(self.m_resending_queue.empty()):
 			return;
 			
@@ -204,7 +213,7 @@ class ParkingClientAgent(VNCAgent):
 
 			if(top_req.m_retries == MAX_RETRIES):
 				print "CLIENT Trying for the last time. hoping it is this time LUCKY :P\n";
-				self.m_resending_queue.popleft();
+				self.m_resending_queue.get();
 				return;
 
 			client_req = ClientRequest()
@@ -216,32 +225,32 @@ class ParkingClientAgent(VNCAgent):
 			client_req.m_retries = top_req.m_retries + 1;
 			client_req.expiration_time = time.time() + RESEND_BACKOFF;
 
-			self.m_resending_queue.popleft();
+			self.m_resending_queue.get();
 			self.m_resending_queue.append(client_req);
-			if(self.m_resending_queue.size() > 0):
+			if(self.m_resending_queue.qsize() > 0):
 				wait = self.m_resending_queue.top().expiration_time - time.time();
 				if(wait <= 0):
 					wait = 0.00001;
 				self.resending_timer_.resched(wait);
 				
 	def removeClientRequest(self, origid, m_count):
-#TODO		priority_queue<ClientRequest> temp_queue;
-			temp_queue = Queue.PriorityQueue()
-			
-			return_value = False;
-			
-			while( not self.m_resending_queue.empty()):
-					top_req = self.m_resending_queue.top(); # ClientRequest 
-					self.m_resending_queue.popleft();
-					if(top_req.origid == origid and top_req.m_count == m_count):
-							return_value = True;
-					else:
-							temp_queue.append(top_req);
-			while( not temp_queue.empty()):
-					top_req = temp_queue.top(); # ClientRequest 
-					temp_queue.popleft();
-					self.m_resending_queue.append(top_req);
-			return return_value;
+		print 'ParkingClientAgent.removeClientRequest'
+		temp_queue = Queue.PriorityQueue() # priority_queue<ClientRequest> temp_queue;
+		
+		return_value = False;
+		
+		while( not self.m_resending_queue.empty()):
+				top_req = self.m_resending_queue.get(); # ClientRequest 
+				#self.m_resending_queue.get();
+				if(top_req.origid == origid and top_req.m_count == m_count):
+						return_value = True;
+				else:
+						temp_queue.append(top_req);
+		while( not temp_queue.empty()):
+				top_req = temp_queue.top(); # ClientRequest 
+				temp_queue.get();
+				self.m_resending_queue.append(top_req);
+		return return_value;
 	
 		
 	def sendp(self, send_type, msg_class, dest, dest_port, msgType, origid, isWrite, m_count, dest_regionX, dest_regionY):
@@ -269,7 +278,6 @@ class ParkingClientAgent(VNCAgent):
 			pkt.vnhdr.regionX = self.regionX_;
 			pkt.vnhdr.regionY = self.regionY_;
 			pkt.vnhdr.send_time = time.time();
-#TODO			pkt.vnhdr.src = Agent.addr();
 			pkt.vnhdr.src = Agent.addr()
 			pkt.vnhdr.dst = dest;
 			pkt.vnhdr.send_type = send_type;#sending, forwarding or loopback
@@ -349,7 +357,7 @@ class ParkingClientAgent(VNCAgent):
 		
 		if(hdr.srcX == self.regionX_ and hdr.srcY == self.regionY_):
 			if(vnhdr.type == APPL_MSG and hdr.origid == self.nodeID_):
-				for r in range(m_response_count.size()):
+				for r in range(m_response_count.qsize()):
 					if(self.m_response_count[r] == hdr.m_count):
 						print "Node = %d; DUPLICATE_ACK for count = %d\n" % (self.nodeID_, hdr.m_count);
 						return;

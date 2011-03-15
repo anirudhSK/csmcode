@@ -2,6 +2,7 @@
 from log_parking import *
 from header import *
 from threading import Timer
+from recurring_timer import RecurringTimer
 import time
 
 
@@ -15,27 +16,6 @@ MAX_APPS = 10             #number of apps ports that the agent report region and
 CODE_JOIN = "JOIN"        #code for leader election related events
 CODE_MOVE = "MOVE"        #code for node motion related events
 CODE_INFO = "INFO"        #code for other events
-
-
-class RecurringTimer:
-	def __init__(self, interval, f):
-		self.interval = interval
-		self.f = f
-		self.t = Timer(self.interval, self.expire)
-	
-	def start(self):
-		self.t.start()
-	
-	def expire(self):
-		self.f()
-		self.t = Timer(self.interval, self.expire)
-		self.t.start()
-	
-	def resched(self, interval):
-		self.t.cancel()
-		self.interval = interval
-		self.t = Timer(self.interval, self.expire)
-		self.t.start()
 
 
 class oldLeaderData:
@@ -54,7 +34,7 @@ class oldLeaderData:
 class JoinAgent:
 	def __init__(self, id):
 #TODO	WHERE ARE THESE VALUES COMING FROM AT CONSTRUCTION / INITIALIZATION???
-#		bind("port_number_", &MY_PORT_);
+#		self.port_number_ = MY_PORT
 		self.maxX_ = 100
 		self.maxY_ = 100
 		self.columns_ = 10
@@ -64,11 +44,11 @@ class JoinAgent:
 #		bind("regionY_", &regionY_);
 		self.seq_ = 0
 #		bind("status_", &status_);
-#		bind("leader_", &leader_);
+#TODO	self.leader_ = UNKNOWN
 		self.leader_status_ = UNKNOWN
 		self.beat_period_ = 2
 #		bind("max_delay_", &max_delay_);
-#		bind("claim_period_",&claim_period_);
+		self.claim_period_ = 1 # TODO set correctly
 #		bind("beat_miss_limit_",&beat_miss_limit_);
 #		bind("packetSize_", &size_);
 		self.leader_start_ = UNKNOWN
@@ -104,7 +84,7 @@ class JoinAgent:
 	# The method processing every packet received by the agent
 	# void JoinAgent::recv(Packet* pkt, Handler*)
 	def recv(self, pkt):
-		print 'recv'
+		print 'JoinAgent.recv'
 		
 		vnhdr = pkt.vnhdr
 		
@@ -124,7 +104,7 @@ class JoinAgent:
 			
 			# incoming packet has to be either destined for the node or broadcast, the source has to be in the same region.
 			if((hdr.dst == self.nodeID_ or hdr.dst == -1) and hdr.regionX == self.regionX_ and hdr.regionY == self.regionY_):
-#TODO			log(JOIN, RECV, hdr.toString());
+#TODO log		log(JOIN, RECV, hdr.toString());
 				if (hdr.type == LEADER_REQUEST): # got a request message, this is received by a node already in the region when a new guy comes in 
 					if(self.leader_status_ == LEADER): #I am a leader already, absolutely say NO to  the other guy 
 						self.send_unicast(LEADER_REPLY, hdr.src, CONSENT, hdr.seq) # CONSENT or DISSENT  ?? Ask Niket.
@@ -205,7 +185,7 @@ class JoinAgent:
 	
 	# void JoinAgent::check_old_leader_status()
 	def check_old_leader_status(self):
-		print 'check_old_leader_status'
+		print 'JoinAgent.check_old_leader_status'
 		for l in range(len(self.old_leaders)):
 			old_l = self.old_leaders[l]
 			if(old_l.is_valid == False):
@@ -237,7 +217,7 @@ class JoinAgent:
 	# Check the current status to see if anything needs to be done.
 	# void JoinAgent::check_leader_status()
 	def check_leader_status(self):
-		print 'check_leader_status'
+		print 'JoinAgent.check_leader_status'
 		if(self.leader_status_ == UNKNOWN):
 			pass # Ignore since I should have got it. 
 		elif(self.leader_status_ == REQUESTED): # No response to leadership request. Check central server now. 
@@ -259,7 +239,7 @@ class JoinAgent:
 	# Check the current location to see if anything needs to be done
 	# double JoinAgent::check_location()
 	def check_location(self):
-		print 'check_location'
+		print 'JoinAgent.check_location'
 		
 #TODO	get location from traces or from simulation somehow
 		x = 0
@@ -299,7 +279,7 @@ class JoinAgent:
 			self.leader_status_ = REQUESTED #REQUESTED, this is where it is set 
 			self.send_loopback(NEWREGION)# from join agent to parking server, Niket feels shared memory is just an implementation thing
 			self.send_broadcast(LEADER_REQUEST, UNKNOWN)#send a leader request message
-#TODO		self.leader_req_timer_.resched(2*claim_period_) #wait for a claim period for someone to become leader ,
+			self.leader_req_timer_.resched(2*self.claim_period_) #wait for a claim period for someone to become leader ,
 	          # how long do you wait before concluding there is no leader, how do these affect performance ?
 	          # always check for state sanity  
 			
@@ -330,10 +310,10 @@ class JoinAgent:
 #		this_node.getVelo(&speedX,&speedY,&speedZ);
 		
 		#schedule the next event
-		status_ = MOVING
-#TODO is this a delta or an absolute time??
+		self.status_ = MOVING
+#TODO set wait_time: is this a delta or an absolute time?
 		wait_time = 1 
-#TODO	join_timer_.resched(wait_time)
+		self.join_timer_.resched(wait_time)
 #		if(LOG_ENABLED):
 #			char * str = (char *) malloc(MSG_STRING_SIZE);
 #			sprintf(str,"%.2f,%.2f,(%d.%d),>,%.2f,%.2f,(%d.%d),%.2f,(%.2f.%.2f)", x, y, rx, ry, destX,destY, drx, dry, speed, speedX, speedY);
@@ -345,9 +325,9 @@ class JoinAgent:
 	
 	# void JoinAgent::send_left_broadcast(int msgType, int version, int parking_spots, int old_x, int old_y, int answer)
 	def send_left_broadcast(self, msgType, version, parking_spots, old_x, old_y, answer):
-		print 'send_left_broadcast'
+		print 'JoinAgent.send_left_broadcast'
 		pkt = Packet()
-#TODO
+#TODO cmn_hdr
 #		cmn_hdr = hdr_cmn::access(pkt);
 #		cmn_hdr.ptype() = PT_REGION;
 #		cmn_hdr.size() = size_ + IP_HDR_LEN; # add in IP header
@@ -386,7 +366,7 @@ class JoinAgent:
 		
 #		if(LOG_ENABLED)
 #			log(JOIN, SEND, pkt.join_hdr.toString());
-#TODO	send(pkt, (Handler*) 0);
+		send(pkt, 0);
 		return
 		
 	
@@ -394,9 +374,9 @@ class JoinAgent:
 	# msgType: int message type
 	# void JoinAgent::send_broadcast(int msgType, int answer)
 	def send_broadcast(self, msgType, answer):
-		print 'send_broadcast'
+		print 'JoinAgent.send_broadcast'
 		pkt = Packet()
-#TODO
+#TODO cmn_hdr
 #		hdr_cmn * cmn_hdr = hdr_cmn::access(pkt);
 #		cmn_hdr.ptype() = PT_REGION;
 #		cmn_hdr.size() = size_ + IP_HDR_LEN; # add in IP header
@@ -429,14 +409,14 @@ class JoinAgent:
 		
 #		if(LOG_ENABLED)
 #			log(JOIN, SEND, join_hdr.toString());
-#TODO	send(pkt, (Handler*) 0);
+		send(pkt, 0);
 		return
 	
 	# void JoinAgent::send_left_unicast(int msgType, int dest, int version, int old_x, int old_y, int seq)
 	def send_left_unicast(self, msgType, dest, version, old_x, old_y, seq):
-		print 'send_left_unicast'
+		print 'JoinAgent.send_left_unicast'
 		pkt = Packet()
-#TODO
+#TODO cmn_hdr
 #		hdr_cmn * cmn_hdr = hdr_cmn::access(pkt);
 #		cmn_hdr.ptype() = PT_REGION;
 #		cmn_hdr.size() = size_ + IP_HDR_LEN; # add in IP header
@@ -473,7 +453,7 @@ class JoinAgent:
 #		if(LOG_ENABLED)
 #			log(JOIN, SEND, join_hdr.toString());
 		#Scheduler::instance().schedule(ll,pkt,0.0);
-#TODO	send(pkt, 0);
+		send(pkt, 0);
 		return
 	
 	#Send a uni-cast leader election message
@@ -483,9 +463,9 @@ class JoinAgent:
 	# seq: int sequence number
 	# void JoinAgent::send_unicast(int msgType, int dest, int answer, int seq)
 	def send_unicast(self, msgType, dest, answer, seq):
-		print 'send_unicast'
+		print 'JoinAgent.send_unicast'
 		pkt = Packet()
-#TODO
+#TODO cmn_hdr
 #		hdr_cmn * cmn_hdr = hdr_cmn::access(pkt);
 #		cmn_hdr.ptype() = PT_REGION;
 #		cmn_hdr.size() = size_ + IP_HDR_LEN; # add in IP header
@@ -518,16 +498,16 @@ class JoinAgent:
 #		if(LOG_ENABLED)
 #			log(JOIN, SEND, join_hdr.toString());
 		#Scheduler::instance().schedule(ll,pkt,0.0);
-#TODO	send(pkt, 0);
+		send(pkt, 0);
 		return
 	
 	# Send a uni-cast vns message to a destination on a specific port
 	# Not used so far
 	# void JoinAgent::send_unicast_to(int msgType, int dest, int port)
 	def send_unicast_to(self, msgType, dest, port):
-		print 'send_unicast_to'
+		print 'JoinAgent.send_unicast_to'
 		pkt = Packet()
-#TODO
+#TODO cmn_hdr
 #		hdr_cmn * cmn_hdr = hdr_cmn::access(pkt);
 #		cmn_hdr.ptype() = PT_REGION;
 #		#cmn_hdr.size() = size_ + IP_HDR_LEN; # add in IP header
@@ -546,19 +526,19 @@ class JoinAgent:
 		
 #		if(LOG_ENABLED)
 #			log(JOIN, SENDTOPORT, vns_hdr.toString());
-#TODO	send(pkt, 0);
+		send(pkt, 0);
 		return
 	
 	# Send a loopback vns message to the VNS agents attached to the same node
 	# msgType: int message type
 	# void JoinAgent::copy_loopback(Packet* pkt_in, int port)
 	def copy_loopback(self, pkt_in, port):
-		print 'copy_loopback'
+		print 'JoinAgent.copy_loopback'
 		join_hdr = pkt_in.join_hdr; #old vns header, only used in join agent now
 		
 		pkt_out = Packet() #create a packet for sending
 		
-#TODO		
+#TODO cmn_hdr	
 #		hdr_cmn * cmn_hdr_out = hdr_cmn::access(pkt_out);
 #		cmn_hdr_out.ptype() = PT_VNCOMMON;
 #		cmn_hdr_out.size() = size_ + IP_HDR_LEN; #
@@ -576,17 +556,17 @@ class JoinAgent:
 		pkt_out.vnhdr.regionY = join_hdr.regionY;
 		pkt_out.vnhdr.send_time = join_hdr.send_time;
 		
-#TODO	send(pkt_out, 0);
+		send(pkt_out, 0);
 		return
 	
 	# Send a loopback vns message to the agents attached to the same node
 	# msgType: int message type
 	# void JoinAgent::send_loopback(int msgType)
 	def send_loopback(self, msgType):
-		print 'send_loopback'
+		print 'JoinAgent.send_loopback'
 		for i in range(self.num_apps):
 			pkt = Packet()
-#TODO
+#TODO cmn_hdr
 #			hdr_cmn * cmn_hdr = hdr_cmn::access(pkt)
 #			cmn_hdr.ptype() = PT_VNCOMMON
 #			cmn_hdr.size() = size_ + IP_HDR_LEN # add in IP header
@@ -631,7 +611,7 @@ class JoinAgent:
 			#Scheduler::instance().schedule(ll,pkt,0.0)
 			
 			#log_info(JOIN, LOOPBACKSENTTO, app_port[i])
-#TODO		send(pkt, 0);
+			send(pkt, 0);
 		return
 	
 	# get the id of the region where the node is located
@@ -644,7 +624,7 @@ class JoinAgent:
 	# int JoinAgent::getRegion(double x, double y, int * regionX, int * regionY)
 	# WARNING: We're changing the interface to avoid passing pointers
 	def getRegion(self, x, y):
-		print 'getRegion'
+		print 'JoinAgent.getRegion'
 		xUnit = float(self.maxX_)/self.columns_ #size of a region X
 		yUnit = float(self.maxY_)/self.rows_    #size of a region Y
 		
@@ -679,7 +659,7 @@ class JoinAgent:
 	# Upon region change, calculate the neighbor list and initialize the status of each neighbor
 	# void JoinAgent::setNeighbors()
 	def setNeighbors(self):
-		print 'setNeighbors'
+		print 'JoinAgent.setNeighbors'
 		#valid region id
 		if(self.regionX_ >=0 and self.regionX_ < self.columns_ and self.regionY_ >= 0 and self.regionY_ < self.rows_):
 			for i in range(NUM_NEIGHBORS):

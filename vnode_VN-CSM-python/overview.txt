@@ -1,9 +1,12 @@
-#TODO
+What's left to do:
 send functions need to send packets, currently commented out
 (priority) queues need to be implemented
 timers
 getState and saveState use memory size to count units; no direct memory access in python, there should be some equivalent
 GPS
+
+
+secondary:
 Packet::free(pkt) -becomes-> del packet ?
 rand()
 common packet header
@@ -11,6 +14,12 @@ misc
 
 
 
+
+
+packet handling:
+for each received pkt, do:
+joinagent.recv(pkt, 0)
+parkingserver.recv(pkt,0)
 
 
 

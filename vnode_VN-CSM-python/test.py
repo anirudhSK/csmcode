@@ -9,47 +9,34 @@ from join import *
 #import time
 
 
-# START TESTS
-# construct test joinagent
-node1_ja = JoinAgent(1)
-node1_ja.regionX_ = 1
-node1_ja.regionY_ = 0
-node1_ja.seq = 1
-node1_ja.m_version = 1
-print '################# STATUS ####################'
-print '### node1_ja.state_synced_: ' + str(node1_ja.state_synced_)
-print '### node1_ja.leader_start_: ' + str(node1_ja.leader_start_)
-print '### node1_ja.leader_status_: ' + str(node1_ja.leader_status_)
-print '\n\n'
 
+node1 = VNode(1)
+
+
+
+# START TESTS
 
 
 print "RESET"
-node1_ja.status_reset()
-node1_ja.setNeighbors()
+node1.join_agent.status_reset()
+node1.join_agent.setNeighbors()
 
 print "CHECKING LEADER STATUS"
-node1_ja.check_old_leader_status()
-node1_ja.check_leader_status()
-print "NOW IN REGION %d,%d" % (node1_ja.regionX_, node1_ja.regionY_)
+node1.join_agent.check_old_leader_status()
+node1.join_agent.check_leader_status()
+print "NOW IN REGION %d,%d" % (node1.join_agent.regionX_, node1.join_agent.regionY_)
 
 print "FORCING REGION CHANGE from 1,0 to 0,0"
-node1_ja.regionX_ = 1
-node1_ja.regionY_ = 0
-node1_ja.check_location()
-print "NOW IN REGION %d,%d" % (node1_ja.regionX_, node1_ja.regionY_)
+node1.join_agent.regionX_ = 1
+node1.join_agent.regionY_ = 0
+node1.join_agent.check_location()
+print "NOW IN REGION %d,%d" % (node1.join_agent.regionX_, node1.join_agent.regionY_)
 
 print "STATIONARY..."
-node1_ja.check_location()
-print "NOW IN REGION %d,%d" % (node1_ja.regionX_, node1_ja.regionY_)
+node1.join_agent.check_location()
+print "NOW IN REGION %d,%d" % (node1.join_agent.regionX_, node1.join_agent.regionY_)
 
-print '################# STATUS ####################'
-print '### node1_ja.state_synced_: ' + str(node1_ja.state_synced_)
-print '### node1_ja.leader_start_: ' + str(node1_ja.leader_start_)
-print '### node1_ja.leader_status_: ' + str(node1_ja.leader_status_)
-print '\n\n'
-
-
+node1.print_status()
 
 
 # construct test packet
@@ -66,16 +53,11 @@ pkt3.join_hdr.src = 1337
 pkt3.join_hdr.dst = -1
 pkt3.join_hdr.send_time = time.time()
 pkt3.payload = "PAYLOAD HERE"
-pkt3.broadcast()
 
 # test join.recv() path
-node1_ja.recv(pkt3)
-
-print '################# STATUS ####################'
-print '### node1_ja.state_synced_: ' + str(node1_ja.state_synced_)
-print '### node1_ja.leader_start_: ' + str(node1_ja.leader_start_)
-print '### node1_ja.leader_status_: ' + str(node1_ja.leader_status_)
-print '\n\n'
+send(pkt3, 0)
+node1.recv(pkt3)
+node1.print_status()
 
 
 
@@ -98,16 +80,11 @@ pkt5.join_hdr.seq = 1
 pkt5.join_hdr.version = 1
 pkt5.join_hdr.send_time = time.time()
 pkt5.payload = "PAYLOAD HERE"
-pkt5.broadcast()
 
 # test join.recv() path
-node1_ja.recv(pkt5)
-
-print '################# STATUS ####################'
-print '### node1_ja.state_synced_: ' + str(node1_ja.state_synced_)
-print '### node1_ja.leader_start_: ' + str(node1_ja.leader_start_)
-print '### node1_ja.leader_status_: ' + str(node1_ja.leader_status_)
-print '\n\n'
+send(pkt5, 0)
+node1.recv(pkt5)
+node1.print_status()
 
 
 
@@ -129,16 +106,11 @@ pkt6.join_hdr.seq = 1
 pkt6.join_hdr.version = 1
 pkt6.join_hdr.send_time = time.time()
 pkt6.payload = "PAYLOAD HERE"
-pkt6.broadcast()
 
 # test join.recv() path
-node1_ja.recv(pkt6)
-
-print '################# STATUS ####################'
-print '### node1_ja.state_synced_: ' + str(node1_ja.state_synced_)
-print '### node1_ja.leader_start_: ' + str(node1_ja.leader_start_)
-print '### node1_ja.leader_status_: ' + str(node1_ja.leader_status_)
-print '\n\n'
+send(pkt6, 0)
+node1.recv(pkt6)
+node1.print_status()
 
 
 
@@ -161,16 +133,12 @@ pkt7.join_hdr.seq = 1
 pkt7.join_hdr.version = 1
 pkt7.join_hdr.send_time = time.time()
 pkt7.payload = "PAYLOAD HERE"
-pkt7.broadcast()
+
 
 # test join.recv() path
-node1_ja.recv(pkt7)
-
-print '################# STATUS ####################'
-print '### node1_ja.state_synced_: ' + str(node1_ja.state_synced_)
-print '### node1_ja.leader_start_: ' + str(node1_ja.leader_start_)
-print '### node1_ja.leader_status_: ' + str(node1_ja.leader_status_)
-print '\n\n'
+send(pkt7, 0)
+node1.recv(pkt7)
+node1.print_status()
 
 
 
@@ -189,27 +157,17 @@ pkt4.join_hdr.dst = 1
 pkt4.join_hdr.seq = 1
 pkt4.join_hdr.send_time = time.time()
 pkt4.payload = "PAYLOAD HERE"
-pkt4.broadcast()
+
 
 # test join.recv() path
-node1_ja.recv(pkt4)
-
-print '################# STATUS ####################'
-print '### node1_ja.state_synced_: ' + str(node1_ja.state_synced_)
-print '### node1_ja.leader_start_: ' + str(node1_ja.leader_start_)
-print '### node1_ja.leader_status_: ' + str(node1_ja.leader_status_)
-print '\n\n'
+send(pkt4, 0)
+node1.recv(pkt4)
+node1.print_status()
 
 
 
-
-
-node1_ja.status_reset()
-print '################# STATUS RESET ####################'
-print '### node1_ja.state_synced_: ' + str(node1_ja.state_synced_)
-print '### node1_ja.leader_start_: ' + str(node1_ja.leader_start_)
-print '### node1_ja.leader_status_: ' + str(node1_ja.leader_status_)
-print '\n\n'
+node1.join_agent.status_reset()
+node1.print_status()
 
 
 # construct test packet
@@ -221,16 +179,12 @@ pkt1.vnhdr.dst = 1
 pkt1.vnhdr.send_time = time.time()
 pkt1.join_hdr.type = ""
 pkt1.payload = ""
-pkt1.broadcast()
+
 
 # test join.recv() path
-node1_ja.recv(pkt1)
-
-print '################# STATUS ####################'
-print '### node1_ja.state_synced_: ' + str(node1_ja.state_synced_)
-print '### node1_ja.leader_start_: ' + str(node1_ja.leader_start_)
-print '### node1_ja.leader_status_: ' + str(node1_ja.leader_status_)
-print '\n\n'
+send(pkt1, 0)
+node1.recv(pkt1)
+node1.print_status()
 
 
 
@@ -242,45 +196,29 @@ pkt2.vnhdr.src = 1337
 pkt2.vnhdr.dst = 1
 pkt2.vnhdr.send_time = time.time()
 pkt2.join_hdr.type = ""
-pkt2.broadcast()
 pkt2.payload = ""
 
 # test join.recv() path
-node1_ja.recv(pkt2)
-
-print '################# STATUS ####################'
-print '### node1_ja.state_synced_: ' + str(node1_ja.state_synced_)
-print '### node1_ja.leader_start_: ' + str(node1_ja.leader_start_)
-print '### node1_ja.leader_status_: ' + str(node1_ja.leader_status_)
-print '\n\n'
+send(pkt2, 0)
+node1.recv(pkt2)
+node1.print_status()
 
 
 
 
-
-
-# START TESTS
+# FUNCTION TESTS
 # construct parking server joinagent
-node1_parkingserver = ParkingServerAgent()
-node1_parkingserver.parking_timeout(0)
-node1_parkingserver.resending_timeout(0)
-node1_parkingserver.reset_states()
-node1_parkingserver.server_init()
-node1_parkingserver.handle_packet(pkt1)
-node1_parkingserver.handle_packet(pkt2)
-node1_parkingserver.handle_packet(pkt3)
-node1_parkingserver.handle_packet(pkt4)
-node1_parkingserver.handle_packet(pkt5)
-node1_parkingserver.handle_packet(pkt6)
-node1_parkingserver.check_resending_status()
-node1_parkingserver.getState()
-node1_parkingserver.getStateSize()
-node1_parkingserver.saveState(pkt)
+#node1.parking_server_agent.reset_states()
+#node1.parking_server_agent.server_init()
+#node1.parking_server_agent.handle_packet(pkt1)
+#node1.parking_server_agent.handle_packet(pkt2)
+#node1.parking_server_agent.handle_packet(pkt3)
+#node1.parking_server_agent.handle_packet(pkt4)
+#node1.parking_server_agent.handle_packet(pkt5)
+#node1.parking_server_agent.handle_packet(pkt6)
+#node1.parking_server_agent.check_resending_status()
+#node1.parking_server_agent.check_parking_status()
 
-
-
-node1_parkingclient = ParkingClientAgent()
-#node1_parkingclient.parking_timeout(0)
-#node1_parkingclient.resending_timeout(0)
-#node1_parkingclient.reset_states()
-#node1_parkingclient.server_init()
+#node1.parking_server_agent.getState()
+#node1.parking_server_agent.getStateSize()
+#node1.parking_server_agent.saveState(pkt1)

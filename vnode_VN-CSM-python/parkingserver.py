@@ -38,8 +38,8 @@ class SharedState(object):
 		self.isClientRequest = 0
 
 
-#TODO
-#int LogParkingFile.m_version[MAX_ROWS][MAX_COLS];	
+#TODO maybe
+#int LogParkingFile.self.m_version[MAX_ROWS][MAX_COLS];	
 #int LogParkingFile.m_num_nodes[MAX_ROWS][MAX_COLS];	
 #int LogParkingFile.global_free_spaces[MAX_ROWS][MAX_COLS];
 #int LogParkingFile.region_leader[MAX_ROWS][MAX_COLS];
@@ -57,20 +57,16 @@ class SharedState(object):
 class ParkingServerAgent(VNSAgent):
 	
 	def check_parking_status(self):
+		print 'ParkingServerAgent.check_parking_status'
 		return
 	
-	def parking_timeout(self, int):
-		self.check_parking_status();
-		
-	def resending_timeout(self, int):
-		self.check_resending_status();
-	
 	def __init__(self):
+		print 'ParkingServerAgent.__init__'
 		VNSAgent.__init__(self)
 
-# TODO timers
-#		self.resending_timer_ = RecurringTimer(3, somefunc)	# resending time 
-#		self.parking_timer_ = RecurringTimer(3, somefunc)	# syn status check timeout
+# TODO start timers
+		self.resending_timer_ = RecurringTimer(3, self.check_resending_status)
+		self.parking_timer_ = RecurringTimer(3, self.check_parking_status)
 		
 		self.app_code = CODE_PARKINGS;
 		self.m_parkingstate = [[0]*MAX_COLS for x in xrange(MAX_ROWS)]
@@ -87,6 +83,7 @@ class ParkingServerAgent(VNSAgent):
 
 	#initialize the server states when a server comes into a new region
 	def server_init(self, ):
+		print 'ParkingServerAgent.server_init'
 		for row in range(MAX_ROWS):
 			for col in range(MAX_COLS):
 				self.m_parkingstate[row][col] = LogParkingFile.getFreeSpots(row, col);	
@@ -96,7 +93,7 @@ class ParkingServerAgent(VNSAgent):
 
 		del self.m_remote_requests[0:len(self.m_remote_requests)] # self.m_remote_requests.clear();
 		while( not self.m_resending_queue.empty()):
-			self.m_resending_queue.popleft();
+			self.m_resending_queue.get();
 
 		# Setting the CSM sequences
 		if(CSM == 1):
@@ -110,6 +107,7 @@ class ParkingServerAgent(VNSAgent):
 
 
 	def handle_packet(self, pkt):
+		print 'ParkingServerAgent.handle_packet'
 		cmnhdr = pkt.vnhdr; #get the vnlayer common header
 		hdr = pkt.vnparking_hdr #get the header
 
@@ -149,7 +147,7 @@ class ParkingServerAgent(VNSAgent):
 						#	assert(m_parkingstate[regionX_][regionY_] == LogParkingFile.getFreeSpots(regionX_, regionY_));
 						#	m_parkingstate[regionX_][regionY_]-= 1;
 						#	LogParkingFile.decrementFreeSpots(regionX_, regionY_);
-						#	assert(m_version == LogParkingFile.getVersion(regionX_, regionY_));
+						#	assert(self.m_version == LogParkingFile.getVersion(regionX_, regionY_));
 						#	assert(m_parkingstate[regionX_][regionY_] == LogParkingFile.getFreeSpots(regionX_, regionY_));
 					else:
 						if(hdr.isWrite != 0):	
@@ -223,7 +221,7 @@ class ParkingServerAgent(VNSAgent):
 					client_req.expiration_time = time.time() + 0.25;			
 					self.m_resending_queue.append(client_req);
 					
-					if(self.m_resending_queue.size() > 0):
+					if(self.m_resending_queue.qsize() > 0):
 						wait = self.m_resending_queue.top().expiration_time - time.time()
 						if(wait <= 0):
 							wait = 0.00001;
@@ -256,7 +254,7 @@ class ParkingServerAgent(VNSAgent):
 					if(self.leader_status_ == LEADER):
 						if(hdr.isWrite != 0):
 							self.m_version+= 1;
-							self.send_loopback(ST_VER, m_version);	
+							self.send_loopback(ST_VER, self.m_version);	
 							doBroadcast = True;	
 							assert(self.m_parkingstate[self.regionX_][self.regionY_] == LogParkingFile.getFreeSpots(self.regionX_, self.regionY_));
 							self.m_parkingstate[self.regionX_][self.regionY_] += hdr.isWrite;
@@ -364,13 +362,13 @@ class ParkingServerAgent(VNSAgent):
 							print "NodeID_ - %d (%d, %d) UPDATING parking spots = %d for region (%d, %d)\n" % (self.nodeID_, self.regionX_, self.regionY_, up_req.parking_spots, region.first, region.second);		
 							
 						self.m_parkingstate[up_req.reg_x][up_req.reg_y] = up_req.parking_spots;
-						self.m_write_updates[region].popleft();
+						self.m_write_updates[region].get();
 						
-						LogParkingFile.central_m_write_updates[self.regionX_][self.regionY_][region].popleft();
+						LogParkingFile.central_m_write_updates[self.regionX_][self.regionY_][region].get();
 						LogParkingFile.central_l_seq[self.regionX_][self.regionY_][region]+= 1;
 						
 						self.l_seq[region]+= 1;
-						if(self.m_write_updates[region].size() == 0):
+						if(self.m_write_updates[region].qsize() == 0):
 							break;
 			
 					next_hop_index = getNextHop(hdr.srcX, hdr.srcY);
@@ -398,7 +396,7 @@ class ParkingServerAgent(VNSAgent):
 				self.m_seq_acks[hdr.csm_seq].append(region);
 				LogParkingFile.central_m_seq_acks[self.regionX_][self.regionY_][hdr.csm_seq].append(region);
 			
-				if(self.m_seq_acks[hdr.csm_seq].size() == 16):
+				if(self.m_seq_acks[hdr.csm_seq].qsize() == 16):
 					self.m_seq_acks.erase(hdr.csm_seq); #Got all acks!
 					LogParkingFile.central_m_seq_acks[self.regionX_][self.regionY_].erase(hdr.csm_seq);
 			elif(hdr.nextX == self.regionX_ and hdr.nextY == self.regionY_):
@@ -412,6 +410,7 @@ class ParkingServerAgent(VNSAgent):
 		#*********************** WRITE UPDATE REPLY ***************************************#
 
 	def check_resending_status(self, ):
+		print 'ParkingServerAgent.check_resending_status'
 		if(self.m_resending_queue.empty()):
 			return;
 
@@ -433,7 +432,7 @@ class ParkingServerAgent(VNSAgent):
 			if(top_req.m_retries == MAX_RETRIES):
 				if(self.leader_status_ == LEADER):
 					print "Trying for the last time. hoping it is this time lucky :P\n ";
-				self.m_resending_queue.popleft();
+				self.m_resending_queue.get();
 				return;
 	
 			client_req = ClientRequest();
@@ -445,15 +444,16 @@ class ParkingServerAgent(VNSAgent):
 			client_req.m_retries = top_req.m_retries + 1;
 			client_req.expiration_time = time.time() + 0.25;			
 
-			self.m_resending_queue.popleft();
+			self.m_resending_queue.get();
 			self.m_resending_queue.append(client_req);
-			if(self.m_resending_queue.size() > 0):
+			if(self.m_resending_queue.qsize() > 0):
 				wait = self.m_resending_queue.top().expiration_time - time.time();
 				if(wait <= 0):
 					wait = 0.00001;
 				self.resending_timer_.resched(wait);	
 
 	def sendp(self, send_type, msg_class, dest, dest_port, msgType, origid, m_count, isSuccess, isWrite, srcX, srcY, nextX, nextY, destX, destY, low_seq):
+		print 'ParkingServerAgent.sendp'
 		pkt = Packet()
 		
 		#common header
@@ -505,6 +505,7 @@ class ParkingServerAgent(VNSAgent):
 
 #TODO jason: getState - unsure about the porting of this function
 	def getState(self, ):
+		print 'ParkingServerAgent.getState'
 		size = self.getStateSize();
 		buff = [SharedState()] # array of shared states?
 		
@@ -521,13 +522,12 @@ class ParkingServerAgent(VNSAgent):
 				buff[i].num_free_parking_spaces = self.m_parkingstate[col][row];
 				buff[i].isClientRequest = -1;
 				i+= 1;
-#TODO	assert(i == units - self.m_resending_queue.size() - self.m_remote_requests.size());
-		if(self.m_resending_queue.size() != 0):
-#TODO reformat temp_queue? create new priority queue in python construct?
-			priority_queue<ClientRequest> temp_queue;
+#TODO	assert(i == units - self.m_resending_queue.qsize() - len(self.m_remote_requests));
+		if(self.m_resending_queue.qsize() != 0):
+			temp_queue = Queue.PriorityQueue # priority_queue<ClientRequest> temp_queue;
 			while( not self.m_resending_queue.empty()):
 				top_req = self.m_resending_queue.top(); # ClientRequest 
-				self.m_resending_queue.popleft();
+				self.m_resending_queue.get();
 				temp_queue.append(top_req);
 
 				buff[i].origid = top_req.origid;
@@ -542,12 +542,12 @@ class ParkingServerAgent(VNSAgent):
 				i+= 1;
 			while(not temp_queue.empty()):
 				top_req = temp_queue.top(); # ClientRequest 
-				temp_queue.popleft();
+				temp_queue.get();
 				self.m_resending_queue.append(top_req);
-#TODO		assert(i == units - m_remote_requests.size());
-		if(self.m_remote_requests.size() != 0):
-			assert(i == (1 + MAX_ROWS*MAX_COLS + self.m_resending_queue.size())); 
-			for j in range(m_remote_requests.size()):
+#TODO		assert(i == units - len(self.m_remote_requests));
+		if(len(self.m_remote_requests) != 0):
+			assert(i == (1 + MAX_ROWS*MAX_COLS + self.m_resending_queue.qsize())); 
+			for j in range(len(self.m_remote_requests)):
 				buff[i].origid = self.m_remote_requests[j].origid;
 				buff[i].m_count = self.m_remote_requests[j].m_count;
 				buff[i].isSuccess = self.m_remote_requests[j].isSuccess;
@@ -563,18 +563,21 @@ class ParkingServerAgent(VNSAgent):
 
 	#return the size of the state
 	def getStateSize(self, ):
+		print 'ParkingServerAgent.getStateSize'
 		count = 1; # 1 for the version number;
 
 		count += MAX_COLS*MAX_ROWS;
-		count += self.m_resending_queue.size();
-		count += self.m_remote_requests.size();	
+		count += self.m_resending_queue.qsize();
+		count += len(self.m_remote_requests);	
 
 #TODO sizeof
+		return count # remove this later
 		return (count)*sizeof(SharedState);
 
 #	def saveState(self, state, size):
 	def saveState(self, pkt):
-		buff = [SharedState()]#struct SharedState * buff = (struct SharedState *) state;
+		print 'ParkingServerAgent.saveState'
+		buff = [SharedState()] #struct SharedState * buff = (struct SharedState *) state;
 		
 #TODO get 'state' and 'size' from pkt
 #TODO	units = size/sizeof(struct SharedState);
@@ -584,8 +587,8 @@ class ParkingServerAgent(VNSAgent):
 #		self.log_info(CODE_PARKINGS, "GOTWRONGSTATESIZE %f" % (units))
 
  		self.m_version= buff[0].version;
-		self.send_loopback(ST_VER, m_version);	
-		assert(buff[0].isClientRequest == -1);
+		self.send_loopback(ST_VER, self.m_version);	
+#TODO	assert(buff[0].isClientRequest == -1);
 		i = 1	
 		for row in range(MAX_ROWS):
 			for col in range(MAX_COLS):
@@ -594,7 +597,7 @@ class ParkingServerAgent(VNSAgent):
 				i+= 1;
 		assert (i == 1 + MAX_COLS*MAX_ROWS);
 		while( not self.m_resending_queue.empty()):
-			self.m_resending_queue.popleft();
+			self.m_resending_queue.get();
 		m_remote_requests.clear();
 
 		while (i < units):
@@ -619,33 +622,35 @@ class ParkingServerAgent(VNSAgent):
 				i+= 1; 
 
 	def isDuplicateRequest(self, origid, m_count):
-		for i in range(m_remote_requests.size()):
+		print 'ParkingServerAgent.isDuplicateRequest'
+		for i in range(len(self.m_remote_requests)):
 			if(m_remote_requests[i].origid == origid and m_remote_requests[i].m_count == m_count):
 				return i;
 		return -1;	
 
 
 	def removeClientRequest(self, origid, m_count):
-#TODO		priority_queue<ClientRequest> temp_queue;
-		temp_queue = deque([])
+		print 'ParkingServerAgent.removeClientRequest'
+		temp_queue = Queue.PriorityQueue # priority_queue<ClientRequest> temp_queue;
 		
 		return_value = False;
 		
 		while( not self.m_resending_queue.empty()):
 			#ClientRequest top_req = self.m_resending_queue.top();
-			top_req = self.m_resending_queue.popleft();
+			top_req = self.m_resending_queue.get();
 			if(top_req.origid == origid and top_req.m_count == m_count):
 				return_value = True;
 			else:
 				temp_queue.append(top_req);
 		while( not temp_queue.empty()):
 			#ClientRequest top_req = temp_queue.top();
-			top_req = temp_queue.popleft();
+			top_req = temp_queue.get();
 			self.m_resending_queue.append(top_req);
 		return return_value;
 
 	#evaluate two server packets to see if they are for the same transaction     
 	def equal(self, p1, p2):                                                                                                        
+		print 'ParkingServerAgent.equal'
 		if(p1.vnparking_hdr.type == p2.vnparking_hdr.type and
 			p1.vnparking_hdr.srcX == p2.vnparking_hdr.srcX and
 			p1.vnparking_hdr.srcY == p2.vnparking_hdr.srcY and

@@ -2,6 +2,7 @@ import time
 from header import *
 from log_parking import *
 from recurring_timer import *
+import Queue
 
 
 CODE_VNC = "VNC"
@@ -84,7 +85,6 @@ class VNCAgent(object):
 				#the node is not supposed to process any packet if it's status is unknown
 				#dead node
 
-#TODO
 #		Packet::free(pkt);
 		#log_info(CODE_VNC, PFREE, "packet freed");
 		return
@@ -135,7 +135,7 @@ class VNCAgent(object):
 						self.log(self.app_code,SEND,self.getAppHeader(p))
 				else:
 					pass
-#TODO			send(p,0)
+				send(p,0)
 			self.send_timer_.resched(self.send_wait_);
 		else:
 			#log_info(CODE_ADDRC,QUEUE,"Queue emptied");
