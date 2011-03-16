@@ -1,68 +1,10 @@
-What's left to do:
-
+What's left to do primary:
 send and recv packets pass off to VNode (vnode.py) class
 getState, getStateSize, and saveState ports
-
-integrate anirudh's code for reading GPS coordinates from file
-integrate synchronize on signal code from anirudh
-
 what should timers be set for at the beginning? can't find initial values in C++ CSM code.
 other initial values from Tcl not found
 
-
 What's left to do secondary:
-rand()
-common packet header
-ip header
-
-
-
-
-void JoinAgent::recv(Packet* pkt, Handler*)
-
-packet types:
-	vnhdr vs hdr?
-		SYNC_MSG
-			ST_SYNCED
-			ST_VER
-		JOIN_MSG
-			HEART_BEAT
-			LEADER_REPLY
-			LEADER_ELECT
-			LEADER_REQUEST_REMOTE
-			LEADER_ACK_REMOTE
-			LEADER_ACK_ACK
-
-
-void JoinAgent::check_old_leader_status()
-	for each old_l in oldLeaderData array:
-		continue if not old_l.is_valid
-		if old_l.retries < 40:
-			if old_l.leader_ack == false:
-				old_l.retries++
-				broadcast(LEADER_ELECT MESSAGE)
-				old_leader_timer.resched(4*claim_period_); 
-			elif old_l.leader_ack_ack == false:
-				old_l.retries++
-				unicast(LEADER_ACK_REMOTE MESSAGE)
-				old_leader_timer.resched(4*claim_period_); 
-		else:
-			if old_l.leader_ack_ack:
-				old_l.is_valid = false
-				continue
-			old_l.retries = 0
-			old_l.leader_ack = true
-			old_l.leader_ack_ack = true
-			old_l.is_valid = false
-			
-			
-			
-void JoinAgent::check_leader_status()
-
-
-double JoinAgent::check_location()
-	get current position of node
-	check if region has changed
-	if region changed:
-		if leader_status = LEADER:
-			
+rand() seeding - not necessary?
+common packet header - not actually used by anything anymore
+ip header - not actually used by anything anymore

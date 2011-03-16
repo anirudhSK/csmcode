@@ -20,7 +20,7 @@ CODE_INFO = "INFO"		#code for other events
 
 
 class oldLeaderData:
-	def __init(self, ver, ox, oy, spots):
+	def __init__(self, ver, ox, oy, spots):
 		self.latest_version = ver
 		self.old_x = ox
 		self.old_y = oy
