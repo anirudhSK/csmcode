@@ -1,5 +1,6 @@
 from collections import deque
 from operator import itemgetter, attrgetter
+from packet_queue import *
 
 def lookup(queue, pkt):
 	if not queue or len(queue) == 0:
@@ -47,41 +48,6 @@ while len(q):
 
 print q
 
-
-
-class PacketQueue(object):
-	def __init__(self):
-		self.dq = deque([])
-	
-	def empty(self):
-		return len(self.dq) == 0
-	
-	def size(self):
-		return len(self.dq)
-	
-	def top(self):
-		return self.dq[0]
-	
-	def push(self, item):
-		self.dq.append(item)
-		return
-	
-	def pop(self):
-		return self.dq.popleft()
-	
-	def sort(self, attr, r):
-		self.dq = deque(sorted(self.dq, key=attrgetter(attr), reverse=r))
-	
-	def __repr__(self):
-		return 'PacketQueue -' + repr(self.dq)
-	
-	def __getitem__(self, index):
-		return self.dq[index]
-	
-	def __delitem__(self, index):
-		del self.dq[index]
-	
-
 def lookup2(queue, pkt):
 	if not queue or queue.size() == 0:
 		return 0
@@ -115,7 +81,7 @@ lookup2(q, e)
 print q
 
 # Test priority sorting
-q.sort('time', False)
+q.sort(attrgetter('time'), False)
 print q
 
 # Test popping

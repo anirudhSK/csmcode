@@ -1,8 +1,7 @@
 from vnclient import *
 import time
 import copy
-from collections import deque
-from operator import itemgetter, attrgetter
+from packet_queue import *
 
 
 #TODO move m_resending_queue and temp_queue to deque
@@ -26,7 +25,7 @@ class ParkingClientAgent(VNCAgent):
 		self.client_state_ = UNKNOWN;
 		self.app_code = CODE_PARKING;
 		self.m_count = 0;
-		self.m_resending_queue = Queue.PriorityQueue()
+		self.m_resending_queue = CustomQueue()
 		VNCAgent.__init__(self, id, max_node_id_, sn_size_, num_srcs_, clock_msg_enabled_)
 
 
@@ -137,8 +136,8 @@ class ParkingClientAgent(VNCAgent):
 				client_req.expiration_time = time.time() + RESEND_BACKOFF;
 
 				self.m_resending_queue.push(client_req);
-				if(self.m_resending_queue.qsize() > 0):
-					wait = self.m_resending_queue.top().expiration_time - time.time();
+				if(self.m_resending_queue.size() > 0):
+					wait = self.m_resending_queue[0].expiration_time - time.time();
 					if(wait <= 0):
 						wait = 0.00001;
 					resending_timer_.resched(wait);
@@ -168,12 +167,12 @@ class ParkingClientAgent(VNCAgent):
 			elif(self.m_count >= 1):
 				for hop in range(4):
 					avg_res_time = 0.0;
-					for i in range(self.m_response_time[hop].qsize()):
+					for i in range(self.m_response_time[hop].size()):
 						avg_res_time += self.m_response_time[hop][i];
-					if(self.m_response_time[hop].qsize() > 0):
-						print "Node-%d:: Average response time for %d hops = %f\n" % (self.nodeID_, hop, avg_res_time/self.m_response_time[hop].qsize()); 
-				if(self.m_res_time.qsize() > 0):	
-					print "Node-%d:: Msgs send = %d; Msgs acked = %d;\n" % (self.nodeID_, self.m_count, self.m_res_time.qsize()); 
+					if(self.m_response_time[hop].size() > 0):
+						print "Node-%d:: Average response time for %d hops = %f\n" % (self.nodeID_, hop, avg_res_time/self.m_response_time[hop].size()); 
+				if(self.m_res_time.size() > 0):	
+					print "Node-%d:: Msgs send = %d; Msgs acked = %d;\n" % (self.nodeID_, self.m_count, self.m_res_time.size()); 
 					print "Node-%d:: zero_hop = %d, one_hop = %d, two_hop = %d, three_hop = %d\n" % (self.nodeID_, self.msg_hops[0], self.msg_hops[1], self.msg_hops[2], self.msg_hops[3]); 	
 			self.parking_timer_.resched(100); # every X cycles a node requests a parking spot. Think of a better way to get this done. 
 		return
@@ -184,9 +183,9 @@ class ParkingClientAgent(VNCAgent):
 		if(self.m_resending_queue.empty()):
 			return;
 			
-		if(self.m_resending_queue.top().expiration_time <= time.time()):
-			print "Client with NodeID_ - %d is got RESEND_EXP for request = %d, %d and time - %f\n" % (self.nodeID_, self.m_resending_queue.top().origid, self.m_resending_queue.top().m_count, time.time());
-			top_req = self.m_resending_queue.top() # ClientRequest 
+		if(self.m_resending_queue[0].expiration_time <= time.time()):
+			print "Client with NodeID_ - %d is got RESEND_EXP for request = %d, %d and time - %f\n" % (self.nodeID_, self.m_resending_queue[0].origid, self.m_resending_queue[0].m_count, time.time());
+			top_req = self.m_resending_queue[0] # ClientRequest 
 
 			dest_x = top_req.destX;
 			dest_y = top_req.destY;
@@ -218,7 +217,7 @@ class ParkingClientAgent(VNCAgent):
 
 			if(top_req.m_retries == MAX_RETRIES):
 				print "CLIENT Trying for the last time. hoping it is this time LUCKY :P\n";
-				self.m_resending_queue.get();
+				self.m_resending_queue.pop();
 				return;
 
 			client_req = ClientRequest()
@@ -230,31 +229,31 @@ class ParkingClientAgent(VNCAgent):
 			client_req.m_retries = top_req.m_retries + 1;
 			client_req.expiration_time = time.time() + RESEND_BACKOFF;
 
-			self.m_resending_queue.get();
-			self.m_resending_queue.append(client_req);
-			if(self.m_resending_queue.qsize() > 0):
-				wait = self.m_resending_queue.top().expiration_time - time.time();
+			self.m_resending_queue.pop();
+			self.m_resending_queue.push(client_req);
+			if(self.m_resending_queue.size() > 0):
+				wait = self.m_resending_queue[0].expiration_time - time.time();
 				if(wait <= 0):
 					wait = 0.00001;
 				self.resending_timer_.resched(wait);
 				
 	def removeClientRequest(self, origid, m_count):
 		print 'ParkingClientAgent.removeClientRequest'
-		temp_queue = Queue.PriorityQueue() # priority_queue<ClientRequest> temp_queue;
+		temp_queue = CustomQueue() # priority_queue<ClientRequest> temp_queue;
 		
 		return_value = False;
 		
 		while( not self.m_resending_queue.empty()):
-				top_req = self.m_resending_queue.get(); # ClientRequest 
-				#self.m_resending_queue.get();
+				top_req = self.m_resending_queue.pop(); # ClientRequest 
+				#self.m_resending_queue.pop();
 				if(top_req.origid == origid and top_req.m_count == m_count):
 						return_value = True;
 				else:
-						temp_queue.append(top_req);
+						temp_queue.push(top_req);
 		while( not temp_queue.empty()):
-				top_req = temp_queue.top(); # ClientRequest 
-				temp_queue.get();
-				self.m_resending_queue.append(top_req);
+				top_req = temp_queue[0]; # ClientRequest 
+				temp_queue.pop();
+				self.m_resending_queue.push(top_req);
 		return return_value;
 	
 		
@@ -305,7 +304,7 @@ class ParkingClientAgent(VNCAgent):
 			pkt.vnparking_hdr.isWrite = isWrite;
 			pkt.vnparking_hdr.m_count = m_count;
 
-			self.queue.append(pkt); 
+			self.queue.push(pkt); 
 			#send another one for the server located on the same node
 			send_loopback(msgType, self.nodeID_, m_count, isWrite, dest_regionX, dest_regionY);
 	#		send_packets(); # NIKET - changed this
@@ -352,7 +351,7 @@ class ParkingClientAgent(VNCAgent):
 			pkt.vnparking_hdr.isWrite = isWrite;
 			pkt.vnparking_hdr.m_count = m_count;
 
-			self.queue.append(pkt);
+			self.queue.push(pkt);
 
 	def handle_packet(self, pkt):
 		#hdr_vncommon * vnhdr = hdr_vncommon::access(pkt); #get the vnlayer header
@@ -362,7 +361,7 @@ class ParkingClientAgent(VNCAgent):
 		
 		if(hdr.srcX == self.regionX_ and hdr.srcY == self.regionY_):
 			if(vnhdr.type == APPL_MSG and hdr.origid == self.nodeID_):
-				for r in range(m_response_count.qsize()):
+				for r in range(m_response_count.size()):
 					if(self.m_response_count[r] == hdr.m_count):
 						print "Node = %d; DUPLICATE_ACK for count = %d\n" % (self.nodeID_, hdr.m_count);
 						return;

@@ -1,10 +1,12 @@
 What's left to do:
+
 send and recv packets pass off to VNode (vnode.py) class
-move queues to deque
 getState, getStateSize, and saveState ports
+
+integrate anirudh's code for reading GPS coordinates from file
+integrate synchronize on signal code from anirudh
+
 what should timers be set for at the beginning? can't find initial values in C++ CSM code.
-read GPS coordinates from file
-synchronize on signal
 other initial values from Tcl not found
 
 

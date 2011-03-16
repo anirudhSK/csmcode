@@ -2,10 +2,7 @@ import time
 from header import *
 from log_parking import *
 from recurring_timer import *
-from collections import deque
-from operator import itemgetter, attrgetter
-
-# TODO move self.queue to deque
+from packet_queue import *
 
 CODE_VNS = "VNS"         #code for VN layer messages
 
@@ -86,8 +83,8 @@ class VNSAgent(object):
 # TODO what to set deadline?
 		self.first_node_deadline_ = time.time() + 5
 
-		self.input_queue = Queue.Queue() # hold Packets
-		self.queue = Queue.Queue() # holds Packets
+		self.input_queue = CustomQueue() # hold Packets
+		self.queue = CustomQueue() # holds Packets
 		
 		# TODO log file shmid
 		return
@@ -129,7 +126,7 @@ class VNSAgent(object):
 				if(self.state_ == BACKUP):
 					self.state_=SERVER;
 					self.server_init();
-				 	self.queue = Queue.Queue(); #dump everything in the queue
+				 	self.queue = CustomQueue() #dump everything in the queue
 				else:
 					pass #Do nothing. 	
 			elif(vnhdr.subtype == NONLEADER):
@@ -218,12 +215,21 @@ class VNSAgent(object):
 	# insert application messages into the total ordered input queue
 	# sort the packets with send_time
 	# void VNSAgent::sortPacket(Packet * pkt)
-	def sort_packet(self, pkt):
+	def sort_packet(self, pkt): # TODO test this
+		pkt.deadline = time.time()+self.ordering_delay_
+		self.input_queue.push(pkt)
+		if(self.total_ordering_mode_ == FROM_HEAD):
+			self.input_queue.sort(lambda pkt: pkt.vnhdr.send_time, False) # don't reverse
+		else:
+			self.input_queue.sort(lambda pkt: pkt.vnhdr.send_time, True) # reverse
+		
+		
+	def sort_packet_deprecated(self, pkt):
 		count = 1;
 		# Access the vns message header for the received packet:
 	  	hdr = pkt.vnhdr
 
-	  	size = len(self.input_queue)
+	  	size = self.input_queue.size()
 
 	  	deadline = time.time()+self.ordering_delay_;
 
@@ -231,21 +237,21 @@ class VNSAgent(object):
 		insertedUnit = None
 
 	  	if(size == 0):#first packet
-			insertedUnit = self.input_queue.put(pkt);
+			insertedUnit = self.input_queue.push(pkt);
 			insertedUnit.deadline = deadline;
 
 			#if(LOG_ENABLED):
 			#	log(CODE_VNS,BUFFERED_START,hdr.toString());
 			#	log_info(CODE_VNS,BUFFER_SIZE,(double)input_queue.size);
 			self.queue_timer_.resched(self.ordering_delay_);#wait for a ordering_delay_ period to reduce packet misorder
-			self.next_to_expire=hdr.send_time;
+			self.next_to_expire=hdr.send_time; # is this used anywhere?
 		else:#queue not empty
 #TODO			struct PacketUnit * current_unit;
 #			hdr_vncommon * current_hdr;
 			current_hdr = None
 
 			if(self.total_ordering_mode_ == FROM_HEAD):
-				self.current_unit = input_queue.head;
+				self.current_unit = input_queue[0];
 
 				while(1):
 					current_hdr = current_unit.current.vnhdr
@@ -264,14 +270,14 @@ class VNSAgent(object):
 							current_unit = current_unit.next;
 							count += 1;
 						else:
-							insertedUnit = self.input_queue.put(pkt);
+							insertedUnit = self.input_queue.push(pkt);
 							insertedUnit.deadline = deadline;
 							#if(LOG_ENABLED):
 							#	log(CODE_VNS,BUFFERED_END,hdr.toString());
 							#	log_info(CODE_VNS,BUFFER_SIZE,(double)input_queue.size);
 							break;
 			else:
-				current_unit = self.input_queue.tail;
+				current_unit = self.input_queue[-1];
 
 				while(1):
 					current_hdr = current_unit.current.vnhdr;
@@ -433,7 +439,7 @@ class VNSAgent(object):
 		p = None # Packet
 
 		while(len(self.input_queue) > 0):
-			p = self.input_queue.get();
+			p = self.input_queue.pop();
 			if(p):
 				#if(LOG_ENABLED):
 				#	hdr_vns * hdr = hdr_vns::access(p);
@@ -457,7 +463,7 @@ class VNSAgent(object):
 		if(self.state_ == SERVER):
 			if(len(self.queue) != 0):
 				self.sending_state_ = SENDING;
-				p = self.queue.get();
+				p = self.queue.pop();
 				if(p):
 					hdr = p.vnhdr
 					if(hdr.send_type == SEND):
@@ -486,7 +492,7 @@ class VNSAgent(object):
 		self.leader_ = UNKNOWN;
 		self.leader_status_ = UNKNOWN;
 		self.first_node_ = False; #new node to the region
-		self.queue = Queue.Queue(); #dump everything
+		self.queue.clear(); #dump everything
 		
 	
 	#send the messages in the message buffer, if there is any
@@ -519,10 +525,10 @@ class VNSAgent(object):
 
 	#lookup a packet in the packet buffer for a match, using the equal method.
 	#once a match is found, remove the match from the buffer.
-	def lookup(self, queue, pkt):
-		if not queue or len(queue) == 0:
+	def lookup(self, queue, pkt): #TODO equal method?
+		if not queue or queue.size() == 0:
 			return 0
-		for i in range(len(queue)):
+		for i in range(queue.size()):
 			item = queue[i]
 			if item != pkt:
 				print '%s != %s' % (item, pkt)
@@ -531,18 +537,6 @@ class VNSAgent(object):
 				del queue[i]
 				return 1
 		return 0
-
-
-	#check a packet queue, remove a packet if it is received a certain period of time ago
-	def queue_timeout(self, queue, time):
-#TODO port function. not necessary maybe?
-		return
-
-	#check the packet sending queue, remove a packet if it is older than the maximum response time
-	#check the head first, if the head is old, continue, else: quit
-	def check_head(self, time):
-#TODO port function. not necessary maybe?
-		return
 
 
 	#forward a VNS message to other local servers
