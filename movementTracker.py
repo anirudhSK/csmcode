@@ -3,31 +3,23 @@
 # and tracks region changes etc 
 
 from symbol import assert_stmt
-from datetime import datetime
-from time import sleep
 import time
-from datetime import datetime
-from datetime import timedelta
 from socket import AF_INET
 from socket import *
 from threading import Timer
 from math import sqrt
 import sys 
+import signal, os
 
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-# Output seems sane TODO Verify formally that it is correct.
-__author__="anirudh"
+_author__="anirudh"
 __date__ ="$Feb 16, 2011 11:00:02 PM$"
 
-regionX=0
-regionY=0
+regionXDimension=250
+regionYDimension=250							  # TODO Initiate this from main or as a command line argument. 
 
 currentRegionX=0
 currentRegionY=0
 
-gridX=100
-gridY=100 # ie the size of the grid in the x and the y direction. 
 # UDP socket for telling the other processes that the region has changed
 host="<broadcast>"
 port=21567
@@ -48,14 +40,21 @@ enableCSM=0
 cursorSpeed=-1
 
 
-def GetCurrentTime() :							     # Get the current wall clock time 
+def handler(signum, frame):
+    print 'Signal handler called with signal', signum
+    WallTimeAtStartOfSimulation=time.time();	# 			   This is the sync signal 
+#    raise IOError("Couldn't open device!")
+
+
+
+def GetCurrentTime() :							     # TODO Get the current wall clock time , replace this with a call to the time function within python 
     global counter
     counter=counter+1
     global WallTimeAtStartOfSimulation 
     timeElapsed=time.time()-WallTimeAtStartOfSimulation			     # want to debug quickly 		     # beginningOfTime is the wall clock time read at the simulation beginning	
 									     # wall time at start of simulation is the time when the real time simulation starts looking at the ns-2 trace and converting it. 
-#    return timeElapsed
-    return counter
+# return timeElapsed							     # TODO Wall clock time here. 	
+    return counter							     # for now, we just increment a counter repeatedly to simulate time progressing. 
 
 
 def GetCurrentGPS(gpsFilehandle) :
@@ -67,16 +66,17 @@ def GetCurrentGPS(gpsFilehandle) :
 	global cursorSpeed
 	global enableCSM
 
-	currentTime=int(GetCurrentTime());			
+	currentTime=int(GetCurrentTime());				     # return wall clock time	
 
-	cursor=gpsFilehandle.tell();	# store the current cursor position 
-	cursorLine=gpsFilehandle.readline();# peek one step ahead 
-   	cursorLine.rstrip('\n')	# remove the newlines
-	traceEntryValues=cursorLine.split(None);
-	nextTimeStamp=int(traceEntryValues[3]);	# look at the nextTimeStamp 
-					# TODO: Don't keep reading the nextTimeStamp as an optimization on every read 
+	cursor=gpsFilehandle.tell();					     # store the current cursor position 
+	cursorLine=gpsFilehandle.readline();				     # peek one step ahead 
+   	cursorLine.rstrip('\n')						     # remove the newlines
+	traceEntryValues=cursorLine.split(None);			     # I used None because you want to split on whitespaces. 
+	nextTimeStamp=int(traceEntryValues[3]);				     # look at the nextTimeStamp 
+									     # TODO: Don't keep reading the nextTimeStamp as an optimization on every read 
 	if(currentTime>=nextTimeStamp) :
-		opCode=traceEntryValues[5]
+
+		opCode=traceEntryValues[5]				     # opCode is set, startNode, or stopNode 
 		if(opCode=="set") :
 			cursorTimeStamp=nextTimeStamp
 			cursorX=float (traceEntryValues[6])
@@ -91,13 +91,13 @@ def GetCurrentGPS(gpsFilehandle) :
 			# notify other agents of the change.
 		elif(opCode=="stopNode") :
 			enableCSM=0;
-			return (0,0)		# TODO Get GPS just after reading startNode, for now it will return (0,0) as some sort of indeterminate state 
+			return (0,0)					     # TODO Get GPS just after reading startNode, for now it will return (0,0) as some sort of indeterminate state 
 			# notify other agents of the change
 
 	
-	elif(currentTime<nextTimeStamp): 	# either you can use the last timestamp or you have not even switched on CSM in which case it really does not matter
-		# interpolate based on the previous cursorTimeStamp
-		# rollback so that you can re-read the cursorTimeStamp again 
+	elif(currentTime<nextTimeStamp): 				     # either you can use the last timestamp or you have not even switched on CSM in which case it really does not matter
+									     # interpolate based on the previous cursorTimeStamp
+								             # rollback so that you can re-read the cursorTimeStamp again 
 		gpsFilehandle.seek(cursor)		# rollback
 		# interpolate
 		# INPUT: cursorX,cursorY,cursorTimeStamp
@@ -106,7 +106,7 @@ def GetCurrentGPS(gpsFilehandle) :
 		# OUTPUT: interpolated location.
 		if(enableCSM) :
 			return	interpolate(cursorX,cursorY,cursorTimeStamp,cursorXDest,cursorYDest,cursorSpeed,currentTime)
-		else :				# no point 
+		else :				# no point interpolate for a "dead" node which is out of the simulation area. 
 			return (-1,-1)
 		
 def interpolate(cursorX,cursorY,cursorTimeStamp,cursorXDest,cursorYDest,cursorSpeed,currentTime) :
@@ -126,14 +126,9 @@ def interpolate(cursorX,cursorY,cursorTimeStamp,cursorXDest,cursorYDest,cursorSp
 		return(cursorX,cursorY)
 	else : 
 		timeElapsed=currentTime-cursorTimeStamp
-	#	assert(cursorXDest==cursorX & cursorYDest==cursorY)
-		#print headingX
-		#print headingY
-		#assert(headingX!=0 & headingY!=0);
 		directionX=headingX/sqrt((headingX**2 + headingY**2))
 		directionY=headingY/sqrt((headingX**2 + headingY**2))
 		print "Direction vector is" + str(directionX) + "," + str(directionY);
-	#	print" speed is " + str(speed); 
 		interpolatedX=cursorX+cursorSpeed*timeElapsed*directionX
 		interpolatedY=cursorY+cursorSpeed*timeElapsed*directionY
 		distanceTraversed=sqrt((interpolatedX-cursorX)**2 +(interpolatedY-cursorY)**2)
@@ -143,24 +138,45 @@ def interpolate(cursorX,cursorY,cursorTimeStamp,cursorXDest,cursorYDest,cursorSp
 		else:
 			print "Maximum distance traversed in direction of setdest \n"; 
 			return(cursorXDest,cursorYDest)
+
+def checkRegion(x,y):
+    # use the coordinates x and y to figure out which region the node is in.
+    global   regionXDimension # TODO Initialize this before the VM's start executing
+    global   regionYDimension
+    return (int(x/regionXDimension),int(y/regionYDimension));
+
+
 def TrackMovement(gpsTraceFile):
     # use time to read the current GPS from a file  interpolating if necessary
     gpsFileHandle=open(gpsTraceFile,'r')
+    currentRegionX=-1
+    currentRegionY=-1				# to start off there is no region that the car is located in. TODO Check if this is a sensible thing to do.  
     while(1):
 	    (x,y)=GetCurrentGPS(gpsFileHandle)
-	    print"Current Time is " + str(counter) ,
+	    print"Current Time is " + str(counter),
 	    print "Retrieved location is (x,y):" + str(x) +"," + str(y)
 	    # TODO: Implement the checkRegion algorithm
-	    #(regionX,regionY)=checkRegion(x,y)
-	    if(regionX!=currentRegionX |regionY!=currentRegionY) :
+	    (regionX,regionY)=checkRegion(x,y)
+	    if( regionX!=currentRegionX | regionY!=currentRegionY ) :
 		# send message to other application.
-		UDPSock.sendto("LEADER_REQUEST",broadcastAddr); # send a broadcast message saying you want to be leader
+		UDPSock.sendto("REGION_CHANGE",broadcastAddr); # send a broadcast message saying you want to be leader
+		currentRegionX=regionX;		# the region has just changed 
+		currentRegionY=regionY;		# retain the new region  
 		# start Timer
 	    #print(x,y)
 	    # TODO Check that this whole broadcast thing works
 #	    sleep(1)  
+
+
 if __name__ == "__main__":
    traceFile = sys.argv[1]
    global WallTimeAtStartOfSimulation
-   WallTimeAtStartOfSimulation=time.time() # in a real emulation this should be done on receipt of a synchronization signal
-   TrackMovement(traceFile)
+   signal.signal(10, handler)		# catch all signal number 10's. 
+
+   #WallTimeAtStartOfSimulation=time.time() # in a real emulation this should be done on receipt of a synchronization signal, do this on a sync signal 
+   while(1) :
+	i=0				# TODO: sleep until you get a signal to sync, does sleeping disable signal handling ?	spin wait works, make sure the signal comes from the simulation just before it "runs"
+	time.sleep(5)
+	print "Woke up \n"		# Awesome: signals are caught even if you are sleeping, I guess that's the whole point of interrupts and signal handlers.
+ 
+   #TrackMovement(traceFile)
