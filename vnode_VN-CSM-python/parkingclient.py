@@ -3,9 +3,6 @@ import time
 import copy
 from packet_queue import *
 
-
-#TODO move m_resending_queue and temp_queue to deque
-
 ### DEFINE ###
 CODE_PARKING = "PARKING"
 UP = 1
@@ -261,13 +258,13 @@ class ParkingClientAgent(VNCAgent):
 			pkt = Packet()
 			
 			
-#TODO cmn_hdr
+# cmn_hdr
 #			hdr_cmn * cmn_hdr = hdr_cmn::access(pkt);
 #			cmn_hdr.ptype() = PT_VNPARKING;
 #			cmn_hdr.size() = size_ + IP_HDR_LEN; # add in IP header
 #			cmn_hdr.next_hop_ = dest;
 
-#TODO ip_hdr
+# ip_hdr
 #			hdr_ip* iph = HDR_IP(pkt);
 #			iph.saddr() = Agent.addr();
 #			iph.daddr() = dest; #broadcasting address, should be -1

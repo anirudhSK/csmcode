@@ -2,11 +2,8 @@ import time
 from header import *
 from log_parking import *
 from recurring_timer import *
-from collections import deque
-from operator import itemgetter, attrgetter
+from packet_queue import *
 
-
-# TODO move self.queue to deque
 
 CODE_VNC = "VNC"
 SENDING = 1		#queue not empty
@@ -37,7 +34,7 @@ class VNCAgent(object):
 
 #		srand(time(NULL)+nodeID_);
 
-		self.queue = deque([]) #queue = (struct PacketQ *) malloc(sizeof(struct PacketQ *)); #queue.init();
+		self.queue = CustomQueue() #queue = (struct PacketQ *) malloc(sizeof(struct PacketQ *)); #queue.init();
 
 		self.sending_status_ = NOSENDING;
 		
@@ -116,7 +113,7 @@ class VNCAgent(object):
 			#just wait for the next timeout
 			pass #log_info(CODE_VNS, QUEUE, "sending ongoing, wait");
 		else:
-			if(len(self.queue) != 0):
+			if(self.queue.size() != 0):
 				self.sending_status_ = SENDING;
 				#log_info(CODE_VNS, QUEUE, "sending enabled for the queue");
 				self.send_timer_.resched(self.send_wait_);
@@ -129,9 +126,9 @@ class VNCAgent(object):
 	def check_buffer_status(self, ):
 		p = None # Packet * p;
 		
-		if(len(self.queue) !=0):
+		if(self.queue.size() !=0):
 			self.sending_status_ = SENDING;
-			p = self.queue.get();
+			p = self.queue.pop();
 			if(p):
 				hdr = p.vnhdr
 				if(hdr.send_type == SEND):

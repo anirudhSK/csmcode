@@ -3,9 +3,6 @@ import time
 import copy
 from packet_queue import *
 
-# TODO move m_resending_queue and temp_queue to deque
-
-
 CODE_PARKINGS = "PARKING" #code for application layer messages
 
 class ClientRequest(object):

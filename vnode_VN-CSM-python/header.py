@@ -1,4 +1,4 @@
-# TODO rewrite with header.cc/.h from final vnode_VN-C_CSM implementation?
+# rewrite with header.cc/.h from final vnode_VN-C_CSM implementation?
 # currently using the one Niket sent to Anirudh early on
 
 class Packet(object):

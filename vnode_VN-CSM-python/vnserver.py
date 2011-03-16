@@ -233,8 +233,7 @@ class VNSAgent(object):
 
 	  	deadline = time.time()+self.ordering_delay_;
 
-#TODO	  	PacketUnit * insertedUnit;
-		insertedUnit = None
+		insertedUnit = None # PacketUnit * insertedUnit;
 
 	  	if(size == 0):#first packet
 			insertedUnit = self.input_queue.push(pkt);
@@ -246,12 +245,12 @@ class VNSAgent(object):
 			self.queue_timer_.resched(self.ordering_delay_);#wait for a ordering_delay_ period to reduce packet misorder
 			self.next_to_expire=hdr.send_time; # is this used anywhere?
 		else:#queue not empty
-#TODO			struct PacketUnit * current_unit;
+			current_unit = None # struct PacketUnit * current_unit;
 #			hdr_vncommon * current_hdr;
 			current_hdr = None
 
 			if(self.total_ordering_mode_ == FROM_HEAD):
-				self.current_unit = input_queue[0];
+				current_unit = input_queue[0];
 
 				while(1):
 					current_hdr = current_unit.current.vnhdr

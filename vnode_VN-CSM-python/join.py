@@ -11,11 +11,12 @@ NEW_NODE = 0
 MOVING = 1
 STOPPED = 2
 NUM_NEIGHBORS = 8 #for square regions, the maximum number of neighbors is 8
-MAX_APPS = 10             #number of apps ports that the agent report region and leadership status to
-                          #[Might want to put this in TCL script later.]
-CODE_JOIN = "JOIN"        #code for leader election related events
-CODE_MOVE = "MOVE"        #code for node motion related events
-CODE_INFO = "INFO"        #code for other events
+MAX_APPS = 10			 #number of apps ports that the agent report region and leadership status to
+						  #[Might want to put this in TCL script later.]
+CODE_JOIN = "JOIN"		#code for leader election related events
+CODE_MOVE = "MOVE"		#code for node motion related events
+CODE_INFO = "INFO"		#code for other events
+
 
 
 class oldLeaderData:
@@ -33,7 +34,7 @@ class oldLeaderData:
 
 class JoinAgent:
 	def __init__(self, id, slowInterval_, interval_, maxX_, maxY_, rows_, columns_, ):
-		# TODO binds
+		# bind
 		#bind_offset(&hdr_vns::offset_);
 		#bind_offset(&hdr_vncommon::offset_);
 		#bind_offset(&hdr_join::offset_);
@@ -43,11 +44,11 @@ class JoinAgent:
 		self.columns_ = columns_
 		self.rows_ = rows_
 		self.nodeID_ = id
-#		self.regionX_ = 
-#		self.regionY_ = 
+		self.regionX_ = 0
+		self.regionY_ = 0
 		self.seq_ = 0
-#		self.status_ = 
-#		self.leader_ = 
+		self.status_ = UNKNOWN
+		self.leader_ = UNKNOWN
 		self.leader_status_ = UNKNOWN
 		self.beat_period_ = 2
 #		self.max_delay_ = 
@@ -61,7 +62,13 @@ class JoinAgent:
 		
 		self.leader_start_ = UNKNOWN
 		
-#TODO what initial time to start out with? do we need to star them, or wait until reschedule event? # Timers
+		
+		# modified by GPS routines
+		self.x = 0
+		self.y = 0
+
+
+#TODO what initial time to start out with? do we need to start at app start, or wait until reschedule event? # Timers
 		self.join_timer_ = RecurringTimer(3, self.check_location) # location check timeout
 		self.leader_req_timer_ = RecurringTimer(3, self.check_leader_status) # leader request timeout
 		self.old_leader_timer = RecurringTimer(3, self.check_old_leader_status)
@@ -71,7 +78,7 @@ class JoinAgent:
 		self.num_apps = 0
 		
 		self.state_synced_ = False # state unknown
-		self.time_to_leave_ = UNKNOWN # TODO
+		self.time_to_leave_ = time.time() + 5 # what to set this to?
 		self.old_leader_retries = 0
 
 		# srand(time(NULL)+nodeID_) #TODO rand seed
@@ -112,11 +119,11 @@ class JoinAgent:
 			
 			# incoming packet has to be either destined for the node or broadcast, the source has to be in the same region.
 			if((hdr.dst == self.nodeID_ or hdr.dst == -1) and hdr.regionX == self.regionX_ and hdr.regionY == self.regionY_):
-#TODO log		log(JOIN, RECV, hdr.toString());
+#				log(JOIN, RECV, hdr.toString());
 				if (hdr.type == LEADER_REQUEST): # got a request message, this is received by a node already in the region when a new guy comes in 
 					if(self.leader_status_ == LEADER): #I am a leader already, absolutely say NO to  the other guy 
 						self.send_unicast(LEADER_REPLY, hdr.src, CONSENT, hdr.seq) # CONSENT or DISSENT  ?? Ask Niket.
-	                    # This is telling the new node, ok you can come and join the region or no there are too many here already. This was never implemented though from what Niket told me.   
+						# This is telling the new node, ok you can come and join the region or no there are too many here already. This was never implemented though from what Niket told me.   
 				elif(hdr.type == LEADER_REPLY): # I got a reply message, this message is unicast, so it can be heard only by the requestor ie if I sent a LEADER_REQUEST 
 					if(self.leader_status_ == REQUESTED and hdr.dst == self.nodeID_ and hdr.seq== self.seq_): #the messages is for my last request, that is I sent a request, Niket:  where is REQUESTED set
 						self.leader_status_ = UNKNOWN  # back to being a lame non leader, because my LEADER_REQUEST was turned down by a LEADER_REPLY , when will a LEADER_REQUEST ever not get turned down ? 
@@ -249,14 +256,14 @@ class JoinAgent:
 	def check_location(self):
 		print 'JoinAgent.check_location'
 		
-#TODO gps	get location from traces or from simulation somehow
-		x = 0
-		y = 0
+		# use time to read the current GPS from a file  interpolating if necessary
+		x = self.x
+		y = self.y
 		
 		#get current region
 		rx = 0
 		ry = 0
-		rx, ry = self.getRegion(x,y)
+		(rx, ry) = self.getRegion(x, y)
 		
 		self.region_changed = False
 		
@@ -288,8 +295,8 @@ class JoinAgent:
 			self.send_loopback(NEWREGION)# from join agent to parking server, Niket feels shared memory is just an implementation thing
 			self.send_broadcast(LEADER_REQUEST, UNKNOWN)#send a leader request message
 			self.leader_req_timer_.resched(2*self.claim_period_) #wait for a claim period for someone to become leader ,
-	          # how long do you wait before concluding there is no leader, how do these affect performance ?
-	          # always check for state sanity  
+			  # how long do you wait before concluding there is no leader, how do these affect performance ?
+			  # always check for state sanity  
 			
 			str = ""
 			
@@ -301,7 +308,7 @@ class JoinAgent:
 				str = "(%d.%d),<,(%d.%d)" % (self.regionX_, self.regionY_, orx, ory)
 #				if(LOG_ENABLED):
 #					log_info(MOVE,ENTER,str)
-#	     # ignore this is checkLocation polls repeatedly 
+#		 # ignore this is checkLocation polls repeatedly 
 #		#log_info(MOVE, SPEED, "speed checking ...");
 #		#get the speed and direction
 #		double destX,destY,speed;
@@ -327,7 +334,7 @@ class JoinAgent:
 #			sprintf(str,"%.2f,%.2f,(%d.%d),>,%.2f,%.2f,(%d.%d),%.2f,(%.2f.%.2f)", x, y, rx, ry, destX,destY, drx, dry, speed, speedX, speedY);
 #			log(MOVE,MOVING,str);
 		
-		time_to_leave_ = time.time() + wait_time #set to wait time
+		self.time_to_leave_ = time.time() + wait_time #set to wait time
 		return wait_time
 		
 	
@@ -335,7 +342,7 @@ class JoinAgent:
 	def send_left_broadcast(self, msgType, version, parking_spots, old_x, old_y, answer):
 		print 'JoinAgent.send_left_broadcast'
 		pkt = Packet()
-#TODO cmn_hdr
+# cmn_hdr
 #		cmn_hdr = hdr_cmn::access(pkt);
 #		cmn_hdr.ptype() = PT_REGION;
 #		cmn_hdr.size() = size_ + IP_HDR_LEN; # add in IP header
@@ -384,7 +391,7 @@ class JoinAgent:
 	def send_broadcast(self, msgType, answer):
 		print 'JoinAgent.send_broadcast'
 		pkt = Packet()
-#TODO cmn_hdr
+# cmn_hdr
 #		hdr_cmn * cmn_hdr = hdr_cmn::access(pkt);
 #		cmn_hdr.ptype() = PT_REGION;
 #		cmn_hdr.size() = size_ + IP_HDR_LEN; # add in IP header
@@ -424,7 +431,7 @@ class JoinAgent:
 	def send_left_unicast(self, msgType, dest, version, old_x, old_y, seq):
 		print 'JoinAgent.send_left_unicast'
 		pkt = Packet()
-#TODO cmn_hdr
+# cmn_hdr
 #		hdr_cmn * cmn_hdr = hdr_cmn::access(pkt);
 #		cmn_hdr.ptype() = PT_REGION;
 #		cmn_hdr.size() = size_ + IP_HDR_LEN; # add in IP header
@@ -473,7 +480,7 @@ class JoinAgent:
 	def send_unicast(self, msgType, dest, answer, seq):
 		print 'JoinAgent.send_unicast'
 		pkt = Packet()
-#TODO cmn_hdr
+# cmn_hdr
 #		hdr_cmn * cmn_hdr = hdr_cmn::access(pkt);
 #		cmn_hdr.ptype() = PT_REGION;
 #		cmn_hdr.size() = size_ + IP_HDR_LEN; # add in IP header
@@ -515,7 +522,7 @@ class JoinAgent:
 	def send_unicast_to(self, msgType, dest, port):
 		print 'JoinAgent.send_unicast_to'
 		pkt = Packet()
-#TODO cmn_hdr
+# cmn_hdr
 #		hdr_cmn * cmn_hdr = hdr_cmn::access(pkt);
 #		cmn_hdr.ptype() = PT_REGION;
 #		#cmn_hdr.size() = size_ + IP_HDR_LEN; # add in IP header
@@ -546,7 +553,7 @@ class JoinAgent:
 		
 		pkt_out = Packet() #create a packet for sending
 		
-#TODO cmn_hdr	
+# cmn_hdr	
 #		hdr_cmn * cmn_hdr_out = hdr_cmn::access(pkt_out);
 #		cmn_hdr_out.ptype() = PT_VNCOMMON;
 #		cmn_hdr_out.size() = size_ + IP_HDR_LEN; #
@@ -574,7 +581,7 @@ class JoinAgent:
 		print 'JoinAgent.send_loopback'
 		for i in range(self.num_apps):
 			pkt = Packet()
-#TODO cmn_hdr
+# cmn_hdr
 #			hdr_cmn * cmn_hdr = hdr_cmn::access(pkt)
 #			cmn_hdr.ptype() = PT_VNCOMMON
 #			cmn_hdr.size() = size_ + IP_HDR_LEN # add in IP header
@@ -634,7 +641,7 @@ class JoinAgent:
 	def getRegion(self, x, y):
 		print 'JoinAgent.getRegion'
 		xUnit = float(self.maxX_)/self.columns_ #size of a region X
-		yUnit = float(self.maxY_)/self.rows_    #size of a region Y
+		yUnit = float(self.maxY_)/self.rows_	#size of a region Y
 		
 		if( x<0 or x>self.maxX_):
 			print "X position out of bound\n" #warning.
@@ -653,7 +660,7 @@ class JoinAgent:
 			print "Y position reached bound\n"
 			ry = self.rows_-1;
 		
-		return rx, ry;
+		return (rx, ry)
 	
 	# reset states related to leader election
 	def status_reset(self):
@@ -712,4 +719,3 @@ class JoinAgent:
 				self.neighbor_flags[i] = INVALID;
 				self.neighbor_timers[i] = 0;
 		return
-	
