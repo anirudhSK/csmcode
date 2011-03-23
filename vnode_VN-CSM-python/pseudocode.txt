@@ -1,0 +1,226 @@
+### packet types:
+	SYNC_MSG
+		ST_SYNCED
+		ST_VER
+	JOIN_MSG
+		HEART_BEAT
+		LEADER_REPLY
+		LEADER_ELECT
+		LEADER_REQUEST_REMOTE
+		LEADER_ACK_REMOTE
+		LEADER_ACK_ACK
+
+
+
+
+
+### packet structure:
+	routing header
+		src
+		dst
+		send_time
+		hops?
+	vn app header
+		message type
+		message subtype
+		data version
+	vn app data
+		array[region_rows][region_cols] of # free parking spaces			
+			
+
+
+
+
+
+### overall structure
+class Packet(object):
+
+
+class CustomQueue(object):
+	def __init__(self):
+	def empty(self):
+	def clear(self):
+	def size(self):
+	def top(self):
+	def push(self, item):
+	def pop(self):
+	def sort(self, fn, r):
+	def __repr__(self):
+	def __getitem__(self, index):
+	def __delitem__(self, index):
+
+OldLeaderData
+	def __init__(self, ver, ox, oy, spots):
+
+JoinAgent
+	def __init__(self, id, slowInterval_, interval_, maxX_, maxY_, rows_, columns_, ):
+	def recv(self, pkt):
+	def check_old_leader_status(self):
+	def check_leader_status(self):
+	def check_location(self):
+	def send_left_broadcast(self, msgType, version, parking_spots, old_x, old_y, answer):
+	def send_broadcast(self, msgType, answer):
+	def send_left_unicast(self, msgType, dest, version, old_x, old_y, seq):
+	def send_unicast(self, msgType, dest, answer, seq):
+	def send_unicast_to(self, msgType, dest, port):
+	def copy_loopback(self, pkt_in, port):
+	def send_loopback(self, msgType):
+	def getRegion(self, x, y):
+	def status_reset(self):
+	def setNeighbors(self):
+
+
+ParkingServerAgent
+
+
+ParkingClientAgent
+
+
+
+
+### Scenarios
+
+--- N2 enters region with N1 already a leader
+N2(UNKNOWN) --- LEADER_REQUEST --> 		N1(LEADER)
+N2(UNKNOWN) <-- LEADER_REPLY, deny --- 	N1(LEADER)
+N2(NON-LEADER)							N1(LEADER)
+
+--- N1 enters an empty region
+N1(UNKNOWN) --- LEADER_REQUEST ---> 	
+no reply within timeout
+N1(???) --- LEADER_REQUEST_CENTRAL??? ---> CENTRAL SERVER
+N1(???) <-- OKAY + STATE DATA ---	CENTRAL SERVER
+N1(LEADER)
+
+
+
+--- N1 LEADER leaves a region and enters a new region
+-- in old region:
+N1(LEADER) --- LEADER_ELECT -->	N2(UNKNOWN)
+N1(LEADER) --- LEADER_ELECT -->	N3(UNKNOWN)
+
+N1(LEADER)						N2(PENDING)
+N1(LEADER)						N3(PENDING)
+
+N1(LEADER) <-- LEADER_REQUEST_REMOTE ---	N2(PENDING)
+N1(LEADER) <-- LEADER_REQUEST_REMOTE ---	N3(PENDING)
+
+N1(LEADER) --- LEADER_ACK_REMOTE -->	N2(PENDING)
+N1(LEADER) 								N3(PENDING)
+
+N1(LEADER) <-- LEADER_ACK_ACK ---	N2(LEADER)
+N1(LEADER) 							N3(PENDING)
+
+N1(???) 							N2(LEADER)
+N1(???) 							N3(PENDING)
+
+- N2 is now the new leader of the old region
+N2(LEADER) --- LEADER_REPLY??? --> N3(PENDING)
+
+N2(LEADER) 							N3(UNKNOWN)
+
+-- in new region:
+???
+
+
+
+
+
+
+
+### overall pseudocode for agents
+JOIN agent:
+	
+	STARTUP state (on going to a new region?)
+		loop:
+			broadcast LEADER_REQUEST to region
+			if receive LEADER_REPLY from a leader in the same region within timeout:
+				become NON-LEADER, status = NON-LEADER?
+			else:
+				contact central server
+				if receive reply OKAY from central server (server only replies if no VN running in that region)
+					fetch up-to-date VN state from central server
+					tell server VN is now running in that region
+					become LEADER and start VN and go into LEADER state				
+	
+	LEADER state:
+		periodically broadcast HEARTBEAT message
+		
+		upon hearing LEADER_REQUEST broadcast from NON-LEADER in the same region:
+			send LEADER_REPLY, CONSENT (no, you cannot be a leader, but you can join this region)
+		
+		upon leaving a region:
+			broadcast LEADER_ELECT to old region
+			
+			if receive LEADER_REQUEST_REMOTE messages (containing state version #'s) from non-leaders in old region we just left:
+				if there is a non-leader / replica with the same state version #:
+					send LEADER_ACK_REMOTE to it
+				else:
+					select any non-leader with a LEADER_ACK including a copy of the shared data / VN state
+					
+			else if not able to elect new leader after multiple retries:
+				upload VN state to central server (next node to enter region fetches VN state as in UNKNOWN)
+				tell server VN is no longer running in that region
+	
+	
+	NON-LEADER / UNKNOWN state:
+	 	upon not receiving enough HEARTBEATs from leader:
+			broadcast LEADER_REQUEST to region
+			if receive LEADER_REPLY from a leader in the region within timeout:
+				remain NON-LEADER
+			else:
+				contact central server
+				if receive reply / OKAY from central server (server only replies if no VN running in that region)
+					fetch up-to-date VN state from central server
+					tell server VN is now running in that region
+					become LEADER and start VN and go into LEADER state
+		
+		upon hearing LEADER_ELECT broadcast from leader that is leaving:
+			status = PENDING
+			send LEADER_REQUEST_REMOTE (including VN state version #) to leaving leader, who is now in a different region
+			
+			if receive LEADER_ACK_REMOTE unicast from previous leader (who is in different region):
+				if status = PENDING:
+					start being a LEADER, status = LEADER
+					send LEADER_ACK_ACK to previous leader
+					tell central server there is a new leader?
+			else if receive 
+
+
+
+### function pseudocode
+void JoinAgent::recv(Packet* pkt, Handler*)
+	
+	return
+
+
+void JoinAgent::check_old_leader_status()
+	for each old_l in oldLeaderData array:
+		continue if not old_l.is_valid
+		if old_l.retries < 40:
+			if old_l.leader_ack == False:
+				old_l.retries++
+				broadcast(LEADER_ELECT MESSAGE)
+				old_leader_timer.resched(4*claim_period_); 
+			elif old_l.leader_ack_ack == False:
+				old_l.retries++
+				unicast(LEADER_ACK_REMOTE MESSAGE)
+				old_leader_timer.resched(4*claim_period_); 
+		else:
+			if old_l.leader_ack_ack:
+				old_l.is_valid = False
+				continue
+			old_l.retries = 0
+			old_l.leader_ack = True
+			old_l.leader_ack_ack = True
+			old_l.is_valid = False
+	return
+
+double JoinAgent::check_location()
+	get current position of node
+	check if region has changed
+	if region changed:
+		if leader_status = LEADER:	
+
+
+void JoinAgent::check_leader_status()

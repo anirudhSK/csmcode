@@ -671,7 +671,7 @@ class JoinAgent:
 		self.leader_start_ = UNKNOWN
 		self.state_synced_ = False
 	
-	# Upon region change, calculate the neighbor list and initialize the status of each neighbor
+	# Upon region change, calculate the list of neighboring regions and initialize the status of each neighbor
 	# void JoinAgent::setNeighbors()
 	def setNeighbors(self):
 		print 'JoinAgent.setNeighbors'
