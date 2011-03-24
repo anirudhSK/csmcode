@@ -246,7 +246,68 @@ JOIN agent:
 
 VNSERVER Agent:
 
+	#consistency manager statemachine states
+	UNKNOWN = -1                      #the initial state, dead node
+	NEWNODE = 0                       #a new node in a region
+	SYNC =    1                       #non-leader node just get in a region
+	INIT =    2                       #leader node just get in a region
+	SERVER =  3                       #a leader node initialized
+	BACKUP =  4                       #a non-leader node who got its states synchronized with the leader already
+	MSGSYNC = 5                       #sync caused by message sequence inconsistency
 
+	UNKNOWN state (upon entering a new region):
+		self.sending_state_ = NOSENDING;
+		self.state_ = NEWNODE;
+		self.leader_ = UNKNOWN;
+		self.leader_status_ = UNKNOWN;
+		self.first_node_ = False; #new node to the region
+		clear queue
+	
+	upon receiving a packet:
+		if it's a LEADER_MSG (loopback from JOIN Agent that means a leader change occurred):
+			if message subtype is NEWLEADER:
+				ensure
+				self.leader_status_ = LEADER
+				self.leader_ = self.nodeID_
+				???
+			else if message subtype is NONLEADER:
+				self.leader_status_ = NONLEADER
+				self.leader_ = vnhdr.dst?? should be src
+
+				if we are the first node:
+					set first node deadline to t+5 seconds
+
+				if we are a NEWNODE:
+					initialize server
+					go into SYNC state
+					self.sync()
+		
+		else if it's a  REGION_MSG:NEWREGION (loopback from JOIN Agent that means we entered a new region):
+			update our internal regionX_, regionY_ region tracking variables
+			figure out who our neighbors are and set them as inactive / active / invalid / valid correctly - setNeighbors()
+			go back into UNKNOWN state with UNKNOWN leader, etc.
+			set first_node_deadline_ to t+5
+		
+		else if it's a SYNC_MSG:
+			if it's a SYNC_REQUEST and we're SERVER, and it's past time for the next synchronization:
+				broadcast a SYNC_ACK with the state data to the non-servers in the region
+			if it's a SYNC_ACK and we're SYNC or MSGSYNC state:
+				update our own internal state with the server's (contained in the SYNC_ACK packet)
+				now we become a BACKUP
+				send a ST_SYNCED loopback message to VNClient Agent and Join Agent.
+		
+		else if it's an APPL_MSG (application layer message) from our region (ignore other regions' app messages)
+			if we're the server, or we're a backup and we want to stay in lockstep / sync:
+				if we are doing Total Ordering:
+					put it into the total ordered input queue, which is periodically checked and passed off to consistencyManager eventually
+				else:
+					pass it off to consistencyManager immediately for handling correctly, (as if / since we're serving the request)
+	
+	upon invoking consistencyManager to handle an application layer packet:
+		
+		
+		
+		
 
 VNCLIENT Agent:
 
