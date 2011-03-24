@@ -1,4 +1,4 @@
-### packet types:
+### VN-C packet types:
 	SYNC_MSG
 		ST_SYNCED
 		ST_VER
@@ -11,26 +11,36 @@
 		LEADER_ACK_ACK
 
 
-
-
-
 ### packet structure:
 	routing header
 		src
 		dst
 		send_time
 		hops?
-	vn app header
+	vn header
 		message type
 		message subtype
 		data version
-	vn app data
+	vn data
 		array[region_rows][region_cols] of # free parking spaces			
-			
 
 
+### data stored by each agent
+JOIN
+	nodeID_
+	regionX_, regionY_
+	leader_status_
+	neighbors_
+	packet queue
 
+VNSERVER
+	regionX_, regionY_
+	leader_status_
+	packet queue
 
+VNCLIENT
+	nodeID_
+	packet queue?
 
 ### overall structure
 class Packet(object):
@@ -80,12 +90,7 @@ ParkingClientAgent
 
 ### Scenarios
 
---- N2 enters region with N1 already a leader
-N2(UNKNOWN) --- LEADER_REQUEST --> 		N1(LEADER)
-N2(UNKNOWN) <-- LEADER_REPLY, deny --- 	N1(LEADER)
-N2(NON-LEADER)							N1(LEADER)
-
---- N1 enters an empty region
+--- N1 enters an empty region that has no nodes, becoming the only node in that region
 N1(UNKNOWN) --- LEADER_REQUEST ---> 	
 no reply within timeout
 N1(???) --- LEADER_REQUEST_CENTRAL??? ---> CENTRAL SERVER
@@ -93,8 +98,26 @@ N1(???) <-- OKAY + STATE DATA ---	CENTRAL SERVER
 N1(LEADER)
 
 
+--- N1 leaves region that has no other nodes, causing it to become empty
+N1(LEADER) --- LEADER_ELECT ---> 	
+no reply within timeout
+N1(LEADER) --- ??? + STATE DATA ---> CENTRAL SERVER
+N1(UNKNOWN)
 
---- N1 LEADER leaves a region and enters a new region
+
+--- N2 enters region that has N1 as leader
+N2(UNKNOWN) --- LEADER_REQUEST --> 		N1(LEADER)
+N2(UNKNOWN) <-- LEADER_REPLY, deny --- 	N1(LEADER)
+N2(NON-LEADER)							N1(LEADER)
+
+
+--- N2 leaves region that has N1 as leader
+N2(UNKNOWN) --- LEADER_REQUEST --> 		N1(LEADER)
+N2(UNKNOWN) <-- LEADER_REPLY, deny --- 	N1(LEADER)
+N2(NON-LEADER)							N1(LEADER)
+
+
+--- N1 is a leader; leaves a region
 -- in old region:
 N1(LEADER) --- LEADER_ELECT -->	N2(UNKNOWN)
 N1(LEADER) --- LEADER_ELECT -->	N3(UNKNOWN)
@@ -115,13 +138,46 @@ N1(???) 							N2(LEADER)
 N1(???) 							N3(PENDING)
 
 - N2 is now the new leader of the old region
+
 N2(LEADER) --- LEADER_REPLY??? --> N3(PENDING)
 
 N2(LEADER) 							N3(UNKNOWN)
 
+
 -- in new region:
 ???
 
+
+### state machine descriptions
+
+JOIN agent:
+	UNKNOWN:
+		if send LEADER_REQUEST
+			go to PENDING
+		upon receive LEADER_REPLY
+			remain in UNKNOWN
+		
+	
+	REQUESTED:
+		upon timeout:
+			ask server for data
+			go to LEADER if successful
+		upon receive LEADER_REPLY
+			go to UNKNOWN
+
+	LEADER:
+		upon receive LEADER_REQUEST_REMOTE
+			send LEADER_ACK_REMOTE
+			go to UNKNOWN???
+		
+		upon receive LEADER_REQUEST
+			send LEADER_REPLY
+			remain in LEADDER
+	
+	PENDING
+		upon receive LEADER_ACK_REMOTE
+			send LEADER_ACK_ACK
+			go to LEADER
 
 
 
@@ -185,6 +241,18 @@ JOIN agent:
 					send LEADER_ACK_ACK to previous leader
 					tell central server there is a new leader?
 			else if receive 
+
+
+
+VNSERVER Agent:
+
+
+
+VNCLIENT Agent:
+
+
+
+
 
 
 
