@@ -1,203 +1,16 @@
-### VN-C packet types:
-	SYNC_MSG
-		ST_SYNCED
-		ST_VER
-	JOIN_MSG
-		HEART_BEAT
-		LEADER_REPLY
-		LEADER_ELECT
-		LEADER_REQUEST_REMOTE
-		LEADER_ACK_REMOTE
-		LEADER_ACK_ACK
-
-
-### packet structure:
-	routing header
-		src
-		dst
-		send_time
-		hops?
-	vn header
-		message type
-		message subtype
-		data version
-	vn data
-		array[region_rows][region_cols] of # free parking spaces			
-
-
-### data stored by each agent
-JOIN
-	nodeID_
-	regionX_, regionY_
-	leader_status_
-	neighbors_
-	packet queue
-
-VNSERVER
-	regionX_, regionY_
-	leader_status_
-	packet queue
-
-VNCLIENT
-	nodeID_
-	packet queue?
-
-### overall structure
-class Packet(object):
-
-
-class CustomQueue(object):
-	def __init__(self):
-	def empty(self):
-	def clear(self):
-	def size(self):
-	def top(self):
-	def push(self, item):
-	def pop(self):
-	def sort(self, fn, r):
-	def __repr__(self):
-	def __getitem__(self, index):
-	def __delitem__(self, index):
-
-OldLeaderData
-	def __init__(self, ver, ox, oy, spots):
-
-JoinAgent
-	def __init__(self, id, slowInterval_, interval_, maxX_, maxY_, rows_, columns_, ):
-	def recv(self, pkt):
-	def check_old_leader_status(self):
-	def check_leader_status(self):
-	def check_location(self):
-	def send_left_broadcast(self, msgType, version, parking_spots, old_x, old_y, answer):
-	def send_broadcast(self, msgType, answer):
-	def send_left_unicast(self, msgType, dest, version, old_x, old_y, seq):
-	def send_unicast(self, msgType, dest, answer, seq):
-	def send_unicast_to(self, msgType, dest, port):
-	def copy_loopback(self, pkt_in, port):
-	def send_loopback(self, msgType):
-	def getRegion(self, x, y):
-	def status_reset(self):
-	def setNeighbors(self):
-
-
-ParkingServerAgent
-
-
-ParkingClientAgent
-
-
-
-
-### Scenarios
-
---- N1 enters an empty region that has no nodes, becoming the only node in that region
-N1(UNKNOWN) --- LEADER_REQUEST ---> 	
-no reply within timeout
-N1(???) --- LEADER_REQUEST_CENTRAL??? ---> CENTRAL SERVER
-N1(???) <-- OKAY + STATE DATA ---	CENTRAL SERVER
-N1(LEADER)
-
-
---- N1 leaves region that has no other nodes, causing it to become empty
-N1(LEADER) --- LEADER_ELECT ---> 	
-no reply within timeout
-N1(LEADER) --- ??? + STATE DATA ---> CENTRAL SERVER
-N1(UNKNOWN)
-
-
---- N2 enters region that has N1 as leader
-N2(UNKNOWN) --- LEADER_REQUEST --> 		N1(LEADER)
-N2(UNKNOWN) <-- LEADER_REPLY, deny --- 	N1(LEADER)
-N2(NON-LEADER)							N1(LEADER)
-
-
---- N2 leaves region that has N1 as leader
-N2(UNKNOWN) --- LEADER_REQUEST --> 		N1(LEADER)
-N2(UNKNOWN) <-- LEADER_REPLY, deny --- 	N1(LEADER)
-N2(NON-LEADER)							N1(LEADER)
-
-
---- N1 is a leader; leaves a region
--- in old region:
-N1(LEADER) --- LEADER_ELECT -->	N2(UNKNOWN)
-N1(LEADER) --- LEADER_ELECT -->	N3(UNKNOWN)
-
-N1(LEADER)						N2(PENDING)
-N1(LEADER)						N3(PENDING)
-
-N1(LEADER) <-- LEADER_REQUEST_REMOTE ---	N2(PENDING)
-N1(LEADER) <-- LEADER_REQUEST_REMOTE ---	N3(PENDING)
-
-N1(LEADER) --- LEADER_ACK_REMOTE -->	N2(PENDING)
-N1(LEADER) 								N3(PENDING)
-
-N1(LEADER) <-- LEADER_ACK_ACK ---	N2(LEADER)
-N1(LEADER) 							N3(PENDING)
-
-N1(???) 							N2(LEADER)
-N1(???) 							N3(PENDING)
-
-- N2 is now the new leader of the old region
-
-N2(LEADER) --- LEADER_REPLY??? --> N3(PENDING)
-
-N2(LEADER) 							N3(UNKNOWN)
-
-
--- in new region:
-???
-
-
-### state machine descriptions
-
-JOIN agent:
-	UNKNOWN:
-		if send LEADER_REQUEST
-			go to PENDING
-		upon receive LEADER_REPLY
-			remain in UNKNOWN
-		
-	
-	REQUESTED:
-		upon timeout:
-			ask server for data
-			go to LEADER if successful
-		upon receive LEADER_REPLY
-			go to UNKNOWN
-
-	LEADER:
-		upon receive LEADER_REQUEST_REMOTE
-			send LEADER_ACK_REMOTE
-			go to UNKNOWN???
-		
-		upon receive LEADER_REQUEST
-			send LEADER_REPLY
-			remain in LEADDER
-	
-	PENDING
-		upon receive LEADER_ACK_REMOTE
-			send LEADER_ACK_ACK
-			go to LEADER
-
-
-
-
-
-
-### overall pseudocode for agents
-JOIN agent:
+JOIN agent (join.py):
 	
 	STARTUP state (on going to a new region?)
-		loop:
-			broadcast LEADER_REQUEST to region
-			if receive LEADER_REPLY from a leader in the same region within timeout:
-				become NON-LEADER, status = NON-LEADER?
-			else:
+		periodically broadcast LEADER_REQUEST to region
+			if timeout expires without response:
 				contact central server
 				if receive reply OKAY from central server (server only replies if no VN running in that region)
 					fetch up-to-date VN state from central server
 					tell server VN is now running in that region
-					become LEADER and start VN and go into LEADER state				
+					become LEADER and start VN and go into LEADER state
+		
+		upon receive LEADER_REPLY from a leader in the same region within timeout:
+			become NON_LEADER	
 	
 	LEADER state:
 		periodically broadcast HEARTBEAT message
@@ -220,6 +33,8 @@ JOIN agent:
 	
 	
 	NON-LEADER / UNKNOWN state:
+		periodically check HEARTBEAT count
+		
 	 	upon not receiving enough HEARTBEATs from leader:
 			broadcast LEADER_REQUEST to region
 			if receive LEADER_REPLY from a leader in the region within timeout:
@@ -240,13 +55,14 @@ JOIN agent:
 					start being a LEADER, status = LEADER
 					send LEADER_ACK_ACK to previous leader
 					tell central server there is a new leader?
-			else if receive 
+			else if receive
+				...
 
 
 
-VNSERVER Agent:
+VNSERVER Agent (both vnserver.py and parkingserver.py):
 
-	#consistency manager statemachine states
+	#consistency manager states
 	UNKNOWN = -1                      #the initial state, dead node
 	NEWNODE = 0                       #a new node in a region
 	SYNC =    1                       #non-leader node just get in a region
@@ -303,53 +119,29 @@ VNSERVER Agent:
 				else:
 					pass it off to consistencyManager immediately for handling correctly, (as if / since we're serving the request)
 	
+	### application specific (e.g. parkingserver.py)
 	upon invoking consistencyManager to handle an application layer packet:
+
+
+
+VNCLIENT Agent (both vnclient.py and parkingclient.py):
+
+	upon receiving a packet:
+		if it's a LEADER_MSG (loopback from JOIN Agent that means a leader change occurred):
+			update our self.leader_status_ to LEADER (if message subtype was NEWLEADER) or NONLEADER (if message subtype was NONLEADER)
+				
+		if it's a  REGION_MSG:NEWREGION (loopback from JOIN Agent that means we entered a new region):
+			update our internal regionX_, regionY_ region tracking variables
+			init() (app specific) if we are in UNKNOWN state
+			reset() (app specific) otherwise
 		
-		
-		
-		
+		if it's an APPL_MSG (application layer message) from our region (ignore other regions' app messages for vnclient?)
+			if we're NOT in the UNKNOWN state:
+				handle the packet according to application specific handle_packet function (e.g. in parkingclient.py)
+				trigger a timer to send packets in the send queue, if necessary (send_packets())
 
-VNCLIENT Agent:
-
-
-
-
-
-
-
-### function pseudocode
-void JoinAgent::recv(Packet* pkt, Handler*)
-	
-	return
-
-
-void JoinAgent::check_old_leader_status()
-	for each old_l in oldLeaderData array:
-		continue if not old_l.is_valid
-		if old_l.retries < 40:
-			if old_l.leader_ack == False:
-				old_l.retries++
-				broadcast(LEADER_ELECT MESSAGE)
-				old_leader_timer.resched(4*claim_period_); 
-			elif old_l.leader_ack_ack == False:
-				old_l.retries++
-				unicast(LEADER_ACK_REMOTE MESSAGE)
-				old_leader_timer.resched(4*claim_period_); 
-		else:
-			if old_l.leader_ack_ack:
-				old_l.is_valid = False
-				continue
-			old_l.retries = 0
-			old_l.leader_ack = True
-			old_l.leader_ack_ack = True
-			old_l.is_valid = False
-	return
-
-double JoinAgent::check_location()
-	get current position of node
-	check if region has changed
-	if region changed:
-		if leader_status = LEADER:	
-
-
-void JoinAgent::check_leader_status()
+		### application specific (e.g. parkingclient.py)
+		upon receiving packet for application specific handle_packet:
+			ensure packet is for our region, is of type APPL_MSG, and originated from this node? (hdr.origid == self.nodeID_):
+			log hop times?
+			removeClientRequest(self.nodeID_, hdr.m_count); ?
