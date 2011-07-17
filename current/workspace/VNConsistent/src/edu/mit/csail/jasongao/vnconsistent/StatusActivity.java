@@ -2,6 +2,7 @@ package edu.mit.csail.jasongao.vnconsistent;
 
 import java.io.File;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
@@ -36,7 +37,7 @@ public class StatusActivity extends Activity implements LocationListener {
 	Button bench_button, cache_button, distribution_button;
 	int distributionLevel = 3;
 	TextView opCountTv, successCountTv, failureCountTv;
-	TextView idTv, stateTv, regionTv, leaderTv, csmTv;
+	TextView idTv, stateTv, regionTv, leaderTv;
 	ListView msgList;
 	ArrayAdapter<String> receivedMessages;
 
@@ -69,12 +70,16 @@ public class StatusActivity extends Activity implements LocationListener {
 					myLogWriter.println((String) msg.obj);
 				}
 				break;
-			case Mux.STATUS_CHANGE:
+			case Mux.VNC_STATUS_CHANGE:
 				update();
 				break;
-			case Mux.PARKING_CHANGE:
-				updateParking((Long) msg.obj);
-				break;
+			case Mux.CLIENT_STATUS_CHANGE:
+				ArrayList<Long> counts = (ArrayList<Long>) msg.obj;
+				opCountTv.setText("ops: " + String.valueOf(counts.get(0)));
+				successCountTv.setText("successes: "
+						+ String.valueOf(counts.get(1)));
+				failureCountTv.setText("failures: "
+						+ String.valueOf(counts.get(2)));
 			}
 		}
 	};
@@ -106,11 +111,6 @@ public class StatusActivity extends Activity implements LocationListener {
 			stateTv.setText("NONLEADER");
 			break;
 		}
-	}
-
-	/** Force an update of the parking views */
-	public void updateParking(long val) {
-		csmTv.setText(String.valueOf(val));
 	}
 
 	/**
@@ -178,7 +178,7 @@ public class StatusActivity extends Activity implements LocationListener {
 		stateTv = (TextView) findViewById(R.id.state_tv);
 		regionTv = (TextView) findViewById(R.id.region_tv);
 		leaderTv = (TextView) findViewById(R.id.leader_tv);
-		csmTv = (TextView) findViewById(R.id.csm_tv);
+
 		msgList = (ListView) findViewById(R.id.msgList);
 		receivedMessages = new ArrayAdapter<String>(this, R.layout.message);
 		msgList.setAdapter(receivedMessages);
@@ -269,11 +269,11 @@ public class StatusActivity extends Activity implements LocationListener {
 			// toggle benchmark in userClient
 			if (mux != null && mux.userClient != null) {
 				if (!mux.userClient.isBenchmarkOn()) {
-					bench_button.setText("STOP Bench");
+					bench_button.setText("Stop Bench");
 					logMsg("*** benchmark starting ***");
 					mux.userClient.startBenchmark();
 				} else {
-					bench_button.setText("START Bench");
+					bench_button.setText("Start Bench");
 					mux.userClient.stopBenchmark();
 					logMsg("*** benchmark stopped ***");
 				}
@@ -318,25 +318,25 @@ public class StatusActivity extends Activity implements LocationListener {
 			}
 		}
 	};
-	
+
 	private OnClickListener r00_listener = new OnClickListener() {
 		public void onClick(View v) {
-			mux.vncDaemon.changeRegion(new RegionKey (0,0));
+			mux.vncDaemon.changeRegion(new RegionKey(0, 0));
 		}
 	};
 	private OnClickListener r01_listener = new OnClickListener() {
 		public void onClick(View v) {
-			mux.vncDaemon.changeRegion(new RegionKey (0,1));
+			mux.vncDaemon.changeRegion(new RegionKey(0, 1));
 		}
 	};
 	private OnClickListener r10_listener = new OnClickListener() {
 		public void onClick(View v) {
-			mux.vncDaemon.changeRegion(new RegionKey (1,0));
+			mux.vncDaemon.changeRegion(new RegionKey(1, 0));
 		}
 	};
 	private OnClickListener r11_listener = new OnClickListener() {
 		public void onClick(View v) {
-			mux.vncDaemon.changeRegion(new RegionKey (1,1));
+			mux.vncDaemon.changeRegion(new RegionKey(1, 1));
 		}
 	};
 

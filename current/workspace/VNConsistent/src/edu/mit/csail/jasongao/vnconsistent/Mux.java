@@ -28,9 +28,9 @@ public class Mux extends Thread {
 	protected final static int CSM_SEND = 19;
 	protected final static int VNC_SEND = 18;
 	protected final static int APP_SEND = 17;
-	protected final static int STATUS_CHANGE = 6;
+	protected final static int VNC_STATUS_CHANGE = 6;
 	protected final static int REGION_CHANGE = 7;
-	protected final static int PARKING_CHANGE = 8;
+	protected final static int CLIENT_STATUS_CHANGE = 8;
 
 	// Components TODO make private
 	private NetworkThread netThread;
@@ -144,14 +144,14 @@ public class Mux extends Thread {
 		case Mux.LOG_NODISPLAY:
 			activityHandler.sendMessage(Message.obtain(msg));
 			break;
-		case Mux.STATUS_CHANGE:
+		case Mux.VNC_STATUS_CHANGE:
 			activityHandler.sendMessage(Message.obtain(msg));
 			break;
 		case Mux.REGION_CHANGE:
 			activityHandler.sendMessage(Message.obtain(msg));
 			userClient.myHandler.sendMessage(Message.obtain(msg));
 			break;
-		case Mux.PARKING_CHANGE: // TODO remove?
+		case Mux.CLIENT_STATUS_CHANGE: // TODO remove?
 			activityHandler.sendMessage(Message.obtain(msg));
 			break;
 		}

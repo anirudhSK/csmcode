@@ -13,8 +13,6 @@
 			android:id="@+id/TextView01" android:layout_height="wrap_content"></TextView>
 		<TextView android:layout_height="wrap_content"
 			android:layout_width="50dip" android:text="Leader" android:id="@+id/TextView05"></TextView>
-		<TextView android:text="Counter" android:layout_height="wrap_content"
-			android:id="@+id/TextView06" android:layout_width="75dip"></TextView>
 	</LinearLayout>
 	<LinearLayout android:layout_width="match_parent"
 		android:layout_height="wrap_content" android:id="@+id/StatusInfoLayout">
@@ -26,8 +24,6 @@
 			android:id="@+id/id_tv" android:layout_height="wrap_content"></TextView>
 		<TextView android:layout_height="wrap_content"
 			android:layout_width="50dip" android:text="Leader" android:id="@+id/leader_tv"></TextView>
-		<TextView android:layout_height="wrap_content"
-			android:layout_width="75dip" android:text="value" android:id="@+id/csm_tv"></TextView>
 	</LinearLayout>
 
 	<ListView android:id="@+id/msgList" android:layout_width="fill_parent"
