@@ -2,7 +2,7 @@ package edu.mit.csail.jasongao.vnconsistent;
 
 import java.io.File;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.util.Map;
 
 import android.app.Activity;
 import android.content.Context;
@@ -27,13 +27,8 @@ public class StatusActivity extends Activity implements LocationListener {
 	final static private String TAG = "StatusActivity";
 
 	// UI elements
-	private boolean directionButtonsEnabled = false;
 	Button r00, r01, r10, r11;
-	// Button left, right, up, down;
-	// Button releaseparking;
-	// Button requestparkingA, readparkingA;
-	// Button requestparkingB, readparkingB;
-	// Button requestparkingC, readparkingC;
+	Button ticket_button;
 	Button bench_button, cache_button, distribution_button;
 	int distributionLevel = 3;
 	TextView opCountTv, successCountTv, failureCountTv;
@@ -74,12 +69,27 @@ public class StatusActivity extends Activity implements LocationListener {
 				update();
 				break;
 			case Mux.CLIENT_STATUS_CHANGE:
-				ArrayList<Long> counts = (ArrayList<Long>) msg.obj;
-				opCountTv.setText("ops: " + String.valueOf(counts.get(0)));
+				Map<String, Long> data = (Map<String, Long>) msg.obj;
+				opCountTv.setText("ops: " + String.valueOf(data.get("op")));
 				successCountTv.setText("successes: "
-						+ String.valueOf(counts.get(1)));
+						+ String.valueOf(data.get("success")));
 				failureCountTv.setText("failures: "
-						+ String.valueOf(counts.get(2)));
+						+ String.valueOf(data.get("failure")));
+
+				boolean requestOutstanding = data.get("request_oustanding") == 1L;
+				boolean ticketHeld = data.get("ticket_held") == 1L;
+				
+				if (requestOutstanding) {
+					if (ticketHeld)
+						ticket_button.setText("Releasing ticket...");
+					else
+						ticket_button.setText("Taking ticket...");
+				} else {
+					if (ticketHeld)
+						ticket_button.setText("Release ticket");
+					else
+						ticket_button.setText("Take ticket");
+				}
 			}
 		}
 	};
@@ -131,6 +141,9 @@ public class StatusActivity extends Activity implements LocationListener {
 		distribution_button = (Button) findViewById(R.id.distribution_button);
 		distribution_button.setOnClickListener(distribution_button_listener);
 
+		ticket_button = (Button) findViewById(R.id.ticket_button);
+		ticket_button.setOnClickListener(ticket_button_listener);
+
 		r00 = (Button) findViewById(R.id.r00_button);
 		r00.setOnClickListener(r00_listener);
 		r01 = (Button) findViewById(R.id.r01_button);
@@ -139,34 +152,6 @@ public class StatusActivity extends Activity implements LocationListener {
 		r10.setOnClickListener(r10_listener);
 		r11 = (Button) findViewById(R.id.r11_button);
 		r11.setOnClickListener(r11_listener);
-
-		/*
-		 * left = (Button) findViewById(R.id.left_button);
-		 * left.setOnClickListener(left_listener); right = (Button)
-		 * findViewById(R.id.right_button);
-		 * right.setOnClickListener(right_listener); up = (Button)
-		 * findViewById(R.id.up_button); up.setOnClickListener(up_listener);
-		 * down = (Button) findViewById(R.id.down_button);
-		 * down.setOnClickListener(down_listener);
-		 * 
-		 * releaseparking = (Button) findViewById(R.id.releaseparking_button);
-		 * releaseparking.setOnClickListener(releaseparking_listener);
-		 * 
-		 * requestparkingA = (Button) findViewById(R.id.requestparkingA_button);
-		 * requestparkingA.setOnClickListener(requestparkingA_listener);
-		 * readparkingA = (Button) findViewById(R.id.readparkingA_button);
-		 * readparkingA.setOnClickListener(readparkingA_listener);
-		 * 
-		 * requestparkingB = (Button) findViewById(R.id.requestparkingB_button);
-		 * requestparkingB.setOnClickListener(requestparkingB_listener);
-		 * readparkingB = (Button) findViewById(R.id.readparkingB_button);
-		 * readparkingB.setOnClickListener(readparkingB_listener);
-		 * 
-		 * requestparkingC = (Button) findViewById(R.id.requestparkingC_button);
-		 * requestparkingC.setOnClickListener(requestparkingC_listener);
-		 * readparkingC = (Button) findViewById(R.id.readparkingC_button);
-		 * readparkingC.setOnClickListener(readparkingC_listener);
-		 */
 
 		// Text views
 		opCountTv = (TextView) findViewById(R.id.opcount_tv);
@@ -340,29 +325,35 @@ public class StatusActivity extends Activity implements LocationListener {
 		}
 	};
 
+	private OnClickListener read_all_listener = new OnClickListener() {
+		public void onClick(View v) {
+			mux.userClient.requestRead(0, 0);
+			mux.userClient.requestRead(0, 1);
+			mux.userClient.requestRead(1, 0);
+			mux.userClient.requestRead(1, 1);
+		}
+	};
+
+	private OnClickListener ticket_button_listener = new OnClickListener() {
+		public void onClick(View v) {
+			if (!mux.userClient.isTicketHeld()) {
+				ticket_button.setText("Taking ticket...");
+				mux.userClient.requestDecrementInCurrentRegion();
+			} else {
+				ticket_button.setText("Releasing ticket...");
+				mux.userClient.requestIncrement();
+			}
+		}
+	};
+
 	private OnClickListener readparkingA_listener = new OnClickListener() {
 		public void onClick(View v) {
 			mux.userClient.requestRead(0, 0);
 		}
 	};
-	private OnClickListener readparkingB_listener = new OnClickListener() {
-		public void onClick(View v) {
-			mux.userClient.requestRead(1, 0);
-		}
-	};
 	private OnClickListener requestparkingA_listener = new OnClickListener() {
 		public void onClick(View v) {
 			mux.userClient.requestDecrement(0, 0);
-		}
-	};
-	private OnClickListener requestparkingB_listener = new OnClickListener() {
-		public void onClick(View v) {
-			mux.userClient.requestDecrement(1, 0);
-		}
-	};
-	private OnClickListener releaseparking_listener = new OnClickListener() {
-		public void onClick(View v) {
-			mux.userClient.requestIncrement();
 		}
 	};
 

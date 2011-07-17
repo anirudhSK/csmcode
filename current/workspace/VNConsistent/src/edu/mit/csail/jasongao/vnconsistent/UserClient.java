@@ -1,6 +1,7 @@
 package edu.mit.csail.jasongao.vnconsistent;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import android.os.Handler;
@@ -31,14 +32,14 @@ public class UserClient extends Thread {
 
 	private double readVsWriteDistribution = 0.9;
 
-	private boolean spotHeld = false; // are we currently holding a parking spot
-	private RegionKey spotHeldRegion;
-	private boolean writeTaskOutstanding = false; // in middle of inc / dec?
+	private boolean ticketHeld = false; // are we currently holding a ticket?
+	private RegionKey ticketHeldRegion;
+	private boolean requestOutstanding = false;
 	private long successCount = 0;
 	private long failureCount = 0;
 	private long opCount = 0;
 
-	private UserOp lastRequest = null;
+	private UserOp lastRequest = null; // last write requested
 	private UserOp currentRequest = null;
 	private long currentRequestTimestamp;
 
@@ -60,18 +61,17 @@ public class UserClient extends Thread {
 						currentRequest.targetRx, currentRequest.targetRy,
 						currentRequest.value));
 				myHandler.removeCallbacks(benchmarkIterationR);
+
+				// reset flags
+				requestOutstanding = false;
+
 				myHandler.post(benchmarkIterationR);
 			}
 
 			lastRequest = currentRequest;
 
 			// Update display
-			ArrayList<Long> counts = new ArrayList<Long>();
-			counts.add(opCount);
-			counts.add(successCount);
-			counts.add(failureCount);
-			mux.myHandler.obtainMessage(Mux.CLIENT_STATUS_CHANGE, counts)
-					.sendToTarget();
+			updateDisplay();
 
 			myHandler.postDelayed(benchmarkRequestTimeoutCheckR,
 					benchmarkTimeoutCheckPeriod);
@@ -93,7 +93,7 @@ public class UserClient extends Thread {
 					requestRead(dstRx, dstRy);
 				} else {
 					// make a write-involving operation (request or release)
-					if (!spotHeld) {
+					if (!ticketHeld) {
 						requestDecrement(dstRx, dstRy);
 					} else {
 						requestIncrement();
@@ -127,6 +127,18 @@ public class UserClient extends Thread {
 		}
 	}
 
+	/** Send data to the StatusActivity for display */
+	private void updateDisplay() {
+		Map<String, Long> userData = new HashMap<String, Long>();
+		userData.put("op", opCount);
+		userData.put("success", successCount);
+		userData.put("failure", failureCount);
+		userData.put("ticket_held", ticketHeld ? 1L : 0L);
+		userData.put("request_oustanding", requestOutstanding ? 1L : 0L);
+		mux.myHandler.obtainMessage(Mux.CLIENT_STATUS_CHANGE, userData)
+				.sendToTarget();
+	}
+
 	/** Send a CSMOp to the Mux to broadcast the request */
 	private void sendUserOp(UserOp uop) {
 		opCount++;
@@ -145,8 +157,8 @@ public class UserClient extends Thread {
 		if (uop.type == UserOp.DECREMENT) {
 			if (uop.success) {
 				successCount++;
-				writeTaskOutstanding = false;
-				spotHeld = true;
+				requestOutstanding = false;
+				ticketHeld = true;
 				logMsg(String
 						.format("UserClient decrement on (%d,%d) from (%d,%d) succeeded, value=%d,latency=%d",
 								uop.targetRx, uop.targetRy, uop.requesterRx,
@@ -160,8 +172,8 @@ public class UserClient extends Thread {
 		} else if (uop.type == UserOp.INCREMENT) {
 			if (uop.success) {
 				successCount++;
-				writeTaskOutstanding = false;
-				spotHeld = false;
+				requestOutstanding = false;
+				ticketHeld = false;
 				logMsg(String
 						.format("UserClient increment on (%d,%d) from (%d,%d) succeeded, value=%d,latency=%d",
 								uop.targetRx, uop.targetRy, uop.requesterRx,
@@ -188,12 +200,7 @@ public class UserClient extends Thread {
 		}
 
 		// Update display
-		ArrayList<Long> counts = new ArrayList<Long>();
-		counts.add(this.opCount);
-		counts.add(this.successCount);
-		counts.add(this.failureCount);
-		mux.myHandler.obtainMessage(Mux.CLIENT_STATUS_CHANGE, counts)
-				.sendToTarget();
+		updateDisplay();
 
 		// Set up next iteration
 		if (benchmarkOn) {
@@ -201,11 +208,21 @@ public class UserClient extends Thread {
 		}
 	}
 
+	public synchronized boolean isTicketHeld() {
+		return this.ticketHeld;
+	}
+
+	public synchronized boolean isRequestOutstanding() {
+		return this.requestOutstanding;
+	}
+
 	/** Read a parking spot */
 	public synchronized void requestRead(long rx, long ry) {
 		if (rx > maxRx || ry > maxRy) {
-			logMsg("Invalid region for parking read.");
+			logMsg("Invalid region for ticket read.");
 			return;
+		} else if (requestOutstanding) {
+			logMsg("Wait for previous action to complete.");
 		} else {
 			RegionKey readSpotRegion = new RegionKey(rx, ry);
 			logMsg("Reading spot in " + readSpotRegion);
@@ -218,42 +235,71 @@ public class UserClient extends Thread {
 	/** Request a parking spot */
 	public synchronized void requestDecrement(long rx, long ry) {
 		if (rx > maxRx || ry > maxRy) {
-			logMsg("Invalid region for parking request.");
+			logMsg("Invalid region for ticket request.");
 			return;
 		}
-		if (spotHeld) {
-			logMsg("Already holding a parking spot!");
+		if (ticketHeld) {
+			logMsg("Already holding a ticket!");
 		} else {
-			if (!spotHeld && !writeTaskOutstanding) {
-				writeTaskOutstanding = true;
-				spotHeldRegion = new RegionKey(rx, ry);
-				logMsg("Requesting spot in " + spotHeldRegion);
+			if (!ticketHeld && !requestOutstanding) {
+				requestOutstanding = true;
+				ticketHeldRegion = new RegionKey(rx, ry);
+				logMsg("Requesting spot in " + ticketHeldRegion);
 				UserOp userRequest = new UserOp(id, UserOp.DECREMENT, myRx,
 						myRy, rx, ry);
 				currentRequest = userRequest;
 				sendUserOp(userRequest);
-			} else if (writeTaskOutstanding) {
+			} else if (requestOutstanding) {
 				logMsg("Wait for previous action to complete.");
-			} else if (spotHeld) {
-				logMsg("You are already holding a spot!" + spotHeldRegion);
+			} else if (ticketHeld) {
+				logMsg("You are already holding a ticket!" + ticketHeldRegion);
+			}
+		}
+	}
+
+	/** Request a parking spot */
+	public synchronized void requestDecrementInCurrentRegion() {
+		long rx = this.myRx;
+		long ry = this.myRy;
+
+		if (rx > maxRx || ry > maxRy) {
+			logMsg("Invalid region for ticket request.");
+			return;
+		}
+
+		if (ticketHeld) {
+			logMsg("Already holding a ticket!");
+		} else {
+			if (!ticketHeld && !requestOutstanding) {
+				requestOutstanding = true;
+				ticketHeldRegion = new RegionKey(rx, ry);
+				logMsg("Requesting spot in " + ticketHeldRegion);
+				UserOp userRequest = new UserOp(id, UserOp.DECREMENT, myRx,
+						myRy, rx, ry);
+				currentRequest = userRequest;
+				sendUserOp(userRequest);
+			} else if (requestOutstanding) {
+				logMsg("Wait for previous action to complete.");
+			} else if (ticketHeld) {
+				logMsg("You are already holding a ticket!" + ticketHeldRegion);
 			}
 		}
 	}
 
 	/** Release a parking spot */
 	public synchronized void requestIncrement() {
-		if (spotHeld && !writeTaskOutstanding) {
-			writeTaskOutstanding = true;
-			logMsg("Releasing spot in " + spotHeldRegion);
+		if (ticketHeld && !requestOutstanding) {
+			requestOutstanding = true;
+			logMsg("Releasing ticket in " + ticketHeldRegion);
 
 			UserOp userRequest = new UserOp(id, UserOp.INCREMENT, myRx, myRy,
-					spotHeldRegion.x, spotHeldRegion.y);
+					ticketHeldRegion.x, ticketHeldRegion.y);
 			currentRequest = userRequest;
 			sendUserOp(userRequest);
-		} else if (writeTaskOutstanding) {
+		} else if (requestOutstanding) {
 			logMsg("Wait for previous action to complete.");
-		} else if (!spotHeld) {
-			logMsg("You are not holding a spot!");
+		} else if (!ticketHeld) {
+			logMsg("You are not holding a ticket!");
 		}
 	}
 
