@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="263" key="DIALOG_WIDTH"/>
+		<item value="390" key="DIALOG_Y_ORIGIN"/>
+		<item value="1090" key="DIALOG_X_ORIGIN"/>
+		<item value="395" key="DIALOG_HEIGHT"/>
+		<item value="1|Lucida Grande|11.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="true" key="wrap"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
+		<item value="false" key="incremental"/>
+		<item value="false" key="wholeword"/>
+		<item value="Retrying" key="selection"/>
+		<list key="findhistory">
+			<item value="retrying"/>
+			<item value="cache"/>
+			<item value="maxRx"/>
+			<item value="parking"/>
+			<item value="releaseLeadership"/>
+			<item value="CloudResponse cr = myCloud.releaseLeadership(leaderRegion, mId);"/>
+			<item value="releaseleadership"/>
+			<item value="release"/>
+		</list>
+		<list key="replacehistory">
+			<item value="the_value"/>
+			<item value=""/>
+			<item value="reqKey"/>
+			<item value="mux.myHandler"/>
+			<item value="csm = csmLoadJson("/>
+			<item value="csm = csmLoadBytes("/>
+			<item value="csmGetBytes(csm)"/>
+			<item value="csmGetHash(csm);"/>
+		</list>
+	</section>
+</section>

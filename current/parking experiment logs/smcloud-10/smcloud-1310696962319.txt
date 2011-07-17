@@ -1,0 +1,137 @@
+1310696962366: *** Opened log file for writing ***
+1310696962366: *** Application started ***
+1310697381914: You are not holding a spot!
+1310697385648: Requesting spot in (0,0)
+1310697396160: Parking request succeeded, spots=17,latency=10479
+1310697397298: You are already holding a spot!(0,0)
+1310697399661: Reading spot in (0,0)
+1310697406285: Reading spot in (0,0)
+1310697412723: Reading spot in (0,0)
+1310697418947: Reading spot in (0,0)
+1310697419839: Parking read succeeded, spots=15,latency=13543
+1310697419850: Parking read succeeded, spots=15,latency=20179
+1310697420142: Parking read succeeded, spots=15,latency=1181
+1310697420189: Parking read succeeded, spots=15,latency=7459
+1310697467524: Releasing spot in (0,0)
+1310697472507: Parking release succeeded, spots=18,latency=4971
+1310697506050: You are not holding a spot!
+1310697510602: Reading spot in (0,0)
+1310697513490: Parking read succeeded, spots=15,latency=2862
+1310697539788: Reading spot in (0,0)
+1310697541195: Reading spot in (0,0)
+1310697542293: Reading spot in (0,0)
+1310697542487: Parking read succeeded, spots=16,latency=2686
+1310697542516: Parking read succeeded, spots=16,latency=1314
+1310697542645: Parking read succeeded, spots=16,latency=336
+1310697546160: Reading spot in (0,0)
+1310697546707: Parking read succeeded, spots=17,latency=535
+1310697564547: You are not holding a spot!
+1310697569809: Requesting spot in (1,0)
+1310697571248: Parking request succeeded, spots=16,latency=1433
+1310697573256: Reading spot in (1,0)
+1310697574587: Parking read succeeded, spots=16,latency=1318
+1310697576334: Reading spot in (0,0)
+1310697577603: Parking read succeeded, spots=17,latency=1262
+1310697579313: Reading spot in (0,0)
+1310697580452: Parking read succeeded, spots=17,latency=1099
+1310697586400: Releasing spot in (1,0)
+1310697588040: Parking release succeeded, spots=17,latency=1613
+1310697595702: You are not holding a spot!
+1310697612545: Reading spot in (1,0)
+1310697613820: Parking read succeeded, spots=16,latency=1262
+1310697648470: Reading spot in (1,0)
+1310697649680: Parking read succeeded, spots=18,latency=1196
+1310697649990: Reading spot in (1,0)
+1310697651115: Parking read succeeded, spots=18,latency=1112
+1310697651446: Reading spot in (1,0)
+1310697652477: Parking read succeeded, spots=18,latency=1017
+1310697652933: Reading spot in (1,0)
+1310697653959: Parking read succeeded, spots=19,latency=1015
+1310697701889: Reading spot in (1,0)
+1310697703057: Parking read succeeded, spots=18,latency=1155
+1310697722959: You are not holding a spot!
+1310697730057: Requesting spot in (1,0)
+1310697731327: Parking request succeeded, spots=17,latency=1239
+1310697733930: You are already holding a spot!(1,0)
+1310697740856: Releasing spot in (1,0)
+1310697742064: Parking release succeeded, spots=18,latency=1202
+1310697746036: Requesting spot in (0,0)
+1310697747219: Parking request succeeded, spots=16,latency=1173
+1310697795409: Reading spot in (0,0)
+1310697796198: Reading spot in (0,0)
+1310697797118: Reading spot in (1,0)
+1310697798230: Reading spot in (1,0)
+1310697798755: Parking read succeeded, spots=15,latency=2550
+1310697798909: Parking read succeeded, spots=19,latency=1774
+1310697798922: Parking read succeeded, spots=15,latency=3501
+1310697798933: Parking read succeeded, spots=19,latency=681
+1310697803338: Reading spot in (0,0)
+1310697804458: Reading spot in (1,0)
+1310697806301: Parking read succeeded, spots=16,latency=2952
+1310697806477: Parking read succeeded, spots=19,latency=2005
+1310697828325: Releasing spot in (0,0)
+1310697831190: Parking release succeeded, spots=16,latency=2858
+1310697854423: Requesting spot in (1,0)
+1310697856647: Parking request succeeded, spots=16,latency=2211
+1310697896842: Reading spot in (1,0)
+1310697899505: Parking read succeeded, spots=16,latency=2652
+1310697932975: Reading spot in (0,0)
+1310697934025: Reading spot in (0,0)
+1310697935485: Reading spot in (1,0)
+1310697937743: Parking read succeeded, spots=17,latency=4757
+1310697937857: Parking read succeeded, spots=17,latency=3826
+1310697937894: Parking read succeeded, spots=17,latency=2401
+1310697953780: Releasing spot in (1,0)
+1310697956648: Parking release succeeded, spots=18,latency=2856
+1310697989812: Reading spot in (1,0)
+1310697990507: Reading spot in (1,0)
+1310697991350: Reading spot in (0,0)
+1310697992175: Reading spot in (0,0)
+1310697992756: Parking read succeeded, spots=18,latency=2937
+1310697992983: Parking read succeeded, spots=18,latency=2469
+1310697992996: Parking read succeeded, spots=19,latency=1629
+1310697993006: Parking read succeeded, spots=19,latency=820
+1310697994699: You are not holding a spot!
+1310697999466: Requesting spot in (0,0)
+1310698001147: Parking request succeeded, spots=18,latency=1656
+1310698064330: Releasing spot in (0,0)
+1310698070154: Parking release succeeded, spots=19,latency=5815
+1310698085329: You are not holding a spot!
+1310698087130: You are not holding a spot!
+1310698110898: You are not holding a spot!
+1310698147502: Requesting spot in (1,0)
+1310698149637: Wait for previous action to complete.
+1310698150893: Reading spot in (1,0)
+1310698151301: Parking request succeeded, spots=18,latency=3786
+1310698151402: Parking read succeeded, spots=18,latency=497
+1310698151695: Reading spot in (1,0)
+1310698152059: Parking read succeeded, spots=18,latency=353
+1310698153134: Reading spot in (1,0)
+1310698153497: Parking read succeeded, spots=18,latency=349
+1310698159701: Releasing spot in (1,0)
+1310698163159: Parking release succeeded, spots=19,latency=3423
+1310698168976: Requesting spot in (0,0)
+1310698169874: Wait for previous action to complete.
+1310698172348: Parking request succeeded, spots=16,latency=3343
+1310698173719: Reading spot in (0,0)
+1310698174177: Parking read succeeded, spots=16,latency=450
+1310698174676: Reading spot in (0,0)
+1310698175000: Parking read succeeded, spots=16,latency=278
+1310698175427: Reading spot in (0,0)
+1310698175732: Parking read succeeded, spots=16,latency=295
+1310698176313: Reading spot in (0,0)
+1310698177004: Parking read succeeded, spots=16,latency=681
+1310698201977: Reading spot in (0,0)
+1310698203048: Reading spot in (0,0)
+1310698204628: Parking read succeeded, spots=16,latency=2644
+1310698204684: Parking read succeeded, spots=17,latency=1632
+1310698205767: Releasing spot in (0,0)
+1310698206160: Parking release succeeded, spots=18,latency=383
+1310698209503: Requesting spot in (1,0)
+1310698210088: Parking request succeeded, spots=18,latency=576
+1310698249563: Reading spot in (0,0)
+1310698250382: Reading spot in (0,0)
+1310698252209: Parking read succeeded, spots=17,latency=1789
+1310698252220: Parking read succeeded, spots=17,latency=2636
+1310698279834: Releasing spot in (1,0)
+1310698283022: Parking release succeeded, spots=19,latency=3165

@@ -1,0 +1,270 @@
+1310682886453: started, mId = 5106
+1310682886453: region (-1, -1) out of bounds, dormant
+1310682886459: UserClient started
+1310682898329: moving from region (-1,-1), to (0,-1)
+1310682898329: region (0, -1) out of bounds, dormant
+1310682898330: UserClient received REGION_CHANGE message.
+1310682898537: moving from region (0,-1), to (0,0)
+1310682898540: sending LEADER_REQUEST
+1310682898614: Sending UDP payload: 470
+1310682898623: UserClient received REGION_CHANGE message.
+1310682899156: retry sending LEADER_REQUEST
+1310682899183: Sending UDP payload: 470
+1310682899759: retry sending LEADER_REQUEST
+1310682899787: Sending UDP payload: 470
+1310682900055: LEADER_REQUEST timed out
+1310682902988: cloud accepted leadership request, no csm data included.
+1310682903003: CSMLayer starting
+1310682903009: UserServer started.
+1310682903011: UserServer initialized.
+1310682903012: Requesting INIT on 0,0
+1310682903013: Sending PROC_REQUEST 0:0 (0,0)->(0,0)
+1310682903017: Sending UDP payload: 851
+1310682903023: removed replies before id 0 from sentReplies of size 0
+1310682903024: Received PROC_REQUEST 0:0 (0,0)->(0,0), replying PROC_REPLY 0:0 (0,0)->(0,0)
+1310682903038: Sending UDP payload: 881
+1310682903040: Received PROC_REPLY 0:0 (0,0)->(0,0), handing to UserServer
+1310682903040: Procedure 0:0 successful
+1310682903169: Sending UDP payload: 9848
+1310682903172: now fully up as LEADER
+1310682903181: Sending UDP payload: 470
+1310682904144: Received UDP payload: 470
+1310682904200: heard LEADER_REQUEST from node 5110, responding LEADER_REPLY
+1310682904257: Sending UDP payload: 9865
+1310682905201: Sending UDP payload: 470
+1310682905471: Received UDP payload: 470
+1310682905501: heard LEADER_REQUEST from node 5109, responding LEADER_REPLY
+1310682905556: Sending UDP payload: 9865
+1310682905810: Received UDP payload: 470
+1310682905836: heard LEADER_REQUEST from node 5109, responding LEADER_REPLY
+1310682905911: Sending UDP payload: 9865
+1310682907192: Sending UDP payload: 470
+1310682907553: Received UDP payload: 470
+1310682907590: heard LEADER_REQUEST from node 5103, responding LEADER_REPLY
+1310682907644: Sending UDP payload: 9865
+1310682909198: Sending UDP payload: 470
+1310682910498: Received UDP payload: 470
+1310682911096: Received UDP payload: 470
+1310682911197: Sending UDP payload: 470
+1310682911692: Received UDP payload: 470
+1310682912235: Received UDP payload: 470
+1310682912859: Received UDP payload: 470
+1310682913198: Sending UDP payload: 470
+1310682913464: Received UDP payload: 470
+1310682915054: Received UDP payload: 851
+1310682915111: Received UDP payload: 881
+1310682915197: Sending UDP payload: 470
+1310682915367: Received UDP payload: 9848
+1310682915391: Received UDP payload: 470
+1310682916840: Received UDP payload: 851
+1310682916880: Received UDP payload: 881
+1310682917065: Received UDP payload: 9848
+1310682917099: Received UDP payload: 470
+1310682917197: Sending UDP payload: 470
+1310682917296: Received UDP payload: 470
+1310682918269: Received UDP payload: 470
+1310682918442: Received UDP payload: 9865
+1310682919017: Received UDP payload: 470
+1310682919194: Sending UDP payload: 470
+1310682919297: Received UDP payload: 470
+1310682919517: Received UDP payload: 470
+1310682920134: Received UDP payload: 470
+1310682920753: Received UDP payload: 470
+1310682921015: Received UDP payload: 470
+1310682921197: Sending UDP payload: 470
+1310682921297: Received UDP payload: 470
+1310682923016: Received UDP payload: 470
+1310682923198: Sending UDP payload: 470
+1310682923297: Received UDP payload: 470
+1310682923910: Received UDP payload: 851
+1310682923954: Received UDP payload: 881
+1310682924201: Received UDP payload: 10407
+1310682924237: Received UDP payload: 470
+1310682925018: Received UDP payload: 470
+1310682925199: Sending UDP payload: 470
+1310682925297: Received UDP payload: 470
+1310682926135: Received UDP payload: 470
+1310682926638: Received UDP payload: 698
+1310682926681: Received UDP payload: 851
+1310682926689: removed replies before id 0 from sentReplies of size 0
+1310682926690: Received PROC_REQUEST 2:0 (1,0)->(0,0), replying PROC_REPLY 2:0 (0,0)->(1,0)
+1310682926697: Sending UDP payload: 881
+1310682926720: Received UDP payload: 698
+1310682927025: Received UDP payload: 470
+1310682927208: Sending UDP payload: 470
+1310682927297: Received UDP payload: 470
+1310682928143: Received UDP payload: 470
+1310682929006: Received UDP payload: 470
+1310682929213: Sending UDP payload: 470
+1310682929296: Received UDP payload: 470
+1310682929893: *** CSM Caching Enabled ***
+1310682930149: Received UDP payload: 470
+1310682931022: Received UDP payload: 470
+1310682931209: Sending UDP payload: 470
+1310682931297: Received UDP payload: 470
+1310682932144: Received UDP payload: 470
+1310682932399: Received UDP payload: 698
+1310682932485: Received UDP payload: 851
+1310682932490: removed replies before id 1 from sentReplies of size 0
+1310682932491: Received PROC_REQUEST 1:1 (1,0)->(0,0), replying PROC_REPLY 1:1 (0,0)->(1,0)
+1310682932491: Sending out WRITE_UPDATE:0
+1310682932498: Sending UDP payload: 881
+1310682932548: Received UDP payload: 698
+1310682932587: Sending UDP payload: 10059
+1310682932590: Received WRITE_UPDATE 0 (0,0)->(-2,-2)
+1310682933008: Received UDP payload: 470
+1310682933211: Sending UDP payload: 470
+1310682933299: Received UDP payload: 470
+1310682934128: Received UDP payload: 470
+1310682935030: Received UDP payload: 470
+1310682935218: Sending UDP payload: 470
+1310682935297: Received UDP payload: 470
+1310682936149: Received UDP payload: 470
+1310682937029: Received UDP payload: 470
+1310682937227: Sending UDP payload: 470
+1310682937297: Received UDP payload: 470
+1310682938145: Received UDP payload: 470
+1310682939026: Received UDP payload: 470
+1310682939230: Sending UDP payload: 470
+1310682939297: Received UDP payload: 470
+1310682940149: Received UDP payload: 470
+1310682941037: Received UDP payload: 470
+1310682941227: Sending UDP payload: 470
+1310682941297: Received UDP payload: 470
+1310682942151: Received UDP payload: 470
+1310682943047: Received UDP payload: 470
+1310682943240: Sending UDP payload: 470
+1310682943295: Received UDP payload: 470
+1310682944148: Received UDP payload: 470
+1310682945044: Received UDP payload: 470
+1310682945227: Sending UDP payload: 470
+1310682945297: Received UDP payload: 470
+1310682946152: Received UDP payload: 470
+1310682947040: Received UDP payload: 470
+1310682947238: Sending UDP payload: 470
+1310682947297: Received UDP payload: 470
+1310682948159: Received UDP payload: 470
+1310682949034: Received UDP payload: 470
+1310682949239: Sending UDP payload: 470
+1310682949297: Received UDP payload: 470
+1310682950166: Received UDP payload: 470
+1310682950458: Received UDP payload: 698
+1310682950490: Received UDP payload: 851
+1310682950521: removed replies before id 2 from sentReplies of size 0
+1310682950535: Received PROC_REQUEST 2:2 (1,0)->(0,0), replying PROC_REPLY 2:2 (0,0)->(1,0)
+1310682950537: Sending out WRITE_UPDATE:1
+1310682950551: Sending UDP payload: 881
+1310682950596: Received UDP payload: 698
+1310682950609: Sending UDP payload: 10298
+1310682950615: Received WRITE_UPDATE 1 (0,0)->(-2,-2)
+1310682951091: Received UDP payload: 470
+1310682951249: Sending UDP payload: 470
+1310682951301: Received UDP payload: 470
+1310682952197: Received UDP payload: 470
+1310682953045: Received UDP payload: 470
+1310682953252: Sending UDP payload: 470
+1310682953301: Received UDP payload: 470
+1310682954164: Received UDP payload: 470
+1310682955045: Received UDP payload: 470
+1310682955265: Sending UDP payload: 470
+1310682955298: Received UDP payload: 470
+1310682956168: Received UDP payload: 470
+1310682957037: Received UDP payload: 470
+1310682957257: Sending UDP payload: 470
+1310682957303: Received UDP payload: 470
+1310682958169: Received UDP payload: 470
+1310682959047: Received UDP payload: 470
+1310682959258: Sending UDP payload: 470
+1310682959299: Received UDP payload: 470
+1310682960192: Received UDP payload: 470
+1310682961054: Received UDP payload: 470
+1310682961258: Sending UDP payload: 470
+1310682961299: Received UDP payload: 470
+1310682962179: Received UDP payload: 470
+1310682963054: Received UDP payload: 470
+1310682963260: Sending UDP payload: 470
+1310682963299: Received UDP payload: 470
+1310682964184: Received UDP payload: 470
+1310682965055: Received UDP payload: 470
+1310682965266: Sending UDP payload: 470
+1310682965299: Received UDP payload: 470
+1310682966184: Received UDP payload: 470
+1310682967063: Received UDP payload: 470
+1310682967267: Sending UDP payload: 470
+1310682967299: Received UDP payload: 470
+1310682968188: Received UDP payload: 470
+1310682969065: Received UDP payload: 470
+1310682969267: Sending UDP payload: 470
+1310682969299: Received UDP payload: 470
+1310682970227: Received UDP payload: 470
+1310682971073: Received UDP payload: 470
+1310682971276: Sending UDP payload: 470
+1310682971299: Received UDP payload: 470
+1310682972201: Received UDP payload: 470
+1310682973073: Received UDP payload: 470
+1310682973283: Sending UDP payload: 470
+1310682973300: Received UDP payload: 470
+1310682974210: Received UDP payload: 470
+1310682975077: Received UDP payload: 470
+1310682975299: Received UDP payload: 470
+1310682975294: Sending UDP payload: 470
+1310682976205: Received UDP payload: 470
+1310682977075: Received UDP payload: 470
+1310682977299: Received UDP payload: 470
+1310682977302: Sending UDP payload: 470
+1310682978210: Received UDP payload: 470
+1310682979077: Received UDP payload: 470
+1310682979315: Received UDP payload: 470
+1310682979312: Sending UDP payload: 470
+1310682980205: Received UDP payload: 470
+1310682981085: Received UDP payload: 470
+1310682981299: Received UDP payload: 470
+1310682981315: Sending UDP payload: 470
+1310682982206: Received UDP payload: 470
+1310682983082: Received UDP payload: 470
+1310682983313: Sending UDP payload: 470
+1310682983315: Received UDP payload: 470
+1310682984208: Received UDP payload: 470
+1310682985088: Received UDP payload: 470
+1310682985300: Received UDP payload: 470
+1310682985314: Sending UDP payload: 470
+1310682986215: Received UDP payload: 470
+1310682987088: Received UDP payload: 470
+1310682987301: Received UDP payload: 470
+1310682987330: Sending UDP payload: 470
+1310682988219: Received UDP payload: 470
+1310682989088: Received UDP payload: 470
+1310682989300: Received UDP payload: 470
+1310682989329: Sending UDP payload: 470
+1310682990216: Received UDP payload: 470
+1310682991088: Received UDP payload: 470
+1310682991300: Received UDP payload: 470
+1310682991325: Sending UDP payload: 470
+1310682992271: Received UDP payload: 470
+1310682993089: Received UDP payload: 470
+1310682993322: Received UDP payload: 470
+1310682993329: Sending UDP payload: 470
+1310682994242: Received UDP payload: 470
+1310682995090: Received UDP payload: 470
+1310682995303: Received UDP payload: 470
+1310682995372: Sending UDP payload: 470
+1310682996225: Received UDP payload: 470
+1310682997094: Received UDP payload: 470
+1310682997299: Received UDP payload: 470
+1310682997311: Sending UDP payload: 470
+1310682998217: Received UDP payload: 470
+1310682999100: Received UDP payload: 470
+1310682999302: Received UDP payload: 470
+1310682999326: Sending UDP payload: 470
+1310683000218: Received UDP payload: 470
+1310683001096: Received UDP payload: 470
+1310683001302: Received UDP payload: 470
+1310683001331: Sending UDP payload: 470
+1310683002218: Received UDP payload: 470
+1310683003095: Received UDP payload: 470
+1310683003304: Received UDP payload: 470
+1310683003331: Sending UDP payload: 470
+1310683004224: Received UDP payload: 470
+1310683005101: Received UDP payload: 470
+1310683005306: Received UDP payload: 470
+1310683005331: Sending UDP payload: 470

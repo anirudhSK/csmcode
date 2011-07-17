@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block body %}
+  <ul class=entries>
+  {% for key in regions.keys() %}
+    <li>
+		<h2>{{ key[0] }}, {{ key[1] }}</h2>
+		{{ regions[key] }}
+	</li>
+	
+  {% else %}
+    <li><em>No requests yet.</em></li>
+  {% endfor %}
+  </ul>
+{% endblock %}

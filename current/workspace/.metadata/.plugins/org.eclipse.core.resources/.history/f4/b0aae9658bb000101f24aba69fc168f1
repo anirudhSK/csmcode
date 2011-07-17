@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<LinearLayout android:layout_width="match_parent"
+		android:layout_height="wrap_content" android:id="@+id/StatusHeadingLayout">
+		<TextView android:text="State" android:id="@+id/TextView04"
+			android:layout_height="wrap_content" android:layout_width="70dip"></TextView>
+		<TextView android:text="Region" android:layout_width="50dip"
+			android:id="@+id/TextView03" android:layout_height="wrap_content"></TextView>
+		<TextView android:text="My ID" android:layout_width="50dip"
+			android:id="@+id/TextView01" android:layout_height="wrap_content"></TextView>
+		<TextView android:layout_height="wrap_content"
+			android:layout_width="50dip" android:text="Leader" android:id="@+id/TextView05"></TextView>
+		<TextView android:text="Counter" android:layout_height="wrap_content"
+			android:id="@+id/TextView06" android:layout_width="75dip"></TextView>
+	</LinearLayout>
+	<LinearLayout android:layout_width="match_parent"
+		android:layout_height="wrap_content" android:id="@+id/StatusInfoLayout">
+		<TextView android:text="State" android:layout_height="wrap_content"
+			android:id="@+id/state_tv" android:layout_width="70dip"></TextView>
+		<TextView android:text="Region" android:layout_height="wrap_content"
+			android:layout_width="50dip" android:id="@+id/region_tv"></TextView>
+		<TextView android:text="ID" android:layout_width="50dip"
+			android:id="@+id/id_tv" android:layout_height="wrap_content"></TextView>
+		<TextView android:layout_height="wrap_content"
+			android:layout_width="50dip" android:text="Leader" android:id="@+id/leader_tv"></TextView>
+		<TextView android:layout_height="wrap_content"
+			android:layout_width="75dip" android:text="value" android:id="@+id/csm_tv"></TextView>
+	</LinearLayout>
+
+	<ListView android:id="@+id/msgList" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:stackFromBottom="true"
+		android:transcriptMode="alwaysScroll" android:layout_weight="1">
+	</ListView>
+
+	<LinearLayout android:layout_width="fill_parent"
+		android:orientation="horizontal" android:layout_height="wrap_content"
+		android:id="@+id/RegionButton1Layout">
+		<Button android:text="(0,1)" android:id="@+id/0_1_button"
+			android:layout_width="75dip" android:layout_height="75dip" />
+		<Button android:text="(1,1)" android:id="@+id/1_1_button"
+			android:layout_width="75dip" android:layout_height="75dip" />
+	</LinearLayout>
+
+	<LinearLayout android:layout_width="fill_parent"
+		android:orientation="horizontal" android:layout_height="wrap_content"
+		android:id="@+id/RegionButton2Layout">
+		<Button android:text="(0,0)" android:id="@+id/0_0_button"
+			android:layout_width="75dip" android:layout_height="75dip" />
+		<Button android:text="(1,0)" android:id="@+id/1_0_button"
+			android:layout_width="75dip" android:layout_height="75dip" />
+	</LinearLayout>
+	<LinearLayout android:id="@+id/CountInfoLayout" android:layout_width="match_parent" android:layout_height="wrap_content">
+		<TextView android:id="@+id/opcount_tv" android:layout_width="80dip" android:text="ops: 0" android:layout_height="wrap_content"></TextView>
+		<TextView android:id="@+id/successcount_tv" android:layout_width="110dip" android:text="successes: 0" android:layout_height="wrap_content"></TextView>
+		<TextView android:id="@+id/failurecount_tv" android:layout_width="90dip" android:text="failures: 0" android:layout_height="wrap_content"></TextView>
+	</LinearLayout>
+
+	<LinearLayout android:layout_width="fill_parent"
+		android:orientation="horizontal" android:layout_height="wrap_content"
+		android:id="@+id/TestButtonsLayout">
+		<Button android:text="Start Bench" android:layout_width="100dip"
+			android:id="@+id/switchbench_button" android:layout_height="40dip"></Button>
+		<Button android:layout_width="130dip" android:text="Cache is ON"
+			android:id="@+id/cache_button" android:layout_height="40dip"></Button>
+		<Button android:text="30%" android:id="@+id/distribution_button"
+			android:layout_height="40dip" android:layout_width="70dip"></Button>
+	</LinearLayout>
+
+</LinearLayout>

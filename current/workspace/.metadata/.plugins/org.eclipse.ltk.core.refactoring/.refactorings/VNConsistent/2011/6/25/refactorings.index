@@ -1,0 +1,35 @@
+1308133006219	Delete element
+1308133331936	Rename field 'VNPACKET_SEND'
+1308133600764	Rename field 'DPACKET_SEND'
+1308145297662	Rename field 'mDaemon'
+1308145319021	Rename field 'sThread'
+1308146138826	Rename field 'listOfCSMUnitType'
+1308147623439	Rename field 'mApp'
+1308147641704	Rename field 'mNeighbors'
+1308147652302	Rename field 'mCandidates'
+1308150510947	Delete element
+1308150628079	Rename field 'cloudHostname'
+1308153843298	Rename package 'edu.mit.csail.jasongao.vncloud'
+1308153867379	Rename type 'VNCloud'
+1308153882751	Rename type 'VNCloudApp'
+1308153895018	Rename type 'VNCloudDaemon'
+1308154173690	Rename type 'VNConsistent'
+1308159643142	Copy compilation unit
+1308201163337	Rename method 'makeCloudRequest'
+1308201171862	Rename method 'cloudUploadState'
+1308201183212	Rename method 'cloudReleaseLeadership'
+1308201189666	Rename method 'cloudTakeLeadership'
+1308204456971	Delete element
+1308214096975	Rename field 'mHandler'
+1308220019170	Rename compilation unit 'CSM.java'
+1308220053102	Rename field 'daemonHandler'
+1308220069151	Rename field 'vncDaemon'
+1308228821106	Rename local variable 'receivePacket'
+1308231680743	Rename field 'csmUnits'
+1308231883371	Rename field 'csmBlocks'
+1308232915301	Rename type 'CSMBlock'
+1308232948028	Delete element
+1308232984520	Delete element
+1308234003616	Rename field 'csmBlocks'
+1308298036096	Delete element
+1308298888766	Rename field 'blocks'
