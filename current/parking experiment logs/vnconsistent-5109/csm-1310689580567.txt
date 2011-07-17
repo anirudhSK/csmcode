@@ -1,0 +1,207 @@
+1310689580607: started, mId = 5109
+1310689580608: region (-1, -1) out of bounds, dormant
+1310689580610: UserClient started
+1310689582296: moving from region (-1,-1), to (0,-1)
+1310689582299: region (0, -1) out of bounds, dormant
+1310689582303: UserClient received REGION_CHANGE message.
+1310689582499: moving from region (0,-1), to (1,-1)
+1310689582502: region (1, -1) out of bounds, dormant
+1310689582507: UserClient received REGION_CHANGE message.
+1310689582827: moving from region (1,-1), to (1,0)
+1310689582829: retry sending LEADER_REQUEST
+1310689582885: Sending UDP payload: 470
+1310689582891: UserClient received REGION_CHANGE message.
+1310689583445: retry sending LEADER_REQUEST
+1310689583492: Sending UDP payload: 470
+1310689584048: retry sending LEADER_REQUEST
+1310689584090: Sending UDP payload: 470
+1310689584356: LEADER_REQUEST timed out
+1310689587159: Received UDP payload: 470
+1310689587407: cloud accepted leadership request, no csm data included.
+1310689587422: CSMLayer starting
+1310689587427: UserServer started.
+1310689587428: UserServer initialized.
+1310689587431: Requesting INIT on 1,0
+1310689587433: Sending PROC_REQUEST 0:0 (1,0)->(1,0)
+1310689587439: Sending UDP payload: 851
+1310689587444: removed replies before id 0 from sentReplies of size 0
+1310689587452: Received PROC_REQUEST 0:0 (1,0)->(1,0), replying PROC_REPLY 0:0 (1,0)->(1,0)
+1310689587462: Sending UDP payload: 881
+1310689587469: Received PROC_REPLY 0:0 (1,0)->(1,0), handing to UserServer
+1310689587469: Procedure 0:0 successful
+1310689587597: Sending UDP payload: 9848
+1310689587602: now fully up as LEADER
+1310689587611: Sending UDP payload: 470
+1310689587768: Received UDP payload: 470
+1310689592631: Sending UDP payload: 470
+1310689593077: Received UDP payload: 470
+1310689593112: heard LEADER_REQUEST from node 5106, responding LEADER_REPLY
+1310689593168: Sending UDP payload: 9865
+1310689593396: Received UDP payload: 470
+1310689594026: Received UDP payload: 470
+1310689594629: Received UDP payload: 470
+1310689597325: *** CSM Caching Enabled ***
+1310689597638: Sending UDP payload: 470
+1310689597916: Received UDP payload: 851
+1310689597963: Received UDP payload: 881
+1310689598153: Received UDP payload: 9848
+1310689599737: Received UDP payload: 470
+1310689600974: Reading spot in (0,0)
+1310689600978: Sending UDP payload: 698
+1310689600981: UserServer handling request in (1,0)
+1310689600983: Sending PROC_REQUEST 3:0 (1,0)->(0,0)
+1310689600992: Sending UDP payload: 851
+1310689601049: Received UDP payload: 881
+1310689601054: Received PROC_REPLY 3:0 (0,0)->(1,0), handing to UserServer
+1310689601054: Procedure 3:0 successful
+1310689601057: Sending UDP payload: 698
+1310689601060: Parking read on (0,0) from (1,0)succeeded, spots=20,latency=85
+1310689602460: Requesting spot in (0,0)
+1310689602491: Sending UDP payload: 698
+1310689602514: UserServer handling request in (1,0)
+1310689602534: Sending PROC_REQUEST 2:1 (1,0)->(0,0)
+1310689602547: Sending UDP payload: 851
+1310689602589: Received UDP payload: 881
+1310689602598: Received PROC_REPLY 2:1 (0,0)->(1,0), handing to UserServer
+1310689602598: Procedure 2:1 successful
+1310689602610: Sending UDP payload: 698
+1310689602613: Parking request on (0,0) from (1,0) succeeded, spots=19,latency=144
+1310689602625: Sending UDP payload: 470
+1310689602803: Received UDP payload: 10918
+1310689603039: Received WRITE_UPDATE 0 (0,0)->(-2,-2)
+1310689603039: first WRITE_UPDATE ever heard from (0,0) is order 0
+1310689603040: Applied WRITE_UPDATE:0 from (0,0)
+1310689603049: Sending UDP payload: 851
+1310689603368: Already holding a parking spot!
+1310689604766: Received UDP payload: 470
+1310689604954: Releasing spot in (0,0)
+1310689604960: Sending UDP payload: 698
+1310689604992: UserServer handling request in (1,0)
+1310689605005: Sending PROC_REQUEST 1:2 (1,0)->(0,0)
+1310689605020: Sending UDP payload: 851
+1310689605069: Received UDP payload: 881
+1310689605077: Received PROC_REPLY 1:2 (0,0)->(1,0), handing to UserServer
+1310689605077: Procedure 1:2 successful
+1310689605079: Sending UDP payload: 698
+1310689605080: Parking release on (0,0) from (1,0) succeeded, spots=20,latency=126
+1310689605219: Received UDP payload: 10212
+1310689605410: Received WRITE_UPDATE 1 (0,0)->(-2,-2)
+1310689605411: Applied WRITE_UPDATE:1 from (0,0)
+1310689605412: Sending UDP payload: 851
+1310689606096: Requesting spot in (0,0)
+1310689606137: Sending UDP payload: 698
+1310689606139: UserServer handling request in (1,0)
+1310689606143: Sending PROC_REQUEST 2:3 (1,0)->(0,0)
+1310689606151: Sending UDP payload: 851
+1310689606208: Received UDP payload: 881
+1310689606217: Received PROC_REPLY 2:3 (0,0)->(1,0), handing to UserServer
+1310689606218: Procedure 2:3 successful
+1310689606219: Sending UDP payload: 698
+1310689606222: Parking request on (0,0) from (1,0) succeeded, spots=19,latency=123
+1310689606363: Received UDP payload: 10387
+1310689606515: Received WRITE_UPDATE 2 (0,0)->(-2,-2)
+1310689606515: Applied WRITE_UPDATE:2 from (0,0)
+1310689606517: Sending UDP payload: 851
+1310689607632: Sending UDP payload: 470
+1310689609741: Received UDP payload: 470
+1310689611212: Reading spot in (0,0)
+1310689611238: Sending UDP payload: 698
+1310689611248: UserServer handling request in (1,0)
+1310689611252: Sending PROC_REQUEST 3:4 (1,0)->(0,0)
+1310689611255: Local cache hit on read-only PROC_REQUEST 3:4 (1,0)->(0,0)
+1310689611262: Sending UDP payload: 881
+1310689611265: Received PROC_REPLY 3:4 (0,0)->(1,0), handing to UserServer
+1310689611266: Procedure 3:4 successful
+1310689611268: Sending UDP payload: 698
+1310689611274: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=59
+1310689612606: Reading spot in (0,0)
+1310689612645: Sending UDP payload: 698
+1310689612647: Sending UDP payload: 470
+1310689612649: UserServer handling request in (1,0)
+1310689612649: Sending PROC_REQUEST 3:5 (1,0)->(0,0)
+1310689612651: Local cache hit on read-only PROC_REQUEST 3:5 (1,0)->(0,0)
+1310689612658: Sending UDP payload: 881
+1310689612660: Received PROC_REPLY 3:5 (0,0)->(1,0), handing to UserServer
+1310689612661: Procedure 3:5 successful
+1310689612665: Sending UDP payload: 698
+1310689612670: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=61
+1310689613118: Reading spot in (0,0)
+1310689613154: Sending UDP payload: 698
+1310689613158: UserServer handling request in (1,0)
+1310689613158: Sending PROC_REQUEST 3:6 (1,0)->(0,0)
+1310689613160: Local cache hit on read-only PROC_REQUEST 3:6 (1,0)->(0,0)
+1310689613168: Sending UDP payload: 881
+1310689613171: Received PROC_REPLY 3:6 (0,0)->(1,0), handing to UserServer
+1310689613172: Procedure 3:6 successful
+1310689613176: Sending UDP payload: 698
+1310689613180: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=54
+1310689613484: Reading spot in (0,0)
+1310689613520: Sending UDP payload: 698
+1310689613525: UserServer handling request in (1,0)
+1310689613526: Sending PROC_REQUEST 3:7 (1,0)->(0,0)
+1310689613527: Local cache hit on read-only PROC_REQUEST 3:7 (1,0)->(0,0)
+1310689613529: Sending UDP payload: 881
+1310689613534: Received PROC_REPLY 3:7 (0,0)->(1,0), handing to UserServer
+1310689613536: Procedure 3:7 successful
+1310689613539: Sending UDP payload: 698
+1310689613541: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=55
+1310689614366: Already holding a parking spot!
+1310689614749: Received UDP payload: 470
+1310689615237: Releasing spot in (0,0)
+1310689615266: Sending UDP payload: 698
+1310689615276: UserServer handling request in (1,0)
+1310689615281: Sending PROC_REQUEST 1:8 (1,0)->(0,0)
+1310689615284: Sending UDP payload: 851
+1310689615348: Received UDP payload: 881
+1310689615353: Received PROC_REPLY 1:8 (0,0)->(1,0), handing to UserServer
+1310689615353: Procedure 1:8 successful
+1310689615355: Sending UDP payload: 698
+1310689615357: Parking release on (0,0) from (1,0) succeeded, spots=20,latency=115
+1310689615498: Received UDP payload: 10562
+1310689615682: Received WRITE_UPDATE 3 (0,0)->(-2,-2)
+1310689615683: Applied WRITE_UPDATE:3 from (0,0)
+1310689615684: Sending UDP payload: 851
+1310689617643: Sending UDP payload: 470
+1310689619763: Received UDP payload: 470
+1310689622653: Sending UDP payload: 470
+1310689624760: Received UDP payload: 470
+1310689627659: Sending UDP payload: 470
+1310689629759: Received UDP payload: 470
+1310689632670: Sending UDP payload: 470
+1310689634762: Received UDP payload: 470
+1310689637670: Sending UDP payload: 470
+1310689639764: Received UDP payload: 470
+1310689642670: Sending UDP payload: 470
+1310689644028: Reading spot in (0,0)
+1310689644055: Sending UDP payload: 698
+1310689644064: UserServer handling request in (1,0)
+1310689644064: Sending PROC_REQUEST 3:9 (1,0)->(0,0)
+1310689644065: Local cache hit on read-only PROC_REQUEST 3:9 (1,0)->(0,0)
+1310689644067: Sending UDP payload: 881
+1310689644069: Received PROC_REPLY 3:9 (0,0)->(1,0), handing to UserServer
+1310689644075: Procedure 3:9 successful
+1310689644077: Sending UDP payload: 698
+1310689644080: Parking read on (0,0) from (1,0)succeeded, spots=20,latency=50
+1310689644764: Received UDP payload: 470
+1310689647680: Sending UDP payload: 470
+1310689649771: Received UDP payload: 470
+1310689652692: Sending UDP payload: 470
+1310689654771: Received UDP payload: 470
+1310689657703: Sending UDP payload: 470
+1310689659768: Received UDP payload: 470
+1310689662708: Sending UDP payload: 470
+1310689664775: Received UDP payload: 470
+1310689667716: Sending UDP payload: 470
+1310689669784: Received UDP payload: 470
+1310689672724: Sending UDP payload: 470
+1310689674792: Received UDP payload: 470
+1310689677731: Sending UDP payload: 470
+1310689679804: Received UDP payload: 470
+1310689682741: Sending UDP payload: 470
+1310689684788: Received UDP payload: 470
+1310689687753: Sending UDP payload: 470
+1310689689798: Received UDP payload: 470
+1310689692758: Sending UDP payload: 470
+1310689694811: Received UDP payload: 470
+1310689697769: Sending UDP payload: 470
+1310689699821: Received UDP payload: 470

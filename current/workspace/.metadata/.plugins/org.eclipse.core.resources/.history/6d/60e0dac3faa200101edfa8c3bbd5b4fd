@@ -1,0 +1,71 @@
+package edu.mit.csail.jasongao.vnconsistent;
+
+import java.io.Serializable;
+
+public class Packet implements Serializable {
+	private static final long serialVersionUID = 2L;
+
+	// Packet header types
+	final static int VNC_MSG = 1;
+	final static int CSM_MSG = 2;
+	final static int APP_MSG = 3;
+
+	// VNC_MSG subtypes
+	final static int LEADER_REQUEST = 0; // Who's the leader?
+	final static int LEADER_REPLY = 1; // I'm the leader!
+	final static int HEARTBEAT = 2; // I'm the leader, and I'm still alive!
+	final static int LEADER_ELECT = 3; // I'm leaving, who wants to be leader?
+	final static int LEADER_NOMINATE = 4; // Pick me as the leader!
+	final static int LEADER_CONFIRM = 5; // Okay, you can be the leader!
+	final static int LEADER_CONFIRM_ACK = 6; // Yay, I'm the leader now!
+
+	// CSM_MSG subtypes
+	final static int READ_REQ = 10; // I want to read some memory (and cache it)
+	final static int READ_REPLY = 11; // Here's the memory you wanted (I'll
+										// remember you cached it)
+	final static int WRITE_REQ = 12; // I want to write / update memory
+	final static int WRITE_UPDATE = 13; // Memory has been updated
+	final static int WRITE_UPDATE_ACK = 14; // I heard memory got updated, so I
+											// updated my cache
+
+	// APP_MSG subtypes are defined by user
+
+	// attributes to be serialized
+	public int type;
+	public int subtype;
+	public long timestamp;
+	public RegionKey srcRegion, dstRegion;
+	public long src, dst;
+
+	// CSM state
+	public byte[] csm_hash;
+	public byte[] csm_data;
+
+	// CSM request
+	public RegionKey csm_home;
+	public String csm_tag;
+	public byte[] csm_line;
+	public long csm_seqnum;
+
+	// packet unique id, to prevent forwarding loops
+	public long nonce;
+
+	/** Construct Packet with values */
+	public Packet(long src_, long dst_, int type_, int subtype_,
+			RegionKey srcRegion_, RegionKey dstRegion_) {
+		type = type_;
+		subtype = subtype_;
+		timestamp = System.currentTimeMillis();
+		srcRegion = srcRegion_;
+		dstRegion = dstRegion_;
+		src = src_;
+		dst = dst_;
+		nonce = System.currentTimeMillis() * 10000 + dstRegion.hashCode(); // TODO
+	}
+
+	/** String representation, for debugging */
+	public String toString() {
+		return src + "->" + dst + ": type " + type + "-" + subtype + " region "
+				+ srcRegion.toString() + "->" + dstRegion.toString();
+	}
+}

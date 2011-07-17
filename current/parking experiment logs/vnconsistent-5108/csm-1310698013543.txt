@@ -1,0 +1,27 @@
+1310698013591: started, mId = 5108
+1310698013591: retry sending LEADER_REQUEST
+1310698013601: UserClient started
+1310698013604: Sending UDP payload: 470
+1310698014192: retry sending LEADER_REQUEST
+1310698014230: Sending UDP payload: 470
+1310698014796: retry sending LEADER_REQUEST
+1310698014803: Sending UDP payload: 470
+1310698015091: LEADER_REQUEST timed out
+1310698015219: Received UDP payload: 470
+1310698019308: Received UDP payload: 470
+1310698020415: Received UDP payload: 470
+1310698024378: Received UDP payload: 470
+1310698029321: Received UDP payload: 470
+1310698030416: Received UDP payload: 470
+1310698030790: moving from region (0,0), to (-1,0)
+1310698030809: region (-1, 0) out of bounds, dormant
+1310698030809: UserClient received REGION_CHANGE message.
+1310698033510: moving from region (-1,0), to (0,0)
+1310698033516: UserClient received REGION_CHANGE message.
+1310698034837: Received UDP payload: 470
+1310698036017: Received UDP payload: 487
+1310698037653: moving from region (0,0), to (1,0)
+1310698037663: UserClient received REGION_CHANGE message.
+1310698040421: Received UDP payload: 470
+1310698041768: moving from region (1,0), to (0,0)
+1310698041773: UserClient received REGION_CHANGE message.
