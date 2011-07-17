@@ -1,7 +1,0 @@
-package edu.mit.csail.jasongao.vnconsistent;
-
-public interface CSMUser {
-	CSMOp handleRequest(CSMLayer.Block b, CSMOp c);
-
-	void handleReply(CSMOp c);
-}
