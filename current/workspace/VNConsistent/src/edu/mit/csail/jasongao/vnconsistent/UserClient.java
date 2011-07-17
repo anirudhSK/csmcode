@@ -1,5 +1,6 @@
 package edu.mit.csail.jasongao.vnconsistent;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import android.os.Handler;
@@ -32,11 +33,10 @@ public class UserClient extends Thread {
 
 	private boolean spotHeld = false; // are we currently holding a parking spot
 	private RegionKey spotHeldRegion;
-	private boolean writeTaskOutstanding = false; // middle of request or rel?
+	private boolean writeTaskOutstanding = false; // in middle of inc / dec?
 	private long successCount = 0;
 	private long failureCount = 0;
-	private long timeoutCount = 0;
-	private long opsCount = 0;
+	private long opCount = 0;
 
 	private UserOp lastRequest = null;
 	private UserOp currentRequest = null;
@@ -55,7 +55,7 @@ public class UserClient extends Thread {
 		@Override
 		public void run() {
 			if (currentRequest == lastRequest) { // comparing pointers is fine
-				timeoutCount++;
+				failureCount++;
 				logMsg(String.format("UserClient request timed out. (%d,%d)=?",
 						currentRequest.targetRx, currentRequest.targetRy,
 						currentRequest.value));
@@ -64,6 +64,14 @@ public class UserClient extends Thread {
 			}
 
 			lastRequest = currentRequest;
+
+			// Update display
+			ArrayList<Long> counts = new ArrayList<Long>();
+			counts.add(opCount);
+			counts.add(successCount);
+			counts.add(failureCount);
+			mux.myHandler.obtainMessage(Mux.CLIENT_STATUS_CHANGE, counts)
+					.sendToTarget();
 
 			myHandler.postDelayed(benchmarkRequestTimeoutCheckR,
 					benchmarkTimeoutCheckPeriod);
@@ -95,15 +103,7 @@ public class UserClient extends Thread {
 		}
 	};
 
-	/** Send a CSMOp to the Mux to broadcast the request */
-	private void sendUserOp(UserOp uop) {
-		opsCount++;
-		uop.request = true;
-		currentRequestTimestamp = System.currentTimeMillis();
-		mux.myHandler.obtainMessage(Mux.APP_SEND, uop).sendToTarget();
-	}
-
-	/** Construtor */
+	/** Constructor */
 	public UserClient(Mux m, long id, long myRx_, long myRy_, long maxRx_,
 			long maxRy_) {
 		this.id = id;
@@ -113,6 +113,26 @@ public class UserClient extends Thread {
 		this.maxRx = maxRx_;
 		this.maxRy = maxRy_;
 		this.rand = new Random();
+	}
+
+	/** Take action on message sent to my handler. */
+	private void processMessage(Message msg) {
+		switch (msg.what) {
+		case Mux.REGION_CHANGE:
+			RegionKey newRegion = (RegionKey) msg.obj;
+			this.myRx = newRegion.x;
+			this.myRy = newRegion.y;
+			logMsg("UserClient received REGION_CHANGE message.");
+			break;
+		}
+	}
+
+	/** Send a CSMOp to the Mux to broadcast the request */
+	private void sendUserOp(UserOp uop) {
+		opCount++;
+		uop.request = true;
+		currentRequestTimestamp = System.currentTimeMillis();
+		mux.myHandler.obtainMessage(Mux.APP_SEND, uop).sendToTarget();
 	}
 
 	/** Take action on reply from server and make another request */
@@ -128,13 +148,13 @@ public class UserClient extends Thread {
 				writeTaskOutstanding = false;
 				spotHeld = true;
 				logMsg(String
-						.format("UserClient decrement on (%d,%d) from (%d,%d) succeeded, spots=%d,latency=%d",
+						.format("UserClient decrement on (%d,%d) from (%d,%d) succeeded, value=%d,latency=%d",
 								uop.targetRx, uop.targetRy, uop.requesterRx,
 								uop.requesterRy, uop.value, latency));
 			} else {
 				failureCount++;
 				logMsg(String
-						.format("UserClient decrement on (%d,%d) failed, spots=?,latency=%d",
+						.format("UserClient decrement on (%d,%d) failed, value=?,latency=%d",
 								uop.targetRx, uop.targetRy, latency));
 			}
 		} else if (uop.type == UserOp.INCREMENT) {
@@ -143,29 +163,37 @@ public class UserClient extends Thread {
 				writeTaskOutstanding = false;
 				spotHeld = false;
 				logMsg(String
-						.format("UserClient increment on (%d,%d) from (%d,%d) succeeded, spots=%d,latency=%d",
+						.format("UserClient increment on (%d,%d) from (%d,%d) succeeded, value=%d,latency=%d",
 								uop.targetRx, uop.targetRy, uop.requesterRx,
 								uop.requesterRy, uop.value, latency));
 			} else {
 				failureCount++;
 				logMsg(String
-						.format("UserClient increment on (%d,%d) failed, spots=?,latency=%d",
+						.format("UserClient increment on (%d,%d) failed, value=?,latency=%d",
 								uop.targetRx, uop.targetRy, latency));
 			}
 		} else if (uop.type == UserOp.READ) {
 			if (uop.success) {
 				successCount++;
 				logMsg(String
-						.format("UserClient read on (%d,%d) from (%d,%d)succeeded, spots=%d,latency=%d",
+						.format("UserClient read on (%d,%d) from (%d,%d)succeeded, value=%d,latency=%d",
 								uop.targetRx, uop.targetRy, uop.requesterRx,
 								uop.requesterRy, uop.value, latency));
 			} else {
 				failureCount++;
-				logMsg(String.format(
-						"UserClient read on (%d,%d) failed, spots=?,latency=%d",
-						uop.targetRx, uop.targetRy, latency));
+				logMsg(String
+						.format("UserClient read on (%d,%d) failed, value=?,latency=%d",
+								uop.targetRx, uop.targetRy, latency));
 			}
 		}
+
+		// Update display
+		ArrayList<Long> counts = new ArrayList<Long>();
+		counts.add(this.opCount);
+		counts.add(this.successCount);
+		counts.add(this.failureCount);
+		mux.myHandler.obtainMessage(Mux.CLIENT_STATUS_CHANGE, counts)
+				.sendToTarget();
 
 		// Set up next iteration
 		if (benchmarkOn) {
@@ -251,18 +279,6 @@ public class UserClient extends Thread {
 
 	public synchronized void setReadWriteDistribution(double dist) {
 		readVsWriteDistribution = dist;
-	}
-
-	/** Take action on message sent to my handler. */
-	private void processMessage(Message msg) {
-		switch (msg.what) {
-		case Mux.REGION_CHANGE:
-			RegionKey newRegion = (RegionKey) msg.obj;
-			this.myRx = newRegion.x;
-			this.myRy = newRegion.y;
-			logMsg("UserClient received REGION_CHANGE message.");
-			break;
-		}
 	}
 
 	/** Stuff to do right before we enter the run loop. */

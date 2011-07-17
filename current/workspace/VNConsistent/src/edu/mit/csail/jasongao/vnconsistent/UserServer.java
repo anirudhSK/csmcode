@@ -110,8 +110,8 @@ public class UserServer implements CSMUser {
 		}
 
 		if (reply.timedOut) {
-			logMsg(String.format("Procedure %d:%d timed out", reply.procedure,
-					reply.requestId));
+			logMsg(String.format("Procedure %d:%d on %s timed out", reply.procedure,
+					reply.requestId, reply.srcRegion));
 
 			// reply back to client that their request failed
 			if (reply.procedure != this.INIT) {
@@ -125,8 +125,8 @@ public class UserServer implements CSMUser {
 			}
 
 		} else {
-			logMsg(String.format("Procedure %d:%d successful", reply.procedure,
-					reply.requestId));
+			logMsg(String.format("Procedure %d:%d on %s successful", reply.procedure,
+					reply.requestId, reply.srcRegion));
 
 			long val = -1337;
 			try {

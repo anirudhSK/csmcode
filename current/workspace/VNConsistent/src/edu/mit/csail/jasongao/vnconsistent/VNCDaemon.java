@@ -276,10 +276,12 @@ public class VNCDaemon extends Thread {
 				myHandler.removeCallbacks(leaderRequestTimeoutR);
 				myHandler.removeCallbacks(leaderRequestRetryR);
 				// follow leader if in same region, and not already following
-				if ((mState == JOINING && vnp.dstRegion.equals(myRegion))
-						|| (mState == NONLEADER && vnp.src != leaderId && vnp.dstRegion
-								.equals(myRegion))) {
+				if (mState == JOINING && vnp.dstRegion.equals(myRegion)) {
 					logMsg("heard LEADER_REPLY from " + vnp.src);
+					stateTransition(NONLEADER, myRegion, vnp);
+				} else if (mState == NONLEADER && vnp.src != leaderId && vnp.dstRegion
+						.equals(myRegion)) {
+					logMsg("heard LEADER_REPLY from new leader " + vnp.src);
 					stateTransition(NONLEADER, myRegion, vnp);
 				}
 				break;
@@ -472,7 +474,7 @@ public class VNCDaemon extends Thread {
 			logMsg("now NONLEADER following LEADER " + leaderId);
 		}
 
-		mux.myHandler.obtainMessage(Mux.STATUS_CHANGE).sendToTarget();
+		mux.myHandler.obtainMessage(Mux.VNC_STATUS_CHANGE).sendToTarget();
 		return;
 	}
 
@@ -521,7 +523,7 @@ public class VNCDaemon extends Thread {
 		}
 
 		mux.myHandler.obtainMessage(Mux.REGION_CHANGE, myRegion).sendToTarget();
-		mux.myHandler.obtainMessage(Mux.STATUS_CHANGE).sendToTarget();
+		mux.myHandler.obtainMessage(Mux.VNC_STATUS_CHANGE).sendToTarget();
 	}
 
 	/**
