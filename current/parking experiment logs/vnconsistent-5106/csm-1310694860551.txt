@@ -1,0 +1,187 @@
+1310694860605: started, mId = 5106
+1310694860605: region (-1, -1) out of bounds, dormant
+1310694860629: UserClient started
+1310694861105: x,y from GPS: 65, -71
+1310694861106: moving from region (-1,-1), to (1,-2)
+1310694861107: region (1, -2) out of bounds, dormant
+1310694861109: UserClient received REGION_CHANGE message.
+1310694863138: Received UDP payload: 470
+1310694873154: Received UDP payload: 470
+1310694874656: Received UDP payload: 470
+1310694875139: x,y from GPS: 66, -66
+1310694875140: moving from region (1,-2), to (1,-1)
+1310694875140: region (1, -1) out of bounds, dormant
+1310694875140: UserClient received REGION_CHANGE message.
+1310694878144: Received UDP payload: 470
+1310694879138: x,y from GPS: 64, -61
+1310694883141: Received UDP payload: 470
+1310694884090: moving from region (1,-1), to (1,0)
+1310694884090: retry sending LEADER_REQUEST
+1310694884095: Sending UDP payload: 470
+1310694884097: UserClient received REGION_CHANGE message.
+1310694884691: retry sending LEADER_REQUEST
+1310694884718: Sending UDP payload: 470
+1310694885293: retry sending LEADER_REQUEST
+1310694885320: Sending UDP payload: 470
+1310694885597: LEADER_REQUEST timed out
+1310694888141: Received UDP payload: 470
+1310694889103: cloud accepted leadership request, returned csm bytes size 827
+1310694889176: CSMLayer starting
+1310694889184: UserServer started.
+1310694889186: loaded csm data from cloud
+1310694889231: Sending UDP payload: 2508
+1310694889232: now fully up as LEADER
+1310694889256: Sending UDP payload: 470
+1310694889430: Received UDP payload: 470
+1310694890034: Received UDP payload: 470
+1310694890633: Received UDP payload: 470
+1310694893348: Received UDP payload: 470
+1310694894333: Sending UDP payload: 470
+1310694896146: x,y from GPS: 60, -58
+1310694896147: moving from region (1,0), to (1,-1)
+1310694896147: broadcasting LEADER_ELECT to old (1,0)
+1310694896149: Sending UDP payload: 487
+1310694896150: UserClient received REGION_CHANGE message.
+1310694896548: UserServer stopped.
+1310694896557: CSMLayer stopped
+1310694896563: serializing CSMLayer to JSON
+1310694898142: Received UDP payload: 470
+1310694900089: x,y from GPS: 56, -62
+1310694901454: previous region empty, uploaded state to cloud in 4890ms, json 827 bytes
+1310694901467: region (1, -1) out of bounds, dormant
+1310694903147: Received UDP payload: 470
+1310694903621: Requesting spot in (0,0)
+1310694903669: Sending UDP payload: 698
+1310694904015: Received UDP payload: 470
+1310694904652: Received UDP payload: 470
+1310694909258: Received UDP payload: 2518
+1310694909673: Wait for previous action to complete.
+1310694910122: Wait for previous action to complete.
+1310694910790: moving from region (1,-1), to (0,-1)
+1310694910790: region (0, -1) out of bounds, dormant
+1310694910793: UserClient received REGION_CHANGE message.
+1310694911127: x,y from GPS: 52, -58
+1310694911127: moving from region (0,-1), to (1,-1)
+1310694911128: region (1, -1) out of bounds, dormant
+1310694911129: UserClient received REGION_CHANGE message.
+1310694911204: moving from region (1,-1), to (0,-1)
+1310694911204: region (0, -1) out of bounds, dormant
+1310694911207: UserClient received REGION_CHANGE message.
+1310694914770: Received UDP payload: 470
+1310694917554: Received UDP payload: 470
+1310694918133: x,y from GPS: 52, -53
+1310694918133: moving from region (0,-1), to (1,-1)
+1310694918134: region (1, -1) out of bounds, dormant
+1310694918134: UserClient received REGION_CHANGE message.
+1310694918144: Received UDP payload: 470
+1310694918176: Received UDP payload: 470
+1310694918743: Received UDP payload: 470
+1310694923144: Received UDP payload: 470
+1310694925722: Received UDP payload: 470
+1310694926321: Received UDP payload: 470
+1310694928149: Received UDP payload: 470
+1310694929409: Received UDP payload: 470
+1310694932121: x,y from GPS: 58, -51
+1310694932411: Received UDP payload: 470
+1310694933032: Received UDP payload: 470
+1310694933153: Received UDP payload: 470
+1310694933648: Received UDP payload: 470
+1310694934400: Received UDP payload: 470
+1310694938128: x,y from GPS: 60, -56
+1310694939405: Received UDP payload: 470
+1310694941128: x,y from GPS: 59, -62
+1310694943145: Received UDP payload: 470
+1310694944131: x,y from GPS: 57, -67
+1310694944409: Received UDP payload: 470
+1310694948098: x,y from GPS: 58, -73
+1310694948099: moving from region (1,-1), to (1,-2)
+1310694948099: region (1, -2) out of bounds, dormant
+1310694948099: UserClient received REGION_CHANGE message.
+1310694949411: Received UDP payload: 470
+1310694953157: Received UDP payload: 470
+1310694954413: Received UDP payload: 470
+1310694958147: Received UDP payload: 470
+1310694959412: Received UDP payload: 470
+1310694960071: x,y from GPS: 60, -69
+1310694960071: moving from region (1,-2), to (1,-1)
+1310694960071: region (1, -1) out of bounds, dormant
+1310694960072: UserClient received REGION_CHANGE message.
+1310694963224: Received UDP payload: 470
+1310694964403: Received UDP payload: 470
+1310694967140: x,y from GPS: 65, -67
+1310694968148: Received UDP payload: 470
+1310694969417: Received UDP payload: 470
+1310694973148: Received UDP payload: 470
+1310694974128: x,y from GPS: 68, -72
+1310694974128: moving from region (1,-1), to (1,-2)
+1310694974129: region (1, -2) out of bounds, dormant
+1310694974129: UserClient received REGION_CHANGE message.
+1310694974505: Received UDP payload: 470
+1310694977119: Received UDP payload: 470
+1310694977190: Received UDP payload: 2518
+1310694977755: Received UDP payload: 470
+1310694977828: Received UDP payload: 2518
+1310694978167: Received UDP payload: 470
+1310694979415: Received UDP payload: 470
+1310694983148: Received UDP payload: 470
+1310694984417: Received UDP payload: 470
+1310694989142: Received UDP payload: 470
+1310694989169: x,y from GPS: 68, -77
+1310694989420: Received UDP payload: 470
+1310694989807: Received UDP payload: 470
+1310694990387: Received UDP payload: 470
+1310694993144: x,y from GPS: 70, -82
+1310694993145: moving from region (1,-2), to (2,-2)
+1310694993145: region (2, -2) out of bounds, dormant
+1310694993146: UserClient received REGION_CHANGE message.
+1310694993237: Received UDP payload: 470
+1310694993877: Received UDP payload: 2904
+1310694993903: Received UDP payload: 470
+1310694994436: Received UDP payload: 470
+1310694998152: Received UDP payload: 470
+1310694998886: Received UDP payload: 470
+1310694999420: Received UDP payload: 470
+1310695003160: Received UDP payload: 470
+1310695003882: Received UDP payload: 470
+1310695004421: Received UDP payload: 470
+1310695008220: Received UDP payload: 470
+1310695008894: Received UDP payload: 470
+1310695009425: Received UDP payload: 470
+1310695013152: Received UDP payload: 470
+1310695013871: Received UDP payload: 470
+1310695014422: Received UDP payload: 470
+1310695015136: x,y from GPS: 72, -78
+1310695016140: Received UDP payload: 487
+1310695017136: x,y from GPS: 69, -74
+1310695017136: moving from region (2,-2), to (1,-2)
+1310695017136: region (1, -2) out of bounds, dormant
+1310695017137: UserClient received REGION_CHANGE message.
+1310695018140: Received UDP payload: 487
+1310695018149: Received UDP payload: 470
+1310695018156: Received UDP payload: 470
+1310695018619: Received UDP payload: 2518
+1310695018669: Received UDP payload: 487
+1310695019425: Received UDP payload: 470
+1310695023889: Received UDP payload: 2501
+1310695023915: Received UDP payload: 470
+1310695024137: x,y from GPS: 65, -71
+1310695024451: Received UDP payload: 470
+1310695028862: Received UDP payload: 470
+1310695028905: Received UDP payload: 470
+1310695028952: Received UDP payload: 2518
+1310695029445: Received UDP payload: 470
+1310695030129: x,y from GPS: 62, -68
+1310695030130: moving from region (1,-2), to (1,-1)
+1310695030130: region (1, -1) out of bounds, dormant
+1310695030130: UserClient received REGION_CHANGE message.
+1310695033857: Received UDP payload: 470
+1310695033893: Received UDP payload: 470
+1310695033966: Received UDP payload: 2518
+1310695034426: Received UDP payload: 470
+1310695038873: Received UDP payload: 470
+1310695038906: Received UDP payload: 470
+1310695038989: Received UDP payload: 2518
+1310695039077: x,y from GPS: 57, -67
+1310695039427: Received UDP payload: 470
+1310695043888: Received UDP payload: 470
+13106

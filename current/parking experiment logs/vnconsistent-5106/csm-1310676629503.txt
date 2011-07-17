@@ -1,0 +1,243 @@
+1310676629519: started, mId = 5106
+1310676629519: region (-1, -1) out of bounds, dormant
+1310676629520: UserClient started
+1310676635809: moving from region (-1,-1), to (0,-1)
+1310676635814: region (0, -1) out of bounds, dormant
+1310676635817: UserClient received REGION_CHANGE message.
+1310676636019: moving from region (0,-1), to (0,0)
+1310676636023: sending LEADER_REQUEST
+1310676636066: UserClient received REGION_CHANGE message.
+1310676636183: heard LEADER_REPLY from 5109
+1310676636192: now NONLEADER following LEADER 5109
+1310676695349: heard LEADER_ELECT from node 5109, responding LEADER_NOMINATE
+1310676695826: received LEADER_CONFIRM from 5109, replying LEADER_CONFIRM_ACK
+1310676695827: waiting to give old leader time to release
+1310676697538: sending LEADER_REQUEST
+1310676700799: cloud accepted leadership request
+1310676700845: CSMLayer starting
+1310676700854: UserServer started.
+1310676700854: loaded csm data from old leader
+1310676700900: now fully up as LEADER
+1310676743092: removed replies before id 0 from sentReplies of size 0
+1310676743093: Received PROC_REQUEST 3:0 (1,0)->(0,0), replying PROC_REPLY 3:0 (0,0)->(1,0)
+1310676744207: removed replies before id 1 from sentReplies of size 0
+1310676744208: Received PROC_REQUEST 3:1 (1,0)->(0,0), replying PROC_REPLY 3:1 (0,0)->(1,0)
+1310676748718: removed replies before id 2 from sentReplies of size 0
+1310676748718: Received PROC_REQUEST 3:2 (1,0)->(0,0), replying PROC_REPLY 3:2 (0,0)->(1,0)
+1310676753248: removed replies before id 3 from sentReplies of size 0
+1310676753249: Received PROC_REQUEST 3:3 (1,0)->(0,0), replying PROC_REPLY 3:3 (0,0)->(1,0)
+1310676767723: removed replies before id 4 from sentReplies of size 0
+1310676767724: Received PROC_REQUEST 3:4 (1,0)->(0,0), replying PROC_REPLY 3:4 (0,0)->(1,0)
+1310676768841: removed replies before id 5 from sentReplies of size 0
+1310676768849: Received PROC_REQUEST 3:5 (1,0)->(0,0), replying PROC_REPLY 3:5 (0,0)->(1,0)
+1310676771077: removed replies before id 6 from sentReplies of size 0
+1310676771086: Received PROC_REQUEST 3:6 (1,0)->(0,0), replying PROC_REPLY 3:6 (0,0)->(1,0)
+1310676775636: removed replies before id 7 from sentReplies of size 0
+1310676775642: Received PROC_REQUEST 3:7 (1,0)->(0,0), replying PROC_REPLY 3:7 (0,0)->(1,0)
+1310676776746: removed replies before id 8 from sentReplies of size 0
+1310676776747: Received PROC_REQUEST 3:8 (1,0)->(0,0), replying PROC_REPLY 3:8 (0,0)->(1,0)
+1310676777901: removed replies before id 9 from sentReplies of size 0
+1310676777902: Received PROC_REQUEST 2:9 (1,0)->(0,0), replying PROC_REPLY 2:9 (0,0)->(1,0)
+1310676779088: removed replies before id 10 from sentReplies of size 0
+1310676779089: Received PROC_REQUEST 1:10 (1,0)->(0,0), replying PROC_REPLY 1:10 (0,0)->(1,0)
+1310676788025: removed replies before id 11 from sentReplies of size 0
+1310676788035: Received PROC_REQUEST 2:11 (1,0)->(0,0), replying PROC_REPLY 2:11 (0,0)->(1,0)
+1310676789155: removed replies before id 12 from sentReplies of size 0
+1310676789155: Received PROC_REQUEST 1:12 (1,0)->(0,0), replying PROC_REPLY 1:12 (0,0)->(1,0)
+1310676811498: removed replies before id 13 from sentReplies of size 0
+1310676811506: Received PROC_REQUEST 2:13 (1,0)->(0,0), replying PROC_REPLY 2:13 (0,0)->(1,0)
+1310676812639: removed replies before id 14 from sentReplies of size 0
+1310676812655: Received PROC_REQUEST 1:14 (1,0)->(0,0), replying PROC_REPLY 1:14 (0,0)->(1,0)
+1310676827786: removed replies before id 15 from sentReplies of size 0
+1310676827795: Received PROC_REQUEST 2:15 (1,0)->(0,0), replying PROC_REPLY 2:15 (0,0)->(1,0)
+1310676828909: removed replies before id 16 from sentReplies of size 0
+1310676828922: Received PROC_REQUEST 1:16 (1,0)->(0,0), replying PROC_REPLY 1:16 (0,0)->(1,0)
+1310676833276: removed replies before id 17 from sentReplies of size 0
+1310676833276: Received PROC_REQUEST 2:17 (1,0)->(0,0), replying PROC_REPLY 2:17 (0,0)->(1,0)
+1310676834382: removed replies before id 18 from sentReplies of size 0
+1310676834382: Received PROC_REQUEST 1:18 (1,0)->(0,0), replying PROC_REPLY 1:18 (0,0)->(1,0)
+1310676835490: removed replies before id 19 from sentReplies of size 0
+1310676835491: Received PROC_REQUEST 3:19 (1,0)->(0,0), replying PROC_REPLY 3:19 (0,0)->(1,0)
+1310676845903: Reading spot in (0,1)
+1310676845929: UserServer handling request in (0,0)
+1310676845929: Sending PROC_REQUEST 3:0 (0,0)->(0,1)
+1310676845986: Received PROC_REPLY 3:0 (0,1)->(0,0), handing to UserServer
+1310676845986: Procedure 3:0 successful
+1310676845989: Parking read on (0,1) succeeded, spots=100000000,latency=74
+1310676846991: Reading spot in (1,0)
+1310676847041: UserServer handling request in (0,0)
+1310676847041: Sending PROC_REQUEST 3:1 (0,0)->(1,0)
+1310676847053: removed replies before id 20 from sentReplies of size 0
+1310676847054: Received PROC_REQUEST 2:20 (1,0)->(0,0), replying PROC_REPLY 2:20 (0,0)->(1,0)
+1310676847076: Received PROC_REPLY 3:1 (1,0)->(0,0), handing to UserServer
+1310676847077: Procedure 3:1 successful
+1310676847079: Parking read on (1,0) succeeded, spots=100000000,latency=87
+1310676848080: Reading spot in (0,0)
+1310676848108: UserServer handling request in (0,0)
+1310676848110: Sending PROC_REQUEST 3:1 (0,0)->(0,0)
+1310676848134: removed replies before id 1 from sentReplies of size 0
+1310676848138: Received PROC_REQUEST 3:1 (0,0)->(0,0), replying PROC_REPLY 3:1 (0,0)->(0,0)
+1310676848139: removed replies before id 21 from sentReplies of size 0
+1310676848140: Received PROC_REQUEST 1:21 (1,0)->(0,0), replying PROC_REPLY 1:21 (0,0)->(1,0)
+1310676848147: Received PROC_REPLY 3:1 (0,0)->(0,0), handing to UserServer
+1310676848147: Procedure 3:1 successful
+1310676848161: Parking read on (0,0) succeeded, spots=99999999,latency=80
+1310676849135: removed replies before id 0 from sentReplies of size 0
+1310676849136: Received PROC_REQUEST 3:0 (0,1)->(0,0), replying PROC_REPLY 3:0 (0,0)->(0,1)
+1310676849161: Reading spot in (0,1)
+1310676849163: UserServer handling request in (0,0)
+1310676849164: Sending PROC_REQUEST 3:1 (0,0)->(0,1)
+1310676849195: Received PROC_REPLY 3:1 (0,1)->(0,0), handing to UserServer
+1310676849196: Procedure 3:1 successful
+1310676849202: Parking read on (0,1) succeeded, spots=100000000,latency=37
+1310676850205: Reading spot in (1,0)
+1310676850257: UserServer handling request in (0,0)
+1310676850258: Sending PROC_REQUEST 3:2 (0,0)->(1,0)
+1310676850304: removed replies before id 0 from sentReplies of size 0
+1310676850304: Received PROC_REQUEST 3:0 (1,1)->(0,0), replying PROC_REPLY 3:0 (0,0)->(1,1)
+1310676850321: Received PROC_REPLY 3:2 (1,0)->(0,0), handing to UserServer
+1310676850321: Procedure 3:2 successful
+1310676850324: Parking read on (1,0) succeeded, spots=100000000,latency=105
+1310676851327: Reading spot in (1,1)
+1310676851381: UserServer handling request in (0,0)
+1310676851381: Sending PROC_REQUEST 3:0 (0,0)->(1,1)
+1310676851410: removed replies before id 1 from sentReplies of size 0
+1310676851410: Received PROC_REQUEST 3:1 (1,1)->(0,0), replying PROC_REPLY 3:1 (0,0)->(1,1)
+1310676852529: removed replies before id 2 from sentReplies of size 0
+1310676852530: Received PROC_REQUEST 3:2 (1,1)->(0,0), replying PROC_REPLY 3:2 (0,0)->(1,1)
+1310676852542: removed replies before id 1 from sentReplies of size 0
+1310676852543: Received PROC_REQUEST 3:1 (0,1)->(0,0), replying PROC_REPLY 3:1 (0,0)->(0,1)
+1310676853679: removed replies before id 2 from sentReplies of size 0
+1310676853680: Received PROC_REQUEST 3:2 (0,1)->(0,0), replying PROC_REPLY 3:2 (0,0)->(0,1)
+1310676854044: Retrying PROC_REQUEST 3:0 (0,0)->(1,1)
+1310676854162: Received PROC_REPLY 3:0 (1,1)->(0,0), handing to UserServer
+1310676854163: Procedure 3:0 successful
+1310676854190: Parking read on (1,1) succeeded, spots=100000000,latency=2861
+1310676855194: Reading spot in (1,0)
+1310676855237: UserServer handling request in (0,0)
+1310676855250: Sending PROC_REQUEST 3:3 (0,0)->(1,0)
+1310676855354: Received PROC_REPLY 3:3 (1,0)->(0,0), handing to UserServer
+1310676855355: Procedure 3:3 successful
+1310676855377: Parking read on (1,0) succeeded, spots=100000000,latency=182
+1310676856380: Reading spot in (1,1)
+1310676856417: UserServer handling request in (0,0)
+1310676856428: Sending PROC_REQUEST 3:1 (0,0)->(1,1)
+1310676856489: Received PROC_REPLY 3:1 (1,1)->(0,0), handing to UserServer
+1310676856490: Procedure 3:1 successful
+1310676856498: Parking read on (1,1) succeeded, spots=100000000,latency=113
+1310676856951: removed replies before id 3 from sentReplies of size 0
+1310676856952: Received PROC_REQUEST 3:3 (0,1)->(0,0), replying PROC_REPLY 3:3 (0,0)->(0,1)
+1310676857500: Reading spot in (0,1)
+1310676857541: UserServer handling request in (0,0)
+1310676857549: Sending PROC_REQUEST 3:2 (0,0)->(0,1)
+1310676857646: Received PROC_REPLY 3:2 (0,1)->(0,0), handing to UserServer
+1310676857646: Procedure 3:2 successful
+1310676857679: Parking read on (0,1) succeeded, spots=100000000,latency=172
+1310676858682: Reading spot in (0,0)
+1310676858722: UserServer handling request in (0,0)
+1310676858725: Sending PROC_REQUEST 3:2 (0,0)->(0,0)
+1310676858760: removed replies before id 2 from sentReplies of size 0
+1310676858760: Received PROC_REQUEST 3:2 (0,0)->(0,0), replying PROC_REPLY 3:2 (0,0)->(0,0)
+1310676858766: Received PROC_REPLY 3:2 (0,0)->(0,0), handing to UserServer
+1310676858766: Procedure 3:2 successful
+1310676858777: Parking read on (0,0) succeeded, spots=100000000,latency=93
+1310676859779: Reading spot in (0,0)
+1310676859826: UserServer handling request in (0,0)
+1310676859827: Sending PROC_REQUEST 3:3 (0,0)->(0,0)
+1310676859829: removed replies before id 3 from sentReplies of size 0
+1310676859830: Received PROC_REQUEST 3:3 (0,0)->(0,0), replying PROC_REPLY 3:3 (0,0)->(0,0)
+1310676859836: Received PROC_REPLY 3:3 (0,0)->(0,0), handing to UserServer
+1310676859837: Procedure 3:3 successful
+1310676859842: Parking read on (0,0) succeeded, spots=100000000,latency=52
+1310676860272: removed replies before id 4 from sentReplies of size 0
+1310676860273: Received PROC_REQUEST 3:4 (0,1)->(0,0), replying PROC_REPLY 3:4 (0,0)->(0,1)
+1310676860845: Reading spot in (0,0)
+1310676860886: UserServer handling request in (0,0)
+1310676860901: Sending PROC_REQUEST 3:4 (0,0)->(0,0)
+1310676860911: removed replies before id 4 from sentReplies of size 0
+1310676860911: Received PROC_REQUEST 3:4 (0,0)->(0,0), replying PROC_REPLY 3:4 (0,0)->(0,0)
+1310676860920: Received PROC_REPLY 3:4 (0,0)->(0,0), handing to UserServer
+1310676860920: Procedure 3:4 successful
+1310676860925: Parking read on (0,0) succeeded, spots=100000000,latency=78
+1310676861329: removed replies before id 5 from sentReplies of size 0
+1310676861330: Received PROC_REQUEST 3:5 (0,1)->(0,0), replying PROC_REPLY 3:5 (0,0)->(0,1)
+1310676861929: Requesting spot in (1,1)
+1310676861968: UserServer handling request in (0,0)
+1310676861972: Sending PROC_REQUEST 2:2 (0,0)->(1,1)
+1310676862110: Received PROC_REPLY 2:2 (1,1)->(0,0), handing to UserServer
+1310676862111: Procedure 2:2 successful
+1310676862154: Parking request on (1,1) succeeded, spots=99999999,latency=219
+1310676863159: Reading spot in (1,0)
+1310676863203: UserServer handling request in (0,0)
+1310676863203: Sending PROC_REQUEST 3:4 (0,0)->(1,0)
+1310676863264: Received PROC_REPLY 3:4 (1,0)->(0,0), handing to UserServer
+1310676863264: Procedure 3:4 successful
+1310676863269: Parking read on (1,0) succeeded, spots=99999999,latency=103
+1310676864273: Reading spot in (0,0)
+1310676864322: UserServer handling request in (0,0)
+1310676864322: Sending PROC_REQUEST 3:5 (0,0)->(0,0)
+1310676864329: removed replies before id 5 from sentReplies of size 0
+1310676864329: Received PROC_REQUEST 3:5 (0,0)->(0,0), replying PROC_REPLY 3:5 (0,0)->(0,0)
+1310676864335: Received PROC_REPLY 3:5 (0,0)->(0,0), handing to UserServer
+1310676864335: Procedure 3:5 successful
+1310676864339: Parking read on (0,0) succeeded, spots=100000000,latency=60
+1310676865342: Reading spot in (0,1)
+1310676865385: UserServer handling request in (0,0)
+1310676865385: Sending PROC_REQUEST 3:3 (0,0)->(0,1)
+1310676865454: Received PROC_REPLY 3:3 (0,1)->(0,0), handing to UserServer
+1310676865455: Procedure 3:3 successful
+1310676865486: Parking read on (0,1) succeeded, spots=100000000,latency=125
+1310676866497: Reading spot in (0,0)
+1310676866523: UserServer handling request in (0,0)
+1310676866524: Sending PROC_REQUEST 3:6 (0,0)->(0,0)
+1310676866529: removed replies before id 6 from sentReplies of size 0
+1310676866529: Received PROC_REQUEST 3:6 (0,0)->(0,0), replying PROC_REPLY 3:6 (0,0)->(0,0)
+1310676866538: Received PROC_REPLY 3:6 (0,0)->(0,0), handing to UserServer
+1310676866538: Procedure 3:6 successful
+1310676866547: Parking read on (0,0) succeeded, spots=100000000,latency=46
+1310676866576: removed replies before id 22 from sentReplies of size 0
+1310676866577: Received PROC_REQUEST 3:22 (1,0)->(0,0), replying PROC_REPLY 3:22 (0,0)->(1,0)
+1310676867550: Reading spot in (0,1)
+1310676867593: UserServer handling request in (0,0)
+1310676867605: Sending PROC_REQUEST 3:4 (0,0)->(0,1)
+1310676867659: removed replies before id 23 from sentReplies of size 0
+1310676867660: Received PROC_REQUEST 3:23 (1,0)->(0,0), replying PROC_REPLY 3:23 (0,0)->(1,0)
+1310676867712: Received PROC_REPLY 3:4 (0,1)->(0,0), handing to UserServer
+1310676867712: Procedure 3:4 successful
+1310676867721: Parking read on (0,1) succeeded, spots=100000000,latency=156
+1310676868723: Reading spot in (1,1)
+1310676868761: UserServer handling request in (0,0)
+1310676868763: Sending PROC_REQUEST 3:3 (0,0)->(1,1)
+1310676868831: Received PROC_REPLY 3:3 (1,1)->(0,0), handing to UserServer
+1310676868831: Procedure 3:3 successful
+1310676868837: Parking read on (1,1) succeeded, spots=99999998,latency=105
+1310676869840: Reading spot in (0,0)
+1310676869893: UserServer handling request in (0,0)
+1310676869912: Sending PROC_REQUEST 3:7 (0,0)->(0,0)
+1310676869918: removed replies before id 7 from sentReplies of size 0
+1310676869919: Received PROC_REQUEST 3:7 (0,0)->(0,0), replying PROC_REPLY 3:7 (0,0)->(0,0)
+1310676869931: Received PROC_REPLY 3:7 (0,0)->(0,0), handing to UserServer
+1310676869931: Procedure 3:7 successful
+1310676869940: Parking read on (0,0) succeeded, spots=100000000,latency=91
+1310676870177: removed replies before id 6 from sentReplies of size 0
+1310676870182: Received PROC_REQUEST 3:6 (0,1)->(0,0), replying PROC_REPLY 3:6 (0,0)->(0,1)
+1310676870941: Reading spot in (1,1)
+1310676870951: UserServer handling request in (0,0)
+1310676870952: Sending PROC_REQUEST 3:4 (0,0)->(1,1)
+1310676870983: Received PROC_REPLY 3:4 (1,1)->(0,0), handing to UserServer
+1310676870983: Procedure 3:4 successful
+1310676870985: Parking read on (1,1) succeeded, spots=99999998,latency=44
+1310676871987: Reading spot in (0,0)
+1310676872005: UserServer handling request in (0,0)
+1310676872005: Sending PROC_REQUEST 3:8 (0,0)->(0,0)
+1310676872007: removed replies before id 8 from sentReplies of size 0
+1310676872008: Received PROC_REQUEST 3:8 (0,0)->(0,0), replying PROC_REPLY 3:8 (0,0)->(0,0)
+1310676872010: Received PROC_REPLY 3:8 (0,0)->(0,0), handing to UserServer
+1310676872010: Procedure 3:8 successful
+1310676872016: Parking read on (0,0) succeeded, spots=100000000,latency=22
+1310676873018: Reading spot in (1,1)
+1310676873092: UserServer handling request in (0,0)
+1310676873092: Sending PROC_REQUEST 3:5 (0,0)->(1,1)
+1310676873126: Received PROC_REPLY 3:5 (1,1)->(0,0), handing to UserServer
+1310676873127: Procedure 3:5 successful
+1310676873129: Parking read on (1,1) succeeded, spots=99999997,latency=109

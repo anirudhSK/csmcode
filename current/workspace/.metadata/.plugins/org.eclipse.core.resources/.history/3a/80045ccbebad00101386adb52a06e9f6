@@ -1,0 +1,73 @@
+package edu.mit.csail.jasongao.smcloud;
+
+import java.io.InputStream;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+
+import android.util.Log;
+
+public class Cloud {
+	final static String TAG = "SMCloud";
+	final static String hostname = "ec2-122-248-219-48.ap-southeast-1.compute.amazonaws.com:5212";
+
+	// Status codes
+	final static int CR_ERROR = 13;
+	final static int CR_OKAY = 12;
+	final static int CR_NOCSM = 11;
+	final static int CR_CSM = 10;
+	
+	/** Increment 
+
+	/** Make an HTTP GET request to the cloud */
+	public InputStream makeRequest(RegionKey region, long id, long time) {
+		String url = String.format("http://" + hostname + "/take/%d/%d/%d/%d/",
+				region.x, region.y, id, time);
+		InputStream data = null;
+		try {
+			long t1 = System.currentTimeMillis();
+			URI uri = new URI(url);
+			HttpGet method = new HttpGet(uri);
+			DefaultHttpClient httpClient = new DefaultHttpClient();
+			HttpResponse response = httpClient.execute(method);
+			data = response.getEntity().getContent();
+			long t2 = System.currentTimeMillis();
+			Log.i(TAG, String.format("Request took %dms, for %s", t2 - t1, url));
+		} catch (Exception e) {
+			Log.e(TAG, e.toString());
+		}
+		return data;
+	}
+
+	/** Upload CSM state data to cloud via HTTP POST */
+	public InputStream uploadState(RegionKey region, long id,
+			String csmDataAsString) {
+		long time = System.currentTimeMillis();
+
+		String url = String.format("http://" + hostname
+				+ "/upload/%d/%d/%d/%d/", region.x, region.y, id, time);
+
+		InputStream data = null;
+		try {
+			HttpPost method = new HttpPost(new URI(url));
+			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+			nameValuePairs.add(new BasicNameValuePair("csm_data",
+					csmDataAsString));
+			method.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+			DefaultHttpClient httpClient = new DefaultHttpClient();
+			HttpResponse response = httpClient.execute(method);
+			data = response.getEntity().getContent();
+		} catch (Exception e) {
+			Log.e(TAG, "Error: " + e.getMessage());
+		}
+		return data;
+	}
+}

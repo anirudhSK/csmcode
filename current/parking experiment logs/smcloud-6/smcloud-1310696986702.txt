@@ -1,0 +1,20 @@
+1310696986705: *** Opened log file for writing ***
+1310696986706: *** Application started ***
+1310697234088: Requesting spot in (1,0)
+1310697237000: Parking request succeeded, spots=19,latency=2902
+1310697375442: Releasing spot in (1,0)
+1310697377977: Parking release succeeded, spots=20,latency=2525
+1310697388457: Requesting spot in (0,0)
+1310697392300: Parking request succeeded, spots=18,latency=3821
+1310697418539: Releasing spot in (0,0)
+1310697423635: Parking release succeeded, spots=16,latency=5084
+1310697540953: Requesting spot in (1,0)
+1310697544232: Parking request succeeded, spots=17,latency=3271
+1310697648614: Releasing spot in (1,0)
+1310697651611: Parking release succeeded, spots=19,latency=2964
+1310697745024: Reading spot in (0,0)
+1310697748025: Parking read succeeded, spots=16,latency=2990
+1310697845057: Requesting spot in (0,0)
+1310697847512: Parking request succeeded, spots=17,latency=2451
+1310697873538: Releasing spot in (0,0)
+1310697876381: Parking release succeeded, spots=18,latency=2836

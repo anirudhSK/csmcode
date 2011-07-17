@@ -1,0 +1,153 @@
+package edu.ncsu.Chat;
+
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.util.Enumeration;
+
+import android.content.Context;
+import android.net.DhcpInfo;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.os.Handler;
+import android.util.Log;
+
+public class ServerThread extends Thread {
+
+	final static private String TAG = "Chat";
+	final static boolean D = true;
+	final static int PORT = 6666;
+
+	Handler mHandler; // Handler for messages in the main thread
+	Context mContext; // Context to the application (for getting ip Addresses)
+	DatagramSocket serverSocket; // Socket used both for sending and receiving
+	boolean socketOK = true; // True as long as we don't get socket errors
+
+	InetAddress myBcastIPAddress; // my broadcast IP addresses
+	InetAddress myIPAddress; // my IP addresses
+
+	// Constructor - make a new datagram socket
+	public ServerThread(Context currentContext, Handler handler) {
+
+		mContext = currentContext;
+		mHandler = handler;
+
+		try { // Let's open an UDP socket - we'll receive the messages on this
+				// socket
+			serverSocket = new DatagramSocket(PORT);
+			serverSocket.setBroadcast(true);
+		} catch (Exception e) {
+			Log.e(TAG, "Cannot open socket" + e.getMessage());
+			socketOK = false;
+			return;
+		}
+
+		try {
+			getMyWiFiBcastAndIPAddress();
+			Log.i(TAG, "My IP address:" + myIPAddress);
+			Log.i(TAG, "My Broadcast IP address:" + myBcastIPAddress);
+		} catch (Exception e) {
+			Log.e(TAG, "Cannot get my own Broadcast IP address");
+		}
+	}
+
+	// Method for closing the socket before exiting application
+	public void closeSocket() {
+		serverSocket.close();
+	}
+
+	// If the socket is OK, then it's running
+	boolean socketIsOK() {
+		return socketOK;
+	}
+
+	// What the thread does when started
+	@Override
+	public void run() {
+
+		byte[] receiveData = new byte[1024];
+
+		while (socketOK) {
+
+			DatagramPacket receivePacket = new DatagramPacket(receiveData,
+					receiveData.length);
+
+			try {
+				serverSocket.receive(receivePacket);
+				Log.i(TAG, "Received a packet");
+
+				InetAddress sourceIPAddress = receivePacket.getAddress();
+				Log.d(TAG, "Source IP Address: " + sourceIPAddress);
+				if (!sourceIPAddress.equals(myIPAddress)) {// it's from somebody
+															// else
+					String sentence = new String(receivePacket.getData(), 0,
+							receivePacket.getLength());
+					mHandler.obtainMessage(Chat.PACKET_CAME, sentence)
+							.sendToTarget();
+					Log.i(TAG, "Received sentence: " + sentence);
+				}// else do nothing
+			} catch (Exception e) {
+				Log.e(TAG, "Problems receiving packet: " + e.getMessage());
+				socketOK = false;
+			} // end catch
+
+		}// while(socketOK)
+
+	}// end run()
+
+	// Sends an UDP packet at the broadcast address
+	public void sendMessage(String msg) throws IOException {
+
+		byte[] sendData = new byte[1024];
+
+		sendData = msg.getBytes();
+
+		DatagramPacket sendPacket = new DatagramPacket(sendData,
+				sendData.length, myBcastIPAddress, PORT);
+
+		serverSocket.send(sendPacket);
+		Log.i(TAG, "Sent packet: " + msg);
+
+	}
+
+	/**
+	 * Calculate the broadcast IP we need to send the packet along.
+	 */
+	private InetAddress getBroadcastAddress() throws IOException {
+		return InetAddress.getByName("192.168.5.255");
+	}
+
+	private InetAddress getLocalAddress() throws IOException {
+
+		try {
+			for (Enumeration<NetworkInterface> en = NetworkInterface
+					.getNetworkInterfaces(); en.hasMoreElements();) {
+				NetworkInterface intf = en.nextElement();
+				for (Enumeration<InetAddress> enumIpAddr = intf
+						.getInetAddresses(); enumIpAddr.hasMoreElements();) {
+					InetAddress inetAddress = enumIpAddr.nextElement();
+					if (!inetAddress.isLoopbackAddress()) {
+						// return inetAddress.getHostAddress().toString();
+						return inetAddress;
+					}
+				}
+			}
+		} catch (SocketException ex) {
+			Log.e(TAG, ex.toString());
+		}
+		return null;
+	}
+
+	private void getMyWiFiBcastAndIPAddress() throws UnknownHostException {
+
+		myIPAddress = getLocalAddress();
+
+		myBcastIPAddress = getBroadcastAddress();
+
+	}
+
+}// end class

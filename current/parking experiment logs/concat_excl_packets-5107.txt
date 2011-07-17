@@ -1,0 +1,2146 @@
+1310690337817: started, mId = 5107
+1310690337817: region (-1, -1) out of bounds, dormant
+1310690337819: UserClient started
+1310690431448: started, mId = 5107
+1310690431448: region (-1, -1) out of bounds, dormant
+1310690431450: UserClient started
+1310690638474: Requesting spot in (0,0)
+1310690780271: x,y from GPS: 36, 26
+1310690780271: moving from region (-1,-1), to (1,0)
+1310690780272: retry sending LEADER_REQUEST
+1310690780272: UserClient received REGION_CHANGE message.
+1310690780873: retry sending LEADER_REQUEST
+1310690781476: retry sending LEADER_REQUEST
+1310690781772: LEADER_REQUEST timed out
+1310690782615: x,y from GPS: 26, 18
+1310690782616: moving from region (1,0), to (0,0)
+1310690782616: UserClient received REGION_CHANGE message.
+1310690785691: cloud accepted leadership request, returned csm bytes size 920
+1310690785815: CSMLayer starting
+1310690785823: UserServer started.
+1310690785823: loaded csm data from cloud
+1310690785871: now fully up as LEADER
+1310690785882: LEADER_REQUEST timed out
+1310690787645: x,y from GPS: 25, 8
+1310690787645: moving from region (1,0), to (0,0)
+1310690787645: broadcasting LEADER_ELECT to old (1,0)
+1310690787649: UserClient received REGION_CHANGE message.
+1310690788047: UserServer stopped.
+1310690788064: CSMLayer stopped
+1310690788066: serializing CSMLayer to JSON
+1310690788813: previous region empty, uploaded state to cloud in 745ms, json 919 bytes
+1310690788823: retry sending LEADER_REQUEST
+1310690789026: heard LEADER_REPLY from 5104
+1310690789027: CSMLayer stopped
+1310690789029: now NONLEADER following LEADER 5104
+1310690790873: retry sending LEADER_REQUEST
+1310690791086: heard LEADER_REPLY from 5104
+1310690791089: now NONLEADER following LEADER 5104
+1310690816611: x,y from GPS: 28, 3
+1310690822663: x,y from GPS: 27, -2
+1310690826652: x,y from GPS: 23, -3
+1310690836652: x,y from GPS: 18, -6
+1310690838649: heard LEADER_ELECT from node 5104, responding LEADER_NOMINATE
+1310690839170: received LEADER_CONFIRM from 5104, replying LEADER_CONFIRM_ACK
+1310690839171: waiting to give old leader time to release
+1310690844864: cloud accepted leadership request, returned csm bytes size 2405
+1310690844976: CSMLayer starting
+1310690844983: UserServer started.
+1310690844984: loaded csm data from old leader
+1310690845028: now fully up as LEADER
+1310690845029: heard LEADER_REQUEST from node 5109, responding LEADER_REPLY
+1310690845079: heard LEADER_REQUEST from node 5109, responding LEADER_REPLY
+1310690847736: heard LEADER_REQUEST from node 5104, responding LEADER_REPLY
+1310690848927: heard LEADER_REQUEST from node 5104, responding LEADER_REPLY
+1310690855659: x,y from GPS: 20, 0
+1310690858667: x,y from GPS: 23, 5
+1310690863529: heard LEADER_REQUEST from node 5101, responding LEADER_REPLY
+1310690893096: Reading spot in (0,0)
+1310690893102: UserServer handling request in (0,0)
+1310690893103: Sending PROC_REQUEST 3:8 (0,0)->(0,0)
+1310690893113: removed replies before id 8 from sentReplies of size 0
+1310690893119: Received PROC_REQUEST 3:8 (0,0)->(0,0), replying PROC_REPLY 3:8 (0,0)->(0,0)
+1310690893124: Received PROC_REPLY 3:8 (0,0)->(0,0), handing to UserServer
+1310690893124: Procedure 3:8 successful
+1310690893128: Parking read on (0,0) from (0,0)succeeded, spots=18,latency=32
+1310690902671: x,y from GPS: 23, -1
+1310690904680: x,y from GPS: 23, -6
+1310690906765: heard LEADER_REQUEST from node 5106, responding LEADER_REPLY
+1310690919650: x,y from GPS: 29, -8
+1310690924079: UserServer handling request in (0,0)
+1310690924089: Sending PROC_REQUEST 3:9 (0,0)->(0,0)
+1310690924114: removed replies before id 9 from sentReplies of size 0
+1310690924115: Received PROC_REQUEST 3:9 (0,0)->(0,0), replying PROC_REPLY 3:9 (0,0)->(0,0)
+1310690924121: Received PROC_REPLY 3:9 (0,0)->(0,0), handing to UserServer
+1310690924123: Procedure 3:9 successful
+1310690927660: x,y from GPS: 27, -13
+1310690935229: UserServer handling request in (0,0)
+1310690935235: Sending PROC_REQUEST 3:10 (0,0)->(0,0)
+1310690935251: removed replies before id 10 from sentReplies of size 0
+1310690935251: Received PROC_REQUEST 3:10 (0,0)->(0,0), replying PROC_REPLY 3:10 (0,0)->(0,0)
+1310690935259: Received PROC_REPLY 3:10 (0,0)->(0,0), handing to UserServer
+1310690935264: Procedure 3:10 successful
+1310690961637: heard LEADER_REQUEST from node 5104, responding LEADER_REPLY
+1310690962257: heard LEADER_REQUEST from node 5104, responding LEADER_REPLY
+1310690976658: x,y from GPS: 32, -11
+1310690992658: x,y from GPS: 40, -11
+1310690992660: moving from region (0,0), to (1,0)
+1310690992660: broadcasting LEADER_ELECT to old (0,0)
+1310690992662: UserClient received REGION_CHANGE message.
+1310690992679: received LEADER_NOMINATE from 5101, saving as candidate
+1310690992688: received LEADER_NOMINATE from 5104, saving as candidate
+1310690992723: received LEADER_NOMINATE from 5103, saving as candidate
+1310690993063: sending LEADER_CONFIRM to node 5101
+1310690993067: adding csm data to packet
+1310690993070: UserServer stopped.
+1310690993080: CSMLayer stopped
+1310690996199: recv LEADER_CONFIRM_ACK from 5101, released leadership to cloud in 2935ms
+1310690996210: retry sending LEADER_REQUEST
+1310690996345: heard LEADER_REPLY from 5102
+1310690996346: CSMLayer stopped
+1310690996347: now NONLEADER following LEADER 5102
+1310691000659: x,y from GPS: 43, -7
+1310691005659: x,y from GPS: 41, -1
+1310691088370: x,y from GPS: 37, 1
+1310691100366: x,y from GPS: 42, 1
+1310691111269: Wait for previous action to complete.
+1310691111358: x,y from GPS: 45, 5
+1310691116344: heard LEADER_ELECT from node 5102, responding LEADER_NOMINATE
+1310691121362: x,y from GPS: 42, 8
+1310691129363: x,y from GPS: 38, 12
+1310691130964: retry sending LEADER_REQUEST
+1310691131566: retry sending LEADER_REQUEST
+1310691132167: retry sending LEADER_REQUEST
+1310691132464: LEADER_REQUEST timed out
+1310691134807: Wait for previous action to complete.
+1310691135329: x,y from GPS: 35, 15
+1310691140060: cloud accepted leadership request, returned csm bytes size 919
+1310691140119: CSMLayer starting
+1310691140128: UserServer started.
+1310691140128: loaded csm data from cloud
+1310691140165: now fully up as LEADER
+1310691140165: heard LEADER_REQUEST from node 5110, responding LEADER_REPLY
+1310691140194: heard LEADER_REQUEST from node 5110, responding LEADER_REPLY
+1310691140208: heard LEADER_REQUEST from node 5110, responding LEADER_REPLY
+1310691141353: x,y from GPS: 30, 16
+1310691141353: moving from region (1,0), to (0,0)
+1310691141353: broadcasting LEADER_ELECT to old (1,0)
+1310691141355: UserClient received REGION_CHANGE message.
+1310691141409: received LEADER_NOMINATE from 5102, saving as candidate
+1310691141754: sending LEADER_CONFIRM to node 5102
+1310691141755: adding csm data to packet
+1310691141761: UserServer stopped.
+1310691141768: CSMLayer stopped
+1310691143301: recv LEADER_CONFIRM_ACK from 5102, released leadership to cloud in 1417ms
+1310691143328: retry sending LEADER_REQUEST
+1310691149350: x,y from GPS: 27, 24
+1310691151629: heard LEADER_REPLY from 5105
+1310691151630: CSMLayer stopped
+1310691151640: now NONLEADER following LEADER 5105
+1310691178424: x,y from GPS: 29, 15
+1310691179429: x,y from GPS: 31, 10
+1310691180421: x,y from GPS: 33, 4
+1310691181426: x,y from GPS: 35, -2
+1310691181431: moving from region (0,0), to (1,0)
+1310691181431: retry sending LEADER_REQUEST
+1310691181433: UserClient received REGION_CHANGE message.
+1310691181503: heard LEADER_REPLY from 5110
+1310691181504: now NONLEADER following LEADER 5110
+1310691182408: x,y from GPS: 36, -8
+1310691183408: x,y from GPS: 38, -13
+1310691185418: x,y from GPS: 37, -19
+1310691187418: x,y from GPS: 37, -25
+1310691189433: x,y from GPS: 36, -32
+1310691191421: x,y from GPS: 35, -37
+1310691191422: moving from region (1,0), to (1,-1)
+1310691191422: region (1, -1) out of bounds, dormant
+1310691191422: UserClient received REGION_CHANGE message.
+1310691193421: x,y from GPS: 31, -40
+1310691193421: moving from region (1,-1), to (0,-1)
+1310691193422: region (0, -1) out of bounds, dormant
+1310691193422: UserClient received REGION_CHANGE message.
+1310691196428: x,y from GPS: 26, -44
+1310691199421: x,y from GPS: 22, -47
+1310691203425: x,y from GPS: 28, -47
+1310691204425: x,y from GPS: 32, -46
+1310691206429: x,y from GPS: 39, -43
+1310691206429: moving from region (0,-1), to (1,-1)
+1310691206430: region (1, -1) out of bounds, dormant
+1310691206430: UserClient received REGION_CHANGE message.
+1310691208421: x,y from GPS: 44, -39
+1310691216421: x,y from GPS: 43, -34
+1310691216422: moving from region (1,-1), to (1,0)
+1310691216422: retry sending LEADER_REQUEST
+1310691216422: UserClient received REGION_CHANGE message.
+1310691216527: heard LEADER_REPLY from 5110
+1310691216528: now NONLEADER following LEADER 5110
+1310691217109: Wait for previous action to complete.
+1310691230430: Wait for previous action to complete.
+1310691235422: x,y from GPS: 41, -30
+1310691240411: x,y from GPS: 36, -25
+1310691245422: x,y from GPS: 31, -23
+1310691245422: moving from region (1,0), to (0,0)
+1310691245423: retry sending LEADER_REQUEST
+1310691245423: UserClient received REGION_CHANGE message.
+1310691245488: heard LEADER_REPLY from 5105
+1310691245488: now NONLEADER following LEADER 5105
+1310691251422: x,y from GPS: 28, -17
+1310691254422: x,y from GPS: 26, -13
+1310691266483: Wait for previous action to complete.
+1310691273885: Wait for previous action to complete.
+1310691274428: heard LEADER_ELECT from node 5105, responding LEADER_NOMINATE
+1310691275006: received LEADER_CONFIRM from 5105, replying LEADER_CONFIRM_ACK
+1310691275008: waiting to give old leader time to release
+1310691280416: cloud accepted leadership request, returned csm bytes size 2404
+1310691280466: CSMLayer starting
+1310691280476: UserServer started.
+1310691280476: loaded csm data from old leader
+1310691280502: now fully up as LEADER
+1310691285045: Wait for previous action to complete.
+1310691285461: Wait for previous action to complete.
+1310691288824: Wait for previous action to complete.
+1310691294447: heard LEADER_REQUEST from node 5103, responding LEADER_REPLY
+1310691298433: heard LEADER_REQUEST from node 5108, responding LEADER_REPLY
+1310691299687: heard LEADER_REQUEST from node 5108, responding LEADER_REPLY
+1310691299942: heard LEADER_REQUEST from node 5108, responding LEADER_REPLY
+1310691300413: x,y from GPS: 28, -7
+1310691301413: x,y from GPS: 32, -5
+1310691302435: x,y from GPS: 36, -3
+1310691302435: moving from region (0,0), to (1,0)
+1310691302436: broadcasting LEADER_ELECT to old (0,0)
+1310691302438: UserClient received REGION_CHANGE message.
+1310691302463: received LEADER_NOMINATE from 5108, saving as candidate
+1310691302473: received LEADER_NOMINATE from 5102, saving as candidate
+1310691302535: received LEADER_NOMINATE from 5103, saving as candidate
+1310691302836: sending LEADER_CONFIRM to node 5108
+1310691302838: adding csm data to packet
+1310691302840: UserServer stopped.
+1310691302849: CSMLayer stopped
+1310691307284: recv LEADER_CONFIRM_ACK from 5108, released leadership to cloud in 4238ms
+1310691307291: retry sending LEADER_REQUEST
+1310691307430: heard LEADER_REPLY from 5110
+1310691307432: CSMLayer stopped
+1310691307433: now NONLEADER following LEADER 5110
+1310691310482: heard LEADER_ELECT from node 5110, responding LEADER_NOMINATE
+1310691316083: heard LEADER_REPLY from 5105
+1310691316085: now NONLEADER following LEADER 5105
+1310691317455: heard LEADER_ELECT from node 5105, responding LEADER_NOMINATE
+1310691317929: received LEADER_CONFIRM from 5105, replying LEADER_CONFIRM_ACK
+1310691317931: waiting to give old leader time to release
+1310691323413: cloud accepted leadership request, returned csm bytes size 919
+1310691323447: CSMLayer starting
+1310691323454: UserServer started.
+1310691323454: loaded csm data from old leader
+1310691323468: now fully up as LEADER
+1310691329414: x,y from GPS: 33, 1
+1310691329421: moving from region (1,0), to (0,0)
+1310691329421: broadcasting LEADER_ELECT to old (1,0)
+1310691329423: UserClient received REGION_CHANGE message.
+1310691329823: UserServer stopped.
+1310691329829: CSMLayer stopped
+1310691329832: serializing CSMLayer to JSON
+1310691337414: x,y from GPS: 29, 5
+1310691338774: previous region empty, uploaded state to cloud in 8942ms, json 919 bytes
+1310691338783: retry sending LEADER_REQUEST
+1310691338947: heard LEADER_REPLY from 5108
+1310691338949: CSMLayer stopped
+1310691338950: now NONLEADER following LEADER 5108
+1310691340416: x,y from GPS: 25, 9
+1310691343411: x,y from GPS: 22, 12
+1310691346417: x,y from GPS: 19, 18
+1310691349412: x,y from GPS: 17, 23
+1310691349426: heard LEADER_ELECT from node 5108, responding LEADER_NOMINATE
+1310691351411: x,y from GPS: 15, 29
+1310691354395: x,y from GPS: 16, 36
+1310691354396: moving from region (0,0), to (0,1)
+1310691354396: retry sending LEADER_REQUEST
+1310691354396: UserClient received REGION_CHANGE message.
+1310691362438: Wait for previous action to complete.
+1310691371421: x,y from GPS: 21, 34
+1310691371422: moving from region (0,1), to (0,0)
+1310691371423: retry sending LEADER_REQUEST
+1310691371425: UserClient received REGION_CHANGE message.
+1310691371498: heard LEADER_REPLY from 5105
+1310691371499: now NONLEADER following LEADER 5105
+1310691393399: x,y from GPS: 26, 32
+1310691402417: x,y from GPS: 27, 25
+1310691404417: x,y from GPS: 33, 17
+1310691415913: Reading spot in (0,0)
+1310691416097: Parking read on (0,0) from (0,0)succeeded, spots=20,latency=183
+1310691417467: heard LEADER_ELECT from node 5105, responding LEADER_NOMINATE
+1310691424412: x,y from GPS: 45, -12
+1310691424412: moving from region (0,0), to (1,0)
+1310691424413: retry sending LEADER_REQUEST
+1310691424413: UserClient received REGION_CHANGE message.
+1310691424624: heard LEADER_REPLY from 5110
+1310691424624: now NONLEADER following LEADER 5110
+1310691435413: x,y from GPS: 48, -28
+1310691450413: x,y from GPS: 22, -11
+1310691450413: moving from region (1,0), to (0,0)
+1310691450414: retry sending LEADER_REQUEST
+1310691450414: UserClient received REGION_CHANGE message.
+1310691450570: heard LEADER_REPLY from 5103
+1310691450571: now NONLEADER following LEADER 5103
+1310691452408: x,y from GPS: 25, -6
+1310691453832: retry sending LEADER_REQUEST
+1310691453970: heard LEADER_REPLY from 5103
+1310691453971: now NONLEADER following LEADER 5103
+1310691488414: x,y from GPS: 28, -9
+1310691502449: heard LEADER_ELECT from node 5103, responding LEADER_NOMINATE
+1310691502467: x,y from GPS: 25, 3
+1310691504411: x,y from GPS: 23, 9
+1310691507927: heard LEADER_REPLY from 5105
+1310691507929: now NONLEADER following LEADER 5105
+1310691518432: x,y from GPS: 17, 41
+1310691518433: moving from region (0,0), to (0,1)
+1310691518433: retry sending LEADER_REQUEST
+1310691518434: UserClient received REGION_CHANGE message.
+1310691519034: retry sending LEADER_REQUEST
+1310691519434: x,y from GPS: 25, 33
+1310691519434: moving from region (0,1), to (0,0)
+1310691519435: retry sending LEADER_REQUEST
+1310691519435: UserClient received REGION_CHANGE message.
+1310691519562: heard LEADER_REPLY from 5105
+1310691519563: now NONLEADER following LEADER 5105
+1310691521410: x,y from GPS: 20, 41
+1310691521411: moving from region (0,0), to (0,1)
+1310691521411: retry sending LEADER_REQUEST
+1310691521411: UserClient received REGION_CHANGE message.
+1310691522012: retry sending LEADER_REQUEST
+1310691522619: retry sending LEADER_REQUEST
+1310691522913: LEADER_REQUEST timed out
+1310691526222: cloud rejected leadership request or request failed, wait to retry
+1310691536230: been in JOINING state for a while now, start over
+1310691536232: retry sending LEADER_REQUEST
+1310691536857: retry sending LEADER_REQUEST
+1310691537459: retry sending LEADER_REQUEST
+1310691537733: LEADER_REQUEST timed out
+1310691541046: cloud accepted leadership request, returned csm bytes size 827
+1310691541124: CSMLayer starting
+1310691541131: UserServer started.
+1310691541131: loaded csm data from cloud
+1310691541168: now fully up as LEADER
+1310691552452: x,y from GPS: 14, 37
+1310691557447: heard LEADER_REQUEST from node 5102, responding LEADER_REPLY
+1310691559304: Reading spot in (0,0)
+1310691559308: UserServer handling request in (0,1)
+1310691559309: Sending PROC_REQUEST 3:0 (0,1)->(0,0)
+1310691559401: Received PROC_REPLY 3:0 (0,0)->(0,1), handing to UserServer
+1310691559401: Procedure 3:0 successful
+1310691559409: Parking read on (0,0) from (0,1)succeeded, spots=20,latency=105
+1310691559981: heard LEADER_REQUEST from node 5102, responding LEADER_REPLY
+1310691563438: x,y from GPS: 24, 27
+1310691563439: moving from region (0,1), to (0,0)
+1310691563439: broadcasting LEADER_ELECT to old (0,1)
+1310691563441: UserClient received REGION_CHANGE message.
+1310691563503: received LEADER_NOMINATE from 5102, saving as candidate
+1310691563839: sending LEADER_CONFIRM to node 5102
+1310691563841: adding csm data to packet
+1310691563846: UserServer stopped.
+1310691563848: CSMLayer stopped
+1310691569407: recv LEADER_CONFIRM_ACK from 5102, released leadership to cloud in 5325ms
+1310691571416: x,y from GPS: 24, 21
+1310691574437: x,y from GPS: 27, 16
+1310691580427: x,y from GPS: 31, 12
+1310691583415: x,y from GPS: 35, 11
+1310691583415: moving from region (0,0), to (1,0)
+1310691583416: retry sending LEADER_REQUEST
+1310691583416: UserClient received REGION_CHANGE message.
+1310691583477: heard LEADER_REPLY from 5110
+1310691583477: CSMLayer stopped
+1310691583478: now NONLEADER following LEADER 5110
+1310691584425: retry sending LEADER_REQUEST
+1310691584495: heard LEADER_REPLY from 5110
+1310691584495: now NONLEADER following LEADER 5110
+1310691589446: x,y from GPS: 38, 14
+1310691595420: x,y from GPS: 41, 19
+1310691602429: x,y from GPS: 46, 18
+1310691607426: x,y from GPS: 46, 13
+1310691615414: x,y from GPS: 47, 6
+1310691623498: Receiv1310691754114: started, mId = 5107
+1310691754114: region (-1, -1) out of bounds, dormant
+1310691754129: UserClient started
+1310691763324: x,y from GPS: 23, -25
+1310691763325: moving from region (-1,-1), to (0,0)
+1310691763325: retry sending LEADER_REQUEST
+1310691763326: UserClient received REGION_CHANGE message.
+1310691763432: heard LEADER_REPLY from 5105
+1310691763433: now NONLEADER following LEADER 5105
+1310691764118: retry sending LEADER_REQUEST
+1310691764327: heard LEADER_REPLY from 5105
+1310691764329: now NONLEADER following LEADER 5105
+1310691775299: x,y from GPS: 24, -31
+1310691777383: x,y from GPS: 27, -35
+1310691777384: moving from region (0,0), to (0,-1)
+1310691777384: region (0, -1) out of bounds, dormant
+1310691777385: UserClient received REGION_CHANGE message.
+1310691780319: x,y from GPS: 30, -38
+1310691788307: x,y from GPS: 27, -32
+1310691788308: moving from region (0,-1), to (0,0)
+1310691788309: retry sending LEADER_REQUEST
+1310691788310: UserClient received REGION_CHANGE message.
+1310691788420: heard LEADER_REPLY from 5105
+1310691788420: now NONLEADER following LEADER 5105
+1310691789129: retry sending LEADER_REQUEST
+1310691789299: heard LEADER_REPLY from 5105
+1310691789300: now NONLEADER following LEADER 5105
+1310691804337: x,y from GPS: 23, -26
+1310691807336: x,y from GPS: 21, -22
+1310691859371: x,y from GPS: 5, -27
+1310691888392: heard LEADER_ELECT from node 5105, responding LEADER_NOMINATE
+1310691888923: received LEADER_CONFIRM from 5105, replying LEADER_CONFIRM_ACK
+1310691888925: waiting to give old leader time to release
+1310691894422: cloud accepted leadership request, returned csm bytes size 2404
+1310691894497: CSMLayer starting
+1310691894504: UserServer started.
+1310691894506: loaded csm data from old leader
+1310691894571: now fully up as LEADER
+1310691898425: heard LEADER_REQUEST from node 5101, responding LEADER_REPLY
+1310691902867: UserServer handling request in (0,0)
+1310691902873: Sending PROC_REQUEST 2:3 (0,0)->(0,0)
+1310691902891: removed replies before id 3 from sentReplies of size 0
+1310691902894: Received PROC_REQUEST 2:3 (0,0)->(0,0), replying PROC_REPLY 2:3 (0,0)->(0,0)
+1310691902895: Sending out WRITE_UPDATE:4
+1310691902906: Received PROC_REPLY 2:3 (0,0)->(0,0), handing to UserServer
+1310691902907: Procedure 2:3 successful
+1310691903014: Received WRITE_ACK:4 (1,0)->(0,0)
+1310691903035: Received WRITE_UPDATE_REQUEST 5 (1,0)->(0,0)
+1310691913406: heard LEADER_REQUEST from node 5102, responding LEADER_REPLY
+1310691917398: heard LEADER_REQUEST from node 5103, responding LEADER_REPLY
+1310691948368: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310691953345: x,y from GPS: 16, 11
+1310692012349: x,y from GPS: -15, 22
+1310692024810: heard LEADER_REQUEST from node 5109, responding LEADER_REPLY
+1310692036049: x,y from GPS: 0, 11
+1310692047062: x,y from GPS: 13, 5
+1310692053107: heard LEADER_REQUEST from node 5102, responding LEADER_REPLY
+1310692054768: heard LEADER_REQUEST from node 5102, responding LEADER_REPLY
+1310692058072: x,y from GPS: 21, 13
+1310692069047: x,y from GPS: 22, 27
+1310692091053: x,y from GPS: 17, 27
+1310692117719: heard LEADER_REQUEST from node 5104, responding LEADER_REPLY
+1310692118329: heard LEADER_REQUEST from node 5104, responding LEADER_REPLY
+1310692140064: UserServer handling request in (0,0)
+1310692140064: Sending PROC_REQUEST 2:0 (0,0)->(1,0)
+1310692141291: Retrying PROC_REQUEST 2:0 (0,0)->(1,0)
+1310692141622: Retrying PROC_REQUEST 2:0 (0,0)->(1,0)
+1310692141953: Retrying PROC_REQUEST 2:0 (0,0)->(1,0)
+1310692142219: Requesting spot in (1,0)
+1310692142241: UserServer handling request in (0,0)
+1310692142242: Sending PROC_REQUEST 2:1 (0,0)->(1,0)
+1310692142275: Retrying PROC_REQUEST 2:0 (0,0)->(1,0)
+1310692142582: Retrying PROC_REQUEST 2:0 (0,0)->(1,0)
+1310692142929: Retrying PROC_REQUEST 2:0 (0,0)->(1,0)
+1310692143141: heard LEADER_REQUEST from node 5103, responding LEADER_REPLY
+1310692143255: Request timed out, send failure PROC_REPLY 2:0 (1,0)->(0,0)
+1310692143302: Retrying PROC_REQUEST 2:1 (0,0)->(1,0)
+1310692143303: Received PROC_REPLY 2:0 (1,0)->(0,0), handing to UserServer
+1310692143303: Procedure 2:0 timed out
+1310692143629: Retrying PROC_REQUEST 2:1 (0,0)->(1,0)
+1310692143729: heard LEADER_REQUEST from node 5103, responding LEADER_REPLY
+1310692143959: Retrying PROC_REQUEST 2:1 (0,0)->(1,0)
+1310692144265: Retrying PROC_REQUEST 2:1 (0,0)->(1,0)
+1310692144335: heard LEADER_REQUEST from node 5103, responding LEADER_REPLY
+1310692144408: Received PROC_REPLY 2:1 (1,0)->(0,0), handing to UserServer
+1310692144408: Procedure 2:1 successful
+1310692144411: Parking request on (1,0) from (0,0) succeeded, spots=18,latency=2190
+1310692144490: Received WRITE_UPDATE 1 (1,0)->(-2,-2)
+1310692144495: first WRITE_UPDATE ever heard from (1,0) is order 1
+1310692144498: Applied WRITE_UPDATE:1 from (1,0)
+1310692148941: UserServer handling request in (0,0)
+1310692148953: Sending PROC_REQUEST 2:2 (0,0)->(1,0)
+1310692149056: Received PROC_REPLY 2:2 (1,0)->(0,0), handing to UserServer
+1310692149056: Procedure 2:2 successful
+1310692149072: Received WRITE_UPDATE 2 (1,0)->(-2,-2)
+1310692149073: Applied WRITE_UPDATE:2 from (1,0)
+1310692149288: heard LEADER_REQUEST from node 5109, responding LEADER_REPLY
+1310692149928: heard LEADER_REQUEST from node 5109, responding LEADER_REPLY
+1310692150537: heard LEADER_REQUEST from node 5109, responding LEADER_REPLY
+1310692151145: heard LEADER_REQUEST from node 5109, responding LEADER_REPLY
+1310692157176: Reading spot in (0,0)
+1310692157179: UserServer handling request in (0,0)
+1310692157180: Sending PROC_REQUEST 3:4 (0,0)->(0,0)
+1310692157182: removed replies before id 4 from sentReplies of size 0
+1310692157183: Received PROC_REQUEST 3:4 (0,0)->(0,0), replying PROC_REPLY 3:4 (0,0)->(0,0)
+1310692157190: Received PROC_REPLY 3:4 (0,0)->(0,0), handing to UserServer
+1310692157190: Procedure 3:4 successful
+1310692157199: Parking read on (0,0) from (0,0)succeeded, spots=19,latency=21
+1310692163092: x,y from GPS: 36, 35
+1310692163093: moving from region (0,0), to (1,1)
+1310692163093: broadcasting LEADER_ELECT to old (0,0)
+1310692163095: UserClient received REGION_CHANGE message.
+1310692163177: received LEADER_NOMINATE from 5108, saving as candidate
+1310692163494: sending LEADER_CONFIRM to node 5108
+1310692163496: adding csm data to packet
+1310692163497: UserServer stopped.
+1310692163498: CSMLayer stopped
+1310692164591: CSMLayer stopped
+1310692164593: serializing CSMLayer to JSON
+1310692169313: no LEADER_CONFIRM_ACK, uploaded state to cloud in 4717ms, json 2825 bytes
+1310692169329: retry sending LEADER_REQUEST
+1310692169934: retry sending LEADER_REQUEST
+1310692170536: retry sending LEADER_REQUEST
+1310692170825: LEADER_REQUEST timed out
+1310692171251: cloud rejected leadership request or request failed, wait to retry
+1310692181263: been in JOINING state for a while now, start over
+1310692181265: retry sending LEADER_REQUEST
+1310692181883: retry sending LEADER_REQUEST
+1310692182486: retry sending LEADER_REQUEST
+1310692182766: LEADER_REQUEST timed out
+1310692186211: cloud rejected leadership request or request failed, wait to retry
+1310692196223: been in JOINING state for a while now, start over
+1310692196232: retry sending LEADER_REQUEST
+1310692196843: retry sending LEADER_REQUEST
+1310692197446: retry sending LEADER_REQUEST
+1310692197732: LEADER_REQUEST timed out
+1310692200973: cloud rejected leadership request or request failed, wait to retry
+1310692201025: x,y from GPS: 95, 31
+1310692201025: moving from region (1,1), to (2,0)
+1310692201026: region (2, 0) out of bounds, dormant
+1310692201027: UserClient received REGION_CHANGE message.
+1310692203072: x,y from GPS: 91, 35
+1310692203072: moving from region (2,0), to (2,1)
+1310692203073: region (2, 1) out of bounds, dormant
+1310692203073: UserClient received REGION_CHANGE message.
+1310692205471: Releasing spot in (1,0)
+1310692206066: x,y from GPS: 89, 39
+1310692209056: x,y from GPS: 89, 44
+1310692211318: Already holding a parking spot!
+1310692220369: Reading spot in (1,0)
+1310692224868: Reading spot in (1,0)
+1310692285426: Wait for previous action to complete.
+1310692311850: Already holding a parking spot!
+1310692353113: Reading spot in (0,0)
+1310692375168: Reading spot in (1,0)
+1310692406337: Wait for previous action to complete.
+1310692425592: Already holding a parking spot!
+1310692498843: Wait for previous action to complete.
+1310692502661: moving from region (2,1), to (1,1)
+1310692502665: retry sending LEADER_REQUEST
+1310692502691: UserClient received REGION_CHANGE message.
+1310692503268: retry sending LEADER_REQUEST
+1310692503869: retry sending LEADER_REQUEST
+1310692504173: LEADER_REQUEST timed out
+1310692504489: Wait for previous action to complete.
+1310692505678: Wait for previous action to complete.
+1310692506982: cloud rejected leadership request or request failed, wait to retry
+1310692509309: Wait for previous action to complete.
+1310692511031: x,y from GPS: 61, 43
+1310692515443: Wait for previous action to complete.
+1310692516991: been in JOINING state for a while now, start over
+1310692516993: retry sending LEADER_REQUEST
+1310692517595: retry sending LEADER_REQUEST
+1310692518197: retry sending LEADER_REQUEST
+1310692518493: LEADER_REQUEST timed out
+1310692522842: moving from region (1,1), to (0,1)
+1310692522846: UserClient received REGION_CHANGE message.
+1310692523025: cloud rejected leadership request or request failed, wait to retry
+1310692523039: retry sending LEADER_REQUEST
+1310692523641: retry sending LEADER_REQUEST
+1310692524244: retry sending LEADER_REQUEST
+1310692524344: LEADER_REQUEST timed out
+1310692526390: moving from region (0,1), to (1,1)
+1310692526393: UserClient received REGION_CHANGE message.
+1310692527182: moving from region (1,1), to (1,0)
+1310692527184: UserClient received REGION_CHANGE message.
+1310692527575: cloud accepted leadership request, returned csm bytes size 818
+1310692527588: CSMLayer stopped
+1310692527679: CSMLayer starting
+1310692527684: UserServer started.
+1310692527685: loaded csm data from cloud
+1310692527719: now fully up as LEADER
+1310692527719: heard LEADER_REQUEST from node 5101, responding LEADER_REPLY
+1310692528682: LEADER_REQUEST timed out
+1310692534106: x,y from GPS: 67, 44
+1310692534107: moving from region (0,1), to (1,1)
+1310692534107: broadcasting LEADER_ELECT to old (0,1)
+1310692534109: UserClient received REGION_CHANGE message.
+1310692534140: received LEADER_NOMINATE from 5101, saving as candidate
+1310692534508: sending LEADER_CONFIRM to node 5101
+1310692534510: adding csm data to packet
+1310692534520: UserServer stopped.
+1310692534521: CSMLayer stopped
+1310692540098: recv LEADER_CONFIRM_ACK from 5101, released leadership to cloud in 5448ms
+1310692540114: retry sending LEADER_REQUEST
+1310692540241: heard LEADER_REPLY from 5106
+1310692540242: CSMLayer stopped
+1310692540244: now NONLEADER following LEADER 5106
+1310692578043: x,y from GPS: 70, 34
+1310692578044: moving from region (1,1), to (2,0)
+1310692578044: region (2, 0) out of bounds, dormant
+1310692578045: UserClient received REGION_CHANGE message.
+1310692627046: x,y from GPS: 68, 39
+1310692627046: moving from region (2,0), to (1,1)
+1310692627046: retry sending LEADER_REQUEST
+1310692627051: UserClient received REGION_CHANGE message.
+1310692627647: retry sending LEADER_REQUEST
+1310692628249: retry sending LEADER_REQUEST
+1310692628548: LEADER_REQUEST timed out
+1310692629064: x,y from GPS: 59, 46
+1310692631177: cloud rejected leadership request or request failed, wait to retry
+1310692641189: been in JOINING state for a while now, start over
+1310692641199: retry sending LEADER_REQUEST
+1310692641808: retry sending LEADER_REQUEST
+1310692642413: retry sending LEADER_REQUEST
+1310692642691: LEADER_REQUEST timed out
+1310692644842: cloud rejected leadership request or request failed, wait to retry
+1310692654855: been in JOINING state for a while now, start over
+1310692654857: retry sending LEADER_REQUEST
+1310692655459: retry sending LEADER_REQUEST
+1310692656075: retry sending LEADER_REQUEST
+1310692656357: LEADER_REQUEST timed out
+1310692662095: cloud rejected leadership request or request failed, wait to retry
+1310692672110: been in JOINING state for a while now, start over
+1310692672110: retry sending LEADER_REQUEST
+1310692672711: retry sending LEADER_REQUEST
+1310692673314: retry sending LEADER_REQUEST
+1310692673611: LEADER_REQUEST timed out
+1310692679599: cloud rejected leadership request or request failed, wait to retry
+1310692689609: been in JOINING state for a while now, start over
+1310692689611: retry sending LEADER_REQUEST
+1310692690213: retry sending LEADER_REQUEST
+1310692690814: retry sending LEADER_REQUEST
+1310692691122: LEADER_REQUEST timed out
+1310692691368: moving from region (1,1), to (0,1)
+1310692691371: UserClient received REGION_CHANGE message.
+1310692693288: moving from region (0,1), to (0,0)
+1310692693292: UserClient received REGION_CHANGE message.
+1310692694004: cloud rejected leadership request or request failed, wait to retry
+1310692694012: retry sending LEADER_REQUEST
+1310692694632: retry sending LEADER_REQUEST
+1310692694790: LEADER_REQUEST timed out
+1310692695664: cloud accepted leadership request, returned csm bytes size 3091
+1310692695773: CSMLayer starting
+1310692695779: UserServer started.
+1310692695781: loaded csm data from cloud
+1310692695820: now fully up as LEADER
+1310692710076: heard LEADER_REQUEST from node 5108, responding LEADER_REPLY
+1310692710506: heard LEADER_REQUEST from node 5108, responding LEADER_REPLY
+1310692712073: x,y from GPS: 50, 38
+1310692712075: moving from region (0,0), to (1,1)
+1310692712076: broadcasting LEADER_ELECT to old (0,0)
+1310692712078: UserClient received REGION_CHANGE message.
+1310692712103: received LEADER_NOMINATE from 5108, saving as candidate
+1310692712479: sending LEADER_CONFIRM to node 5108
+1310692712481: adding csm data to packet
+1310692712482: UserServer stopped.
+1310692712491: CSMLayer stopped
+1310692713075: x,y from GPS: 42, 32
+1310692713076: moving from region (1,1), to (1,0)
+1310692713077: UserClient received REGION_CHANGE message.
+1310692715355: recv LEADER_CONFIRM_ACK from 5108, released leadership to cloud in 2679ms
+1310692715368: retry sending LEADER_REQUEST
+1310692715517: heard LEADER_REPLY from 5106
+1310692715518: CSMLayer stopped
+1310692715531: now NONLEADER following LEADER 5106
+1310692720371: retry sending LEADER_REQUEST
+1310692720972: retry sending LEADER_REQUEST
+1310692721050: x,y from GPS: 37, 31
+1310692721575: retry sending LEADER_REQUEST
+1310692721871: LEADER_REQUEST timed out
+1310692724118: cloud rejected leadership request or request failed, wait to retry
+1310692725073: x,y from GPS: 32, 30
+1310692725075: moving from region (1,0), to (0,0)
+1310692725075: retry sending LEADER_REQUEST
+1310692725077: UserClient received REGION_CHANGE message.
+1310692725259: heard LEADER_REPLY from 5108
+1310692725260: now NONLEADER following LEADER 5108
+1310692725372: retry sending LEADER_REQUEST
+1310692725974: retry sending LEADER_REQUEST
+1310692726577: retry sending LEADER_REQUEST
+1310692726872: LEADER_REQUEST timed out
+1310692729107: x,y from GPS: 28, 28
+1310692733143: cloud rejected leadership request or request failed, wait to retry
+1310692743155: been in JOINING state for a while now, start over
+1310692743155: retry sending LEADER_REQUEST
+1310692743296: heard LEADER_REPLY from 5108
+1310692743296: now NONLEADER following LEADER 5108
+1310692745782: Already holding a parking spot!
+1310692747891: Wait for previous action to complete.
+1310692748164: retry sending LEADER_REQUEST
+1310692748765: retry sending LEADER_REQUEST
+1310692749368: retry sending LEADER_REQUEST
+1310692749665: LEADER_REQUEST timed out
+1310692752009: cloud rejected leadership request or request failed, wait to retry
+1310692762020: been in JOINING state for a while now, start over
+1310692762021: retry sending LEADER_REQUEST
+1310692762273: heard LEADER_REPLY from 5108
+1310692762275: now NONLEADER following LEADER 5108
+1310692763170: retry sending LEADER_REQUEST
+1310692763776: retry sending LEADER_REQUEST
+1310692764379: retry sending LEADER_REQUEST
+1310692764478: Reading spot in (1,0)
+1310692764670: LEADER_REQUEST timed out
+1310692766544: Reading spot in (0,0)
+1310692769957: Reading spot in (1,0)
+1310692770381: cloud rejected leadership request or request failed, wait to retry
+1310692775835: Already holding a parking spot!
+1310692777783: Wait for previous action to complete.
+1310692780393: been in JOINING state for a while now, start over
+1310692780395: retry sending LEADER_REQUEST
+1310692780630: heard LEADER_REPLY from 5108
+1310692780630: now NONLEADER following LEADER 5108
+1310692789314: Wait for previous action to complete.
+1310692804061: heard LEADER_ELECT from node 5108, responding LEADER_NOMINATE
+1310692804545: received LEADER_CONFIRM from 5108, replying LEADER_CONFIRM_ACK
+1310692804547: waiting to give old leader time to release
+1310692808734: Already holding a parking spot!
+1310692812471: cloud accepted leadership request, returned csm bytes size 3091
+1310692812540: CSMLayer starting
+1310692812548: UserServer started.
+1310692812550: loaded csm data from old leader
+1310692812597: now fully up as LEADER
+1310692818002: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310692818593: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310692822383: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310692822981: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310692823588: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310692830888: Reading spot in (1,0)
+1310692830945: UserServer handling request in (0,0)
+1310692830946: Sending PROC_REQUEST 3:11 (0,0)->(1,0)
+1310692830948: Local cache hit on read-only PROC_REQUEST 3:11 (0,0)->(1,0)
+1310692830958: Received PROC_REPLY 3:11 (1,0)->(0,0), handing to UserServer
+1310692830959: Procedure 3:11 successful
+1310692830960: Parking read on (1,0) from (0,0)succeeded, spots=17,latency=70
+1310692835591: Wait for previous action to complete.
+1310692866631: Already holding a parking spot!
+1310692866881: heard LEADER_REQUEST from node 5104, responding LEADER_REPLY
+1310692876049: x,y from GPS: 52, 14
+1310692876049: moving from region (0,0), to (1,0)
+1310692876049: broadcasting LEADER_ELECT to old (0,0)
+1310692876052: UserClient received REGION_CHANGE message.
+1310692876450: UserServer stopped.
+1310692876451: CSMLayer stopped
+1310692876452: serializing CSMLayer to JSON
+1310692877043: x,y from GPS: 61, 11
+1310692878042: x,y from GPS: 71, 7
+1310692878043: moving from region (1,0), to (2,0)
+1310692878043: UserClient received REGION_CHANGE message.
+1310692879070: x,y from GPS: 78, 4
+1310692880064: x,y from GPS: 87, 2
+1310692882003: x,y from GPS: 93, 3
+1310692884045: x,y from GPS: 99, 6
+1310692885040: x,y from GPS: 98, 13
+1310692886044: x,y from GPS: 97, 18
+1310692887037: x,y from GPS: 97, 26
+1310692888067: x,y from GPS: 97, 32
+1310692889042: x,y from GPS: 97, 37
+1310692889043: moving from region (2,0), to (2,1)
+1310692889043: UserClient received REGION_CHANGE message.
+1310692890042: x,y from GPS: 97, 44
+1310692891040: x,y from GPS: 97, 49
+1310692891092: Wait for previous action to complete.
+1310692892083: x,y from GPS: 97, 54
+1310692894072: x,y from GPS: 94, 60
+1310692896069: x,y from GPS: 87, 61
+1310692898069: x,y from GPS: 79, 61
+1310692900069: x,y from GPS: 72, 62
+1310692902077: x,y from GPS: 67, 63
+1310692902077: moving from region (2,1), to (1,1)
+1310692902078: UserClient received REGION_CHANGE message.
+1310692904061: x,y from GPS: 61, 66
+1310692911542: Reading spot in (0,0)
+1310692914396: Already holding a parking spot!
+1310692914752: Parking read on (0,0) failed, spots=?,latency=3208
+1310692923994: Wait for previous action to complete.
+1310692938724: previous region empty, uploaded state to cloud in 62272ms, json 3111 bytes
+1310692938730: heard LEADER_REPLY from 5108
+1310692938731: CSMLayer stopped
+1310692938731: now NONLEADER following LEADER 5108
+1310692938731: heard LEADER_ELECT from node 5108, responding LEADER_NOMINATE
+1310692951640: Already holding a parking spot!
+1310692953743: retry sending LEADER_REQUEST
+1310692954345: retry sending LEADER_REQUEST
+1310692954947: retry sending LEADER_REQUEST
+1310692955243: LEADER_REQUEST timed out
+1310692956201: cloud rejected leadership request or request failed, wait to retry
+1310692966212: been in JOINING state for a while now, start over
+1310692966214: retry sending LEADER_REQUEST
+1310692966831: retry sending LEADER_REQUEST
+1310692967064: x,y from GPS: 73, 67
+1310692967064: moving from region (1,1), to (2,1)
+1310692967064: region (2, 1) out of bounds, dormant
+1310692967065: UserClient received REGION_CHANGE message.
+1310692976102: x,y from GPS: 81, 63
+1310692993061: x,y from GPS: 75, 73
+1310692993062: moving from region (2,1), to (2,2)
+1310692993062: region (2, 2) out of bounds, dormant
+1310692993062: UserClient received REGION_CHANGE message.
+1310692995068: x,y from GPS: 69, 70
+1310692995069: moving from region (2,2), to (1,2)
+1310692995069: region (1, 2) out of bounds, dormant
+1310692995069: UserClient received REGION_CHANGE message.
+1310692996054: x,y from GPS: 65, 67
+1310692996054: moving from region (1,2), to (1,1)
+1310692996055: retry sending LEADER_REQUEST
+1310692996055: UserClient received REGION_CHANGE message.
+1310692996656: retry sending LEADER_REQUEST
+1310692997076: x,y from GPS: 59, 66
+1310692997259: retry sending LEADER_REQUEST
+1310692997555: LEADER_REQUEST timed out
+1310692998098: x,y from GPS: 54, 65
+1310693000335: cloud rejected leadership request or request failed, wait to retry
+1310693002055: x,y from GPS: 54, 60
+1310693004125: Reading spot in (1,0)
+1310693007076: Reading spot in (0,0)
+1310693010345: been in JOINING state for a while now, start over
+1310693010347: retry sending LEADER_REQUEST
+1310693010967: retry sending LEADER_REQUEST
+1310693011570: retry sending LEADER_REQUEST
+1310693011848: LEADER_REQUEST timed out
+1310693013055: x,y from GPS: 57, 56
+1310693013489: Wait for previous action to complete.
+1310693014989: cloud accepted leadership request, returned csm bytes size 1097
+1310693015039: CSMLayer starting
+1310693015045: UserServer started.
+1310693015045: loaded csm data from cloud
+1310693015076: now fully up as LEADER
+1310693017055: x,y from GPS: 57, 51
+1310693019325: Already holding a parking spot!
+1310693023072: x,y from GPS: 57, 42
+1310693027071: x,y from GPS: 55, 36
+1310693030111: x,y from GPS: 58, 32
+1310693030112: moving from region (1,1), to (1,0)
+1310693030112: broadcasting LEADER_ELECT to old (1,1)
+1310693030114: UserClient received REGION_CHANGE message.
+1310693030512: UserServer stopped.
+1310693030513: CSMLayer stopped
+1310693030514: serializing CSMLayer to JSON
+1310693033703: previous region empty, uploaded state to cloud in 3187ms, json 1097 bytes
+1310693033713: retry sending LEADER_REQUEST
+1310693034325: retry sending LEADER_REQUEST
+1310693034928: retry sending LEADER_REQUEST
+1310693035018: x,y from GPS: 53, 32
+1310693035212: LEADER_REQUEST timed out
+1310693035758: cloud rejected leadership request or request failed, wait to retry
+1310693045768: been in JOINING state for a while now, start over
+1310693045770: retry sending LEADER_REQUEST
+1310693046372: retry sending LEADER_REQUEST
+1310693046973: retry sending LEADER_REQUEST
+1310693047269: LEADER_REQUEST timed out
+1310693052287: cloud rejected leadership request or request failed, wait to retry
+1310693062298: been in JOINING state for a while now, start over
+1310693062299: retry sending LEADER_REQUEST
+1310693062899: retry sending LEADER_REQUEST
+1310693063519: retry sending LEADER_REQUEST
+1310693063799: LEADER_REQUEST timed out
+1310693066526: cloud rejected leadership request or request failed, wait to retry
+1310693076560: been in JOINING state for a while now, start over
+1310693076562: retry sending LEADER_REQUEST
+1310693077068: x,y from GPS: 42, 31
+1310693077182: retry sending LEADER_REQUEST
+1310693077785: retry sending LEADER_REQUEST
+1310693078062: LEADER_REQUEST timed out
+1310693081489: cloud rejected leadership request or request failed, wait to retry
+1310693088062: x,y from GPS: 31, 28
+1310693088063: moving from region (1,0), to (0,0)
+1310693088063: retry sending LEADER_REQUEST
+1310693088063: UserClient received REGION_CHANGE message.
+1310693088151: heard LEADER_REPLY from 5106
+1310693088152: CSMLayer stopped
+1310693088159: now NONLEADER following LEADER 5106
+1310693089072: x,y from GPS: 18, 22
+1310693090072: x,y from GPS: 11, 18
+1310693091077: x,y from GPS: 6, 14
+1310693092083: x,y from GPS: 0, 8
+1310693095076: x,y from GPS: 2, 3
+1310693098072: x,y from GPS: -1, -3
+1310693103062: x,y from GPS: -7, -3
+1310693111078: x,y from GPS: -9, 2
+1310693116082: x,y from GPS: -8, 7
+1310693119028: x,y from GPS: -13, 12
+1310693128079: x,y from GPS: -10, 8
+1310693134027: x,y from GPS: -6, 4
+1310693141029: x,y from GPS: -2, 4
+1310693146090: x,y from GPS: 5, 3
+1310693147080: x,y from GPS: 10, 2
+1310693149066: x,y from GPS: 15, 0
+1310693188080: x,y from GPS: 20, -1
+1310693240568: Reading spot in (0,0)
+1310693240738: Parking read on (0,0) from (0,0)succeeded, spots=19,latency=168
+1310693242503: Reading spot in (1,0)
+1310693242727: Parking read on (1,0) from (0,0)succeeded, spots=17,latency=220
+1310693251080: x,y from GPS: 20, 5
+1310693283459: x,y from GPS: 23, 11
+1310693291460: x,y from GPS: 26, 15
+1310693330289: x,y from GPS: 21, 18
+1310693335294: x,y from GPS: 16, 19
+1310693405806: Wait for previous action to complete.
+1310693423461: Wait for previous action to complete.
+1310693432337: Already holding a parking spot!
+1310693434221: Already holding a parking spot!
+1310693435406: Wait for previous action to complete.
+1310693468100: started, mId = 5107
+1310693468101: region (-1, -1) out of bounds, dormant
+1310693468118: UserClient started
+1310693471526: Requesting spot in (0,0)
+1310693496786: started, mId = 5107
+1310693496786: region (-1, -1) out of bounds, dormant
+1310693496796: UserClient started
+1310693499392: Requesting spot in (0,0)
+1310693505192: Wait for previous action to complete.
+1310693519239: Wait for previous action to complete.
+1310693519721: Wait for previous action to complete.
+1310693523289: x,y from GPS: -1, 3
+1310693523289: moving from region (-1,-1), to (0,0)
+1310693523290: retry sending LEADER_REQUEST
+1310693523290: UserClient received REGION_CHANGE message.
+1310693523890: retry sending LEADER_REQUEST
+1310693524493: retry sending LEADER_REQUEST
+1310693524790: LEADER_REQUEST timed out
+1310693526989: cloud rejected leadership request or request failed, wait to retry
+1310693537000: been in JOINING state for a while now, start over
+1310693537000: retry sending LEADER_REQUEST
+1310693537602: retry sending LEADER_REQUEST
+1310693538225: retry sending LEADER_REQUEST
+1310693538501: LEADER_REQUEST timed out
+1310693539865: cloud rejected leadership request or request failed, wait to retry
+1310693543441: Wait for previous action to complete.
+1310693602074: started, mId = 5107
+1310693602075: region (-1, -1) out of bounds, dormant
+1310693602085: UserClient started
+1310693604586: You are not holding a spot!
+1310693605020: moving from region (-1,-1), to (0,-1)
+1310693605020: region (0, -1) out of bounds, dormant
+1310693605021: UserClient received REGION_CHANGE message.
+1310693611741: x,y from GPS: 9, -2
+1310693611742: moving from region (0,-1), to (0,0)
+1310693611743: retry sending LEADER_REQUEST
+1310693611743: UserClient received REGION_CHANGE message.
+1310693612345: retry sending LEADER_REQUEST
+1310693612947: retry sending LEADER_REQUEST
+1310693613122: LEADER_REQUEST timed out
+1310693615795: cloud rejected leadership request or request failed, wait to retry
+1310693624143: Requesting spot in (0,0)
+1310693625803: been in JOINING state for a while now, start over
+1310693625808: retry sending LEADER_REQUEST
+1310693626421: retry sending LEADER_REQUEST
+1310693627038: retry sending LEADER_REQUEST
+1310693627305: LEADER_REQUEST timed out
+1310693628651: x,y from GPS: 12, -6
+1310693628725: cloud rejected leadership request or request failed, wait to retry
+1310693629751: Wait for previous action to complete.
+1310693638738: been in JOINING state for a while now, start over
+1310693638738: retry sending LEADER_REQUEST
+1310693639339: retry sending LEADER_REQUEST
+1310693639941: retry sending LEADER_REQUEST
+1310693640126: heard LEADER_REPLY from 5102
+1310693640127: now NONLEADER following LEADER 5102
+1310693641969: retry sending LEADER_REQUEST
+1310693642585: retry sending LEADER_REQUEST
+1310693642819: heard LEADER_REPLY from 5102
+1310693642820: now NONLEADER following LEADER 5102
+1310693647478: Reading spot in (0,0)
+1310693647647: Parking read on (0,0) from (0,0)succeeded, spots=15,latency=162
+1310693654463: Wait for previous action to complete.
+1310693674661: x,y from GPS: 19, -5
+1310693677661: x,y from GPS: 23, -1
+1310693679661: x,y from GPS: 26, 3
+1310693681658: x,y from GPS: 28, 7
+1310693682563: x,y from GPS: 32, 11
+1310693684576: x,y from GPS: 34, 16
+1310693687566: x,y from GPS: 35, 22
+1310693687566: moving from region (0,0), to (1,0)
+1310693687567: retry sending LEADER_REQUEST
+1310693687568: UserClient received REGION_CHANGE message.
+1310693687648: heard LEADER_REPLY from 5103
+1310693687648: now NONLEADER following LEADER 5103
+1310693697520: x,y from GPS: 38, 18
+1310693697637: Invalid region for parking read.
+1310693699566: x,y from GPS: 44, 11
+1310693709569: x,y from GPS: 47, 6
+1310693715906: retry sending LEADER_REQUEST
+1310693716509: retry sending LEADER_REQUEST
+1310693717111: retry sending LEADER_REQUEST
+1310693717406: LEADER_REQUEST timed out
+1310693720139: cloud accepted leadership request, no csm data included.
+1310693720159: CSMLayer starting
+1310693720160: UserServer started.
+1310693720160: UserServer initialized.
+1310693720161: Requesting INIT on 1,0
+1310693720163: Sending PROC_REQUEST 0:0 (1,0)->(1,0)
+1310693720173: removed replies before id 0 from sentReplies of size 0
+1310693720174: Received PROC_REQUEST 0:0 (1,0)->(1,0), replying PROC_REPLY 0:0 (1,0)->(1,0)
+1310693720182: Received PROC_REPLY 0:0 (1,0)->(1,0), handing to UserServer
+1310693720182: Procedure 0:0 successful
+1310693720307: now fully up as LEADER
+1310693730559: Reading spot in (0,0)
+1310693730575: UserServer handling request in (1,0)
+1310693730575: Sending PROC_REQUEST 3:0 (1,0)->(0,0)
+1310693731636: Retrying PROC_REQUEST 3:0 (1,0)->(0,0)
+1310693731984: Retrying PROC_REQUEST 3:0 (1,0)->(0,0)
+1310693732320: Retrying PROC_REQUEST 3:0 (1,0)->(0,0)
+1310693732649: Retrying PROC_REQUEST 3:0 (1,0)->(0,0)
+1310693732980: Retrying PROC_REQUEST 3:0 (1,0)->(0,0)
+1310693733305: Retrying PROC_REQUEST 3:0 (1,0)->(0,0)
+1310693733623: Request timed out, send failure PROC_REPLY 3:0 (0,0)->(1,0)
+1310693733627: Received PROC_REPLY 3:0 (0,0)->(1,0), handing to UserServer
+1310693733627: Procedure 3:0 timed out
+1310693733639: Parking read on (0,0) failed, spots=?,latency=3078
+1310693742821: Wait for previous action to complete.
+1310693749207: x,y from GPS: 47, 6
+1310693753507: Wait for previous action to complete.
+1310693758601: removed replies before id 0 from sentReplies of size 0
+1310693758607: Received PROC_REQUEST 2:0 (0,0)->(1,0), replying PROC_REPLY 2:0 (1,0)->(0,0)
+1310693759707: removed replies before id 0 from sentReplies of size 1
+1310693759722: Received DUPLICATE PROC_REQUEST 2:0 (0,0)->(1,0), replying PROC_REPLY 2:0 (1,0)->(0,0)
+1310693760234: x,y from GPS: 20, -25
+1310693760234: moving from region (1,0), to (0,0)
+1310693760235: broadcasting LEADER_ELECT to old (1,0)
+1310693760237: UserClient received REGION_CHANGE message.
+1310693760270: received LEADER_NOMINATE from 5102, saving as candidate
+1310693760636: sending LEADER_CONFIRM to node 5102
+1310693760637: adding csm data to packet
+1310693760639: UserServer stopped.
+1310693760640: CSMLayer stopped
+1310693761757: CSMLayer stopped
+1310693761761: serializing CSMLayer to JSON
+1310693767599: no LEADER_CONFIRM_ACK, uploaded state to cloud in 5837ms, json 1087 bytes
+1310693767605: retry sending LEADER_REQUEST
+1310693768214: retry sending LEADER_REQUEST
+1310693768817: retry sending LEADER_REQUEST
+1310693769105: LEADER_REQUEST timed out
+1310693771818: cloud rejected leadership request or request failed, wait to retry
+1310693777974: Wait for previous action to complete.
+1310693781827: been in JOINING state for a while now, start over
+1310693781829: retry sending LEADER_REQUEST
+1310693782431: retry sending LEADER_REQUEST
+1310693783033: retry sending LEADER_REQUEST
+1310693783329: LEADER_REQUEST timed out
+1310693786532: cloud rejected leadership request or request failed, wait to retry
+1310693796541: been in JOINING state for a while now, start over
+1310693796543: retry sending LEADER_REQUEST
+1310693797146: retry sending LEADER_REQUEST
+1310693797748: retry sending LEADER_REQUEST
+1310693798048: LEADER_REQUEST timed out
+1310693799836: Wait for previous action to complete.
+1310693802158: cloud rejected leadership request or request failed, wait to retry
+1310693807176: Wait for previous action to complete.
+1310693812180: been in JOINING state for a while now, start over
+1310693812182: retry sending LEADER_REQUEST
+1310693812792: retry sending LEADER_REQUEST
+1310693813399: retry sending LEADER_REQUEST
+1310693813457: heard LEADER_REPLY from 5106
+1310693813457: CSMLayer stopped
+1310693813457: now NONLEADER following LEADER 5106
+1310693817620: retry sending LEADER_REQUEST
+1310693818223: retry sending LEADER_REQUEST
+1310693818624: Reading spot in (1,0)
+1310693818825: retry sending LEADER_REQUEST
+1310693819121: LEADER_REQUEST timed out
+1310693821928: Reading spot in (1,0)
+1310693822440: cloud rejected leadership request or request failed, wait to retry
+1310693824502: Reading spot in (0,0)
+1310693832454: been in JOINING state for a while now, start over
+1310693832456: retry sending LEADER_REQUEST
+1310693833059: retry sending LEADER_REQUEST
+1310693833661: retry sending LEADER_REQUEST
+1310693833956: LEADER_REQUEST timed out
+1310693834585: Wait for previous action to complete.
+1310693839686: cloud rejected leadership request or request failed, wait to retry
+1310693847208: x,y from GPS: 11, -3
+1310693847643: Wait for previous action to complete.
+1310693848208: x,y from GPS: 21, 1
+1310693849211: x,y from GPS: 32, 6
+1310693849695: been in JOINING state for a while now, start over
+1310693849704: retry sending LEADER_REQUEST
+1310693850315: retry sending LEADER_REQUEST
+1310693850917: retry sending LEADER_REQUEST
+1310693851204: LEADER_REQUEST timed out
+1310693851220: x,y from GPS: 41, 8
+1310693851221: moving from region (0,0), to (1,0)
+1310693851221: UserClient received REGION_CHANGE message.
+1310693852216: x,y from GPS: 44, 4
+1310693853667: Wait for previous action to complete.
+1310693857642: cloud rejected leadership request or request failed, wait to retry
+1310693857649: retry sending LEADER_REQUEST
+1310693857672: LEADER_REQUEST timed out
+1310693858104: cloud rejected leadership request or request failed, wait to retry
+1310693858111: heard LEADER_REPLY from 5110
+1310693858113: now NONLEADER following LEADER 5110
+1310693877428: Wait for previous action to complete.
+1310693878123: retry sending LEADER_REQUEST
+1310693878732: retry sending LEADER_REQUEST
+1310693879335: retry sending LEADER_REQUEST
+1310693879623: LEADER_REQUEST timed out
+1310693882283: cloud rejected leadership request or request failed, wait to retry
+1310693892293: been in JOINING state for a while now, start over
+1310693892296: retry sending LEADER_REQUEST
+1310693892913: retry sending LEADER_REQUEST
+1310693893516: retry sending LEADER_REQUEST
+1310693893798: LEADER_REQUEST timed out
+1310693896633: cloud rejected leadership request or request failed, wait to retry
+1310693906641: been in JOINING state for a while now, start over
+1310693906643: retry sending LEADER_REQUEST
+1310693907245: retry sending LEADER_REQUEST
+1310693907849: retry sending LEADER_REQUEST
+1310693908142: LEADER_REQUEST timed out
+1310693911134: cloud rejected leadership request or request failed, wait to retry
+1310693921142: been in JOINING state for a while now, start over
+1310693921149: retry sending LEADER_REQUEST
+1310693921751: retry sending LEADER_REQUEST
+1310693922361: retry sending LEADER_REQUEST
+1310693922534: Wait for previous action to complete.
+1310693922645: LEADER_REQUEST timed out
+1310693924916: cloud rejected leadership request or request failed, wait to retry
+1310693934937: been in JOINING state for a while now, start over
+1310693934946: retry sending LEADER_REQUEST
+1310693935554: retry sending LEADER_REQUEST
+1310693936157: retry sending LEADER_REQUEST
+1310693936447: LEADER_REQUEST timed out
+1310693939109: cloud rejected leadership request or request failed, wait to retry
+1310693949117: been in JOINING state for a while now, start over
+1310693949119: retry sending LEADER_REQUEST
+1310693949722: retry sending LEADER_REQUEST
+1310693950339: retry sending LEADER_REQUEST
+1310693950620: LEADER_REQUEST timed out
+1310693953418: cloud rejected leadership request or request failed, wait to retry
+1310693963348: Wait for previous action to complete.
+1310693963429: been in JOINING state for a while now, start over
+1310693963430: retry sending LEADER_REQUEST
+1310693964031: retry sending LEADER_REQUEST
+1310693964633: retry sending LEADER_REQUEST
+1310693964930: LEADER_REQUEST timed out
+1310693971264: Wait for previous action to complete.
+1310693971541: cloud rejected leadership request or request failed, wait to retry
+1310693972222: x,y from GPS: -25, 25
+1310693972223: moving from region (1,0), to (0,0)
+1310693972223: retry sending LEADER_REQUEST
+1310693972224: UserClient received REGION_CHANGE message.
+1310693972825: retry sending LEADER_REQUEST
+1310693973116: heard LEADER_REPLY from 5106
+1310693973116: now NONLEADER following LEADER 5106
+1310693987010: Wait for previous action to complete.
+1310693991565: retry sending LEADER_REQUEST
+1310693992167: retry sending LEADER_REQUEST
+1310693992784: retry sending LEADER_REQUEST
+1310693993065: LEADER_REQUEST timed out
+1310693996906: cloud rejected leadership request or request failed, wait to retry
+1310694006920: been in JOINING state for a while now, start over
+1310694006922: retry sending LEADER_REQUEST
+1310694007542: retry sending LEADER_REQUEST
+1310694008156: retry sending LEADER_REQUEST
+1310694008422: LEADER_REQUEST timed out
+1310694010228: x,y from GPS: -30, -11
+1310694011206: x,y from GPS: -24, -7
+1310694011872: cloud rejected leadership request or request failed, wait to retry
+1310694012235: x,y from GPS: -17, -4
+1310694013206: x,y from GPS: -11, -2
+1310694015206: x,y from GPS: -1, -4
+1310694021883: been in JOINING state for a while now, start over
+1310694021885: retry sending LEADER_REQUEST
+1310694022486: retry sending LEADER_REQUEST
+1310694023088: retry sending LEADER_REQUEST
+1310694023363: heard LEADER_REPLY from 5106
+1310694023365: now NONLEADER following LEADER 5106
+1310694028982: Wait for previous action to complete.
+1310694047717: retry sending LEADER_REQUEST
+1310694048320: retry sending LEADER_REQUEST
+1310694048575: heard LEADER_REPLY from 5106
+1310694048576: now NONLEADER following LEADER 5106
+1310694060993: x,y from GPS: 9, -1
+1310694062025: x,y from GPS: 17, 5
+1310694062994: x,y from GPS: 24, 8
+1310694063955: x,y from GPS: 29, 11
+1310694065993: x,y from GPS: 36, 14
+1310694065993: moving from region (0,0), to (1,0)
+1310694065994: retry sending LEADER_REQUEST
+1310694065994: UserClient received REGION_CHANGE message.
+1310694066595: retry sending LEADER_REQUEST
+1310694067198: retry sending LEADER_REQUEST
+1310694067494: LEADER_REQUEST timed out
+1310694067993: x,y from GPS: 40, 16
+1310694069993: x,y from GPS: 45, 17
+1310694070694: Wait for previous action to complete.
+1310694071993: x,y from GPS: 50, 17
+1310694074993: x,y from GPS: 56, 16
+1310694079014: x,y from GPS: 56, 9
+1310694084010: x,y from GPS: 55, 4
+1310694087135: cloud accepted leadership request, returned csm bytes size 1085
+1310694087188: CSMLayer starting
+1310694087196: UserServer started.
+1310694087197: loaded csm data from cloud
+1310694087240: now fully up as LEADER
+1310694089232: x,y from GPS: 59, 2
+1310694095281: x,y from GPS: 64, -2
+1310694096325: Wait for previous action to complete.
+1310694098880: heard LEADER_REQUEST from node 5110, responding LEADER_REPLY
+1310694101203: Wait for previous action to complete.
+1310694102898: removed replies before id 10 from sentReplies of size 0
+1310694102898: Received PROC_REQUEST 3:10 (0,0)->(1,0), replying PROC_REPLY 3:10 (1,0)->(0,0)
+1310694103855: heard LEADER_REQUEST from node 5110, responding LEADER_REPLY
+1310694105074: heard LEADER_REQUEST from node 5110, responding LEADER_REPLY
+1310694116117: Reading spot in (1,0)
+1310694116183: UserServer handling request in (1,0)
+1310694116188: Sending PROC_REQUEST 3:1 (1,0)->(1,0)
+1310694116194: removed replies before id 1 from sentReplies of size 0
+1310694116195: Received PROC_REQUEST 3:1 (1,0)->(1,0), replying PROC_REPLY 3:1 (1,0)->(1,0)
+1310694116202: Received PROC_REPLY 3:1 (1,0)->(1,0), handing to UserServer
+1310694116203: Procedure 3:1 successful
+1310694116207: Parking read on (1,0) from (1,0)succeeded, spots=19,latency=86
+1310694119313: heard LEADER_REQUEST from node 5103, responding LEADER_REPLY
+1310694119924: heard LEADER_REQUEST from node 5103, responding LEADER_REPLY
+1310694120824: Wait for previous action to complete.
+1310694158495: Wait for previous action to complete.
+1310694197928: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310694199002: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310694199630: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310694205325: heard LEADER_REQUEST from node 5110, responding LEADER_REPLY
+1310694207584: heard LEADER_REQUEST from node 5110, responding LEADER_REPLY
+1310694208186: heard LEADER_REQUEST from node 5110, responding LEADER_REPLY
+1310694228752: Wait for previous action to complete.
+1310694291296: started, mId = 5107
+1310694291297: region (-1, -1) out of bounds, dormant
+1310694291297: UserClient started
+1310694352427: started, mId = 5107
+1310694352427: region (-1, -1) out of bounds, dormant
+1310694352428: UserClient started
+1310694430125: started, mId = 5107
+1310694430125: region (-1, -1) out of bounds, dormant
+1310694430126: UserClient started
+1310694773014: started, mId = 5107
+1310694773017: region (-1, -1) out of bounds, dormant
+1310694773020: UserClient started
+1310694789445: started, mId = 5107
+1310694789447: region (-1, -1) out of bounds, dormant
+1310694789448: UserClient started
+1310694811168: started, mId = 5107
+1310694811168: region (-1, -1) out of bounds, dormant
+1310694811170: UserClient started
+1310694874840: started, mId = 5107
+1310694874840: region (-1, -1) out of bounds, dormant
+1310694874844: UserClient started
+1310694875582: x,y from GPS: 105, 11
+1310694875583: moving from region (-1,-1), to (3,0)
+1310694875583: region (3, 0) out of bounds, dormant
+1310694875584: UserClient received REGION_CHANGE message.
+1310694879191: started, mId = 5107
+1310694879192: region (-1, -1) out of bounds, dormant
+1310694879192: UserClient started
+1310694879575: x,y from GPS: 97, 18
+1310694879576: moving from region (-1,-1), to (2,0)
+1310694879576: region (2, 0) out of bounds, dormant
+1310694879577: UserClient received REGION_CHANGE message.
+1310694882568: x,y from GPS: 76, 21
+1310694977540: x,y from GPS: 61, 48
+1310694977541: moving from region (2,0), to (1,1)
+1310694977541: retry sending LEADER_REQUEST
+1310694977541: UserClient received REGION_CHANGE message.
+1310694978142: retry sending LEADER_REQUEST
+1310694978270: heard LEADER_REPLY from 5103
+1310694978271: now NONLEADER following LEADER 5103
+1310694979600: x,y from GPS: 58, 56
+1310694982562: x,y from GPS: 50, 59
+1310695018583: heard LEADER_ELECT from node 5103, responding LEADER_NOMINATE
+1310695029240: retry sending LEADER_REQUEST
+1310695029454: heard LEADER_REPLY from 5101
+1310695029456: now NONLEADER following LEADER 5101
+1310695034245: retry sending LEADER_REQUEST
+1310695034456: heard LEADER_REPLY from 5101
+1310695034459: now NONLEADER following LEADER 5101
+1310695039251: retry sending LEADER_REQUEST
+1310695039473: heard LEADER_REPLY from 5101
+1310695039475: now NONLEADER following LEADER 5101
+1310695943439: started, mId = 5107
+1310695943439: retry sending LEADER_REQUEST
+1310695943450: UserClient started
+1310695944040: retry sending LEADER_REQUEST
+1310695944642: retry sending LEADER_REQUEST
+1310695944940: LEADER_REQUEST timed out
+1310695949419: cloud rejected leadership request or request failed, wait to retry
+1310695953936: moving from region (0,0), to (1,0)
+1310695953937: retry sending LEADER_REQUEST
+1310695953940: UserClient received REGION_CHANGE message.
+1310695954036: heard LEADER_REPLY from 5103
+1310695954036: now NONLEADER following LEADER 5103
+1310695954430: retry sending LEADER_REQUEST
+1310695955031: retry sending LEADER_REQUEST
+1310695955634: retry sending LEADER_REQUEST
+1310695955930: LEADER_REQUEST timed out
+1310695957123: cloud rejected leadership request or request failed, wait to retry
+1310695967139: been in JOINING state for a while now, start over
+1310695967141: retry sending LEADER_REQUEST
+1310695967280: heard LEADER_REPLY from 5103
+1310695967281: now NONLEADER following LEADER 5103
+1310695994437: retry sending LEADER_REQUEST
+1310695995040: retry sending LEADER_REQUEST
+1310695995163: heard LEADER_REPLY from 5103
+1310695995164: now NONLEADER following LEADER 5103
+1310696008036: moving from region (1,0), to (0,0)
+1310696008041: retry sending LEADER_REQUEST
+1310696008071: UserClient received REGION_CHANGE message.
+1310696008643: retry sending LEADER_REQUEST
+1310696009246: retry sending LEADER_REQUEST
+1310696009554: LEADER_REQUEST timed out
+1310696012322: cloud rejected leadership request or request failed, wait to retry
+1310696013753: Reading spot in (0,0)
+1310696020130: Reading spot in (0,0)
+1310696022329: been in JOINING state for a while now, start over
+1310696022332: retry sending LEADER_REQUEST
+1310696022934: retry sending LEADER_REQUEST
+1310696023535: retry sending LEADER_REQUEST
+1310696023832: LEADER_REQUEST timed out
+1310696026516: Requesting spot in (0,0)
+1310696026705: cloud rejected leadership request or request failed, wait to retry
+1310696029881: Wait for previous action to complete.
+1310696036714: been in JOINING state for a while now, start over
+1310696036721: retry sending LEADER_REQUEST
+1310696037340: retry sending LEADER_REQUEST
+1310696037943: retry sending LEADER_REQUEST
+1310696038221: LEADER_REQUEST timed out
+1310696042147: cloud rejected leadership request or request failed, wait to retry
+1310696052161: been in JOINING state for a while now, start over
+1310696052174: retry sending LEADER_REQUEST
+1310696052785: retry sending LEADER_REQUEST
+1310696053387: retry sending LEADER_REQUEST
+1310696053663: LEADER_REQUEST timed out
+1310696056849: Wait for previous action to complete.
+1310696056905: cloud rejected leadership request or request failed, wait to retry
+1310696066907: been in JOINING state for a while now, start over
+1310696066909: retry sending LEADER_REQUEST
+1310696067523: retry sending LEADER_REQUEST
+1310696068126: retry sending LEADER_REQUEST
+1310696068408: LEADER_REQUEST timed out
+1310696073634: cloud rejected leadership request or request failed, wait to retry
+1310696083647: been in JOINING state for a while now, start over
+1310696083651: retry sending LEADER_REQUEST
+1310696084254: retry sending LEADER_REQUEST
+1310696084857: retry sending LEADER_REQUEST
+1310696085154: LEADER_REQUEST timed out
+1310696088520: moving from region (0,0), to (1,0)
+1310696088526: UserClient received REGION_CHANGE message.
+1310696089268: cloud rejected leadership request or request failed, wait to retry
+1310696089282: retry sending LEADER_REQUEST
+1310696089377: heard LEADER_REPLY from 5103
+1310696089377: now NONLEADER following LEADER 5103
+1310696090280: moving from region (1,0), to (0,0)
+1310696090283: retry sending LEADER_REQUEST
+1310696090313: UserClient received REGION_CHANGE message.
+1310696090885: retry sending LEADER_REQUEST
+1310696091486: retry sending LEADER_REQUEST
+1310696091798: LEADER_REQUEST timed out
+1310696092263: cloud rejected leadership request or request failed, wait to retry
+1310696094697: Wait for previous action to complete.
+1310696102279: been in JOINING state for a while now, start over
+1310696102280: retry sending LEADER_REQUEST
+1310696102898: retry sending LEADER_REQUEST
+1310696103499: retry sending LEADER_REQUEST
+1310696103781: LEADER_REQUEST timed out
+1310696106788: cloud rejected leadership request or request failed, wait to retry
+1310696116805: been in JOINING state for a while now, start over
+1310696116806: retry sending LEADER_REQUEST
+1310696117416: retry sending LEADER_REQUEST
+1310696118018: retry sending LEADER_REQUEST
+1310696118308: LEADER_REQUEST timed out
+1310696123199: cloud rejected leadership request or request failed, wait to retry
+1310696133208: been in JOINING state for a while now, start over
+1310696133210: retry sending LEADER_REQUEST
+1310696133813: retry sending LEADER_REQUEST
+1310696134415: retry sending LEADER_REQUEST
+1310696134711: LEADER_REQUEST timed out
+1310696150938: cloud rejected leadership request or request failed, wait to retry
+1310696160946: been in JOINING state for a while now, start over
+1310696160949: retry sending LEADER_REQUEST
+1310696161563: retry sending LEADER_REQUEST
+1310696162166: retry sending LEADER_REQUEST
+1310696162449: LEADER_REQUEST timed out
+1310696165127: cloud rejected leadership request or request failed, wait to retry
+1310696175138: been in JOINING state for a while now, start over
+1310696175140: retry sending LEADER_REQUEST
+1310696175742: retry sending LEADER_REQUEST
+1310696176344: retry sending LEADER_REQUEST
+1310696176641: LEADER_REQUEST timed out
+1310696194069: cloud rejected leadership request or request failed, wait to retry
+1310696204078: been in JOINING state for a while now, start over
+1310696204080: retry sending LEADER_REQUEST
+1310696204682: retry sending LEADER_REQUEST
+1310696205284: retry sending LEADER_REQUEST
+1310696205580: LEADER_REQUEST timed out
+1310696208547: cloud rejected leadership request or request failed, wait to retry
+1310696218559: been in JOINING state for a while now, start over
+1310696218561: retry sending LEADER_REQUEST
+1310696219163: retry sending LEADER_REQUEST
+1310696219766: retry sending LEADER_REQUEST
+1310696220060: LEADER_REQUEST timed out
+1310696222660: cloud rejected leadership request or request failed, wait to retry
+1310696232670: been in JOINING state for a while now, start over
+1310696232672: retry sending LEADER_REQUEST
+1310696233274: retry sending LEADER_REQUEST
+1310696233877: retry sending LEADER_REQUEST
+1310696234172: LEADER_REQUEST timed out
+1310696236868: cloud rejected leadership request or request failed, wait to retry
+1310696246878: been in JOINING state for a while now, start over
+1310696246892: retry sending LEADER_REQUEST
+1310696247500: retry sending LEADER_REQUEST
+1310696248102: retry sending LEADER_REQUEST
+1310696248389: LEADER_REQUEST timed out
+1310696251932: cloud rejected leadership request or request failed, wait to retry
+1310696261943: been in JOINING state for a while now, start over
+1310696261943: retry sending LEADER_REQUEST
+1310696262544: retry sending LEADER_REQUEST
+1310696263156: retry sending LEADER_REQUEST
+1310696263444: LEADER_REQUEST timed out
+1310696273064: cloud rejected leadership request or request failed, wait to retry
+1310696283079: been in JOINING state for a while now, start over
+1310696283080: retry sending LEADER_REQUEST
+1310696283695: retry sending LEADER_REQUEST
+1310696324408: heard LEADER_REPLY from 5108
+1310696324410: now NONLEADER following LEADER 5108
+1310696528162: retry sending LEADER_REQUEST
+1310696528764: retry sending LEADER_REQUEST
+1310696529367: retry sending LEADER_REQUEST
+1310696529662: LEADER_REQUEST timed out
+1310696532275: cloud accepted leadership request, no csm data included.
+1310696532290: CSMLayer starting
+1310696532290: UserServer started.
+1310696532293: UserServer initialized.
+1310696532297: Requesting INIT on 0,0
+1310696532298: Sending PROC_REQUEST 0:0 (0,0)->(0,0)
+1310696532307: removed replies before id 0 from sentReplies of size 0
+1310696532308: Received PROC_REQUEST 0:0 (0,0)->(0,0), replying PROC_REPLY 0:0 (0,0)->(0,0)
+1310696532321: Received PROC_REPLY 0:0 (0,0)->(0,0), handing to UserServer
+1310696532321: Procedure 0:0 successful
+1310696532418: now fully up as LEADER
+1310696580942: heard LEADER_REQUEST from node 5106, responding LEADER_REPLY
+1310696585250: heard LEADER_REQUEST from node 5106, responding LEADER_REPLY
+1310696599644: heard LEADER_REQUEST from node 5106, responding LEADER_REPLY
+1310696620221: heard LEADER_REQUEST from node 5110, responding LEADER_REPLY
+1310696621583: heard LEADER_REQUEST from node 5106, responding LEADER_REPLY
+1310696622693: heard LEADER_REQUEST from node 5103, responding LEADER_REPLY
+1310696643803: heard LEADER_REQUEST from node 5108, responding LEADER_REPLY
+1310696655113: heard LEADER_REQUEST from node 5104, responding LEADER_REPLY
+1310696656540: heard LEADER_REQUEST from node 5101, responding LEADER_REPLY
+1310696673025: heard LEADER_REQUEST from node 5102, responding LEADER_REPLY
+1310696688594: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310696688903: heard LEADER_REQUEST from node 5102, responding LEADER_REPLY
+1310696906374: started, mId = 5107
+1310696906375: retry sending LEADER_REQUEST
+1310696906381: UserClient started
+1310696906976: retry sending LEADER_REQUEST
+1310696907578: retry sending LEADER_REQUEST
+1310696907876: LEADER_REQUEST timed out
+1310696910500: cloud rejected leadership request or request failed, wait to retry
+1310697000423: started, mId = 5107
+1310697000424: retry sending LEADER_REQUEST
+1310697000445: UserClient started
+1310697000587: heard LEADER_REPLY from 5102
+1310697000588: now NONLEADER following LEADER 5102
+1310697070497: You are not holding a spot!
+1310697073078: Requesting spot in (0,0)
+1310697073234: Parking request on (0,0) from (0,0) succeeded, spots=19,latency=153
+1310697078355: moving from region (0,0), to (-1,0)
+1310697078358: region (-1, 0) out of bounds, dormant
+1310697078361: UserClient received REGION_CHANGE message.
+1310697120984: moving from region (-1,0), to (-2,0)
+1310697120988: region (-2, 0) out of bounds, dormant
+1310697120992: UserClient received REGION_CHANGE message.
+1310697125553: Releasing spot in (0,0)
+1310697139648: moving from region (-2,0), to (-3,0)
+1310697139652: region (-3, 0) out of bounds, dormant
+1310697139655: UserClient received REGION_CHANGE message.
+1310697140528: moving from region (-3,0), to (-2,0)
+1310697140531: region (-2, 0) out of bounds, dormant
+1310697140534: UserClient received REGION_CHANGE message.
+1310697144404: moving from region (-2,0), to (-1,0)
+1310697144407: region (-1, 0) out of bounds, dormant
+1310697144414: UserClient received REGION_CHANGE message.
+1310697145855: moving from region (-1,0), to (-2,0)
+1310697145857: region (-2, 0) out of bounds, dormant
+1310697145860: UserClient received REGION_CHANGE message.
+1310697146992: moving from region (-2,0), to (-1,0)
+1310697146994: region (-1, 0) out of bounds, dormant
+1310697146995: UserClient received REGION_CHANGE message.
+1310697150913: Already holding a parking spot!
+1310697153842: Wait for previous action to complete.
+1310697170753: moving from region (-1,0), to (0,0)
+1310697170757: retry sending LEADER_REQUEST
+1310697170782: UserClient received REGION_CHANGE message.
+1310697170887: heard LEADER_REPLY from 5105
+1310697170887: now NONLEADER following LEADER 5105
+1310697173146: moving from region (0,0), to (-1,0)
+1310697173149: region (-1, 0) out of bounds, dormant
+1310697173152: UserClient received REGION_CHANGE message.
+1310697174377: moving from region (-1,0), to (0,0)
+1310697174380: retry sending LEADER_REQUEST
+1310697174413: UserClient received REGION_CHANGE message.
+1310697174495: heard LEADER_REPLY from 5105
+1310697174495: now NONLEADER following LEADER 5105
+1310697176584: moving from region (0,0), to (-1,0)
+1310697176586: region (-1, 0) out of bounds, dormant
+1310697176589: UserClient received REGION_CHANGE message.
+1310697187961: moving from region (-1,0), to (0,0)
+1310697187965: retry sending LEADER_REQUEST
+1310697188037: UserClient received REGION_CHANGE message.
+1310697188125: heard LEADER_REPLY from 5105
+1310697188126: now NONLEADER following LEADER 5105
+1310697190552: moving from region (0,0), to (-1,0)
+1310697190555: region (-1, 0) out of bounds, dormant
+1310697190558: UserClient received REGION_CHANGE message.
+1310697193573: moving from region (-1,0), to (-2,0)
+1310697193575: region (-2, 0) out of bounds, dormant
+1310697193579: UserClient received REGION_CHANGE message.
+1310697194410: moving from region (-2,0), to (-3,0)
+1310697194412: region (-3, 0) out of bounds, dormant
+1310697194418: UserClient received REGION_CHANGE message.
+1310697195171: moving from region (-3,0), to (-4,0)
+1310697195174: region (-4, 0) out of bounds, dormant
+1310697195177: UserClient received REGION_CHANGE message.
+1310697195711: moving from region (-4,0), to (-5,0)
+1310697195713: region (-5, 0) out of bounds, dormant
+1310697195718: UserClient received REGION_CHANGE message.
+1310697196773: moving from region (-5,0), to (-4,0)
+1310697196779: region (-4, 0) out of bounds, dormant
+1310697196782: UserClient received REGION_CHANGE message.
+1310697197035: moving from region (-4,0), to (-3,0)
+1310697197038: region (-3, 0) out of bounds, dormant
+1310697197041: UserClient received REGION_CHANGE message.
+1310697197287: moving from region (-3,0), to (-2,0)
+1310697197292: region (-2, 0) out of bounds, dormant
+1310697197295: UserClient received REGION_CHANGE message.
+1310697197534: moving from region (-2,0), to (-1,0)
+1310697197540: region (-1, 0) out of bounds, dormant
+1310697197543: UserClient received REGION_CHANGE message.
+1310697197759: moving from region (-1,0), to (0,0)
+1310697197761: retry sending LEADER_REQUEST
+1310697197768: UserClient received REGION_CHANGE message.
+1310697197930: heard LEADER_REPLY from 5105
+1310697197932: now NONLEADER following LEADER 5105
+1310697197995: moving from region (0,0), to (1,0)
+1310697197995: retry sending LEADER_REQUEST
+1310697197998: UserClient received REGION_CHANGE message.
+1310697198205: heard LEADER_REPLY from 5101
+1310697198207: now NONLEADER following LEADER 5101
+1310697198230: moving from region (1,0), to (2,0)
+1310697198230: region (2, 0) out of bounds, dormant
+1310697198230: UserClient received REGION_CHANGE message.
+1310697199406: Reading spot in (1,0)
+1310697200629: moving from region (2,0), to (3,0)
+1310697200631: region (3, 0) out of bounds, dormant
+1310697200636: UserClient received REGION_CHANGE message.
+1310697202251: moving from region (3,0), to (2,0)
+1310697202268: region (2, 0) out of bounds, dormant
+1310697202275: UserClient received REGION_CHANGE message.
+1310697203345: moving from region (2,0), to (1,0)
+1310697203347: retry sending LEADER_REQUEST
+1310697203377: UserClient received REGION_CHANGE message.
+1310697203581: heard LEADER_REPLY from 5101
+1310697203583: now NONLEADER following LEADER 5101
+1310697204852: moving from region (1,0), to (2,0)
+1310697204858: region (2, 0) out of bounds, dormant
+1310697204861: UserClient received REGION_CHANGE message.
+1310697205506: moving from region (2,0), to (1,0)
+1310697205509: retry sending LEADER_REQUEST
+1310697205543: UserClient received REGION_CHANGE message.
+1310697205716: heard LEADER_REPLY from 5101
+1310697205717: now NONLEADER following LEADER 5101
+1310697206505: moving from region (1,0), to (2,0)
+1310697206510: region (2, 0) out of bounds, dormant
+1310697206513: UserClient received REGION_CHANGE message.
+1310697207794: moving from region (2,0), to (1,0)
+1310697207796: retry sending LEADER_REQUEST
+1310697207831: UserClient received REGION_CHANGE message.
+1310697208007: heard LEADER_REPLY from 5101
+1310697208017: now NONLEADER following LEADER 5101
+1310697209378: Wait for previous action to complete.
+1310697209408: UserClient request timed out. (1,0)=?
+1310697209410: Reading spot in (1,0)
+1310697209538: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=121
+1310697210487: retry sending LEADER_REQUEST
+1310697210540: Wait for previous action to complete.
+1310697210713: heard LEADER_REPLY from 5101
+1310697210714: now NONLEADER following LEADER 5101
+1310697211236: moving from region (1,0), to (2,0)
+1310697211244: region (2, 0) out of bounds, dormant
+1310697211249: UserClient received REGION_CHANGE message.
+1310697213907: moving from region (2,0), to (1,0)
+1310697213909: retry sending LEADER_REQUEST
+1310697213945: UserClient received REGION_CHANGE message.
+1310697214126: heard LEADER_REPLY from 5101
+1310697214127: now NONLEADER following LEADER 5101
+1310697215490: retry sending LEADER_REQUEST
+1310697215693: heard LEADER_REPLY from 5101
+1310697215694: now NONLEADER following LEADER 5101
+1310697219418: UserClient request timed out. (1,0)=?
+1310697219436: Reading spot in (1,0)
+1310697219578: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=137
+1310697220582: Reading spot in (1,0)
+1310697220752: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=156
+1310697221754: Wait for previous action to complete.
+1310697229447: UserClient request timed out. (1,0)=?
+1310697229459: Reading spot in (1,0)
+1310697229685: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=217
+1310697230690: Reading spot in (0,0)
+1310697230989: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=285
+1310697231994: Reading spot in (1,0)
+1310697232166: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=164
+1310697233170: Reading spot in (1,0)
+1310697233366: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=189
+1310697234369: Reading spot in (1,0)
+1310697234532: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=160
+1310697235535: Reading spot in (0,0)
+1310697235765: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=217
+1310697236767: Reading spot in (0,0)
+1310697236998: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=226
+1310697238000: Wait for previous action to complete.
+1310697244467: UserClient request timed out. (0,0)=?
+1310697244477: Reading spot in (1,0)
+1310697254488: UserClient request timed out. (1,0)=?
+1310697254499: Reading spot in (0,0)
+1310697254719: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=209
+1310697255721: Reading spot in (1,0)
+1310697255907: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=177
+1310697256909: Reading spot in (1,0)
+1310697257141: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=226
+1310697258143: Reading spot in (1,0)
+1310697258335: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=185
+1310697259338: Reading spot in (0,0)
+1310697259576: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=233
+1310697260579: Reading spot in (0,0)
+1310697260805: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=216
+1310697261812: Reading spot in (1,0)
+1310697261972: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=149
+1310697262975: Reading spot in (1,0)
+1310697263121: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=142
+1310697264123: Wait for previous action to complete.
+1310697269506: UserClient request timed out. (1,0)=?
+1310697269514: Reading spot in (1,0)
+1310697269671: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=153
+1310697270675: Reading spot in (0,0)
+1310697271050: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=358
+1310697272053: Reading spot in (0,0)
+1310697272286: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=228
+1310697273288: Reading spot in (1,0)
+1310697273424: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=131
+1310697274428: Reading spot in (1,0)
+1310697274585: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=145
+1310697275589: Reading spot in (0,0)
+1310697275900: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=299
+1310697276902: Wait for previous action to complete.
+1310697284521: UserClient request timed out. (0,0)=?
+1310697284522: Reading spot in (0,0)
+1310697284725: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=201
+1310697285728: Reading spot in (1,0)
+1310697285912: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=174
+1310697286915: Reading spot in (1,0)
+1310697287066: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=138
+1310697288069: Reading spot in (0,0)
+1310697288309: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=232
+1310697289310: Wait for previous action to complete.
+1310697294526: UserClient request timed out. (0,0)=?
+1310697294537: Reading spot in (1,0)
+1310697294715: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=167
+1310697295717: Reading spot in (0,0)
+1310697295944: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=226
+1310697296947: Reading spot in (1,0)
+1310697297088: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=133
+1310697298091: Reading spot in (1,0)
+1310697298232: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=136
+1310697299235: Reading spot in (1,0)
+1310697299469: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=232
+1310697300471: Reading spot in (0,0)
+1310697300771: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=289
+1310697301777: Reading spot in (0,0)
+1310697302093: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=309
+1310697303097: Reading spot in (0,0)
+1310697303355: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=222
+1310697304358: Reading spot in (1,0)
+1310697304504: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=142
+1310697305506: Wait for previous action to complete.
+1310697309537: UserClient request timed out. (1,0)=?
+1310697309545: Reading spot in (1,0)
+1310697309666: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=119
+1310697310669: Reading spot in (1,0)
+1310697310812: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=130
+1310697311813: Wait for previous action to complete.
+1310697319554: UserClient request timed out. (1,0)=?
+1310697319571: Reading spot in (1,0)
+1310697319689: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=117
+1310697320692: Reading spot in (1,0)
+1310697320878: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=176
+1310697321882: Reading spot in (1,0)
+1310697329570: UserClient request timed out. (1,0)=?
+1310697329581: Reading spot in (1,0)
+1310697329718: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=132
+1310697330721: Reading spot in (1,0)
+1310697330909: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=174
+1310697331911: Wait for previous action to complete.
+1310697339589: UserClient request timed out. (1,0)=?
+1310697339598: Reading spot in (1,0)
+1310697349608: UserClient request timed out. (1,0)=?
+1310697349620: Reading spot in (1,0)
+1310697359317: Invalid region for parking request.
+1310697359628: UserClient request timed out. (1,0)=?
+1310697359633: Wait for previous action to complete.
+1310697364637: UserClient request timed out. (1,0)=?
+1310697364643: Reading spot in (1,0)
+1310697364792: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=140
+1310697365506: retry sending LEADER_REQUEST
+1310697365794: Reading spot in (1,0)
+1310697365939: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=139
+1310697366108: retry sending LEADER_REQUEST
+1310697366710: retry sending LEADER_REQUEST
+1310697366943: Reading spot in (1,0)
+1310697367006: LEADER_REQUEST timed out
+1310697370320: cloud rejected leadership request or request failed, wait to retry
+1310697374652: UserClient request timed out. (1,0)=?
+1310697374665: Reading spot in (0,0)
+1310697374927: Parking read on (0,0) from (1,0)succeeded, spots=19,latency=258
+1310697375931: Reading spot in (1,0)
+1310697376076: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=143
+1310697377077: Reading spot in (1,0)
+1310697377160: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=83
+1310697378163: Reading spot in (1,0)
+1310697378296: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=131
+1310697379298: Reading spot in (1,0)
+1310697379423: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=112
+1310697380333: been in JOINING state for a while now, start over
+1310697380335: retry sending LEADER_REQUEST
+1310697380425: Reading spot in (0,0)
+1310697380936: retry sending LEADER_REQUEST
+1310697381538: retry sending LEADER_REQUEST
+1310697381745: heard LEADER_REPLY from 5101
+1310697381753: now NONLEADER following LEADER 5101
+1310697382467: Wait for previous action to complete.
+1310697383635: Parking read on (0,0) failed, spots=?,latency=3210
+1310697384638: Wait for previous action to complete.
+1310697385510: retry sending LEADER_REQUEST
+1310697386118: retry sending LEADER_REQUEST
+1310697386182: Already holding a parking spot!
+1310697386721: retry sending LEADER_REQUEST
+1310697387011: LEADER_REQUEST timed out
+1310697389666: UserClient request timed out. (0,0)=?
+1310697389681: Reading spot in (0,0)
+1310697389786: moving from region (1,0), to (0,0)
+1310697389790: UserClient received REGION_CHANGE message.
+1310697390059: cloud rejected leadership request or request failed, wait to retry
+1310697390067: retry sending LEADER_REQUEST
+1310697390203: heard LEADER_REPLY from 5106
+1310697390204: now NONLEADER following LEADER 5106
+1310697397852: Already holding a parking spot!
+1310697399691: UserClient request timed out. (0,0)=?
+1310697399705: Reading spot in (1,0)
+1310697400273: Reading spot in (0,0)
+1310697400385: Parking read on (0,0) from (0,0)succeeded, spots=19,latency=107
+1310697401389: Reading spot in (0,0)
+1310697401564: Parking read on (0,0) from (0,0)succeeded, spots=19,latency=166
+1310697402565: Reading spot in (0,0)
+1310697403006: Parking read on (1,0) failed, spots=?,latency=441
+1310697404010: Reading spot in (0,0)
+1310697406945: Reading spot in (0,0)
+1310697413355: Reading spot in (0,0)
+1310697413486: Parking read on (0,0) from (0,0)succeeded, spots=19,latency=128
+1310697414489: Reading spot in (0,0)
+1310697419580: Reading spot in (0,0)
+1310697424721: UserClient request timed out. (0,0)=?
+1310697424732: Reading spot in (0,0)
+1310697424858: Parking read on (0,0) from (0,0)succeeded, spots=18,latency=121
+1310697425863: Reading spot in (0,0)
+1310697426055: Parking read on (0,0) from (0,0)succeeded, spots=18,latency=177
+1310697427059: Reading spot in (0,0)
+1310697434737: UserClient request timed out. (0,0)=?
+1310697434747: Reading spot in (1,0)
+1310697443216: moving from region (0,0), to (1,0)
+1310697443218: retry sending LEADER_REQUEST
+1310697443246: UserClient received REGION_CHANGE message.
+1310697443821: retry sending LEADER_REQUEST
+1310697444423: retry sending LEADER_REQUEST
+1310697444729: LEADER_REQUEST timed out
+1310697444752: UserClient request timed out. (1,0)=?
+1310697444758: Reading spot in (0,0)
+1310697447046: cloud rejected leadership request or request failed, wait to retry
+1310697449141: moving from region (1,0), to (2,0)
+1310697449143: region (2, 0) out of bounds, dormant
+1310697449146: UserClient received REGION_CHANGE message.
+1310697456086: Reading spot in (1,0)
+1310697466096: UserClient request timed out. (1,0)=?
+1310697466104: Reading spot in (0,0)
+1310697468140: Wait for previous action to complete.
+1310697476116: UserClient request timed out. (0,0)=?
+1310697476124: Reading spot in (1,0)
+1310697479480: moving from region (2,0), to (1,0)
+1310697479482: retry sending LEADER_REQUEST
+1310697479503: UserClient received REGION_CHANGE message.
+1310697480083: retry sending LEADER_REQUEST
+1310697480684: retry sending LEADER_REQUEST
+1310697480991: LEADER_REQUEST timed out
+1310697483734: cloud rejected leadership request or request failed, wait to retry
+1310697486132: UserClient request timed out. (1,0)=?
+1310697486140: Reading spot in (1,0)
+1310697486250: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=100
+1310697487253: Reading spot in (1,0)
+1310697493746: been in JOINING state for a while now, start over
+1310697493748: retry sending LEADER_REQUEST
+1310697494351: retry sending LEADER_REQUEST
+1310697494953: retry sending LEADER_REQUEST
+1310697495249: LEADER_REQUEST timed out
+1310697496149: UserClient request timed out. (1,0)=?
+1310697496163: Reading spot in (0,0)
+1310697498059: cloud rejected leadership request or request failed, wait to retry
+1310697499493: Parking read on (0,0) failed, spots=?,latency=3329
+1310697500495: Reading spot in (1,0)
+1310697500684: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=183
+1310697501687: Reading spot in (0,0)
+1310697504127: Wait for previous action to complete.
+1310697504994: Parking read on (0,0) failed, spots=?,latency=3301
+1310697505996: Wait for previous action to complete.
+1310697508069: been in JOINING state for a while now, start over
+1310697508071: retry sending LEADER_REQUEST
+1310697508674: retry sending LEADER_REQUEST
+1310697509275: retry sending LEADER_REQUEST
+1310697509572: LEADER_REQUEST timed out
+1310697511166: UserClient request timed out. (0,0)=?
+1310697511180: Reading spot in (1,0)
+1310697511216: Reading spot in (0,0)
+1310697511337: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=120
+1310697512339: Reading spot in (1,0)
+1310697512550: cloud rejected leadership request or request failed, wait to retry
+1310697514452: Parking read on (0,0) failed, spots=?,latency=2103
+1310697515453: Wait for previous action to complete.
+1310697521174: UserClient request timed out. (1,0)=?
+1310697521174: Wait for previous action to complete.
+1310697522563: been in JOINING state for a while now, start over
+1310697522564: retry sending LEADER_REQUEST
+1310697523166: retry sending LEADER_REQUEST
+1310697523772: retry sending LEADER_REQUEST
+1310697524065: LEADER_REQUEST timed out
+1310697526180: UserClient request timed out. (1,0)=?
+1310697526190: Reading spot in (1,0)
+1310697526340: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=149
+1310697527344: Reading spot in (1,0)
+1310697536198: UserClient request timed out. (1,0)=?
+1310697536198: Reading spot in (0,0)
+1310697540456: Reading spot in (0,0)
+1310697541840: Reading spot in (0,0)
+1310697542886: Reading spot in (0,0)
+1310697543876: Parking read on (0,0) failed, spots=?,latency=980
+1310697544879: Reading spot in (0,0)
+1310697545157: Parking read on (0,0) failed, spots=?,latency=269
+1310697546100: Parking read on (0,0) failed, spots=?,latency=1211
+1310697546159: Reading spot in (1,0)
+1310697546330: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=171
+1310697546775: Reading spot in (0,0)
+1310697547102: Reading spot in (0,0)
+1310697547332: Reading spot in (1,0)
+1310697554650: moving from region (1,0), to (0,0)
+1310697554654: UserClient received REGION_CHANGE message.
+1310697556209: UserClient request timed out. (1,0)=?
+1310697556212: Reading spot in (0,0)
+1310697563804: cloud rejected leadership request or request failed, wait to retry
+1310697563815: retry sending LEADER_REQUEST
+1310697563828: LEADER_REQUEST timed out
+1310697565003: Wait for previous action to complete.
+1310697566223: UserClient request timed out. (0,0)=?
+1310697566233: Reading spot in (0,0)
+1310697566371: Parking read on (0,0) from (0,0)succeeded, spots=18,latency=136
+1310697567372: Reading spot in (1,0)
+1310697570739: Already holding a parking spot!
+1310697574198: Reading spot in (1,0)
+1310697577291: Reading spot in (0,0)
+1310697580311: Reading spot in (0,0)
+1310697586253: UserClient request timed out. (0,0)=?
+1310697586256: Reading spot in (0,0)
+1310697587159: Wait for previous action to complete.
+1310697596266: UserClient request timed out. (0,0)=?
+1310697596276: Reading spot in (1,0)
+1310697596626: Wait for previous action to complete.
+1310697599764: Parking read on (1,0) failed, spots=?,latency=3477
+1310697600768: Reading spot in (1,0)
+1310697604107: Parking read on (1,0) failed, spots=?,latency=3332
+1310697605113: Reading spot in (1,0)
+1310697608461: Parking read on (1,0) failed, spots=?,latency=3347
+1310697609464: Reading spot in (0,0)
+1310697613455: Reading spot in (1,0)
+1310697621289: UserClient request timed out. (1,0)=?
+1310697621297: Reading spot in (1,0)
+1310697630200: moving from region (0,0), to (1,0)
+1310697630204: UserClient received REGION_CHANGE message.
+1310697631304: UserClient request timed out. (1,0)=?
+1310697631308: Reading spot in (1,0)
+1310697633208: moving from region (1,0), to (0,0)
+1310697633213: UserClient received REGION_CHANGE message.
+1310697641317: UserClient request timed out. (1,0)=?
+1310697641327: Reading spot in (1,0)
+1310697644546: Parking read on (1,0) failed, spots=?,latency=3217
+1310697645549: Reading spot in (1,0)
+1310697647104: moving from region (0,0), to (1,0)
+1310697647108: UserClient received REGION_CHANGE message.
+1310697649394: Reading spot in (1,0)
+1310697650854: Reading spot in (1,0)
+1310697652322: Reading spot in (1,0)
+1310697653884: Reading spot in (1,0)
+1310697661342: UserClient request timed out. (1,0)=?
+1310697661351: Wait for previous action to complete.
+1310697666357: UserClient request timed out. (1,0)=?
+1310697666373: Reading spot in (1,0)
+1310697676372: UserClient request timed out. (1,0)=?
+1310697676372: Reading spot in (0,0)
+1310697686384: UserClient request timed out. (0,0)=?
+1310697686393: Reading spot in (0,0)
+1310697696403: UserClient request timed out. (0,0)=?
+1310697696411: Reading spot in (0,0)
+1310697702752: Reading spot in (1,0)
+1310697711426: UserClient request timed out. (1,0)=?
+1310697711436: Reading spot in (0,0)
+1310697720168: UserClient request timed out. (0,0)=?
+1310697720178: Reading spot in (0,0)
+1310697722663: Wait for previous action to complete.
+1310697723514: Parking read on (0,0) failed, spots=?,latency=3335
+1310697724517: Reading spot in (0,0)
+1310697729391: Already holding a parking spot!
+1310697729671: UserClient request timed out. (0,0)=?
+1310697729674: Reading spot in (0,0)
+1310697733103: Already holding a parking spot!
+1310697734764: Already holding a parking spot!
+1310697735438: Wait for previous action to complete.
+1310697739682: UserClient request timed out. (0,0)=?
+1310697739694: Reading spot in (1,0)
+1310697745338: Already holding a parking spot!
+1310697749704: UserClient request timed out. (1,0)=?
+1310697749719: Reading spot in (0,0)
+1310697759726: UserClient request timed out. (0,0)=?
+1310697759735: Reading spot in (0,0)
+1310697769745: UserClient request timed out. (0,0)=?
+1310697769754: Reading spot in (1,0)
+1310697779766: UserClient request timed out. (1,0)=?
+1310697779773: Wait for previous action to complete.
+1310697784779: UserClient request timed out. (1,0)=?
+1310697784781: Reading spot in (0,0)
+1310697786900: Parking read on (0,0) from (1,0)succeeded, spots=18,latency=2117
+1310697787903: Wait for previous action to complete.
+1310697794646: Reading spot in (0,0)
+1310697795433: Reading spot in (0,0)
+1310697796353: Reading spot in (1,0)
+1310697796479: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=124
+1310697796641: Parking read on (0,0) from (1,0)succeeded, spots=18,latency=285
+1310697797094: Parking read on (0,0) from (1,0)succeeded, spots=18,latency=738
+1310697797462: Reading spot in (1,0)
+1310697797509: Reading spot in (0,0)
+1310697797627: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=117
+1310697797643: Reading spot in (1,0)
+1310697798095: Reading spot in (0,0)
+1310697798629: Reading spot in (0,0)
+1310697798825: Parking read on (0,0) from (1,0)succeeded, spots=18,latency=193
+1310697799826: Wait for previous action to complete.
+1310697802553: Reading spot in (0,0)
+1310697802772: Parking read on (0,0) from (1,0)succeeded, spots=18,latency=215
+1310697803528: Reading spot in (1,0)
+1310697803629: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=99
+1310697803776: Reading spot in (1,0)
+1310697803908: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=126
+1310697804631: Reading spot in (0,0)
+1310697804908: Reading spot in (1,0)
+1310697805052: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=137
+1310697806054: Reading spot in (0,0)
+1310697808146: Parking read on (0,0) failed, spots=?,latency=2091
+1310697808421: Parking read on (0,0) from (1,0)succeeded, spots=18,latency=2367
+1310697809148: Wait for previous action to complete.
+1310697809423: Reading spot in (1,0)
+1310697809562: Parking read on (1,0) from (1,0)succeeded, spots=20,latency=137
+1310697810564: Wait for previous action to complete.
+1310697814795: UserClient request timed out. (1,0)=?
+1310697814802: Reading spot in (0,0)
+1310697822491: Wait for previous action to complete.
+1310697824812: UserClient request timed out. (0,0)=?
+1310697824814: Reading spot in (0,0)
+1310697834823: UserClient request timed out. (0,0)=?
+1310697834824: Reading spot in (0,0)
+1310697843402: moving from region (1,0), to (0,0)
+1310697843413: UserClient received REGION_CHANGE message.
+1310697844832: UserClient request timed out. (0,0)=?
+1310697844847: Reading spot in (0,0)
+1310697844945: Parking read on (0,0) from (0,0)succeeded, spots=17,latency=96
+1310697845945: Wait for previous action to complete.
+1310697853650: Already holding a parking spot!
+1310697854844: UserClient request timed out. (0,0)=?
+1310697854847: Reading spot in (0,0)
+1310697854955: Parking read on (0,0) from (0,0)succeeded, spots=17,latency=106
+1310697855957: Reading spot in (1,0)
+1310697864857: UserClient request timed out. (1,0)=?
+1310697864867: Reading spot in (0,0)
+1310697874870: UserClient request timed out. (0,0)=?
+1310697874879: Reading spot in (1,0)
+1310697884890: UserClient request timed out. (1,0)=?
+1310697884901: Reading spot in (1,0)
+1310697894911: UserClient request timed out. (1,0)=?
+1310697894917: Reading spot in (0,0)
+1310697896045: Reading spot in (1,0)
+1310697899468: Parking read on (1,0) failed, spots=?,latency=3422
+1310697900469: Reading spot in (1,0)
+1310697903902: Parking read on (1,0) failed, spots=?,latency=3433
+1310697904904: Reading spot in (0,0)
+1310697905026: Parking read on (0,0) from (0,0)succeeded, spots=17,latency=109
+1310697906034: Reading spot in (0,0)
+1310697906197: Parking read on (0,0) from (0,0)succeeded, spots=17,latency=155
+1310697907200: Reading spot in (1,0)
+1310697914930: UserClient request timed out. (1,0)=?
+1310697914942: Reading spot in (1,0)
+1310697915164: Parking read on (1,0) from (0,0)succeeded, spots=20,latency=220
+1310697916167: Reading spot in (0,0)
+1310697924946: UserClient request timed out. (0,0)=?
+1310697924954: Reading spot in (1,0)
+1310697932159: Reading spot in (0,0)
+1310697933258: Reading spot in (0,0)
+1310697934516: Reading spot in (1,0)
+1310697939965: UserClient request timed out. (1,0)=?
+1310697939973: Reading spot in (0,0)
+1310697943799: moving from region (0,0), to (-1,0)
+1310697943802: region (-1, 0) out of bounds, dormant
+1310697943805: UserClient received REGION_CHANGE message.
+1310697944779: moving from region (-1,0), to (0,0)
+1310697944783: UserClient received REGION_CHANGE message.
+1310697945469: Wait for previous action to complete.
+1310697948840: moving from region (0,0), to (1,0)
+1310697948843: UserClient received REGION_CHANGE message.
+1310697949971: UserClient request timed out. (0,0)=?
+1310697949977: Reading spot in (1,0)
+1310697952972: Wait for previous action to complete.
+1310697959955: UserClient request timed out. (1,0)=?
+1310697959962: Reading spot in (1,0)
+1310697969973: UserClient request timed out. (1,0)=?
+1310697969980: Reading spot in (0,0)
+1310697979990: UserClient request timed out. (0,0)=?
+1310697979999: Reading spot in (0,0)
+1310697989290: Reading spot in (1,0)
+1310697989977: Reading spot in (1,0)
+1310697990862: Reading spot in (0,0)
+1310697991665: Reading spot in (0,0)
+1310697994188: Wait for previous action to complete.
+1310697998955: Already holding a parking spot!
+1310698000275: UserClient request timed out. (0,0)=?
+1310698000280: Wait for previous action to complete.
+1310698005283: UserClient request timed out. (0,0)=?
+1310698005291: Reading spot in (0,0)
+1310698015301: UserClient request timed out. (0,0)=?
+1310698015309: Reading spot in (1,0)
+1310698025321: UserClient request timed out. (1,0)=?
+1310698025330: Reading spot in (1,0)
+1310698035340: UserClient request timed out. (1,0)=?
+1310698035351: Reading spot in (0,0)
+1310698045353: UserClient request timed out. (0,0)=?
+1310698045362: Reading spot in (1,0)
+1310698055372: UserClient request timed out. (1,0)=?
+1310698055379: Wait for previous action to complete.
+1310698060385: UserClient request timed out. (1,0)=?
+1310698060396: Wait for previous action to complete.
+1310698060594: Wait for previous action to complete.
+1310698062539: Wait for previous action to complete.
+1310698065402: UserClient request timed out. (1,0)=?
+1310698065411: Reading spot in (0,0)
+1310698071478: moving from region (1,0), to (0,0)
+1310698071481: UserClient received REGION_CHANGE message.
+1310698075419: UserClient request timed out. (0,0)=?
+1310698075431: Reading spot in (0,0)
+1310698080297: Wait for previous action to complete.
+1310698085150: Wait for previous action to complete.
+1310698085436: UserClient request timed out. (0,0)=?
+1310698085439: Reading spot in (0,0)
+1310698087073: Wait for previous action to complete.
+1310698095450: UserClient request timed out. (0,0)=?
+1310698095457: Reading spot in (1,0)
+1310698105468: UserClient request timed out. (1,0)=?
+1310698105469: Reading spot in (1,0)
+1310698109350: Wait for previous action to complete.
+1310698115481: UserClient request timed out. (1,0)=?
+1310698115490: Reading spot in (1,0)
+1310698125499: UserClient request timed out. (1,0)=?
+1310698125512: Reading spot in (1,0)
+1310698135524: UserClient request timed out. (1,0)=?
+1310698135537: Reading spot in (1,0)
+1310698145547: UserClient request timed out. (1,0)=?
+1310698145549: Reading spot in (1,0)
+1310698147424: Already holding a parking spot!
+1310698149573: Already holding a parking spot!
+1310698150860: Reading spot in (1,0)
+1310698151659: Reading spot in (1,0)
+1310698153091: Reading spot in (1,0)
+1310698156463: Wait for previous action to complete.
+1310698160562: UserClient request timed out. (1,0)=?
+1310698160567: Reading spot in (1,0)
+1310698168885: Already holding a parking spot!
+1310698169900: Already holding a parking spot!
+1310698170719: UserClient request timed out. (1,0)=?
+1310698170729: Reading spot in (0,0)
+1310698173850: Reading spot in (0,0)
+1310698174694: Reading spot in (0,0)
+1310698175611: Reading spot in (0,0)
+1310698176361: Reading spot in (0,0)
+1310698186224: UserClient request timed out. (0,0)=?
+1310698186231: Reading spot in (0,0)
+1310698196241: UserClient request timed out. (0,0)=?
+1310698196253: Reading spot in (1,0)
+1310698202538: Reading spot in (0,0)
+1310698203617: Reading spot in (0,0)
+1310698206015: Wait for previous action to complete.
+1310698209982: Already holding a parking spot!
+1310698211264: UserClient request timed out. (0,0)=?
+1310698211267: Reading spot in (0,0)
+1310698216889: moving from region (0,0), to (1,0)
+1310698216893: UserClient received REGION_CHANGE message.
+1310698221277: UserClient request timed out. (0,0)=?
+1310698221284: Reading spot in (1,0)
+1310698231294: UserClient request timed out. (1,0)=?
+1310698231305: Reading spot in (1,0)
+1310698241310: UserClient request timed out. (1,0)=?
+1310698241317: Wait for previous action to complete.
+1310698246324: UserClient request timed out. (1,0)=?
+1310698246334: Wait for previous action to complete.
+1310698250164: Reading spot in (0,0)
+1310698250952: Reading spot in (0,0)
+1310698256345: UserClient request timed out. (0,0)=?
+1310698256352: Reading spot in (0,0)
+1310698265054: UserClient request timed out. (0,0)=?
+1310698265061: Reading spot in (0,0)
+1310698274857: moving from region (1,0), to (0,0)
+1310698274861: UserClient received REGION_CHANGE message.
+1310698275066: UserClient request timed out. (0,0)=?
+1310698275068: Reading spot in (0,0)
+1310698277570: Wait for previous action to complete.
+1310698279021: Wait for previous action to complete.
+1310698285079: UserClient request timed out. (0,0)=?
+1310698285088: Reading spot in (1,0)
+1310698295100: UserClient request timed out. (1,0)=?
+1310698295109: Reading spot in (0,0)
+1310698305121: UserClient request timed out. (0,0)=?
+1310698305131: Reading spot in (1,0)
+1310698315143: UserClient request timed out. (1,0)=?
+1310698315154: Wait for previous action to complete.
+1310698320161: UserClient request timed out. (1,0)=?
+1310698320170: Reading spot in (1,0)
+1310698330182: UserClient request timed out. (1,0)=?
+1310698330194: Reading spot in (1,0)
+1310698340206: UserClient request timed out. (1,0)=?
+1310698340211: Reading spot in (1,0)
+1310698350223: UserClient request timed out. (1,0)=?
+1310698350227: Wait for previous action to complete.
+1310698355234: UserClient request timed out. (1,0)=?
+1310698355238: Wait for previous action to complete.
+1310698360246: UserClient request timed out. (1,0)=?
+1310698360255: Wait for previous action to complete.
+1310698365263: UserClient request timed out. (1,0)=?
+1310698365276: Wait for previous action to complete.
+1310698370282: UserClient request timed out. (1,0)=?
+1310698370293: Wait for previous action to complete.
+1310698375299: UserClient request timed out. (1,0)=?
+1310698375310: Wait for previous action to complete.
+1310698380316: UserClient request timed out. (1,0)=?
+1310698380330: Wait for previous action to complete.
+1310698385334: UserClient request timed out. (1,0)=?
+1310698385343: Wait for previous action to complete.
+1310698390349: UserClient request timed out. (1,0)=?
+1310698390359: Wait for previous action to complete.
+1310698395365: UserClient request timed out. (1,0)=?
+1310698395367: Wait for previous action to complete.
+1310698400373: UserClient request timed out. (1,0)=?
+1310698400380: Wait for previous action to complete.
+1310698405380: UserClient request timed out. (1,0)=?
+1310698405381: Wait for previous action to complete.
+1310698410386: UserClient request timed out. (1,0)=?
+1310698410389: Reading spot in (1,0)
+1310698420398: UserClient request timed out. (1,0)=?
+1310698420399: Reading spot in (1,0)
+1310699369026: started, mId = 5107
+1310699369026: retry sending LEADER_REQUEST
+1310699369040: UserClient started
+1310699369628: retry sending LEADER_REQUEST
+1310699370230: retry sending LEADER_REQUEST
+1310699370527: LEADER_REQUEST timed out

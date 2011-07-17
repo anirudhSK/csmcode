@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block body %}
+  <ul class=entries>
+  {% for key in regions.keys() %}
+    <li>
+        <h2>{{ key[0] }}, {{ key[1] }}</h2>
+        {{ regions[key]|pprint }}
+    </li>	
+  {% else %}
+    <li><em>No leaders yet.</em></li>
+  {% endfor %}
+  </ul>
+{% endblock %}

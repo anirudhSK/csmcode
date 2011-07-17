@@ -1,0 +1,94 @@
+1310695709307: started, mId = 5108
+1310695709308: retry sending LEADER_REQUEST
+1310695709323: UserClient started
+1310695709326: Sending UDP payload: 470
+1310695709909: retry sending LEADER_REQUEST
+1310695709947: Sending UDP payload: 470
+1310695710393: Received UDP payload: 470
+1310695710510: retry sending LEADER_REQUEST
+1310695710517: Sending UDP payload: 470
+1310695710809: LEADER_REQUEST timed out
+1310695711054: Received UDP payload: 470
+1310695711630: Received UDP payload: 470
+1310695711941: moving from region (0,0), to (1,0)
+1310695711942: UserClient received REGION_CHANGE message.
+1310695713306: cloud rejected leadership request or request failed, wait to retry
+1310695713315: retry sending LEADER_REQUEST
+1310695713318: Sending UDP payload: 470
+1310695713446: Received UDP payload: 2525
+1310695713442: LEADER_REQUEST timed out
+1310695713722: cloud rejected leadership request or request failed, wait to retry
+1310695713731: heard LEADER_REPLY from 5103
+1310695713732: now NONLEADER following LEADER 5103
+1310695714309: retry sending LEADER_REQUEST
+1310695714337: Sending UDP payload: 470
+1310695714518: Received UDP payload: 2525
+1310695714566: heard LEADER_REPLY from 5103
+1310695714566: now NONLEADER following LEADER 5103
+1310695717798: Received UDP payload: 470
+1310695718416: Received UDP payload: 470
+1310695719011: Received UDP payload: 470
+1310695719310: retry sending LEADER_REQUEST
+1310695719343: Sending UDP payload: 470
+1310695719912: retry sending LEADER_REQUEST
+1310695719930: Sending UDP payload: 470
+1310695720515: retry sending LEADER_REQUEST
+1310695720557: Sending UDP payload: 470
+1310695720767: x,y from GPS: -78, -1
+1310695720767: moving from region (1,0), to (-2,0)
+1310695720767: region (-2, 0) out of bounds, dormant
+1310695720768: UserClient received REGION_CHANGE message.
+1310695721764: x,y from GPS: 6, 27
+1310695721765: moving from region (-2,0), to (0,0)
+1310695721766: retry sending LEADER_REQUEST
+1310695721766: UserClient received REGION_CHANGE message.
+1310695721767: Sending UDP payload: 470
+1310695722367: retry sending LEADER_REQUEST
+1310695722396: Sending UDP payload: 470
+1310695722754: x,y from GPS: 31, 36
+1310695722754: moving from region (0,0), to (0,1)
+1310695722754: region (0, 1) out of bounds, dormant
+1310695722755: UserClient received REGION_CHANGE message.
+1310695724755: x,y from GPS: 37, 45
+1310695724755: moving from region (0,1), to (1,1)
+1310695724756: region (1, 1) out of bounds, dormant
+1310695724757: UserClient received REGION_CHANGE message.
+1310695725755: x,y from GPS: 51, 52
+1310695729222: Received UDP payload: 470
+1310695729772: x,y from GPS: 60, 46
+1310695731976: Received UDP payload: 470
+1310695732568: Received UDP payload: 470
+1310695733180: Received UDP payload: 470
+1310695738902: Received UDP payload: 470
+1310695739238: Received UDP payload: 470
+1310695739495: Received UDP payload: 470
+1310695740088: Received UDP payload: 470
+1310695746805: Received UDP payload: 470
+1310695746920: x,y from GPS: 57, 50
+1310695747401: Received UDP payload: 470
+1310695747810: Received UDP payload: 470
+1310695747887: Received UDP payload: 2525
+1310695748411: Received UDP payload: 470
+1310695748495: Received UDP payload: 2525
+1310695749013: Received UDP payload: 470
+1310695749101: Received UDP payload: 2525
+1310695749249: Received UDP payload: 470
+1310695749973: x,y from GPS: 55, 54
+1310695754256: Received UDP payload: 470
+1310695755974: x,y from GPS: 50, 57
+1310695759254: Received UDP payload: 470
+1310695759920: x,y from GPS: 45, 58
+1310695759954: Received UDP payload: 470
+1310695760540: Received UDP payload: 470
+1310695761172: Received UDP payload: 470
+1310695764268: Received UDP payload: 470
+1310695773790: Received UDP payload: 470
+1310695774263: Received UDP payload: 470
+1310695774434: Received UDP payload: 470
+1310695779278: Received UDP payload: 470
+1310695780982: x,y from GPS: 42, 61
+1310695784278: Received UDP payload: 470
+1310695787851: Received UDP payload: 470
+1310695788452: Received UDP payload: 470
+1310695789052: Received UDP payload: 470
+1310695789295: Received UDP payload: 470

@@ -1,0 +1,36 @@
+#!/system/bin/sh
+
+# parameters
+brncl_lan_gw=192.168.5.111
+brncl_lan_netmask=255.255.0.0
+brncl_lan_essid="csm"
+brncl_lan_channel=6
+brncl_if_lan="`getprop wifi.interface`"
+brncl_path="/data/wifi"
+# brncl_path=/data/data/net.szym.barnacle/files
+brncl_lan_script=wifi
+
+export brncl_if_wan brncl_if_lan
+export brncl_lan_gw brncl_lan_netmask
+export brncl_lan_essid brncl_lan_bssid brncl_lan_wep brncl_lan_channel brncl_lan_script brncl_lan_wext
+export brncl_path # some su out there always take us to /data/local
+export brncl_hardware="`getprop ro.hardware`" # for init.rc parsing
+
+# main runner (process manager) for barnacle, root required
+cd ${brncl_path:-.}
+
+# load the driver
+chmod 750 ./$brncl_lan_script
+./$brncl_lan_script load
+
+# necessary hack for HTC phones
+type ip >/dev/null 2>&1 && ip route del table gprs default >/dev/null 2>&1
+
+# ifconfig $brncl_if_lan $brncl_lan_gw netmask $brncl_lan_netmask up
+./$brncl_lan_script config
+
+# the association loop
+./$brncl_lan_script assoc
+
+# cleanup
+./$brncl_lan_script unload

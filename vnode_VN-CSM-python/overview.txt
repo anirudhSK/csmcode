@@ -1,0 +1,190 @@
+What's left to do primary:
+send and recv packets pass off to VNode (vnode.py) class
+getState, getStateSize, and saveState ports
+what should timers be set for at the beginning? can't find initial values in C++ CSM code.
+other initial values from Tcl not found
+
+What's left to do secondary:
+rand() seeding - not necessary?
+common packet header - not actually used by anything anymore
+ip header - not actually used by anything anymore
+
+
+
+
+
+
+### VN-C packet types:
+	SYNC_MSG
+		ST_SYNCED
+		ST_VER
+	JOIN_MSG
+		HEART_BEAT
+		LEADER_REPLY
+		LEADER_ELECT
+		LEADER_REQUEST_REMOTE
+		LEADER_ACK_REMOTE
+		LEADER_ACK_ACK
+
+
+### packet structure:
+	routing header
+		src
+		dst
+		send_time
+		hops?
+	vn header
+		message type
+		message subtype
+		data version
+	vn data
+		array[region_rows][region_cols] of # free parking spaces			
+
+
+### data stored by each agent
+JOIN
+	nodeID_
+	regionX_, regionY_
+	leader_status_
+	neighbors_
+	packet queue
+
+VNSERVER
+	regionX_, regionY_
+	leader_status_
+	packet queue
+
+VNCLIENT
+	nodeID_
+	packet queue?
+
+### overall structure
+class Packet(object):
+
+
+class CustomQueue(object):
+	def __init__(self):
+	def empty(self):
+	def clear(self):
+	def size(self):
+	def top(self):
+	def push(self, item):
+	def pop(self):
+	def sort(self, fn, r):
+	def __repr__(self):
+	def __getitem__(self, index):
+	def __delitem__(self, index):
+
+OldLeaderData
+	def __init__(self, ver, ox, oy, spots):
+
+JoinAgent
+	def __init__(self, id, slowInterval_, interval_, maxX_, maxY_, rows_, columns_, ):
+	def recv(self, pkt): # upon receiving a packet
+	def check_old_leader_status(self):
+	def check_leader_status(self):
+	def check_location(self): # called periodically with timer to check for region changes and keep track of location
+	def send_left_broadcast(self, msgType, version, parking_spots, old_x, old_y, answer):
+	def send_broadcast(self, msgType, answer):
+	def send_left_unicast(self, msgType, dest, version, old_x, old_y, seq):
+	def send_unicast(self, msgType, dest, answer, seq):
+	def send_unicast_to(self, msgType, dest, port):
+	def copy_loopback(self, pkt_in, port):
+	def send_loopback(self, msgType):
+	def getRegion(self, x, y):
+	def status_reset(self):
+	def setNeighbors(self):
+
+
+ParkingServerAgent
+
+
+ParkingClientAgent
+
+
+
+
+### Scenarios
+
+--- N1 enters an empty region that has no nodes, becoming the only node in that region
+N1(UNKNOWN) --- LEADER_REQUEST ---> 	
+no reply within timeout
+N1(???) --- LEADER_REQUEST_CENTRAL??? ---> CENTRAL SERVER
+N1(???) <-- OKAY + STATE DATA ---	CENTRAL SERVER
+N1(LEADER)
+
+
+--- N1 leaves region that has no other nodes, causing it to become empty
+N1(LEADER) --- LEADER_ELECT ---> 	
+no reply within timeout
+N1(LEADER) --- ??? + STATE DATA ---> CENTRAL SERVER
+N1(UNKNOWN)
+
+
+--- N2 enters region that has N1 as leader
+N2(UNKNOWN) --- LEADER_REQUEST --> 		N1(LEADER)
+N2(UNKNOWN) <-- LEADER_REPLY, deny --- 	N1(LEADER)
+N2(NON-LEADER)							N1(LEADER)
+
+
+--- N2 leaves region that has N1 as leader
+N2(UNKNOWN) --- LEADER_REQUEST --> 		N1(LEADER)
+N2(UNKNOWN) <-- LEADER_REPLY, deny --- 	N1(LEADER)
+N2(NON-LEADER)							N1(LEADER)
+
+
+--- N1 is a leader; leaves a region
+-- in old region:
+N1(LEADER) --- LEADER_ELECT -->	N2(UNKNOWN)
+N1(LEADER) --- LEADER_ELECT -->	N3(UNKNOWN)
+
+N1(LEADER)						N2(PENDING)
+N1(LEADER)						N3(PENDING)
+
+N1(LEADER) <-- LEADER_REQUEST_REMOTE ---	N2(PENDING)
+N1(LEADER) <-- LEADER_REQUEST_REMOTE ---	N3(PENDING)
+
+N1(LEADER) --- LEADER_ACK_REMOTE -->	N2(PENDING)
+N1(LEADER) 								N3(PENDING)
+
+N1(LEADER) <-- LEADER_ACK_ACK ---	N2(LEADER)
+N1(LEADER) 							N3(PENDING)
+
+N1(???) 							N2(LEADER)
+N1(???) 							N3(PENDING)
+
+- N2 is now the new leader of the old region
+
+N2(LEADER) --- LEADER_REPLY??? --> N3(PENDING)
+
+N2(LEADER) 							N3(UNKNOWN)
+
+
+-- in new region:
+???
+
+
+
+### function pseudocode
+what is old_l or oldLeaderData exactly?
+void JoinAgent::check_old_leader_status()
+	for each old_l in oldLeaderData array:
+		continue if not old_l.is_valid
+		if old_l.retries < 40:
+			if old_l.leader_ack == False:
+				old_l.retries++
+				broadcast(LEADER_ELECT MESSAGE)
+				old_leader_timer.resched(4*claim_period_); 
+			elif old_l.leader_ack_ack == False:
+				old_l.retries++
+				unicast(LEADER_ACK_REMOTE MESSAGE)
+				old_leader_timer.resched(4*claim_period_); 
+		else:
+			if old_l.leader_ack_ack:
+				old_l.is_valid = False
+				continue
+			old_l.retries = 0
+			old_l.leader_ack = True
+			old_l.leader_ack_ack = True
+			old_l.is_valid = False
+	return
