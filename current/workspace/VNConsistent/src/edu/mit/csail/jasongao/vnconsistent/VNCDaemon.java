@@ -20,16 +20,18 @@ import com.google.gson.GsonBuilder;
 
 import edu.mit.csail.jasongao.vnconsistent.Cloud.CloudResponse;
 
+import edu.mit.csail.jasongao.vnconsistent.Globals;
+
 public class VNCDaemon extends Thread {
 	final static private String TAG = "VNCDaemon";
 
 	public boolean cacheEnabled = false; // default false or true selectable
 
 	// Constants
-	private static final int regionWidth = 35; // ~meters, same units as above
+	private static final int regionWidth = Globals.REGION_WIDTH; // ~meters, same units as above
 	// for 2x2 on soccer field
-	 private static final int minLatitude = 129730; // gps to 5 decimal places
-	 private static final int minLongitude = 10377900; // e.g. 103.77900
+        private static final int minLatitude  = Globals.MINIMUM_LATITUDE; // gps to 5 decimal places
+        private static final int minLongitude = Globals.MINIMUM_LONGITUDE; // e.g. 103.77900
 	// for 2x2 parking lots
 	//private static final int minLatitude = 129740 - regionWidth; // TODO test
 	//private static final int minLongitude = 10378100 - regionWidth; // TODO test

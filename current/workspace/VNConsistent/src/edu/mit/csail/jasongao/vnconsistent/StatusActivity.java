@@ -22,7 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-
+import edu.mit.csail.jasongao.vnconsistent.Globals;
 public class StatusActivity extends Activity implements LocationListener {
 	final static private String TAG = "StatusActivity";
 
@@ -230,7 +230,9 @@ public class StatusActivity extends Activity implements LocationListener {
 		super.onResume();
 		// update if phone moves 5m ( once GPS fix is acquired )
 		// or if 5s has passed since last update
-		lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5f, this);
+		lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, Globals.SAMPLING_DURATION, Globals.SAMPLING_DISTANCE, this);
+		String logLocationUpdateParameters=String.format("SAMPLING_DISTANCE : %d, SAMPLING_DURATION : %d",Globals.SAMPLING_DISTANCE,Globals.SAMPLING_DURATION);
+		logMsg(logLocationUpdateParameters);
 	}
 
 	@Override
