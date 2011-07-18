@@ -365,7 +365,13 @@ public class StatusActivity extends Activity implements LocationListener {
 	/** Called when a location update is received */
 	@Override
 	public void onLocationChanged(Location loc) {
-		mux.vncDaemon.checkLocation(loc);
+		
+		if(loc!=null) {
+			mux.vncDaemon.checkLocation(loc);
+		}
+		else  {
+			logMsg("Null Location");
+		}
 	}
 
 	@Override

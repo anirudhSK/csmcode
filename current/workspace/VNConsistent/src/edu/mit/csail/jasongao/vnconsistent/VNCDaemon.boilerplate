@@ -93,8 +93,6 @@ public class VNCDaemon extends Thread {
 
 		mState = JOINING;
 		myRegion = new RegionKey(-1, -1); // start outside of active region
-		String line=String.format("Started VNCDaemon with parameters maxRx = %d , maxRY= %d, minLongitude = %d , minLatitude = %d",maxRx,maxRy,minLongitude,minLatitude);
-		logMsg(line); 
 	}
 
 	/** Log message to device display and to Android log. */
