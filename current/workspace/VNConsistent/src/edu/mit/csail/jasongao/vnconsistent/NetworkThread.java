@@ -15,6 +15,8 @@ import java.util.Enumeration;
 import android.os.Handler;
 import android.util.Log;
 
+import edu.mit.csail.jasongao.vnconsistent.Globals;
+
 public class NetworkThread extends Thread {
 	private static final String TAG = "NetworkThread";
 
@@ -197,7 +199,7 @@ public class NetworkThread extends Thread {
 
 	/** Calculate the broadcast IP we need to send the packet along. */
 	private InetAddress getBroadcastAddress() throws IOException {
-		return InetAddress.getByName("192.168.255.255");
+		return InetAddress.getByName(Globals.BROADCAST_ADDRESS);
 	}
 
 	/** Return our stored local IP address. */

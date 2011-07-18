@@ -8,12 +8,13 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
+import edu.mit.csail.jasongao.vnconsistent.Globals;
 
 public class Mux extends Thread {
 	private final static String TAG = "Mux";
 
-	private final static long maxRx = 1;
-	private final static long maxRy = 1;
+	private final static long maxRx = Globals.MAX_X_REGIONS;
+	private final static long maxRy = Globals.MAX_Y_REGIONS;
 
 	private long nodeId;
 
