@@ -1,0 +1,58 @@
+1310975924877: *** Opened log file for writing ***
+1310975924877: *** Application started ***
+1310975950243: Set distribution to 90% reads.
+1310975950833: Set distribution to 60% reads.
+1310975951613: Set distribution to 30% reads.
+1310975977590: Set distribution to 90% reads.
+1310975978170: Set distribution to 60% reads.
+1310975978722: Set distribution to 30% reads.
+1310975979294: Set distribution to 90% reads.
+1310975984815: Moved to region (0,0)
+1310975989264: *** benchmark starting ***
+1310975989315: Reading (0,1)
+1310975992232: UserClient read succeeded, value=20,latency=2910
+1310975994243: Reading (1,1)
+1310975994721: UserClient read succeeded, value=19,latency=438
+1310975996732: Reading (0,0)
+1310975997916: Moved to region (1,0)
+1310976001984: UserClient read succeeded, value=16,latency=5243
+1310976003994: Reading (1,1)
+1310976004424: UserClient read succeeded, value=19,latency=419
+1310976006427: Reading (1,0)
+1310976006800: UserClient read succeeded, value=17,latency=362
+1310976008058: Moved to region (0,0)
+1310976008804: Reading (0,1)
+1310976009175: UserClient read succeeded, value=19,latency=360
+1310976011185: Reading (0,0)
+1310976013446: UserClient read succeeded, value=17,latency=2224
+1310976015451: Reading (0,0)
+1310976019069: UserClient read succeeded, value=18,latency=3579
+1310976021080: Reading (1,1)
+1310976022083: UserClient read succeeded, value=19,latency=975
+1310976024094: Reading (1,1)
+1310976024970: UserClient read succeeded, value=19,latency=839
+1310976026979: Reading (1,1)
+1310976029095: UserClient read succeeded, value=18,latency=2108
+1310976031106: Reading (1,1)
+1310976037836: Moved to region (1,0)
+1310976048177: Moved to region (1,1)
+1310976087629: Moved to region (0,1)
+1310976113685: Moved to region (1,1)
+1310976127669: Moved to region (0,0)
+1310976132192: Moved to region (1,0)
+1310976207262: Moved to region (0,0)
+1310976216681: Moved to region (1,0)
+1310976235700: Moved to region (0,0)
+1310976248552: Moved to region (0,1)
+1310976259157: Moved to region (1,1)
+1310976270025: Moved to region (1,0)
+1310976284119: Moved to region (0,0)
+1310976315320: Moved to region (0,1)
+1310976335590: UserClient read failed, error contacting cloud.
+1310976337600: Reading (0,1)
+1310976352718: Moved to region (1,1)
+1310976357117: UserClient read succeeded, value=19,latency=19506
+1310976359122: Reading (0,1)
+1310976363584: UserClient read succeeded, value=19,latency=4453
+1310976365594: Reading (1,1)
+1310976399926: *** benchmark stopped ***

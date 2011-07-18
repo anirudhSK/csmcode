@@ -1,0 +1,43 @@
+1310975033722: *** Opened log file for writing ***
+1310975033722: *** Application started ***
+1310975036337: Set distribution to 90% reads.
+1310975037568: Set distribution to 60% reads.
+1310975056619: *** benchmark starting ***
+1310975056633: Requesting ticket in (1,1)
+1310975058957: Ticket request succeeded, value=17,latency=2320
+1310975060968: Releasing ticket in (1,1)
+1310975062061: Ticket release succeeded, value=18,latency=1083
+1310975064072: Requesting ticket in (0,1)
+1310975064630: Ticket request succeeded, value=19,latency=553
+1310975065970: Moved to region (1,0)
+1310975066634: Releasing ticket in (0,1)
+1310975069856: Ticket release succeeded, value=20,latency=3210
+1310975071869: Requesting ticket in (1,1)
+1310975072317: Ticket request succeeded, value=17,latency=441
+1310975074327: Reading (0,0)
+1310975079589: UserClient read succeeded, value=18,latency=5249
+1310975080385: Moved to region (0,0)
+1310975081599: Reading (1,0)
+1310975085243: UserClient read succeeded, value=20,latency=3604
+1310975087251: Reading (0,1)
+1310975088882: UserClient read succeeded, value=20,latency=1626
+1310975090894: Releasing ticket in (1,1)
+1310975091368: Ticket release succeeded, value=18,latency=464
+1310975093380: Requesting ticket in (1,1)
+1310975094093: Ticket request succeeded, value=17,latency=701
+1310975096103: Reading (0,1)
+1310975096635: UserClient read succeeded, value=19,latency=496
+1310975098644: Releasing ticket in (1,1)
+1310975098975: Ticket release succeeded, value=17,latency=323
+1310975100984: Reading (0,1)
+1310975104061: Moved to region (0,1)
+1310975105733: UserClient read succeeded, value=20,latency=4714
+1310975107745: Requesting ticket in (0,1)
+1310975123513: Moved to region (1,1)
+1310975130181: Ticket request succeeded, value=19,latency=22422
+1310975132191: Reading (1,1)
+1310975146294: Moved to region (1,1)
+1310975148973: Moved to region (1,1)
+1310975157677: *** benchmark stopped ***
+1310975160926: UserClient read succeeded, value=19,latency=28728
+1310975187066: Releasing ticket in (0,1)

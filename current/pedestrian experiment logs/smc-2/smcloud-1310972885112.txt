@@ -1,0 +1,27 @@
+1310972885114: *** Opened log file for writing ***
+1310972885115: *** Application started ***
+1310972891908: Moved to region (1,1)
+1310972899529: Requesting ticket in (1,1)
+1310972901565: Ticket request succeeded, value=19,latency=2021
+1310972911878: Moved to region (0,1)
+1310972914062: Releasing ticket in (1,1)
+1310972915319: Ticket release succeeded, value=20,latency=1235
+1310972916327: Requesting ticket in (0,1)
+1310972917477: Ticket request succeeded, value=19,latency=1106
+1310972930225: Reading (0,0)
+1310972931464: Wait for previous action to complete.
+1310972931511: UserClient read succeeded, value=20,latency=1249
+1310972931853: Reading (0,1)
+1310972932033: Wait for previous action to complete.
+1310972932188: Wait for previous action to complete.
+1310972932933: UserClient read succeeded, value=19,latency=1072
+1310972961976: Releasing ticket in (0,1)
+1310972963291: Ticket release succeeded, value=20,latency=1267
+1310972980862: Moved to region (1,1)
+1310972982030: Requesting ticket in (1,1)
+1310972983188: Ticket request succeeded, value=19,latency=1149
+1310972987071: Releasing ticket in (1,1)
+1310972988222: Ticket release succeeded, value=20,latency=1115
+1310972989005: Moved to region (0,0)
+1310972995764: Reading (1,0)
+1310972997155: UserClient read succeeded, value=20,latency=1385

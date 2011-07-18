@@ -1,0 +1,34 @@
+1310976781269: *** Opened log file for writing ***
+1310976781270: *** Application started ***
+1310976783102: Set distribution to 90% reads.
+1310976783404: Set distribution to 60% reads.
+1310976783963: Set distribution to 30% reads.
+1310976796504: Moved to region (1,0)
+1310976798348: *** benchmark starting ***
+1310976798376: Reading (0,0)
+1310976819320: UserClient read succeeded, value=18,latency=20942
+1310976821330: Reading (1,1)
+1310976821784: UserClient read succeeded, value=19,latency=441
+1310976823792: Requesting ticket in (0,1)
+1310976836599: Ticket request succeeded, value=19,latency=12804
+1310976838610: Releasing ticket in (0,1)
+1310976839842: Ticket release succeeded, value=20,latency=1221
+1310976841853: Reading (1,0)
+1310976846809: UserClient read succeeded, value=16,latency=4942
+1310976848819: Requesting ticket in (1,0)
+1310976856032: Ticket request succeeded, value=15,latency=7204
+1310976858042: Reading (1,0)
+1310976859331: UserClient read succeeded, value=14,latency=1278
+1310976861343: Releasing ticket in (1,0)
+1310976861727: Ticket release succeeded, value=15,latency=370
+1310976863736: Reading (0,1)
+1310976866302: UserClient read succeeded, value=20,latency=2554
+1310976868308: Requesting ticket in (0,0)
+1310976871220: Ticket request succeeded, value=16,latency=2899
+1310976873229: Releasing ticket in (0,0)
+1310976873697: Ticket release succeeded, value=17,latency=442
+1310976875708: Requesting ticket in (0,1)
+1310976876902: Ticket request succeeded, value=19,latency=1176
+1310976878912: Releasing ticket in (0,1)
+1310976878982: *** benchmark stopped ***
+1310976879248: Ticket release succeeded, value=20,latency=319

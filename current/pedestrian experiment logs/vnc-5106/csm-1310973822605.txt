@@ -1,0 +1,1097 @@
+1310973822641: started, mId = 5106
+1310973822641: region (-1, -1) out of bounds, dormant
+1310973822642: UserClient started
+1310973822685: Received UDP payload: 851
+1310973822716: Received UDP payload: 698
+1310973822742: Received UDP payload: 470
+1310973823312: Received UDP payload: 851
+1310973823805: Received UDP payload: 698
+1310973823859: Received UDP payload: 851
+1310973823909: Received UDP payload: 851
+1310973823936: Received UDP payload: 698
+1310973823986: Received UDP payload: 851
+1310973823996: Received UDP payload: 881
+1310973824036: Received UDP payload: 698
+1310973824553: Received UDP payload: 851
+1310973824599: Received UDP payload: 851
+1310973824604: Received UDP payload: 698
+1310973825187: Received UDP payload: 851
+1310973825224: Received UDP payload: 698
+1310973825232: Received UDP payload: 851
+1310973825236: Received UDP payload: 881
+1310973825239: Received UDP payload: 698
+1310973825812: Received UDP payload: 851
+1310973826444: Received UDP payload: 851
+1310973826486: Received UDP payload: 698
+1310973826557: Received UDP payload: 698
+1310973826928: moving from region (-1,-1), to (0,0)
+1310973826930: sending LEADER_REQUEST
+1310973826952: Sending UDP payload: 470
+1310973826958: UserClient received REGION_CHANGE message.
+1310973827537: sending LEADER_REQUEST
+1310973827567: Sending UDP payload: 470
+1310973827591: Received UDP payload: 698
+1310973827604: Received UDP payload: 851
+1310973828139: sending LEADER_REQUEST
+1310973828165: Sending UDP payload: 470
+1310973828440: LEADER_REQUEST timed out
+1310973828662: Received UDP payload: 698
+1310973828698: Received UDP payload: 851
+1310973828746: Received UDP payload: 881
+1310973828789: Received UDP payload: 698
+1310973828871: Received UDP payload: 851
+1310973829499: Received UDP payload: 851
+1310973829585: Received UDP payload: 470
+1310973829700: Received UDP payload: 470
+1310973829783: Received UDP payload: 3294
+1310973830126: Received UDP payload: 851
+1310973830139: Received UDP payload: 698
+1310973830366: Received UDP payload: 470
+1310973830525: Received UDP payload: 3185
+1310973830936: Received UDP payload: 470
+1310973831118: cloud accepted leadership request, returned csm bytes size 2046
+1310973831281: CSMLayer starting
+1310973831289: UserServer started.
+1310973831289: loaded csm data from cloud
+1310973831334: Sending UDP payload: 3288
+1310973831336: now fully up as LEADER
+1310973832202: Received UDP payload: 698
+1310973832255: Received UDP payload: 851
+1310973832264: Received UDP payload: 881
+1310973832273: Received UDP payload: 698
+1310973832302: Received UDP payload: 698
+1310973832309: UserServer handling request in (0,0)
+1310973832311: Sending PROC_REQUEST 1:11 (0,0)->(0,0)
+1310973832312: Dispatching CSMOp PROC_REQUEST 1:11 (0,0)->(0,0)
+1310973832335: Sending UDP payload: 851
+1310973832336: removed replies before id 11 from sentReplies of size 0
+1310973832348: Received PROC_REQUEST 1:11 (0,0)->(0,0), replying PROC_REPLY 1:11 (0,0)->(0,0)
+1310973832350: Dispatching CSMOp PROC_REPLY 1:11 (0,0)->(0,0)
+1310973832356: Sending UDP payload: 881
+1310973832357: Received PROC_REPLY 1:11 (0,0)->(0,0), handing to UserServer
+1310973832358: Procedure 1:11 on (0,0) successful
+1310973832363: Sending UDP payload: 698
+1310973832651: Sending UDP payload: 470
+1310973832678: Received UDP payload: 698
+1310973832709: Received UDP payload: 851
+1310973832733: removed replies before id 14 from sentReplies of size 0
+1310973832734: Received PROC_REQUEST 1:14 (0,1)->(0,0), replying PROC_REPLY 1:14 (0,0)->(0,1)
+1310973832735: Dispatching CSMOp PROC_REPLY 1:14 (0,0)->(0,1)
+1310973832737: Sending UDP payload: 881
+1310973832748: Received UDP payload: 470
+1310973832758: Received UDP payload: 698
+1310973833516: Received UDP payload: 470
+1310973833610: Received UDP payload: 3294
+1310973833834: Requesting spot in (0,0)
+1310973833836: Sending UDP payload: 698
+1310973833837: UserServer handling request in (0,0)
+1310973833837: Sending PROC_REQUEST 2:12 (0,0)->(0,0)
+1310973833838: Dispatching CSMOp PROC_REQUEST 2:12 (0,0)->(0,0)
+1310973833839: Sending UDP payload: 851
+1310973833841: removed replies before id 12 from sentReplies of size 0
+1310973833842: Received PROC_REQUEST 2:12 (0,0)->(0,0), replying PROC_REPLY 2:12 (0,0)->(0,0)
+1310973833844: Dispatching CSMOp PROC_REPLY 2:12 (0,0)->(0,0)
+1310973833854: Sending UDP payload: 881
+1310973833857: Received PROC_REPLY 2:12 (0,0)->(0,0), handing to UserServer
+1310973833862: Procedure 2:12 on (0,0) successful
+1310973833865: Sending UDP payload: 698
+1310973833870: UserClient decrement on (0,0) from (0,0) succeeded, value=18,latency=34
+1310973835015: Received UDP payload: 698
+1310973835029: UserServer handling request in (0,0)
+1310973835040: Sending PROC_REQUEST 1:3 (0,0)->(1,0)
+1310973835051: Dispatching CSMOp PROC_REQUEST 1:3 (0,0)->(1,0)
+1310973835084: Sending UDP payload: 851
+1310973835150: Received UDP payload: 881
+1310973835156: Received PROC_REPLY 1:3 (1,0)->(0,0), handing to UserServer
+1310973835156: Procedure 1:3 on (1,0) successful
+1310973835159: Sending UDP payload: 698
+1310973837993: Received UDP payload: 698
+1310973838133: Received UDP payload: 698
+1310973838172: Received UDP payload: 851
+1310973838181: Received UDP payload: 881
+1310973838185: Received UDP payload: 698
+1310973838555: Received UDP payload: 698
+1310973838595: UserServer handling request in (0,0)
+1310973838604: Sending PROC_REQUEST 1:2 (0,0)->(0,1)
+1310973838604: Dispatching CSMOp PROC_REQUEST 1:2 (0,0)->(0,1)
+1310973838613: Sending UDP payload: 851
+1310973838676: Received UDP payload: 881
+1310973838681: Received PROC_REPLY 1:2 (0,1)->(0,0), handing to UserServer
+1310973838682: Procedure 1:2 on (0,1) successful
+1310973838683: Sending UDP payload: 698
+1310973838973: Received UDP payload: 851
+1310973839592: Received UDP payload: 470
+1310973839617: Received UDP payload: 470
+1310973839690: Received UDP payload: 851
+1310973839693: Received UDP payload: 881
+1310973839703: Received UDP payload: 698
+1310973839707: Received UDP payload: 3180
+1310973840532: Received UDP payload: 698
+1310973840581: UserServer handling request in (0,0)
+1310973840582: Sending PROC_REQUEST 2:13 (0,0)->(0,0)
+1310973840582: Dispatching CSMOp PROC_REQUEST 2:13 (0,0)->(0,0)
+1310973840596: Sending UDP payload: 851
+1310973840599: removed replies before id 13 from sentReplies of size 0
+1310973840601: Received PROC_REQUEST 2:13 (0,0)->(0,0), replying PROC_REPLY 2:13 (0,0)->(0,0)
+1310973840601: Dispatching CSMOp PROC_REPLY 2:13 (0,0)->(0,0)
+1310973840609: Sending UDP payload: 881
+1310973840613: Received PROC_REPLY 2:13 (0,0)->(0,0), handing to UserServer
+1310973840614: Procedure 2:13 on (0,0) successful
+1310973840620: Sending UDP payload: 698
+1310973840939: Received UDP payload: 470
+1310973840959: Reading spot in (0,0)
+1310973840995: Sending UDP payload: 698
+1310973840995: UserServer handling request in (0,0)
+1310973840996: Sending PROC_REQUEST 3:14 (0,0)->(0,0)
+1310973840996: Dispatching CSMOp PROC_REQUEST 3:14 (0,0)->(0,0)
+1310973841002: Sending UDP payload: 851
+1310973841004: removed replies before id 14 from sentReplies of size 0
+1310973841009: Received PROC_REQUEST 3:14 (0,0)->(0,0), replying PROC_REPLY 3:14 (0,0)->(0,0)
+1310973841010: Dispatching CSMOp PROC_REPLY 3:14 (0,0)->(0,0)
+1310973841013: Sending UDP payload: 881
+1310973841016: Received PROC_REPLY 3:14 (0,0)->(0,0), handing to UserServer
+1310973841017: Procedure 3:14 on (0,0) successful
+1310973841018: Sending UDP payload: 698
+1310973841023: UserClient read on (0,0) from (0,0)succeeded, value=17,latency=62
+1310973842028: Reading spot in (1,0)
+1310973842053: Sending UDP payload: 698
+1310973842063: UserServer handling request in (0,0)
+1310973842068: Sending PROC_REQUEST 3:4 (0,0)->(1,0)
+1310973842072: Dispatching CSMOp PROC_REQUEST 3:4 (0,0)->(1,0)
+1310973842074: Sending UDP payload: 851
+1310973842133: Received UDP payload: 881
+1310973842141: Received PROC_REPLY 3:4 (1,0)->(0,0), handing to UserServer
+1310973842141: Procedure 3:4 on (1,0) successful
+1310973842143: Sending UDP payload: 698
+1310973842145: UserClient read on (1,0) from (0,0)succeeded, value=21,latency=114
+1310973842643: Sending UDP payload: 470
+1310973842700: Reading spot in (0,1)
+1310973842710: Received UDP payload: 470
+1310973842732: Sending UDP payload: 698
+1310973842739: UserServer handling request in (0,0)
+1310973842744: Sending PROC_REQUEST 3:3 (0,0)->(0,1)
+1310973842744: Dispatching CSMOp PROC_REQUEST 3:3 (0,0)->(0,1)
+1310973842746: Sending UDP payload: 851
+1310973842811: Received UDP payload: 881
+1310973842820: Received PROC_REPLY 3:3 (0,1)->(0,0), handing to UserServer
+1310973842821: Procedure 3:3 on (0,1) successful
+1310973842824: Sending UDP payload: 698
+1310973842831: UserClient read on (0,1) from (0,0)succeeded, value=17,latency=131
+1310973843278: Reading spot in (1,1)
+1310973843324: Sending UDP payload: 698
+1310973843334: UserServer handling request in (0,0)
+1310973843335: Sending PROC_REQUEST 3:0 (0,0)->(1,1)
+1310973843335: Dispatching CSMOp PROC_REQUEST 3:0 (0,0)->(1,1)
+1310973843338: Sending UDP payload: 851
+1310973843408: Received UDP payload: 881
+1310973843422: Received PROC_REPLY 3:0 (1,1)->(0,0), handing to UserServer
+1310973843423: Procedure 3:0 on (1,1) successful
+1310973843426: Sending UDP payload: 698
+1310973843433: UserClient read on (1,1) from (0,0)succeeded, value=18,latency=152
+1310973843545: Received UDP payload: 470
+1310973843636: Received UDP payload: 3180
+1310973843987: Reading spot in (0,0)
+1310973844010: Sending UDP payload: 698
+1310973844020: UserServer handling request in (0,0)
+1310973844022: Sending PROC_REQUEST 3:15 (0,0)->(0,0)
+1310973844022: Dispatching CSMOp PROC_REQUEST 3:15 (0,0)->(0,0)
+1310973844026: Sending UDP payload: 851
+1310973844030: removed replies before id 15 from sentReplies of size 0
+1310973844031: Received PROC_REQUEST 3:15 (0,0)->(0,0), replying PROC_REPLY 3:15 (0,0)->(0,0)
+1310973844031: Dispatching CSMOp PROC_REPLY 3:15 (0,0)->(0,0)
+1310973844039: Sending UDP payload: 881
+1310973844041: Received PROC_REPLY 3:15 (0,0)->(0,0), handing to UserServer
+1310973844041: Procedure 3:15 on (0,0) successful
+1310973844049: Sending UDP payload: 698
+1310973844050: UserClient read on (0,0) from (0,0)succeeded, value=17,latency=61
+1310973844657: Received UDP payload: 698
+1310973844688: Received UDP payload: 851
+1310973844704: Received UDP payload: 881
+1310973844707: Received UDP payload: 698
+1310973845240: Received UDP payload: 698
+1310973845304: Received UDP payload: 851
+1310973845339: Received UDP payload: 881
+1310973845352: Received UDP payload: 698
+1310973845365: Received UDP payload: 698
+1310973845377: Received UDP payload: 851
+1310973845388: Received UDP payload: 881
+1310973845422: Received UDP payload: 698
+1310973845585: Received UDP payload: 698
+1310973845631: UserServer handling request in (0,0)
+1310973845632: Sending PROC_REQUEST 3:5 (0,0)->(1,0)
+1310973845632: Dispatching CSMOp PROC_REQUEST 3:5 (0,0)->(1,0)
+1310973845645: Received UDP payload: 698
+1310973845652: Sending UDP payload: 851
+1310973845655: Received UDP payload: 851
+1310973845660: Received UDP payload: 881
+1310973845664: Received UDP payload: 698
+1310973845693: Received UDP payload: 881
+1310973845697: Received PROC_REPLY 3:5 (1,0)->(0,0), handing to UserServer
+1310973845698: Procedure 3:5 on (1,0) successful
+1310973845700: Sending UDP payload: 698
+1310973846186: Received UDP payload: 698
+1310973846268: Received UDP payload: 851
+1310973846305: Received UDP payload: 881
+1310973846314: Received UDP payload: 698
+1310973849108: Received UDP payload: 470
+1310973849202: Received UDP payload: 3189
+1310973849596: Received UDP payload: 470
+1310973850642: Received UDP payload: 698
+1310973850699: Received UDP payload: 851
+1310973850744: Received UDP payload: 881
+1310973850749: Received UDP payload: 698
+1310973850959: Received UDP payload: 470
+1310973852652: Sending UDP payload: 470
+1310973852703: Received UDP payload: 470
+1310973852778: Received UDP payload: 470
+1310973852811: Received UDP payload: 3193
+1310973855593: Received UDP payload: 698
+1310973855627: UserServer handling request in (0,0)
+1310973855632: Sending PROC_REQUEST 1:16 (0,0)->(0,0)
+1310973855635: Dispatching CSMOp PROC_REQUEST 1:16 (0,0)->(0,0)
+1310973855642: Sending UDP payload: 851
+1310973855650: removed replies before id 16 from sentReplies of size 0
+1310973855651: Received PROC_REQUEST 1:16 (0,0)->(0,0), replying PROC_REPLY 1:16 (0,0)->(0,0)
+1310973855652: Dispatching CSMOp PROC_REPLY 1:16 (0,0)->(0,0)
+1310973855659: Sending UDP payload: 881
+1310973855660: Received PROC_REPLY 1:16 (0,0)->(0,0), handing to UserServer
+1310973855660: Procedure 1:16 on (0,0) successful
+1310973855666: Sending UDP payload: 698
+1310973858644: Received UDP payload: 698
+1310973858677: Received UDP payload: 851
+1310973858687: removed replies before id 15 from sentReplies of size 0
+1310973858688: Received PROC_REQUEST 3:15 (0,1)->(0,0), replying PROC_REPLY 3:15 (0,0)->(0,1)
+1310973858689: Dispatching CSMOp PROC_REPLY 3:15 (0,0)->(0,1)
+1310973858690: Sending UDP payload: 881
+1310973858712: Received UDP payload: 698
+1310973859605: Received UDP payload: 470
+1310973859984: Received UDP payload: 470
+1310973860002: heard LEADER_REQUEST from node 5107, responding LEADER_REPLY
+1310973860056: Sending UDP payload: 3315
+1310973860242: Received UDP payload: 698
+1310973860303: Received UDP payload: 851
+1310973860332: Received UDP payload: 881
+1310973860336: Received UDP payload: 698
+1310973860945: Received UDP payload: 470
+1310973862593: Received UDP payload: 698
+1310973862646: Received UDP payload: 851
+1310973862689: Received UDP payload: 881
+1310973862690: Sending UDP payload: 470
+1310973862694: Received UDP payload: 698
+1310973863309: Received UDP payload: 470
+1310973863398: Received UDP payload: 3193
+1310973865918: Received UDP payload: 698
+1310973865947: UserServer handling request in (0,0)
+1310973865952: Sending PROC_REQUEST 2:17 (0,0)->(0,0)
+1310973865957: Dispatching CSMOp PROC_REQUEST 2:17 (0,0)->(0,0)
+1310973865972: Sending UDP payload: 851
+1310973865974: removed replies before id 17 from sentReplies of size 0
+1310973865976: Received PROC_REQUEST 2:17 (0,0)->(0,0), replying PROC_REPLY 2:17 (0,0)->(0,0)
+1310973865976: Dispatching CSMOp PROC_REPLY 2:17 (0,0)->(0,0)
+1310973865985: Sending UDP payload: 881
+1310973865986: Received PROC_REPLY 2:17 (0,0)->(0,0), handing to UserServer
+1310973865987: Procedure 2:17 on (0,0) successful
+1310973865988: Sending UDP payload: 698
+1310973868294: Received UDP payload: 487
+1310973868338: Received UDP payload: 470
+1310973868757: Received UDP payload: 3189
+1310973868809: Received UDP payload: 487
+1310973870942: Received UDP payload: 470
+1310973871589: Received UDP payload: 470
+1310973871718: Received UDP payload: 3202
+1310973872667: Sending UDP payload: 470
+1310973872712: Received UDP payload: 470
+1310973872734: Received UDP payload: 470
+1310973872845: Received UDP payload: 3193
+1310973873195: Received UDP payload: 3172
+1310973874406: Received UDP payload: 698
+1310973874447: Received UDP payload: 851
+1310973874481: Received UDP payload: 881
+1310973874496: Received UDP payload: 698
+1310973874750: Received UDP payload: 698
+1310973874814: Received UDP payload: 881
+1310973874845: Received UDP payload: 698
+1310973876691: Received UDP payload: 470
+1310973876820: Received UDP payload: 3193
+1310973877287: Received UDP payload: 470
+1310973877379: Received UDP payload: 3193
+1310973879102: Received UDP payload: 470
+1310973879272: Received UDP payload: 698
+1310973879332: Received UDP payload: 851
+1310973879361: removed replies before id 3 from sentReplies of size 0
+1310973879372: Received PROC_REQUEST 3:3 (1,1)->(0,0), replying PROC_REPLY 3:3 (0,0)->(1,1)
+1310973879376: Dispatching CSMOp PROC_REPLY 3:3 (0,0)->(1,1)
+1310973879392: Sending UDP payload: 881
+1310973879419: Received UDP payload: 698
+1310973880219: Received UDP payload: 698
+1310973880247: Received UDP payload: 851
+1310973880278: Received UDP payload: 881
+1310973880282: Received UDP payload: 698
+1310973880951: Received UDP payload: 470
+1310973881628: Received UDP payload: 470
+1310973881716: Received UDP payload: 3193
+1310973882112: Received UDP payload: 470
+1310973882200: Received UDP payload: 3189
+1310973882235: Received UDP payload: 698
+1310973882293: Received UDP payload: 851
+1310973882348: Received UDP payload: 881
+1310973882391: Received UDP payload: 698
+1310973882695: Sending UDP payload: 470
+1310973882732: Received UDP payload: 698
+1310973882803: Received UDP payload: 851
+1310973882911: Received UDP payload: 881
+1310973882940: Received UDP payload: 698
+1310973883316: Received UDP payload: 470
+1310973883907: Received UDP payload: 470
+1310973884004: Received UDP payload: 3193
+1310973885744: Received UDP payload: 470
+1310973885863: Received UDP payload: 3193
+1310973885951: Received UDP payload: 698
+1310973886005: Received UDP payload: 851
+1310973886041: Received UDP payload: 881
+1310973886051: Received UDP payload: 698
+1310973886200: Received UDP payload: 487
+1310973886244: Received UDP payload: 470
+1310973886689: Received UDP payload: 3189
+1310973886734: Received UDP payload: 487
+1310973887606: Received UDP payload: 470
+1310973887717: Received UDP payload: 3193
+1310973887938: Received UDP payload: 470
+1310973887988: Received UDP payload: 698
+1310973887992: Received UDP payload: 851
+1310973887995: Received UDP payload: 881
+1310973887999: Received UDP payload: 698
+1310973888036: Received UDP payload: 3202
+1310973888898: Received UDP payload: 698
+1310973888952: Received UDP payload: 851
+1310973888986: Received UDP payload: 881
+1310973888996: Received UDP payload: 698
+1310973889093: Received UDP payload: 470
+1310973889149: Received UDP payload: 3202
+1310973889758: Received UDP payload: 698
+1310973889824: Received UDP payload: 851
+1310973889859: Received UDP payload: 881
+1310973890952: Received UDP payload: 470
+1310973891618: Received UDP payload: 470
+1310973891725: Received UDP payload: 3193
+1310973891976: Received UDP payload: 3172
+1310973892042: Received UDP payload: 470
+1310973892102: Received UDP payload: 470
+1310973892206: Received UDP payload: 3189
+1310973892666: Sending UDP payload: 470
+1310973892717: Received UDP payload: 470
+1310973892757: Received UDP payload: 470
+1310973892823: Received UDP payload: 3193
+1310973893114: Received UDP payload: 487
+1310973893160: Received UDP payload: 470
+1310973893163: Received UDP payload: 470
+1310973893370: Received UDP payload: 698
+1310973893397: UserServer handling request in (0,0)
+1310973893404: Sending PROC_REQUEST 1:18 (0,0)->(0,0)
+1310973893408: Dispatching CSMOp PROC_REQUEST 1:18 (0,0)->(0,0)
+1310973893421: Sending UDP payload: 851
+1310973893428: removed replies before id 18 from sentReplies of size 0
+1310973893429: Received PROC_REQUEST 1:18 (0,0)->(0,0), replying PROC_REPLY 1:18 (0,0)->(0,0)
+1310973893429: Dispatching CSMOp PROC_REPLY 1:18 (0,0)->(0,0)
+1310973893432: Sending UDP payload: 881
+1310973893434: Received PROC_REPLY 1:18 (0,0)->(0,0), handing to UserServer
+1310973893434: Procedure 1:18 on (0,0) successful
+1310973893440: Sending UDP payload: 698
+1310973893671: Received UDP payload: 3193
+1310973893731: Received UDP payload: 487
+1310973895404: Received UDP payload: 698
+1310973895465: Received UDP payload: 851
+1310973895524: Received UDP payload: 881
+1310973895560: Received UDP payload: 698
+1310973895580: Received UDP payload: 698
+1310973895633: Received UDP payload: 851
+1310973895641: Received UDP payload: 881
+1310973895648: Received UDP payload: 698
+1310973896079: Received UDP payload: 698
+1310973896140: Received UDP payload: 851
+1310973896171: Received UDP payload: 881
+1310973896188: Received UDP payload: 698
+1310973897027: Received UDP payload: 698
+1310973897085: Received UDP payload: 851
+1310973897117: Received UDP payload: 881
+1310973897131: Received UDP payload: 698
+1310973897567: Releasing ticket in (0,0)
+1310973897618: Sending UDP payload: 698
+1310973897619: UserServer handling request in (0,0)
+1310973897619: Sending PROC_REQUEST 1:19 (0,0)->(0,0)
+1310973897620: Dispatching CSMOp PROC_REQUEST 1:19 (0,0)->(0,0)
+1310973897629: Sending UDP payload: 851
+1310973897630: removed replies before id 19 from sentReplies of size 0
+1310973897631: Received PROC_REQUEST 1:19 (0,0)->(0,0), replying PROC_REPLY 1:19 (0,0)->(0,0)
+1310973897631: Dispatching CSMOp PROC_REPLY 1:19 (0,0)->(0,0)
+1310973897633: Sending UDP payload: 881
+1310973897637: Received PROC_REPLY 1:19 (0,0)->(0,0), handing to UserServer
+1310973897638: Procedure 1:19 on (0,0) successful
+1310973897639: Sending UDP payload: 698
+1310973897644: UserClient increment on (0,0) from (0,0) succeeded, value=19,latency=75
+1310973898316: Received UDP payload: 470
+1310973898406: Received UDP payload: 3189
+1310973898596: Received UDP payload: 470
+1310973898702: Received UDP payload: 3202
+1310973898757: Received UDP payload: 698
+1310973898819: Received UDP payload: 851
+1310973899104: Received UDP payload: 698
+1310973899163: Received UDP payload: 851
+1310973899222: Received UDP payload: 881
+1310973899255: Received UDP payload: 698
+1310973899788: Received UDP payload: 851
+1310973900381: Received UDP payload: 851
+1310973900953: Received UDP payload: 470
+1310973901043: Received UDP payload: 851
+1310973901077: Received UDP payload: 698
+1310973901089: Received UDP payload: 698
+1310973901098: Received UDP payload: 851
+1310973901107: Received UDP payload: 881
+1310973901114: Received UDP payload: 698
+1310973901631: Received UDP payload: 470
+1310973901759: Received UDP payload: 3307
+1310973902013: Received UDP payload: 470
+1310973902051: Received UDP payload: 470
+1310973902611: Received UDP payload: 470
+1310973902670: Sending UDP payload: 470
+1310973903235: Received UDP payload: 470
+1310973903703: Received UDP payload: 698
+1310973907279: Received UDP payload: 698
+1310973907350: Received UDP payload: 851
+1310973907399: Received UDP payload: 881
+1310973907408: Received UDP payload: 698
+1310973907664: Received UDP payload: 3054
+1310973908515: Received UDP payload: 698
+1310973908592: Received UDP payload: 851
+1310973908676: Received UDP payload: 881
+1310973908707: Received UDP payload: 698
+1310973908731: Received UDP payload: 698
+1310973908755: Received UDP payload: 851
+1310973908762: Received UDP payload: 698
+1310973908770: Received UDP payload: 851
+1310973908778: removed replies before id 4 from sentReplies of size 0
+1310973908780: Received PROC_REQUEST 3:4 (1,1)->(0,0), replying PROC_REPLY 3:4 (0,0)->(1,1)
+1310973908782: Dispatching CSMOp PROC_REPLY 3:4 (0,0)->(1,1)
+1310973908798: Received UDP payload: 881
+1310973908803: Sending UDP payload: 881
+1310973908814: Received UDP payload: 698
+1310973908830: Received UDP payload: 698
+1310973909971: Received UDP payload: 698
+1310973910030: Received UDP payload: 851
+1310973910066: Received UDP payload: 881
+1310973910074: Received UDP payload: 698
+1310973910583: Received UDP payload: 698
+1310973910640: Received UDP payload: 851
+1310973910671: removed replies before id 16 from sentReplies of size 0
+1310973910681: Received PROC_REQUEST 3:16 (0,1)->(0,0), replying PROC_REPLY 3:16 (0,0)->(0,1)
+1310973910682: Dispatching CSMOp PROC_REPLY 3:16 (0,0)->(0,1)
+1310973910694: Sending UDP payload: 881
+1310973910795: Received UDP payload: 698
+1310973910934: Received UDP payload: 470
+1310973910963: Received UDP payload: 470
+1310973911051: Received UDP payload: 3171
+1310973911826: Received UDP payload: 698
+1310973911873: Received UDP payload: 851
+1310973911908: Received UDP payload: 881
+1310973911918: Received UDP payload: 698
+1310973912079: Received UDP payload: 470
+1310973912668: Sending UDP payload: 470
+1310973913510: Received UDP payload: 470
+1310973913568: Received UDP payload: 470
+1310973913585: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310973913626: Received UDP payload: 698
+1310973913641: Sending UDP payload: 3302
+1310973913674: Received UDP payload: 698
+1310973913688: Received UDP payload: 851
+1310973913698: Received UDP payload: 881
+1310973913713: Received UDP payload: 698
+1310973913736: Received UDP payload: 851
+1310973913754: Received UDP payload: 881
+1310973913793: Received UDP payload: 698
+1310973914760: Received UDP payload: 698
+1310973914804: Received UDP payload: 851
+1310973914809: Received UDP payload: 881
+1310973914818: Received UDP payload: 698
+1310973916159: Received UDP payload: 698
+1310973916274: Received UDP payload: 851
+1310973916305: Received UDP payload: 881
+1310973916320: Received UDP payload: 698
+1310973916672: Received UDP payload: 487
+1310973916723: Received UDP payload: 470
+1310973917158: Received UDP payload: 3171
+1310973917235: Received UDP payload: 470
+1310973917240: Received UDP payload: 487
+1310973917290: Received UDP payload: 3202
+1310973917559: Received UDP payload: 470
+1310973917580: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310973917633: Sending UDP payload: 3302
+1310973918015: Received UDP payload: 470
+1310973918195: Received UDP payload: 698
+1310973918249: Received UDP payload: 851
+1310973918309: Received UDP payload: 881
+1310973918339: Received UDP payload: 698
+1310973918476: Requesting spot in (0,0)
+1310973918518: Sending UDP payload: 698
+1310973918531: UserServer handling request in (0,0)
+1310973918532: Sending PROC_REQUEST 2:20 (0,0)->(0,0)
+1310973918532: Dispatching CSMOp PROC_REQUEST 2:20 (0,0)->(0,0)
+1310973918542: Sending UDP payload: 851
+1310973918543: removed replies before id 20 from sentReplies of size 0
+1310973918549: Received PROC_REQUEST 2:20 (0,0)->(0,0), replying PROC_REPLY 2:20 (0,0)->(0,0)
+1310973918550: Dispatching CSMOp PROC_REPLY 2:20 (0,0)->(0,0)
+1310973918551: Sending UDP payload: 881
+1310973918555: Received PROC_REPLY 2:20 (0,0)->(0,0), handing to UserServer
+1310973918555: Procedure 2:20 on (0,0) successful
+1310973918560: Sending UDP payload: 698
+1310973918561: UserClient decrement on (0,0) from (0,0) succeeded, value=18,latency=85
+1310973918622: Received UDP payload: 470
+1310973919229: Received UDP payload: 470
+1310973919518: Received UDP payload: 698
+1310973919542: UserServer handling request in (0,0)
+1310973919547: Sending PROC_REQUEST 3:4 (0,0)->(0,1)
+1310973919551: Dispatching CSMOp PROC_REQUEST 3:4 (0,0)->(0,1)
+1310973919596: Sending UDP payload: 851
+1310973919672: Received UDP payload: 881
+1310973919676: Received PROC_REPLY 3:4 (0,1)->(0,0), handing to UserServer
+1310973919676: Procedure 3:4 on (0,1) successful
+1310973919679: Sending UDP payload: 698
+1310973919766: Reading spot in (1,0)
+1310973919773: Sending UDP payload: 698
+1310973919789: UserServer handling request in (0,0)
+1310973919795: Sending PROC_REQUEST 3:6 (0,0)->(1,0)
+1310973919805: Dispatching CSMOp PROC_REQUEST 3:6 (0,0)->(1,0)
+1310973919829: Sending UDP payload: 851
+1310973920393: Received UDP payload: 698
+1310973920421: UserServer handling request in (0,0)
+1310973920429: Sending PROC_REQUEST 3:1 (0,0)->(1,1)
+1310973920433: Dispatching CSMOp PROC_REQUEST 3:1 (0,0)->(1,1)
+1310973920465: Sending UDP payload: 851
+1310973920530: Received UDP payload: 881
+1310973920538: Wait for previous action to complete.
+1310973920541: Received PROC_REPLY 3:1 (1,1)->(0,0), handing to UserServer
+1310973920542: Procedure 3:1 on (1,1) successful
+1310973920566: Sending UDP payload: 698
+1310973920676: Wait for previous action to complete.
+1310973920843: Wait for previous action to complete.
+1310973920894: Retrying PROC_REQUEST 3:6 (0,0)->(1,0)
+1310973920895: Dispatching CSMOp PROC_REQUEST 3:6 (0,0)->(1,0)
+1310973920897: Sending UDP payload: 851
+1310973920952: Received UDP payload: 470
+1310973921000: Wait for previous action to complete.
+1310973921135: Received UDP payload: 698
+1310973921169: UserServer handling request in (0,0)
+1310973921170: Sending PROC_REQUEST 3:21 (0,0)->(0,0)
+1310973921170: Dispatching CSMOp PROC_REQUEST 3:21 (0,0)->(0,0)
+1310973921177: Sending UDP payload: 851
+1310973921178: removed replies before id 21 from sentReplies of size 0
+1310973921179: Received PROC_REQUEST 3:21 (0,0)->(0,0), replying PROC_REPLY 3:21 (0,0)->(0,0)
+1310973921180: Dispatching CSMOp PROC_REPLY 3:21 (0,0)->(0,0)
+1310973921181: Sending UDP payload: 881
+1310973921185: Received PROC_REPLY 3:21 (0,0)->(0,0), handing to UserServer
+1310973921185: Procedure 3:21 on (0,0) successful
+1310973921187: Sending UDP payload: 698
+1310973921499: Retrying PROC_REQUEST 3:6 (0,0)->(1,0)
+1310973921517: Dispatching CSMOp PROC_REQUEST 3:6 (0,0)->(1,0)
+1310973921545: Sending UDP payload: 851
+1310973921762: Wait for previous action to complete.
+1310973921810: Received UDP payload: 470
+1310973921812: heard LEADER_REQUEST from node 5102, responding LEADER_REPLY
+1310973921825: Sending UDP payload: 3433
+1310973921997: Received UDP payload: 698
+1310973922022: UserServer handling request in (0,0)
+1310973922028: Sending PROC_REQUEST 2:22 (0,0)->(0,0)
+1310973922036: Dispatching CSMOp PROC_REQUEST 2:22 (0,0)->(0,0)
+1310973922048: Received UDP payload: 470
+1310973922056: Sending UDP payload: 851
+1310973922056: removed replies before id 22 from sentReplies of size 0
+1310973922057: Received PROC_REQUEST 2:22 (0,0)->(0,0), replying PROC_REPLY 2:22 (0,0)->(0,0)
+1310973922063: Dispatching CSMOp PROC_REPLY 2:22 (0,0)->(0,0)
+1310973922065: Sending UDP payload: 881
+1310973922066: Received PROC_REPLY 2:22 (0,0)->(0,0), handing to UserServer
+1310973922067: Procedure 2:22 on (0,0) successful
+1310973922068: Sending UDP payload: 698
+1310973922125: Request timed out, send failure PROC_REPLY 3:6 (1,0)->(0,0)
+1310973922125: Dispatching CSMOp PROC_REPLY 3:6 (1,0)->(0,0)
+1310973922127: Sending UDP payload: 851
+1310973922129: Received PROC_REPLY 3:6 (1,0)->(0,0), handing to UserServer
+1310973922130: Procedure 3:6 on (1,0) timed out, sending failure reply to client
+1310973922131: Sending UDP payload: 698
+1310973922132: UserClient read on (1,0) failed, value=?,latency=2365
+1310973922437: Received UDP payload: 698
+1310973922601: Received UDP payload: 698
+1310973922668: Sending UDP payload: 470
+1310973922988: Reading spot in (1,1)
+1310973923010: Sending UDP payload: 698
+1310973923020: UserServer handling request in (0,0)
+1310973923026: Sending PROC_REQUEST 3:2 (0,0)->(1,1)
+1310973923026: Dispatching CSMOp PROC_REQUEST 3:2 (0,0)->(1,1)
+1310973923028: Sending UDP payload: 851
+1310973923084: Received UDP payload: 881
+1310973923092: Received PROC_REPLY 3:2 (1,1)->(0,0), handing to UserServer
+1310973923093: Procedure 3:2 on (1,1) successful
+1310973923100: Sending UDP payload: 698
+1310973923102: UserClient read on (1,1) from (0,0)succeeded, value=19,latency=111
+1310973923438: Reading spot in (0,0)
+1310973923460: Sending UDP payload: 698
+1310973923474: UserServer handling request in (0,0)
+1310973923479: Sending PROC_REQUEST 3:23 (0,0)->(0,0)
+1310973923480: Dispatching CSMOp PROC_REQUEST 3:23 (0,0)->(0,0)
+1310973923481: Sending UDP payload: 851
+1310973923485: removed replies before id 23 from sentReplies of size 0
+1310973923491: Received PROC_REQUEST 3:23 (0,0)->(0,0), replying PROC_REPLY 3:23 (0,0)->(0,0)
+1310973923491: Dispatching CSMOp PROC_REPLY 3:23 (0,0)->(0,0)
+1310973923493: Sending UDP payload: 881
+1310973923498: Received PROC_REPLY 3:23 (0,0)->(0,0), handing to UserServer
+1310973923498: Procedure 3:23 on (0,0) successful
+1310973923500: Sending UDP payload: 698
+1310973923501: UserClient read on (0,0) from (0,0)succeeded, value=17,latency=61
+1310973924184: Reading spot in (1,0)
+1310973924200: Sending UDP payload: 698
+1310973924216: UserServer handling request in (0,0)
+1310973924225: Sending PROC_REQUEST 3:7 (0,0)->(1,0)
+1310973924228: Dispatching CSMOp PROC_REQUEST 3:7 (0,0)->(1,0)
+1310973924230: Sending UDP payload: 851
+1310973924520: Received UDP payload: 470
+1310973924539: heard LEADER_REQUEST from node 5110, responding LEADER_REPLY
+1310973924604: Sending UDP payload: 3442
+1310973924797: Wait for previous action to complete.
+1310973925135: Retrying PROC_REQUEST 3:7 (0,0)->(1,0)
+1310973925168: Dispatching CSMOp PROC_REQUEST 3:7 (0,0)->(1,0)
+1310973925194: Sending UDP payload: 851
+1310973925253: Wait for previous action to complete.
+1310973925389: Received UDP payload: 487
+1310973925809: Retrying PROC_REQUEST 3:7 (0,0)->(1,0)
+1310973925819: Dispatching CSMOp PROC_REQUEST 3:7 (0,0)->(1,0)
+1310973925851: Sending UDP payload: 851
+1310973926292: Received UDP payload: 698
+1310973926312: UserServer handling request in (0,0)
+1310973926317: Sending PROC_REQUEST 2:24 (0,0)->(0,0)
+1310973926320: Dispatching CSMOp PROC_REQUEST 2:24 (0,0)->(0,0)
+1310973926344: Sending UDP payload: 851
+1310973926345: removed replies before id 24 from sentReplies of size 0
+1310973926346: Received PROC_REQUEST 2:24 (0,0)->(0,0), replying PROC_REPLY 2:24 (0,0)->(0,0)
+1310973926346: Dispatching CSMOp PROC_REPLY 2:24 (0,0)->(0,0)
+1310973926348: Sending UDP payload: 881
+1310973926349: Received PROC_REPLY 2:24 (0,0)->(0,0), handing to UserServer
+1310973926349: Procedure 2:24 on (0,0) successful
+1310973926373: Sending UDP payload: 698
+1310973926456: Request timed out, send failure PROC_REPLY 3:7 (1,0)->(0,0)
+1310973926457: Dispatching CSMOp PROC_REPLY 3:7 (1,0)->(0,0)
+1310973926465: Sending UDP payload: 851
+1310973926469: Received PROC_REPLY 3:7 (1,0)->(0,0), handing to UserServer
+1310973926470: Procedure 3:7 on (1,0) timed out, sending failure reply to client
+1310973926473: Sending UDP payload: 698
+1310973926483: UserClient read on (1,0) failed, value=?,latency=2298
+1310973926971: Reading spot in (0,0)
+1310973926995: Sending UDP payload: 698
+1310973927003: UserServer handling request in (0,0)
+1310973927008: Sending PROC_REQUEST 3:25 (0,0)->(0,0)
+1310973927026: Dispatching CSMOp PROC_REQUEST 3:25 (0,0)->(0,0)
+1310973927028: Sending UDP payload: 851
+1310973927029: removed replies before id 25 from sentReplies of size 0
+1310973927030: Received PROC_REQUEST 3:25 (0,0)->(0,0), replying PROC_REPLY 3:25 (0,0)->(0,0)
+1310973927030: Dispatching CSMOp PROC_REPLY 3:25 (0,0)->(0,0)
+1310973927032: Sending UDP payload: 881
+1310973927038: Received PROC_REPLY 3:25 (0,0)->(0,0), handing to UserServer
+1310973927040: Procedure 3:25 on (0,0) successful
+1310973927046: Sending UDP payload: 698
+1310973927047: UserClient read on (0,0) from (0,0)succeeded, value=16,latency=73
+1310973927519: Received UDP payload: 698
+1310973927572: Received UDP payload: 851
+1310973927579: Received UDP payload: 881
+1310973927586: Received UDP payload: 698
+1310973927856: Received UDP payload: 470
+1310973927879: Releasing ticket in (0,0)
+1310973927907: Sending UDP payload: 698
+1310973927908: UserServer handling request in (0,0)
+1310973927909: Sending PROC_REQUEST 1:26 (0,0)->(0,0)
+1310973927910: Dispatching CSMOp PROC_REQUEST 1:26 (0,0)->(0,0)
+1310973927912: Sending UDP payload: 851
+1310973927914: removed replies before id 26 from sentReplies of size 0
+1310973927915: Received PROC_REQUEST 1:26 (0,0)->(0,0), replying PROC_REPLY 1:26 (0,0)->(0,0)
+1310973927916: Dispatching CSMOp PROC_REPLY 1:26 (0,0)->(0,0)
+1310973927916: heard LEADER_REQUEST from node 5107, responding LEADER_REPLY
+1310973927938: Sending UDP payload: 881
+1310973927946: Received PROC_REPLY 1:26 (0,0)->(0,0), handing to UserServer
+1310973927946: Procedure 1:26 on (0,0) successful
+1310973927948: Sending UDP payload: 698
+1310973927953: Sending UDP payload: 3433
+1310973927956: UserClient increment on (0,0) from (0,0) succeeded, value=17,latency=55
+1310973928699: Received UDP payload: 698
+1310973928722: UserServer handling request in (0,0)
+1310973928729: Sending PROC_REQUEST 2:27 (0,0)->(0,0)
+1310973928736: Dispatching CSMOp PROC_REQUEST 2:27 (0,0)->(0,0)
+1310973928745: Sending UDP payload: 851
+1310973928752: removed replies before id 27 from sentReplies of size 0
+1310973928753: Received PROC_REQUEST 2:27 (0,0)->(0,0), replying PROC_REPLY 2:27 (0,0)->(0,0)
+1310973928754: Dispatching CSMOp PROC_REPLY 2:27 (0,0)->(0,0)
+1310973928756: Sending UDP payload: 881
+1310973928757: Received PROC_REPLY 2:27 (0,0)->(0,0), handing to UserServer
+1310973928757: Procedure 2:27 on (0,0) successful
+1310973928764: Sending UDP payload: 698
+1310973929870: Received UDP payload: 698
+1310973929893: UserServer handling request in (0,0)
+1310973929897: Sending PROC_REQUEST 1:28 (0,0)->(0,0)
+1310973929900: Dispatching CSMOp PROC_REQUEST 1:28 (0,0)->(0,0)
+1310973929920: Sending UDP payload: 851
+1310973929923: removed replies before id 28 from sentReplies of size 0
+1310973929924: Received PROC_REQUEST 1:28 (0,0)->(0,0), replying PROC_REPLY 1:28 (0,0)->(0,0)
+1310973929924: Dispatching CSMOp PROC_REPLY 1:28 (0,0)->(0,0)
+1310973929929: Sending UDP payload: 881
+1310973929932: Received PROC_REPLY 1:28 (0,0)->(0,0), handing to UserServer
+1310973929933: Procedure 1:28 on (0,0) successful
+1310973929934: Sending UDP payload: 698
+1310973930953: Received UDP payload: 470
+1310973931454: Received UDP payload: 698
+1310973932669: Sending UDP payload: 470
+1310973932715: Received UDP payload: 470
+1310973932737: heard LEADER_REQUEST from node 5110, responding LEADER_REPLY
+1310973932781: Sending UDP payload: 3324
+1310973933731: Received UDP payload: 470
+1310973934352: Received UDP payload: 470
+1310973934379: Received UDP payload: 470
+1310973934398: heard LEADER_REQUEST from node 5101, responding LEADER_REPLY
+1310973934460: Sending UDP payload: 3324
+1310973934540: Received UDP payload: 698
+1310973934551: Received UDP payload: 851
+1310973934957: Received UDP payload: 470
+1310973936454: Received UDP payload: 851
+1310973936675: moving from region (0,0), to (1,0)
+1310973936679: broadcasting LEADER_ELECT to old (0,0)
+1310973936691: Sending UDP payload: 487
+1310973936712: UserClient received REGION_CHANGE message.
+1310973936756: Received UDP payload: 470
+1310973936758: received LEADER_NOMINATE from 5101, saving as candidate
+1310973936761: Received UDP payload: 470
+1310973936763: received LEADER_NOMINATE from 5107, saving as candidate
+1310973936777: Received UDP payload: 470
+1310973936779: received LEADER_NOMINATE from 5110, saving as candidate
+1310973936783: Received UDP payload: 470
+1310973936793: received LEADER_NOMINATE from 5102, saving as candidate
+1310973936794: Received UDP payload: 470
+1310973936797: received LEADER_NOMINATE from 5105, saving as candidate
+1310973936885: Received UDP payload: 470
+1310973936891: Received UDP payload: 698
+1310973937086: Received UDP payload: 851
+1310973937098: UserServer stopped.
+1310973937100: CSMLayer stopped
+1310973937164: sending LEADER_CONFIRM to node 5101
+1310973937173: Sending UDP payload: 3324
+1310973937258: Received UDP payload: 487
+1310973937448: Received UDP payload: 698
+1310973937529: Received UDP payload: 470
+1310973937712: Received UDP payload: 851
+1310973937741: Received UDP payload: 698
+1310973938130: Received UDP payload: 470
+1310973939007: Received UDP payload: 698
+1310973939063: Reading spot in (1,0)
+1310973939098: Sending UDP payload: 698
+1310973939480: Received UDP payload: 3054
+1310973939751: recv LEADER_CONFIRM_ACK from 5101, released leadership to cloud in 2469ms
+1310973939760: heard LEADER_REPLY from 5103
+1310973939760: CSMLayer stopped
+1310973939760: now NONLEADER following LEADER 5103
+1310973939905: Wait for previous action to complete.
+1310973940100: Wait for previous action to complete.
+1310973940547: Received UDP payload: 470
+1310973940580: Received UDP payload: 3307
+1310973940956: Received UDP payload: 470
+1310973941893: Wait for previous action to complete.
+1310973942106: Received UDP payload: 698
+1310973942343: Received UDP payload: 698
+1310973942380: Received UDP payload: 3198
+1310973942386: Received UDP payload: 851
+1310973942389: Received UDP payload: 881
+1310973942396: Received UDP payload: 698
+1310973942411: Received UDP payload: 3215
+1310973942429: Wait for previous action to complete.
+1310973942662: sending LEADER_REQUEST
+1310973942674: Sending UDP payload: 470
+1310973942738: Received UDP payload: 470
+1310973942816: Received UDP payload: 470
+1310973942913: Received UDP payload: 3058
+1310973943265: sending LEADER_REQUEST
+1310973943288: Sending UDP payload: 470
+1310973943320: Wait for previous action to complete.
+1310973943403: Received UDP payload: 3058
+1310973943406: heard LEADER_REPLY from 5103
+1310973943407: now NONLEADER following LEADER 5103
+1310973943558: Received UDP payload: 698
+1310973943572: Wait for previous action to complete.
+1310973943635: Received UDP payload: 851
+1310973943638: Received UDP payload: 881
+1310973943642: Received UDP payload: 698
+1310973943714: Received UDP payload: 470
+1310973943973: Received UDP payload: 698
+1310973943982: Received UDP payload: 851
+1310973943998: Received UDP payload: 881
+1310973944016: Received UDP payload: 698
+1310973944071: UserClient request timed out. (1,0)=?
+1310973944385: Received UDP payload: 470
+1310973944398: Reading spot in (0,0)
+1310973944428: Sending UDP payload: 698
+1310973944506: Received UDP payload: 851
+1310973944578: Received UDP payload: 881
+1310973944614: Received UDP payload: 698
+1310973944637: UserClient read on (0,0) from (1,0)succeeded, value=18,latency=233
+1310973945019: Requesting spot in (1,0)
+1310973945040: Sending UDP payload: 698
+1310973945110: Received UDP payload: 851
+1310973945117: Received UDP payload: 881
+1310973945126: Received UDP payload: 698
+1310973945132: UserClient decrement on (1,0) from (1,0) succeeded, value=21,latency=111
+1310973945881: Received UDP payload: 698
+1310973945910: Received UDP payload: 851
+1310973945926: Received UDP payload: 881
+1310973945929: Received UDP payload: 698
+1310973945939: Received UDP payload: 698
+1310973945963: Received UDP payload: 851
+1310973945977: Received UDP payload: 881
+1310973945984: Received UDP payload: 698
+1310973947203: Received UDP payload: 698
+1310973947258: Received UDP payload: 851
+1310973947287: Received UDP payload: 881
+1310973947304: Received UDP payload: 698
+1310973948938: Received UDP payload: 698
+1310973949028: Received UDP payload: 851
+1310973949061: Received UDP payload: 881
+1310973949081: Received UDP payload: 698
+1310973949444: Received UDP payload: 698
+1310973949511: Received UDP payload: 851
+1310973949542: Received UDP payload: 881
+1310973949568: Received UDP payload: 698
+1310973950957: Received UDP payload: 470
+1310973951201: Received UDP payload: 698
+1310973951278: Received UDP payload: 851
+1310973951332: Received UDP payload: 881
+1310973951360: Received UDP payload: 698
+1310973951765: Received UDP payload: 470
+1310973951848: Received UDP payload: 3202
+1310973952328: Releasing ticket in (1,0)
+1310973952349: Sending UDP payload: 698
+1310973952422: Received UDP payload: 851
+1310973952431: Received UDP payload: 881
+1310973952441: Received UDP payload: 698
+1310973952447: UserClient increment on (1,0) from (1,0) succeeded, value=22,latency=117
+1310973952705: Received UDP payload: 470
+1310973952724: Received UDP payload: 470
+1310973952826: Received UDP payload: 3202
+1310973953422: Received UDP payload: 698
+1310973953483: Received UDP payload: 851
+1310973953518: Received UDP payload: 881
+1310973953527: Received UDP payload: 698
+1310973953644: Received UDP payload: 487
+1310973953659: Received UDP payload: 470
+1310973953724: Received UDP payload: 470
+1310973954124: Received UDP payload: 698
+1310973954168: Received UDP payload: 3324
+1310973954190: Received UDP payload: 851
+1310973954229: Received UDP payload: 881
+1310973954232: Reading spot in (1,0)
+1310973954243: Sending UDP payload: 698
+1310973954245: Received UDP payload: 698
+1310973954250: Received UDP payload: 487
+1310973954265: Received UDP payload: 851
+1310973954273: Received UDP payload: 881
+1310973954280: Received UDP payload: 698
+1310973954283: UserClient read on (1,0) from (1,0)succeeded, value=23,latency=50
+1310973954756: Reading spot in (0,1)
+1310973954758: Sending UDP payload: 698
+1310973954835: Received UDP payload: 851
+1310973954898: Received UDP payload: 881
+1310973954934: Received UDP payload: 698
+1310973954937: UserClient read on (0,1) from (1,0)succeeded, value=17,latency=180
+1310973955541: Received UDP payload: 698
+1310973955595: Received UDP payload: 851
+1310973955636: Received UDP payload: 881
+1310973955645: Received UDP payload: 698
+1310973955648: Received UDP payload: 698
+1310973955652: Received UDP payload: 851
+1310973955660: Received UDP payload: 881
+1310973955667: Received UDP payload: 698
+1310973956420: Received UDP payload: 470
+1310973956512: Received UDP payload: 3193
+1310973956694: Received UDP payload: 698
+1310973956752: Received UDP payload: 851
+1310973956782: Received UDP payload: 881
+1310973956797: Received UDP payload: 698
+1310973957073: Received UDP payload: 698
+1310973957131: Received UDP payload: 851
+1310973957205: Received UDP payload: 881
+1310973957239: Received UDP payload: 698
+1310973958163: Received UDP payload: 3307
+1310973958187: Received UDP payload: 470
+1310973958208: Received UDP payload: 698
+1310973958212: Received UDP payload: 851
+1310973958219: Received UDP payload: 881
+1310973958226: Received UDP payload: 698
+1310973958363: Received UDP payload: 698
+1310973958385: Received UDP payload: 851
+1310973958414: Received UDP payload: 698
+1310973958440: Received UDP payload: 881
+1310973958454: Received UDP payload: 698
+1310973958475: Received UDP payload: 851
+1310973958484: Received UDP payload: 698
+1310973959009: Received UDP payload: 698
+1310973959065: Received UDP payload: 851
+1310973959105: Received UDP payload: 881
+1310973959111: Received UDP payload: 698
+1310973960861: Received UDP payload: 698
+1310973960924: Received UDP payload: 851
+1310973960953: Received UDP payload: 881
+1310973960968: Received UDP payload: 698
+1310973960976: Received UDP payload: 470
+1310973961809: Received UDP payload: 487
+1310973962713: Received UDP payload: 470
+1310973962741: Received UDP payload: 470
+1310973962820: Received UDP payload: 3193
+1310973962921: Received UDP payload: 470
+1310973963538: Received UDP payload: 470
+1310973963720: Received UDP payload: 470
+1310973964129: Received UDP payload: 470
+1310973966105: Received UDP payload: 470
+1310973966208: Received UDP payload: 3193
+1310973967132: Received UDP payload: 3333
+1310973968064: Received UDP payload: 698
+1310973968094: Received UDP payload: 851
+1310973968119: Received UDP payload: 881
+1310973968143: Received UDP payload: 698
+1310973968145: Received UDP payload: 470
+1310973968192: Received UDP payload: 3193
+1310973968694: Received UDP payload: 698
+1310973968752: Received UDP payload: 851
+1310973968784: Received UDP payload: 881
+1310973968797: Received UDP payload: 698
+1310973968818: Received UDP payload: 698
+1310973968826: Received UDP payload: 851
+1310973968840: Received UDP payload: 881
+1310973968852: Received UDP payload: 698
+1310973968903: Received UDP payload: 698
+1310973968945: Received UDP payload: 851
+1310973969000: Received UDP payload: 881
+1310973969030: Received UDP payload: 698
+1310973969113: Received UDP payload: 470
+1310973969882: Received UDP payload: 698
+1310973969911: Received UDP payload: 851
+1310973969925: Received UDP payload: 881
+1310973969928: Received UDP payload: 698
+1310973970977: Received UDP payload: 470
+1310973971578: Received UDP payload: 698
+1310973971638: Received UDP payload: 851
+1310973971673: Received UDP payload: 881
+1310973971687: Received UDP payload: 698
+1310973971926: Received UDP payload: 470
+1310973972012: Received UDP payload: 3193
+1310973972715: Received UDP payload: 470
+1310973972741: Received UDP payload: 470
+1310973972825: Received UDP payload: 3193
+1310973973722: Received UDP payload: 470
+1310973975619: Received UDP payload: 698
+1310973975679: Received UDP payload: 851
+1310973975733: Received UDP payload: 881
+1310973975767: Received UDP payload: 698
+1310973976219: Received UDP payload: 698
+1310973976248: Received UDP payload: 851
+1310973976285: Received UDP payload: 881
+1310973976307: Received UDP payload: 698
+1310973978464: Received UDP payload: 698
+1310973978520: Received UDP payload: 851
+1310973978550: Received UDP payload: 881
+1310973978563: Received UDP payload: 698
+1310973979116: Received UDP payload: 470
+1310973979448: Received UDP payload: 487
+1310973980960: Received UDP payload: 470
+1310973980980: moving from region (1,0), to (0,1)
+1310973980987: sending LEADER_REQUEST
+1310973981011: Sending UDP payload: 470
+1310973981016: UserClient received REGION_CHANGE message.
+1310973981099: Received UDP payload: 3193
+1310973981101: heard LEADER_REPLY from 5110
+1310973981102: now NONLEADER following LEADER 5110
+1310973981191: Received UDP payload: 698
+1310973981266: Received UDP payload: 851
+1310973981303: Received UDP payload: 881
+1310973981332: Received UDP payload: 698
+1310973981634: Received UDP payload: 470
+1310973981748: Received UDP payload: 3162
+1310973981808: Received UDP payload: 487
+1310973981827: heard LEADER_ELECT from node 5110, responding LEADER_NOMINATE
+1310973981850: Sending UDP payload: 470
+1310973981846: Received UDP payload: 470
+1310973981851: Received UDP payload: 470
+1310973981894: Received UDP payload: 470
+1310973982307: Received UDP payload: 3193
+1310973982354: Received UDP payload: 487
+1310973982668: sending LEADER_REQUEST
+1310973982687: Sending UDP payload: 470
+1310973982730: Received UDP payload: 470
+1310973982782: Received UDP payload: 487
+1310973983107: Received UDP payload: 470
+1310973983130: Received UDP payload: 698
+1310973983156: Received UDP payload: 851
+1310973983187: Received UDP payload: 881
+1310973983223: Received UDP payload: 698
+1310973983237: Received UDP payload: 851
+1310973983240: Received UDP payload: 881
+1310973983269: sending LEADER_REQUEST
+1310973983270: Sending UDP payload: 470
+1310973983330: Received UDP payload: 470
+1310973983419: Received UDP payload: 698
+1310973983479: Received UDP payload: 851
+1310973983730: Received UDP payload: 470
+1310973983871: sending LEADER_REQUEST
+1310973983889: Sending UDP payload: 470
+1310973983932: Received UDP payload: 470
+1310973984168: Received UDP payload: 698
+1310973984169: LEADER_REQUEST timed out
+1310973984324: Received UDP payload: 470
+1310973984634: Received UDP payload: 851
+1310973985254: Received UDP payload: 851
+1310973985899: Received UDP payload: 851
+1310973985905: Received UDP payload: 698
+1310973986168: Received UDP payload: 698
+1310973986193: Received UDP payload: 470
+1310973986794: Received UDP payload: 470
+1310973987070: Received UDP payload: 698
+1310973987401: Received UDP payload: 470
+1310973987578: Received UDP payload: 470
+1310973987675: Received UDP payload: 3293
+1310973987855: cloud rejected leadership request or request failed, wait to retry
+1310973988037: Received UDP payload: 3198
+1310973988053: heard LEADER_REPLY from 5108
+1310973988055: now NONLEADER following LEADER 5108
+1310973988288: Received UDP payload: 3333
+1310973989117: Received UDP payload: 470
+1310973990347: Received UDP payload: 470
+1310973990430: Received UDP payload: 3293
+1310973990519: Received UDP payload: 698
+1310973990545: Received UDP payload: 851
+1310973990565: Received UDP payload: 881
+1310973990568: Received UDP payload: 698
+1310973990580: Received UDP payload: 698
+1310973990597: Received UDP payload: 851
+1310973990605: Received UDP payload: 881
+1310973990628: Received UDP payload: 698
+1310973990959: Received UDP payload: 470
+1310973994353: Received UDP payload: 698
+1310973994387: Received UDP payload: 698
+1310973994414: Received UDP payload: 851
+1310973994448: Received UDP payload: 881
+1310973994474: Received UDP payload: 698
+1310973994476: Received UDP payload: 851
+1310973994479: Received UDP payload: 881
+1310973994482: Received UDP payload: 698
+1310973995362: Received UDP payload: 698
+1310973995422: Received UDP payload: 851
+1310973995449: Received UDP payload: 881
+1310973995471: Received UDP payload: 698
+1310973995881: Received UDP payload: 698
+1310973995963: Received UDP payload: 851
+1310973995972: Received UDP payload: 881
+1310973995980: Received UDP payload: 698
+1310973996180: Received UDP payload: 470
+1310973997867: Received UDP payload: 698
+1310973997934: Received UDP payload: 851
+1310973997961: Received UDP payload: 881
+1310973997979: Received UDP payload: 698
+1310973999116: Received UDP payload: 470

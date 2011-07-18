@@ -1,0 +1,119 @@
+1310976501030: *** Opened log file for writing ***
+1310976501030: *** Application started ***
+1310976507036: Set distribution to 90% reads.
+1310976507676: Set distribution to 60% reads.
+1310976517026: Moved to region (0,0)
+1310976519777: *** benchmark starting ***
+1310976519800: Requesting ticket in (1,1)
+1310976522383: Ticket request succeeded, value=17,latency=2579
+1310976524393: Reading (0,1)
+1310976529836: UserClient read succeeded, value=19,latency=5404
+1310976531844: Reading (1,1)
+1310976532309: Moved to region (0,1)
+1310976533502: UserClient read succeeded, value=18,latency=1642
+1310976535512: Reading (1,1)
+1310976540327: UserClient read succeeded, value=18,latency=4796
+1310976542338: Reading (1,0)
+1310976542700: UserClient read succeeded, value=16,latency=358
+1310976544712: Releasing ticket in (1,1)
+1310976545145: Ticket release succeeded, value=17,latency=421
+1310976547156: Reading (0,0)
+1310976548954: UserClient read succeeded, value=17,latency=1786
+1310976550959: Reading (0,0)
+1310976551798: Moved to region (1,1)
+1310976552661: UserClient read succeeded, value=17,latency=1656
+1310976554671: Reading (1,1)
+1310976555076: UserClient read succeeded, value=17,latency=362
+1310976557082: Requesting ticket in (1,0)
+1310976563501: Ticket request succeeded, value=15,latency=6410
+1310976565512: Releasing ticket in (1,0)
+1310976570561: Ticket release succeeded, value=16,latency=5038
+1310976572565: Reading (1,0)
+1310976579997: Moved to region (1,1)
+1310976591034: UserClient read succeeded, value=16,latency=18453
+1310976593038: Reading (0,0)
+1310976593472: UserClient read succeeded, value=17,latency=406
+1310976595484: Requesting ticket in (0,1)
+1310976596007: Ticket request succeeded, value=18,latency=485
+1310976597880: Moved to region (1,0)
+1310976598014: Reading (0,1)
+1310976598555: UserClient read succeeded, value=18,latency=532
+1310976600570: Releasing ticket in (0,1)
+1310976603182: Ticket release succeeded, value=19,latency=2601
+1310976605187: Requesting ticket in (0,0)
+1310976605657: Ticket request succeeded, value=16,latency=460
+1310976607667: Reading (1,1)
+1310976608174: UserClient read succeeded, value=19,latency=496
+1310976610184: Reading (1,1)
+1310976615312: UserClient read succeeded, value=19,latency=5118
+1310976617316: Reading (1,1)
+1310976619862: UserClient read succeeded, value=19,latency=2533
+1310976621871: Reading (1,1)
+1310976625934: Moved to region (0,0)
+1310976627280: UserClient read succeeded, value=18,latency=5393
+1310976629292: Releasing ticket in (0,0)
+1310976630294: Ticket release succeeded, value=15,latency=979
+1310976632298: Reading (1,1)
+1310976632803: UserClient read succeeded, value=19,latency=490
+1310976634816: Requesting ticket in (1,0)
+1310976635305: Ticket request succeeded, value=14,latency=465
+1310976637316: Releasing ticket in (1,0)
+1310976638266: Ticket release succeeded, value=15,latency=938
+1310976640270: Reading (1,1)
+1310976640894: UserClient read succeeded, value=19,latency=614
+1310976642907: Requesting ticket in (0,1)
+1310976643706: Ticket request succeeded, value=18,latency=788
+1310976645717: Reading (0,1)
+1310976646315: UserClient read succeeded, value=17,latency=592
+1310976648328: Releasing ticket in (0,1)
+1310976648955: Ticket release succeeded, value=18,latency=618
+1310976650997: Reading (1,1)
+1310976651614: UserClient read succeeded, value=19,latency=606
+1310976653623: Reading (0,0)
+1310976654734: UserClient read succeeded, value=17,latency=1100
+1310976656745: Reading (0,1)
+1310976661182: UserClient read succeeded, value=20,latency=4431
+1310976663194: Reading (0,1)
+1310976664282: UserClient read succeeded, value=20,latency=1075
+1310976664332: Moved to region (1,0)
+1310976666287: Requesting ticket in (0,1)
+1310976666711: Ticket request succeeded, value=19,latency=417
+1310976668723: Releasing ticket in (0,1)
+1310976669541: Ticket release succeeded, value=18,latency=805
+1310976671553: Requesting ticket in (0,1)
+1310976672013: Ticket request succeeded, value=17,latency=455
+1310976674020: Reading (0,0)
+1310976675584: UserClient read succeeded, value=16,latency=1547
+1310976677589: Reading (1,0)
+1310976678075: UserClient read succeeded, value=14,latency=474
+1310976680082: Reading (1,0)
+1310976680521: UserClient read succeeded, value=16,latency=430
+1310976682531: Reading (0,0)
+1310976683018: UserClient read succeeded, value=15,latency=460
+1310976685029: Reading (1,0)
+1310976686747: UserClient read succeeded, value=17,latency=1682
+1310976688753: Releasing ticket in (0,1)
+1310976689231: Ticket release succeeded, value=20,latency=442
+1310976691241: Reading (1,1)
+1310976692750: UserClient read succeeded, value=19,latency=1496
+1310976694762: Requesting ticket in (1,1)
+1310976695248: Ticket request succeeded, value=18,latency=471
+1310976695641: Moved to region (1,1)
+1310976697252: Reading (1,1)
+1310976703003: UserClient read succeeded, value=17,latency=5742
+1310976705014: Reading (1,0)
+1310976710219: UserClient read succeeded, value=16,latency=5195
+1310976712231: Releasing ticket in (1,1)
+1310976730470: Ticket release succeeded, value=18,latency=18215
+1310976732481: Reading (0,0)
+1310976735321: UserClient read succeeded, value=17,latency=2797
+1310976737333: Requesting ticket in (1,0)
+1310976737833: Ticket request succeeded, value=14,latency=478
+1310976739843: Reading (1,1)
+1310976740327: UserClient read succeeded, value=19,latency=472
+1310976742331: Reading (0,0)
+1310976742935: UserClient read succeeded, value=18,latency=594
+1310976744949: Reading (1,1)
+1310976745012: *** benchmark stopped ***
+1310976745390: UserClient read succeeded, value=19,latency=418
+1310976746553: Releasing ticket in (1,0)

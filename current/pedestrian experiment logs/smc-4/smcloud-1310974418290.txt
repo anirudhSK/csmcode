@@ -1,0 +1,10 @@
+1310974418308: *** Opened log file for writing ***
+1310974418308: *** Application started ***
+1310974440540: *** benchmark starting ***
+1310974440587: Reading (1,1)
+1310974443749: UserClient read succeeded, value=19,latency=3161
+1310974445752: Reading (1,0)
+1310974446669: UserClient read succeeded, value=20,latency=903
+1310974448679: Reading (1,1)
+1310974449368: *** benchmark stopped ***
+1310974450948: UserClient read succeeded, value=19,latency=2261

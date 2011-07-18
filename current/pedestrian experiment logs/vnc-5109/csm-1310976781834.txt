@@ -1,0 +1,889 @@
+1310976781870: started, mId = 5109
+1310976781871: region (-1, -1) out of bounds, dormant
+1310976781872: UserClient started
+1310976787370: Received UDP payload: 698
+1310976792404: Received UDP payload: 698
+1310976793143: moving from region (-1,-1), to (1,1)
+1310976793148: sending LEADER_REQUEST
+1310976793179: Sending UDP payload: 470
+1310976793181: UserClient received REGION_CHANGE message.
+1310976793750: sending LEADER_REQUEST
+1310976793788: Sending UDP payload: 470
+1310976794233: Received UDP payload: 470
+1310976794353: sending LEADER_REQUEST
+1310976794372: Sending UDP payload: 470
+1310976794659: LEADER_REQUEST timed out
+1310976794824: Received UDP payload: 470
+1310976795436: Received UDP payload: 470
+1310976797395: Received UDP payload: 698
+1310976797764: Received UDP payload: 470
+1310976797935: Received UDP payload: 470
+1310976798131: Received UDP payload: 470
+1310976798365: Received UDP payload: 470
+1310976798446: Received UDP payload: 851
+1310976798491: Received UDP payload: 881
+1310976798527: Received UDP payload: 470
+1310976798718: Received UDP payload: 470
+1310976798776: Received UDP payload: 12357
+1310976799076: Received UDP payload: 12353
+1310976799080: Received UDP payload: 11659
+1310976799098: Received UDP payload: 11659
+1310976799154: Received UDP payload: 470
+1310976799207: Received UDP payload: 470
+1310976799234: Received UDP payload: 470
+1310976799298: Received UDP payload: 470
+1310976799509: Received UDP payload: 11659
+1310976799554: Received UDP payload: 698
+1310976799767: Received UDP payload: 470
+1310976799801: Received UDP payload: 470
+1310976800062: Received UDP payload: 698
+1310976800366: Received UDP payload: 470
+1310976800394: Received UDP payload: 470
+1310976800423: Received UDP payload: 698
+1310976800486: Received UDP payload: 851
+1310976800511: Received UDP payload: 698
+1310976800770: Received UDP payload: 470
+1310976800795: Received UDP payload: 470
+1310976801001: Received UDP payload: 11686
+1310976801078: cloud accepted leadership request, no csm data included.
+1310976801095: CSMLayer starting
+1310976801103: UserServer started.
+1310976801104: UserServer initialized.
+1310976801104: Requesting INIT on 1,1
+1310976801105: Sending PROC_REQUEST 0:0 (1,1)->(1,1)
+1310976801106: Dispatching CSMOp PROC_REQUEST 0:0 (1,1)->(1,1)
+1310976801112: Sending UDP payload: 851
+1310976801115: removed replies before id 0 from sentReplies of size 0
+1310976801116: Received PROC_REQUEST 0:0 (1,1)->(1,1), replying PROC_REPLY 0:0 (1,1)->(1,1)
+1310976801116: Dispatching CSMOp PROC_REPLY 0:0 (1,1)->(1,1)
+1310976801120: Sending out write updates with threadgroup
+1310976801126: Dispatching CSMOp WRITE_UPDATE 0 (1,1)->(-2,-2)
+1310976801128: Sending UDP payload: 881
+1310976801137: Received PROC_REPLY 0:0 (1,1)->(1,1), handing to UserServer
+1310976801139: Procedure 0:0 on (1,1) successful
+1310976801380: Sending UDP payload: 11489
+1310976801387: now fully up as LEADER
+1310976801390: Received WRITE_UPDATE 0 (1,1)->(-2,-2)
+1310976801398: Sending UDP payload: 11642
+1310976801702: Received UDP payload: 851
+1310976801724: Received WRITE_UPDATE_ACK 0 (0,0)->(1,1)
+1310976801922: Sending UDP payload: 470
+1310976802442: Received UDP payload: 698
+1310976802473: Received UDP payload: 698
+1310976802489: Received UDP payload: 698
+1310976802531: Received UDP payload: 698
+1310976802545: Received UDP payload: 851
+1310976802554: removed replies before id 0 from sentReplies of size 0
+1310976802556: Received PROC_REQUEST 2:0 (0,0)->(1,1), replying PROC_REPLY 2:0 (1,1)->(0,0)
+1310976802557: Dispatching CSMOp PROC_REPLY 2:0 (1,1)->(0,0)
+1310976802560: Sending out write updates with threadgroup
+1310976802562: Dispatching CSMOp WRITE_UPDATE 1 (1,1)->(-2,-2)
+1310976802575: Sending UDP payload: 881
+1310976802645: Received UDP payload: 698
+1310976802698: Sending UDP payload: 12161
+1310976802702: Received WRITE_UPDATE 1 (1,1)->(-2,-2)
+1310976803065: Received UDP payload: 851
+1310976803114: Received WRITE_UPDATE_ACK 1 (0,0)->(1,1)
+1310976803165: Received UDP payload: 851
+1310976803211: Received UDP payload: 881
+1310976803510: Received UDP payload: 11489
+1310976803755: Received WRITE_UPDATE 0 (1,0)->(-2,-2)
+1310976803755: first WRITE_UPDATE from (1,0) is order 0
+1310976803755: Dispatching CSMOp WRITE_UPDATE_ACK 0 (1,1)->(1,0)
+1310976803756: Applying write updates from (1,0), remote order = 0, write buffer contains [0]
+1310976803756: Applied WRITE_UPDATE:0 from (1,0)
+1310976803759: Applying write updates from (1,0), remote order = 1, write buffer contains []
+1310976803781: Received UDP payload: 11736
+1310976803790: Sending UDP payload: 851
+1310976803795: Received UDP payload: 698
+1310976803804: Received UDP payload: 851
+1310976803813: Received UDP payload: 881
+1310976803819: Received UDP payload: 12079
+1310976803996: Received WRITE_UPDATE 1 (1,0)->(-2,-2)
+1310976803996: Dispatching CSMOp WRITE_UPDATE_ACK 1 (1,1)->(1,0)
+1310976803997: Applying write updates from (1,0), remote order = 1, write buffer contains [1]
+1310976803997: Applied WRITE_UPDATE:1 from (1,0)
+1310976803998: Applying write updates from (1,0), remote order = 2, write buffer contains []
+1310976804012: Received UDP payload: 698
+1310976804024: Sending UDP payload: 851
+1310976804028: Received UDP payload: 851
+1310976804037: Received UDP payload: 851
+1310976804046: Received UDP payload: 698
+1310976804052: Received UDP payload: 851
+1310976804058: removed replies before id 1 from sentReplies of size 0
+1310976804060: Received PROC_REQUEST 2:1 (0,0)->(1,1), replying PROC_REPLY 2:1 (1,1)->(0,0)
+1310976804061: Dispatching CSMOp PROC_REPLY 2:1 (1,1)->(0,0)
+1310976804061: Sending out write updates with threadgroup
+1310976804062: Dispatching CSMOp WRITE_UPDATE 2 (1,1)->(-2,-2)
+1310976804064: Sending UDP payload: 881
+1310976804088: Received UDP payload: 698
+1310976804161: Sending UDP payload: 12786
+1310976804167: Received WRITE_UPDATE 2 (1,1)->(-2,-2)
+1310976804277: Received UDP payload: 470
+1310976804530: Received UDP payload: 851
+1310976804567: Received WRITE_UPDATE_ACK 2 (1,0)->(1,1)
+1310976804581: Received UDP payload: 698
+1310976804583: Received UDP payload: 851
+1310976804589: Received UDP payload: 881
+1310976804697: Received UDP payload: 11836
+1310976804739: Received UDP payload: 698
+1310976804772: Received UDP payload: 851
+1310976804809: Received WRITE_UPDATE_ACK 2 (0,0)->(1,1)
+1310976804815: Received UDP payload: 881
+1310976804823: Received UDP payload: 698
+1310976804865: Received UDP payload: 698
+1310976804889: Received UDP payload: 12638
+1310976804976: Requesting spot in (0,0)
+1310976805144: Sending UDP payload: 698
+1310976805146: UserServer handling request in (1,1)
+1310976805146: Sending PROC_REQUEST 2:0 (1,1)->(0,0)
+1310976805147: Dispatching CSMOp PROC_REQUEST 2:0 (1,1)->(0,0)
+1310976805154: Received UDP payload: 698
+1310976805158: Sending UDP payload: 851
+1310976805160: Received WRITE_UPDATE 2 (1,0)->(-2,-2)
+1310976805160: Dispatching CSMOp WRITE_UPDATE_ACK 2 (1,1)->(1,0)
+1310976805161: Applying write updates from (1,0), remote order = 2, write buffer contains [2]
+1310976805164: Received UDP payload: 851
+1310976805167: Received UDP payload: 851
+1310976805161: Applied WRITE_UPDATE:2 from (1,0)
+1310976805173: Applying write updates from (1,0), remote order = 3, write buffer contains []
+1310976805175: Sending UDP payload: 851
+1310976805176: removed replies before id 2 from sentReplies of size 0
+1310976805177: Received PROC_REQUEST 1:2 (0,0)->(1,1), replying PROC_REPLY 1:2 (1,1)->(0,0)
+1310976805177: Dispatching CSMOp PROC_REPLY 1:2 (1,1)->(0,0)
+1310976805177: Sending out write updates with threadgroup
+1310976805178: Dispatching CSMOp WRITE_UPDATE 3 (1,1)->(-2,-2)
+1310976805181: Received UDP payload: 698
+1310976805180: Sending UDP payload: 881
+1310976805207: Received UDP payload: 851
+1310976805301: Sending UDP payload: 13468
+1310976805306: Received UDP payload: 881
+1310976805309: Received UDP payload: 698
+1310976805310: Received WRITE_UPDATE 3 (1,1)->(-2,-2)
+1310976805311: Received PROC_REPLY 2:0 (0,0)->(1,1), handing to UserServer
+1310976805311: Procedure 2:0 on (0,0) successful
+1310976805324: Sending UDP payload: 698
+1310976805331: UserClient decrement on (0,0) from (1,1) succeeded, value=19,latency=354
+1310976805323: Received UDP payload: 698
+1310976805526: Received UDP payload: 698
+1310976805552: Received UDP payload: 851
+1310976805742: Received UDP payload: 698
+1310976805777: Received UDP payload: 881
+1310976805788: Received UDP payload: 698
+1310976805790: Received UDP payload: 851
+1310976805793: Received UDP payload: 881
+1310976805815: Received UDP payload: 698
+1310976806013: Received UDP payload: 13399
+1310976806224: Received WRITE_UPDATE 3 (1,0)->(-2,-2)
+1310976806224: Dispatching CSMOp WRITE_UPDATE_ACK 3 (1,1)->(1,0)
+1310976806224: Applying write updates from (1,0), remote order = 3, write buffer contains [3]
+1310976806225: Applied WRITE_UPDATE:3 from (1,0)
+1310976806225: Applying write updates from (1,0), remote order = 4, write buffer contains []
+1310976806231: Sending UDP payload: 851
+1310976806240: Received UDP payload: 851
+1310976806275: Received UDP payload: 698
+1310976806288: Received UDP payload: 881
+1310976806294: Received UDP payload: 698
+1310976806684: Received UDP payload: 698
+1310976806713: Received UDP payload: 851
+1310976806729: removed replies before id 3 from sentReplies of size 0
+1310976806736: Received PROC_REQUEST 2:3 (0,0)->(1,1), replying PROC_REPLY 2:3 (1,1)->(0,0)
+1310976806744: Dispatching CSMOp PROC_REPLY 2:3 (1,1)->(0,0)
+1310976806746: Sending out write updates with threadgroup
+1310976806749: Dispatching CSMOp WRITE_UPDATE 4 (1,1)->(-2,-2)
+1310976806767: Sending UDP payload: 881
+1310976806846: Received UDP payload: 698
+1310976806862: Sending UDP payload: 13949
+1310976806868: Received WRITE_UPDATE 4 (1,1)->(-2,-2)
+1310976807229: Received UDP payload: 698
+1310976807258: Received UDP payload: 698
+1310976807279: Received UDP payload: 851
+1310976807283: Received WRITE_UPDATE_ACK 4 (1,0)->(1,1)
+1310976807291: Received UDP payload: 851
+1310976807294: Received WRITE_UPDATE_REQUEST 3 (1,0)->(1,1)
+1310976807294: Sending requested WRITE_UPDATE_REQUEST 3 (1,0)->(1,1)
+1310976807295: Dispatching CSMOp WRITE_UPDATE 3 (1,1)->(-2,-2)
+1310976807306: Received UDP payload: 851
+1310976807334: Releasing ticket in (0,0)
+1310976807378: Sending UDP payload: 13927
+1310976807384: Received UDP payload: 881
+1310976807387: Received WRITE_UPDATE 3 (1,1)->(-2,-2)
+1310976807399: Sending UDP payload: 698
+1310976807400: UserServer handling request in (1,1)
+1310976807407: Sending PROC_REQUEST 1:1 (1,1)->(0,0)
+1310976807407: Dispatching CSMOp PROC_REQUEST 1:1 (1,1)->(0,0)
+1310976807409: Sending UDP payload: 851
+1310976807453: Received UDP payload: 698
+1310976807746: Received UDP payload: 851
+1310976807789: Received UDP payload: 698
+1310976807813: Received UDP payload: 851
+1310976807816: Received UDP payload: 881
+1310976807819: Received UDP payload: 698
+1310976808032: Received UDP payload: 698
+1310976808063: Received UDP payload: 698
+1310976808090: Received UDP payload: 851
+1310976808093: Received UDP payload: 881
+1310976808101: Received UDP payload: 851
+1310976808121: Received UDP payload: 698
+1310976808142: Received UDP payload: 881
+1310976808329: Retrying PROC_REQUEST 1:1 (1,1)->(0,0)
+1310976808351: Received UDP payload: 27227
+1310976808347: Dispatching CSMOp PROC_REQUEST 1:1 (1,1)->(0,0)
+1310976808750: Sending UDP payload: 851
+1310976808751: Received UDP payload: 698
+1310976808754: Received WRITE_UPDATE 6 (1,0)->(-2,-2)
+1310976808755: Dispatching CSMOp WRITE_UPDATE_ACK 6 (1,1)->(1,0)
+1310976808755: Applying write updates from (1,0), remote order = 4, write buffer contains [6]
+1310976808755: Missing WRITE_UPDATE:4 from (1,0), requesting
+1310976808756: Dispatching CSMOp WRITE_UPDATE_REQUEST 4 (1,1)->(1,0)
+1310976808759: Received UDP payload: 26334
+1310976808968: Retrying PROC_REQUEST 1:1 (1,1)->(0,0)
+1310976808969: Dispatching CSMOp PROC_REQUEST 1:1 (1,1)->(0,0)
+1310976809148: Received UDP payload: 881
+1310976809149: Sending UDP payload: 851
+1310976809168: Sending UDP payload: 851
+1310976809171: Sending UDP payload: 851
+1310976809172: Received WRITE_UPDATE 2 (0,0)->(-2,-2)
+1310976809173: first WRITE_UPDATE from (0,0) is order 2
+1310976809176: Dispatching CSMOp WRITE_UPDATE_ACK 2 (1,1)->(0,0)
+1310976809176: Received UDP payload: 698
+1310976809178: Applying write updates from (0,0), remote order = 2, write buffer contains [2]
+1310976809178: Applied WRITE_UPDATE:2 from (0,0)
+1310976809178: Applying write updates from (0,0), remote order = 3, write buffer contains []
+1310976809186: Sending UDP payload: 851
+1310976809184: Received UDP payload: 851
+1310976809200: Received UDP payload: 851
+1310976809203: Received UDP payload: 881
+1310976809209: Received UDP payload: 470
+1310976809218: Received UDP payload: 470
+1310976809223: Received UDP payload: 698
+1310976809232: Received UDP payload: 851
+1310976809285: Received UDP payload: 851
+1310976809320: removed replies before id 4 from sentReplies of size 0
+1310976809333: Received UDP payload: 851
+1310976809349: Received PROC_REQUEST 1:4 (0,0)->(1,1), replying PROC_REPLY 1:4 (1,1)->(0,0)
+1310976809360: Dispatching CSMOp PROC_REPLY 1:4 (1,1)->(0,0)
+1310976809360: Sending out write updates with threadgroup
+1310976809360: Dispatching CSMOp WRITE_UPDATE 5 (1,1)->(-2,-2)
+1310976809380: Sending UDP payload: 881
+1310976809386: Received UDP payload: 881
+1310976809570: Request timed out, send failure PROC_REPLY 1:1 (0,0)->(1,1)
+1310976809571: Dispatching CSMOp PROC_REPLY 1:1 (0,0)->(1,1)
+1310976809742: Sending UDP payload: 40932
+1310976809753: Received UDP payload: 470
+1310976809756: Received WRITE_UPDATE 5 (1,1)->(-2,-2)
+1310976809757: removed replies before id 4 from sentReplies of size 1
+1310976809758: Received PROC_REQUEST 1:5 (0,0)->(1,1), replying PROC_REPLY 1:5 (1,1)->(0,0)
+1310976809759: Dispatching CSMOp PROC_REPLY 1:5 (1,1)->(0,0)
+1310976809759: Sending out write updates with threadgroup
+1310976809760: Dispatching CSMOp WRITE_UPDATE 6 (1,1)->(-2,-2)
+1310976809782: Sending UDP payload: 851
+1310976809782: Received PROC_REPLY 1:1 (0,0)->(1,1), handing to UserServer
+1310976809783: Procedure 1:1 on (0,0) timed out, sending failure reply to client
+1310976809786: Received DUPLICATE PROC_REPLY 1:1 (0,0)->(1,1)
+1310976809796: Sending UDP payload: 881
+1310976810121: Sending UDP payload: 43000
+1310976810123: Received WRITE_UPDATE 6 (1,1)->(-2,-2)
+1310976810144: Sending UDP payload: 698
+1310976810146: UserClient increment on (0,0) failed, value=?,latency=2811
+1310976810392: Received UDP payload: 698
+1310976810441: Received UDP payload: 698
+1310976810451: Received UDP payload: 698
+1310976810453: Received UDP payload: 698
+1310976810479: Received UDP payload: 851
+1310976810485: Received UDP payload: 470
+1310976810522: Received UDP payload: 698
+1310976810530: Received UDP payload: 851
+1310976810555: Received UDP payload: 881
+1310976810576: Received UDP payload: 698
+1310976811310: Received UDP payload: 25908
+1310976811601: Received UDP payload: 698
+1310976811620: Received UDP payload: 851
+1310976811628: Received UDP payload: 851
+1310976811641: Received UDP payload: 698
+1310976811649: Received UDP payload: 881
+1310976811892: Received UDP payload: 851
+1310976811892: Sending UDP payload: 470
+1310976811930: removed replies before id 4 from sentReplies of size 2
+1310976811941: Received DUPLICATE PROC_REQUEST 1:5 (0,0)->(1,1), replying PROC_REPLY 1:5 (1,1)->(0,0)
+1310976811942: Dispatching CSMOp PROC_REPLY 1:5 (1,1)->(0,0)
+1310976811950: Sending UDP payload: 881
+1310976812148: Releasing ticket in (0,0)
+1310976812168: Sending UDP payload: 698
+1310976812186: UserServer handling request in (1,1)
+1310976812201: Sending PROC_REQUEST 1:2 (1,1)->(0,0)
+1310976812209: Dispatching CSMOp PROC_REQUEST 1:2 (1,1)->(0,0)
+1310976812225: Sending UDP payload: 851
+1310976812339: Received UDP payload: 698
+1310976812364: Received UDP payload: 881
+1310976812837: Received UDP payload: 851
+1310976812875: Received UDP payload: 881
+1310976812954: Received UDP payload: 698
+1310976813193: Retrying PROC_REQUEST 1:2 (1,1)->(0,0)
+1310976813223: Dispatching CSMOp PROC_REQUEST 1:2 (1,1)->(0,0)
+1310976813227: Sending UDP payload: 851
+1310976813524: Received UDP payload: 851
+1310976813553: removed replies before id 6 from sentReplies of size 0
+1310976813563: Received UDP payload: 698
+1310976813575: Received PROC_REQUEST 2:6 (0,0)->(1,1), replying PROC_REPLY 2:6 (1,1)->(0,0)
+1310976813612: Dispatching CSMOp PROC_REPLY 2:6 (1,1)->(0,0)
+1310976813620: Sending out write updates with threadgroup
+1310976813639: Received UDP payload: 851
+1310976813642: Dispatching CSMOp WRITE_UPDATE 7 (1,1)->(-2,-2)
+1310976813656: Sending UDP payload: 881
+1310976813641: Received UDP payload: 881
+1310976813658: removed replies before id 6 from sentReplies of size 1
+1310976813659: Received DUPLICATE PROC_REQUEST 2:6 (0,0)->(1,1), replying PROC_REPLY 2:6 (1,1)->(0,0)
+1310976813659: Dispatching CSMOp PROC_REPLY 2:6 (1,1)->(0,0)
+1310976813829: Retrying PROC_REQUEST 1:2 (1,1)->(0,0)
+1310976813830: Dispatching CSMOp PROC_REQUEST 1:2 (1,1)->(0,0)
+1310976813946: Sending UDP payload: 41243
+1310976813954: Received UDP payload: 698
+1310976813955: Received WRITE_UPDATE 7 (1,1)->(-2,-2)
+1310976813968: Sending UDP payload: 881
+1310976813969: Received UDP payload: 851
+1310976813973: Sending UDP payload: 851
+1310976813977: Received UDP payload: 698
+1310976813978: Received PROC_REPLY 1:2 (0,0)->(1,1), handing to UserServer
+1310976813978: Procedure 1:2 on (0,0) successful
+1310976813985: Received UDP payload: 698
+1310976813995: Sending UDP payload: 698
+1310976813996: UserClient increment on (0,0) from (1,1) succeeded, value=20,latency=1846
+1310976813996: Received UDP payload: 851
+1310976814004: Received UDP payload: 698
+1310976814008: Received UDP payload: 851
+1310976814017: Received UDP payload: 881
+1310976814022: Received UDP payload: 470
+1310976814024: Received UDP payload: 698
+1310976814033: Received UDP payload: 470
+1310976814034: Received UDP payload: 470
+1310976814406: Received UDP payload: 698
+1310976814459: Received UDP payload: 698
+1310976814489: Received UDP payload: 881
+1310976814520: Received UDP payload: 851
+1310976814532: Received UDP payload: 698
+1310976814535: Received UDP payload: 698
+1310976814537: Received UDP payload: 881
+1310976814539: Received UDP payload: 698
+1310976814944: Received UDP payload: 27547
+1310976815695: Received UDP payload: 698
+1310976815723: Received UDP payload: 698
+1310976815754: Received UDP payload: 851
+1310976815757: Received UDP payload: 881
+1310976815779: Received UDP payload: 698
+1310976815785: Received UDP payload: 881
+1310976815788: Received UDP payload: 698
+1310976815857: Received UDP payload: 698
+1310976815932: Received UDP payload: 881
+1310976815977: Received UDP payload: 698
+1310976815983: Received UDP payload: 851
+1310976815986: removed replies before id 7 from sentReplies of size 0
+1310976815987: Received PROC_REQUEST 2:7 (0,0)->(1,1), replying PROC_REPLY 2:7 (1,1)->(0,0)
+1310976815987: Dispatching CSMOp PROC_REPLY 2:7 (1,1)->(0,0)
+1310976815987: Sending out write updates with threadgroup
+1310976815988: Dispatching CSMOp WRITE_UPDATE 8 (1,1)->(-2,-2)
+1310976815998: Reading spot in (1,0)
+1310976815999: Received UDP payload: 851
+1310976816004: Sending UDP payload: 881
+1310976816026: Received UDP payload: 698
+1310976816259: Sending UDP payload: 41724
+1310976816267: Received UDP payload: 698
+1310976816268: Received UDP payload: 851
+1310976816269: Received WRITE_UPDATE 8 (1,1)->(-2,-2)
+1310976816284: Received UDP payload: 698
+1310976816284: Sending UDP payload: 698
+1310976816286: removed replies before id 7 from sentReplies of size 1
+1310976816287: Received DUPLICATE PROC_REQUEST 2:7 (0,0)->(1,1), replying PROC_REPLY 2:7 (1,1)->(0,0)
+1310976816287: Dispatching CSMOp PROC_REPLY 2:7 (1,1)->(0,0)
+1310976816294: UserServer handling request in (1,1)
+1310976816295: Sending PROC_REQUEST 3:0 (1,1)->(1,0)
+1310976816295: Local cache hit on read-only PROC_REQUEST 3:0 (1,1)->(1,0)
+1310976816295: Dispatching CSMOp PROC_REPLY 3:0 (1,0)->(1,1)
+1310976816316: Sending UDP payload: 881
+1310976816325: Sending UDP payload: 881
+1310976816329: Received PROC_REPLY 3:0 (1,0)->(1,1), handing to UserServer
+1310976816330: Procedure 3:0 on (1,0) successful
+1310976816332: Sending UDP payload: 698
+1310976816340: UserClient read on (1,0) from (1,1)succeeded, value=17,latency=342
+1310976816557: Received UDP payload: 698
+1310976816619: Received UDP payload: 698
+1310976816642: Received UDP payload: 851
+1310976816665: removed replies before id 8 from sentReplies of size 0
+1310976816666: Received PROC_REQUEST 1:8 (0,0)->(1,1), replying PROC_REPLY 1:8 (1,1)->(0,0)
+1310976816667: Dispatching CSMOp PROC_REPLY 1:8 (1,1)->(0,0)
+1310976816667: Sending out write updates with threadgroup
+1310976816668: Dispatching CSMOp WRITE_UPDATE 9 (1,1)->(-2,-2)
+1310976816690: Sending UDP payload: 881
+1310976816713: Received UDP payload: 698
+1310976816932: Sending UDP payload: 42341
+1310976816940: Received WRITE_UPDATE 9 (1,1)->(-2,-2)
+1310976817806: Received UDP payload: 698
+1310976817855: Received UDP payload: 698
+1310976817883: Received UDP payload: 851
+1310976817970: Received UDP payload: 698
+1310976817999: Received UDP payload: 851
+1310976818048: Received UDP payload: 698
+1310976818098: Received UDP payload: 698
+1310976818121: Received UDP payload: 881
+1310976818156: Received UDP payload: 698
+1310976818344: Requesting spot in (0,1)
+1310976818386: Sending UDP payload: 698
+1310976818391: UserServer handling request in (1,1)
+1310976818435: Sending PROC_REQUEST 2:0 (1,1)->(0,1)
+1310976818441: Dispatching CSMOp PROC_REQUEST 2:0 (1,1)->(0,1)
+1310976818462: Sending UDP payload: 851
+1310976819253: Retrying PROC_REQUEST 2:0 (1,1)->(0,1)
+1310976819275: Dispatching CSMOp PROC_REQUEST 2:0 (1,1)->(0,1)
+1310976819306: Sending UDP payload: 851
+1310976819893: Retrying PROC_REQUEST 2:0 (1,1)->(0,1)
+1310976819912: Dispatching CSMOp PROC_REQUEST 2:0 (1,1)->(0,1)
+1310976819935: Sending UDP payload: 851
+1310976820528: Request timed out, send failure PROC_REPLY 2:0 (0,1)->(1,1)
+1310976820540: Dispatching CSMOp PROC_REPLY 2:0 (0,1)->(1,1)
+1310976820566: Sending UDP payload: 851
+1310976820573: Received PROC_REPLY 2:0 (0,1)->(1,1), handing to UserServer
+1310976820573: Procedure 2:0 on (0,1) timed out, sending failure reply to client
+1310976820576: Sending UDP payload: 698
+1310976820579: UserClient decrement on (0,1) failed, value=?,latency=2230
+1310976821893: Sending UDP payload: 470
+1310976822583: Requesting spot in (1,0)
+1310976822611: Sending UDP payload: 698
+1310976822623: UserServer handling request in (1,1)
+1310976822630: Sending PROC_REQUEST 2:1 (1,1)->(1,0)
+1310976822638: Dispatching CSMOp PROC_REQUEST 2:1 (1,1)->(1,0)
+1310976822639: Sending UDP payload: 851
+1310976823568: Retrying PROC_REQUEST 2:1 (1,1)->(1,0)
+1310976823590: Dispatching CSMOp PROC_REQUEST 2:1 (1,1)->(1,0)
+1310976823608: Sending UDP payload: 851
+1310976824205: Retrying PROC_REQUEST 2:1 (1,1)->(1,0)
+1310976824218: Dispatching CSMOp PROC_REQUEST 2:1 (1,1)->(1,0)
+1310976824243: Sending UDP payload: 851
+1310976824279: Received UDP payload: 470
+1310976824688: Received UDP payload: 470
+1310976824836: Request timed out, send failure PROC_REPLY 2:1 (1,0)->(1,1)
+1310976824846: Dispatching CSMOp PROC_REPLY 2:1 (1,0)->(1,1)
+1310976824872: Sending UDP payload: 851
+1310976824883: Received PROC_REPLY 2:1 (1,0)->(1,1), handing to UserServer
+1310976824884: Procedure 2:1 on (1,0) timed out, sending failure reply to client
+1310976824885: Sending UDP payload: 698
+1310976824891: UserClient decrement on (1,0) failed, value=?,latency=2306
+1310976824900: Received UDP payload: 470
+1310976825252: Received UDP payload: 470
+1310976825484: Received UDP payload: 470
+1310976825884: Received UDP payload: 470
+1310976826616: Received UDP payload: 698
+1310976826894: Requesting spot in (0,0)
+1310976826916: Sending UDP payload: 698
+1310976826929: UserServer handling request in (1,1)
+1310976826942: Sending PROC_REQUEST 2:3 (1,1)->(0,0)
+1310976826953: Dispatching CSMOp PROC_REQUEST 2:3 (1,1)->(0,0)
+1310976826955: Sending UDP payload: 851
+1310976827878: Retrying PROC_REQUEST 2:3 (1,1)->(0,0)
+1310976827887: Dispatching CSMOp PROC_REQUEST 2:3 (1,1)->(0,0)
+1310976827914: Sending UDP payload: 851
+1310976827978: Received UDP payload: 698
+1310976828018: Received UDP payload: 698
+1310976828510: Retrying PROC_REQUEST 2:3 (1,1)->(0,0)
+1310976828531: Dispatching CSMOp PROC_REQUEST 2:3 (1,1)->(0,0)
+1310976828546: Sending UDP payload: 851
+1310976829146: Request timed out, send failure PROC_REPLY 2:3 (0,0)->(1,1)
+1310976829159: Dispatching CSMOp PROC_REPLY 2:3 (0,0)->(1,1)
+1310976829181: Sending UDP payload: 851
+1310976829195: Received PROC_REPLY 2:3 (0,0)->(1,1), handing to UserServer
+1310976829199: Procedure 2:3 on (0,0) timed out, sending failure reply to client
+1310976829200: Sending UDP payload: 698
+1310976829201: UserClient decrement on (0,0) failed, value=?,latency=2299
+1310976829351: Received UDP payload: 698
+1310976830397: Received UDP payload: 470
+1310976830967: Received UDP payload: 470
+1310976831043: Received UDP payload: 698
+1310976831205: Requesting spot in (1,1)
+1310976831233: Sending UDP payload: 698
+1310976831248: UserServer handling request in (1,1)
+1310976831252: Sending PROC_REQUEST 2:1 (1,1)->(1,1)
+1310976831265: Dispatching CSMOp PROC_REQUEST 2:1 (1,1)->(1,1)
+1310976831275: Sending UDP payload: 851
+1310976831276: removed replies before id 1 from sentReplies of size 2
+1310976831277: Received DUPLICATE PROC_REQUEST 2:1 (1,1)->(1,1), replying PROC_REPLY 2:1 (1,0)->(1,1)
+1310976831282: Dispatching CSMOp PROC_REPLY 2:1 (1,0)->(1,1)
+1310976831284: Sending UDP payload: 851
+1310976831288: Received DUPLICATE PROC_REPLY 2:1 (1,0)->(1,1)
+1310976831580: Received UDP payload: 470
+1310976831640: Received UDP payload: 470
+1310976831669: Received UDP payload: 698
+1310976831901: Sending UDP payload: 470
+1310976832192: Retrying PROC_REQUEST 2:1 (1,1)->(1,1)
+1310976832196: Dispatching CSMOp PROC_REQUEST 2:1 (1,1)->(1,1)
+1310976832231: Sending UDP payload: 851
+1310976832232: removed replies before id 1 from sentReplies of size 2
+1310976832233: Received DUPLICATE PROC_REQUEST 2:1 (1,1)->(1,1), replying PROC_REPLY 2:1 (1,0)->(1,1)
+1310976832234: Dispatching CSMOp PROC_REPLY 2:1 (1,0)->(1,1)
+1310976832235: Sending UDP payload: 851
+1310976832236: Received DUPLICATE PROC_REPLY 2:1 (1,0)->(1,1)
+1310976832264: Received UDP payload: 470
+1310976832802: Retrying PROC_REQUEST 2:1 (1,1)->(1,1)
+1310976832809: Dispatching CSMOp PROC_REQUEST 2:1 (1,1)->(1,1)
+1310976832834: Sending UDP payload: 851
+1310976832845: removed replies before id 1 from sentReplies of size 2
+1310976832845: Received DUPLICATE PROC_REQUEST 2:1 (1,1)->(1,1), replying PROC_REPLY 2:1 (1,0)->(1,1)
+1310976832846: Dispatching CSMOp PROC_REPLY 2:1 (1,0)->(1,1)
+1310976832848: Sending UDP payload: 851
+1310976832853: Received DUPLICATE PROC_REPLY 2:1 (1,0)->(1,1)
+1310976832857: Received UDP payload: 470
+1310976832952: Received UDP payload: 698
+1310976833015: Received UDP payload: 698
+1310976833432: Request timed out, send failure PROC_REPLY 2:1 (1,1)->(1,1)
+1310976833448: Dispatching CSMOp PROC_REPLY 2:1 (1,1)->(1,1)
+1310976833476: Sending UDP payload: 851
+1310976833481: Received PROC_REPLY 2:1 (1,1)->(1,1), handing to UserServer
+1310976833482: Procedure 2:1 on (1,1) timed out, sending failure reply to client
+1310976833483: Sending UDP payload: 698
+1310976833487: UserClient decrement on (1,1) failed, value=?,latency=2272
+1310976834142: Received UDP payload: 470
+1310976834291: Received UDP payload: 470
+1310976834352: Received UDP payload: 470
+1310976834376: Received UDP payload: 698
+1310976834699: Received UDP payload: 470
+1310976834792: Received UDP payload: 470
+1310976834895: Received UDP payload: 470
+1310976835323: Received UDP payload: 470
+1310976835391: Received UDP payload: 470
+1310976835491: Reading spot in (1,0)
+1310976835516: Received UDP payload: 470
+1310976835524: Sending UDP payload: 698
+1310976835536: UserServer handling request in (1,1)
+1310976835537: Sending PROC_REQUEST 3:2 (1,1)->(1,0)
+1310976835537: Local cache hit on read-only PROC_REQUEST 3:2 (1,1)->(1,0)
+1310976835538: Dispatching CSMOp PROC_REPLY 3:2 (1,0)->(1,1)
+1310976835540: Sending UDP payload: 881
+1310976835547: Received PROC_REPLY 3:2 (1,0)->(1,1), handing to UserServer
+1310976835548: Procedure 3:2 on (1,0) successful
+1310976835549: Sending UDP payload: 698
+1310976835550: UserClient read on (1,0) from (1,1)succeeded, value=17,latency=51
+1310976835965: Received UDP payload: 470
+1310976836090: Received UDP payload: 698
+1310976836424: Received UDP payload: 698
+1310976836673: Received UDP payload: 698
+1310976837553: Requesting spot in (0,0)
+1310976837573: Sending UDP payload: 698
+1310976837587: UserServer handling request in (1,1)
+1310976837599: Sending PROC_REQUEST 2:4 (1,1)->(0,0)
+1310976837603: Dispatching CSMOp PROC_REQUEST 2:4 (1,1)->(0,0)
+1310976837610: Sending UDP payload: 851
+1310976838002: Received UDP payload: 698
+1310976838095: Received UDP payload: 698
+1310976838856: Received UDP payload: 470
+1310976838875: Retrying PROC_REQUEST 2:4 (1,1)->(0,0)
+1310976838887: Dispatching CSMOp PROC_REQUEST 2:4 (1,1)->(0,0)
+1310976838900: Sending UDP payload: 851
+1310976839380: Received UDP payload: 698
+1310976839483: Received UDP payload: 470
+1310976839505: Retrying PROC_REQUEST 2:4 (1,1)->(0,0)
+1310976839518: Dispatching CSMOp PROC_REQUEST 2:4 (1,1)->(0,0)
+1310976839533: Sending UDP payload: 851
+1310976839705: Received UDP payload: 698
+1310976839894: Received UDP payload: 470
+1310976840126: Request timed out, send failure PROC_REPLY 2:4 (0,0)->(1,1)
+1310976840127: Dispatching CSMOp PROC_REPLY 2:4 (0,0)->(1,1)
+1310976840129: Sending UDP payload: 851
+1310976840138: Received PROC_REPLY 2:4 (0,0)->(1,1), handing to UserServer
+1310976840139: Procedure 2:4 on (0,0) timed out, sending failure reply to client
+1310976840152: Sending UDP payload: 698
+1310976840157: UserClient decrement on (0,0) failed, value=?,latency=2594
+1310976840187: Received UDP payload: 470
+1310976840473: Received UDP payload: 470
+1310976840747: Received UDP payload: 470
+1310976841112: Received UDP payload: 470
+1310976841138: Received UDP payload: 698
+1310976841469: Received UDP payload: 698
+1310976841710: Received UDP payload: 698
+1310976841901: Sending UDP payload: 470
+1310976841956: Received UDP payload: 698
+1310976842164: Requesting spot in (1,1)
+1310976842203: Sending UDP payload: 698
+1310976842207: UserServer handling request in (1,1)
+1310976842208: Sending PROC_REQUEST 2:2 (1,1)->(1,1)
+1310976842208: Dispatching CSMOp PROC_REQUEST 2:2 (1,1)->(1,1)
+1310976842210: Sending UDP payload: 851
+1310976842214: removed replies before id 2 from sentReplies of size 2
+1310976842215: Received PROC_REQUEST 2:2 (1,1)->(1,1), replying PROC_REPLY 2:2 (1,1)->(1,1)
+1310976842216: Dispatching CSMOp PROC_REPLY 2:2 (1,1)->(1,1)
+1310976842216: Sending out write updates with threadgroup
+1310976842218: Dispatching CSMOp WRITE_UPDATE 10 (1,1)->(-2,-2)
+1310976842223: Sending UDP payload: 881
+1310976842226: Received PROC_REPLY 2:2 (1,1)->(1,1), handing to UserServer
+1310976842227: Procedure 2:2 on (1,1) successful
+1310976842528: Sending UDP payload: 44441
+1310976842534: Received WRITE_UPDATE 10 (1,1)->(-2,-2)
+1310976842553: Sending UDP payload: 698
+1310976842554: UserClient decrement on (1,1) from (1,1) succeeded, value=18,latency=383
+1310976843635: Received UDP payload: 698
+1310976843680: UserServer handling request in (1,1)
+1310976843680: Sending PROC_REQUEST 3:3 (1,1)->(1,1)
+1310976843681: Dispatching CSMOp PROC_REQUEST 3:3 (1,1)->(1,1)
+1310976843682: Sending UDP payload: 851
+1310976843688: removed replies before id 3 from sentReplies of size 2
+1310976843688: Received DUPLICATE PROC_REQUEST 3:3 (1,1)->(1,1), replying PROC_REPLY 2:3 (0,0)->(1,1)
+1310976843689: Dispatching CSMOp PROC_REPLY 2:3 (0,0)->(1,1)
+1310976843690: Sending UDP payload: 851
+1310976843693: Received DUPLICATE PROC_REPLY 2:3 (0,0)->(1,1)
+1310976843693: Received UDP payload: 698
+1310976844557: Releasing ticket in (1,1)
+1310976844578: Sending UDP payload: 698
+1310976844595: UserServer handling request in (1,1)
+1310976844600: Sending PROC_REQUEST 1:4 (1,1)->(1,1)
+1310976844607: Dispatching CSMOp PROC_REQUEST 1:4 (1,1)->(1,1)
+1310976844608: Sending UDP payload: 851
+1310976844613: removed replies before id 3 from sentReplies of size 2
+1310976844614: Received DUPLICATE PROC_REQUEST 1:4 (1,1)->(1,1), replying PROC_REPLY 2:4 (0,0)->(1,1)
+1310976844614: Dispatching CSMOp PROC_REPLY 2:4 (0,0)->(1,1)
+1310976844620: Sending UDP payload: 851
+1310976844621: Received DUPLICATE PROC_REPLY 2:4 (0,0)->(1,1)
+1310976844943: Retrying PROC_REQUEST 3:3 (1,1)->(1,1)
+1310976844950: Dispatching CSMOp PROC_REQUEST 3:3 (1,1)->(1,1)
+1310976844977: Sending UDP payload: 851
+1310976844989: removed replies before id 3 from sentReplies of size 2
+1310976844990: Received DUPLICATE PROC_REQUEST 3:3 (1,1)->(1,1), replying PROC_REPLY 2:3 (0,0)->(1,1)
+1310976844991: Dispatching CSMOp PROC_REPLY 2:3 (0,0)->(1,1)
+1310976844992: Sending UDP payload: 851
+1310976845000: Received DUPLICATE PROC_REPLY 2:3 (0,0)->(1,1)
+1310976845574: Retrying PROC_REQUEST 3:3 (1,1)->(1,1)
+1310976845584: Dispatching CSMOp PROC_REQUEST 3:3 (1,1)->(1,1)
+1310976845596: Retrying PROC_REQUEST 1:4 (1,1)->(1,1)
+1310976845614: Sending UDP payload: 851
+1310976845615: Dispatching CSMOp PROC_REQUEST 1:4 (1,1)->(1,1)
+1310976845616: removed replies before id 3 from sentReplies of size 2
+1310976845617: Received DUPLICATE PROC_REQUEST 3:3 (1,1)->(1,1), replying PROC_REPLY 2:3 (0,0)->(1,1)
+1310976845621: Dispatching CSMOp PROC_REPLY 2:3 (0,0)->(1,1)
+1310976845623: Sending UDP payload: 851
+1310976845624: removed replies before id 3 from sentReplies of size 2
+1310976845625: Received DUPLICATE PROC_REQUEST 1:4 (1,1)->(1,1), replying PROC_REPLY 2:4 (0,0)->(1,1)
+1310976845625: Dispatching CSMOp PROC_REPLY 2:4 (0,0)->(1,1)
+1310976845626: Sending UDP payload: 851
+1310976845632: Received DUPLICATE PROC_REPLY 2:3 (0,0)->(1,1)
+1310976845634: Sending UDP payload: 851
+1310976845640: Received DUPLICATE PROC_REPLY 2:4 (0,0)->(1,1)
+1310976846139: Received UDP payload: 698
+1310976846216: Request timed out, send failure PROC_REPLY 3:3 (1,1)->(1,1)
+1310976846217: Dispatching CSMOp PROC_REPLY 3:3 (1,1)->(1,1)
+1310976846217: Retrying PROC_REQUEST 1:4 (1,1)->(1,1)
+1310976846218: Dispatching CSMOp PROC_REQUEST 1:4 (1,1)->(1,1)
+1310976846230: Sending UDP payload: 851
+1310976846233: Received PROC_REPLY 3:3 (1,1)->(1,1), handing to UserServer
+1310976846234: Procedure 3:3 on (1,1) timed out, sending failure reply to client
+1310976846239: Sending UDP payload: 851
+1310976846244: removed replies before id 3 from sentReplies of size 2
+1310976846245: Received DUPLICATE PROC_REQUEST 1:4 (1,1)->(1,1), replying PROC_REPLY 2:4 (0,0)->(1,1)
+1310976846245: Dispatching CSMOp PROC_REPLY 2:4 (0,0)->(1,1)
+1310976846247: Sending UDP payload: 698
+1310976846251: Sending UDP payload: 851
+1310976846258: Received DUPLICATE PROC_REPLY 2:4 (0,0)->(1,1)
+1310976846823: Request timed out, send failure PROC_REPLY 1:4 (1,1)->(1,1)
+1310976846837: Dispatching CSMOp PROC_REPLY 1:4 (1,1)->(1,1)
+1310976846862: Sending UDP payload: 851
+1310976846873: Received PROC_REPLY 1:4 (1,1)->(1,1), handing to UserServer
+1310976846873: Procedure 1:4 on (1,1) timed out, sending failure reply to client
+1310976846875: Sending UDP payload: 698
+1310976846879: UserClient increment on (1,1) failed, value=?,latency=2319
+1310976848883: Reading spot in (0,0)
+1310976848918: Sending UDP payload: 698
+1310976848934: UserServer handling request in (1,1)
+1310976848939: Sending PROC_REQUEST 3:5 (1,1)->(0,0)
+1310976848951: Local cache hit on read-only PROC_REQUEST 3:5 (1,1)->(0,0)
+1310976848960: Dispatching CSMOp PROC_REPLY 3:5 (0,0)->(1,1)
+1310976848966: Sending UDP payload: 881
+1310976848971: Received PROC_REPLY 3:5 (0,0)->(1,1), handing to UserServer
+1310976848971: Procedure 3:5 on (0,0) successful
+1310976848973: Sending UDP payload: 698
+1310976848974: UserClient read on (0,0) from (1,1)succeeded, value=18,latency=80
+1310976850980: Received UDP payload: 698
+1310976850979: Releasing ticket in (1,1)
+1310976851030: Sending UDP payload: 698
+1310976851031: UserServer handling request in (1,1)
+1310976851031: Sending PROC_REQUEST 1:5 (1,1)->(1,1)
+1310976851031: Dispatching CSMOp PROC_REQUEST 1:5 (1,1)->(1,1)
+1310976851033: Sending UDP payload: 851
+1310976851034: removed replies before id 5 from sentReplies of size 0
+1310976851034: Received PROC_REQUEST 1:5 (1,1)->(1,1), replying PROC_REPLY 1:5 (1,1)->(1,1)
+1310976851035: Dispatching CSMOp PROC_REPLY 1:5 (1,1)->(1,1)
+1310976851035: Sending out write updates with threadgroup
+1310976851035: Dispatching CSMOp WRITE_UPDATE 11 (1,1)->(-2,-2)
+1310976851037: Sending UDP payload: 881
+1310976851047: Received PROC_REPLY 1:5 (1,1)->(1,1), handing to UserServer
+1310976851047: Procedure 1:5 on (1,1) successful
+1310976851115: Received UDP payload: 698
+1310976851320: Sending UDP payload: 43439
+1310976851327: Received WRITE_UPDATE 11 (1,1)->(-2,-2)
+1310976851340: Sending UDP payload: 698
+1310976851345: UserClient increment on (1,1) from (1,1) succeeded, value=19,latency=352
+1310976851732: Received UDP payload: 470
+1310976851764: heard LEADER_REQUEST from node 5108, responding LEADER_REPLY
+1310976852063: Sending UDP payload: 43609
+1310976852070: Sending UDP payload: 470
+1310976852366: Received UDP payload: 470
+1310976852376: heard LEADER_REQUEST from node 5108, responding LEADER_REPLY
+1310976852664: Sending UDP payload: 44578
+1310976852996: Received UDP payload: 470
+1310976853032: heard LEADER_REQUEST from node 5108, responding LEADER_REPLY
+1310976853308: Sending UDP payload: 43609
+1310976853347: Requesting spot in (0,1)
+1310976853361: Sending UDP payload: 698
+1310976853363: UserServer handling request in (1,1)
+1310976853364: Sending PROC_REQUEST 2:1 (1,1)->(0,1)
+1310976853370: Dispatching CSMOp PROC_REQUEST 2:1 (1,1)->(0,1)
+1310976853390: Sending UDP payload: 851
+1310976854085: Retrying PROC_REQUEST 2:1 (1,1)->(0,1)
+1310976854092: Dispatching CSMOp PROC_REQUEST 2:1 (1,1)->(0,1)
+1310976854122: Sending UDP payload: 851
+1310976854713: Retrying PROC_REQUEST 2:1 (1,1)->(0,1)
+1310976854721: Dispatching CSMOp PROC_REQUEST 2:1 (1,1)->(0,1)
+1310976854751: Sending UDP payload: 851
+1310976855342: Retrying PROC_REQUEST 2:1 (1,1)->(0,1)
+1310976855346: Dispatching CSMOp PROC_REQUEST 2:1 (1,1)->(0,1)
+1310976855377: Sending UDP payload: 851
+1310976855965: Request timed out, send failure PROC_REPLY 2:1 (0,1)->(1,1)
+1310976855970: Dispatching CSMOp PROC_REPLY 2:1 (0,1)->(1,1)
+1310976855997: Sending UDP payload: 851
+1310976856008: Received PROC_REPLY 2:1 (0,1)->(1,1), handing to UserServer
+1310976856008: Procedure 2:1 on (0,1) timed out, sending failure reply to client
+1310976856010: Sending UDP payload: 698
+1310976856015: UserClient decrement on (0,1) failed, value=?,latency=2668
+1310976858019: Requesting spot in (1,0)
+1310976858041: Sending UDP payload: 698
+1310976858058: UserServer handling request in (1,1)
+1310976858067: Sending PROC_REQUEST 2:3 (1,1)->(1,0)
+1310976858067: Dispatching CSMOp PROC_REQUEST 2:3 (1,1)->(1,0)
+1310976858069: Sending UDP payload: 851
+1310976859002: Retrying PROC_REQUEST 2:3 (1,1)->(1,0)
+1310976859014: Dispatching CSMOp PROC_REQUEST 2:3 (1,1)->(1,0)
+1310976859039: Sending UDP payload: 851
+1310976859634: Retrying PROC_REQUEST 2:3 (1,1)->(1,0)
+1310976859641: Dispatching CSMOp PROC_REQUEST 2:3 (1,1)->(1,0)
+1310976859668: Sending UDP payload: 851
+1310976860264: Request timed out, send failure PROC_REPLY 2:3 (1,0)->(1,1)
+1310976860280: Dispatching CSMOp PROC_REPLY 2:3 (1,0)->(1,1)
+1310976860308: Sending UDP payload: 851
+1310976860310: Received PROC_REPLY 2:3 (1,0)->(1,1), handing to UserServer
+1310976860310: Procedure 2:3 on (1,0) timed out, sending failure reply to client
+1310976860312: Sending UDP payload: 698
+1310976860312: UserClient decrement on (1,0) failed, value=?,latency=2291
+1310976862074: Sending UDP payload: 470
+1310976862316: Reading spot in (1,1)
+1310976862344: Sending UDP payload: 698
+1310976862360: UserServer handling request in (1,1)
+1310976862360: Sending PROC_REQUEST 3:6 (1,1)->(1,1)
+1310976862361: Dispatching CSMOp PROC_REQUEST 3:6 (1,1)->(1,1)
+1310976862362: Sending UDP payload: 851
+1310976862364: removed replies before id 6 from sentReplies of size 0
+1310976862365: Received PROC_REQUEST 3:6 (1,1)->(1,1), replying PROC_REPLY 3:6 (1,1)->(1,1)
+1310976862365: Dispatching CSMOp PROC_REPLY 3:6 (1,1)->(1,1)
+1310976862367: Sending UDP payload: 881
+1310976862372: Received PROC_REPLY 3:6 (1,1)->(1,1), handing to UserServer
+1310976862372: Procedure 3:6 on (1,1) successful
+1310976862374: Sending UDP payload: 698
+1310976862375: UserClient read on (1,1) from (1,1)succeeded, value=19,latency=58
+1310976864379: Requesting spot in (1,1)
+1310976864404: Sending UDP payload: 698
+1310976864416: UserServer handling request in (1,1)
+1310976864420: Sending PROC_REQUEST 2:7 (1,1)->(1,1)
+1310976864427: Dispatching CSMOp PROC_REQUEST 2:7 (1,1)->(1,1)
+1310976864437: Sending UDP payload: 851
+1310976864439: removed replies before id 7 from sentReplies of size 0
+1310976864440: Received PROC_REQUEST 2:7 (1,1)->(1,1), replying PROC_REPLY 2:7 (1,1)->(1,1)
+1310976864440: Dispatching CSMOp PROC_REPLY 2:7 (1,1)->(1,1)
+1310976864440: Sending out write updates with threadgroup
+1310976864441: Dispatching CSMOp WRITE_UPDATE 12 (1,1)->(-2,-2)
+1310976864442: Sending UDP payload: 881
+1310976864445: Received PROC_REPLY 2:7 (1,1)->(1,1), handing to UserServer
+1310976864446: Procedure 2:7 on (1,1) successful
+1310976864743: Sending UDP payload: 44029
+1310976864749: Received WRITE_UPDATE 12 (1,1)->(-2,-2)
+1310976864756: Sending UDP payload: 698
+1310976864762: UserClient decrement on (1,1) from (1,1) succeeded, value=18,latency=376
+1310976866766: Reading spot in (1,1)
+1310976866784: Sending UDP payload: 698
+1310976866797: UserServer handling request in (1,1)
+1310976866814: Sending PROC_REQUEST 3:8 (1,1)->(1,1)
+1310976866816: Dispatching CSMOp PROC_REQUEST 3:8 (1,1)->(1,1)
+1310976866818: Sending UDP payload: 851
+1310976866823: removed replies before id 8 from sentReplies of size 0
+1310976866824: Received PROC_REQUEST 3:8 (1,1)->(1,1), replying PROC_REPLY 3:8 (1,1)->(1,1)
+1310976866824: Dispatching CSMOp PROC_REPLY 3:8 (1,1)->(1,1)
+1310976866826: Sending UDP payload: 881
+1310976866827: Received PROC_REPLY 3:8 (1,1)->(1,1), handing to UserServer
+1310976866827: Procedure 3:8 on (1,1) successful
+1310976866829: Sending UDP payload: 698
+1310976866836: UserClient read on (1,1) from (1,1)succeeded, value=18,latency=63
+1310976868840: Releasing ticket in (1,1)
+1310976868871: Sending UDP payload: 698
+1310976868881: UserServer handling request in (1,1)
+1310976868885: Sending PROC_REQUEST 1:9 (1,1)->(1,1)
+1310976868892: Dispatching CSMOp PROC_REQUEST 1:9 (1,1)->(1,1)
+1310976868893: Sending UDP payload: 851
+1310976868897: removed replies before id 9 from sentReplies of size 0
+1310976868901: Received PROC_REQUEST 1:9 (1,1)->(1,1), replying PROC_REPLY 1:9 (1,1)->(1,1)
+1310976868902: Dispatching CSMOp PROC_REPLY 1:9 (1,1)->(1,1)
+1310976868902: Sending out write updates with threadgroup
+1310976868903: Dispatching CSMOp WRITE_UPDATE 13 (1,1)->(-2,-2)
+1310976868904: Sending UDP payload: 881
+1310976868909: Received PROC_REPLY 1:9 (1,1)->(1,1), handing to UserServer
+1310976868909: Procedure 1:9 on (1,1) successful
+1310976869178: Sending UDP payload: 45588
+1310976869184: Received WRITE_UPDATE 13 (1,1)->(-2,-2)
+1310976869197: Sending UDP payload: 698
+1310976869203: UserClient increment on (1,1) from (1,1) succeeded, value=19,latency=359
+1310976871207: Reading spot in (0,1)
+1310976871224: Sending UDP payload: 698
+1310976871242: UserServer handling request in (1,1)
+1310976871250: Sending PROC_REQUEST 3:2 (1,1)->(0,1)
+1310976871250: Local cache hit on read-only PROC_REQUEST 3:2 (1,1)->(0,1)
+1310976871251: Dispatching CSMOp PROC_REPLY 3:2 (0,1)->(1,1)
+1310976871252: Sending UDP payload: 851
+1310976871256: Received PROC_REPLY 3:2 (0,1)->(1,1), handing to UserServer
+1310976871257: Procedure 3:2 on (0,1) successful
+1310976871257: User proc reply data parse error: null
+1310976871258: Sending UDP payload: 698
+1310976871261: UserClient read on (0,1) from (1,1)succeeded, value=-1337,latency=48
+1310976872078: Sending UDP payload: 470
+1310976873265: Requesting spot in (0,0)
+1310976873298: Sending UDP payload: 698
+1310976873305: UserServer handling request in (1,1)
+1310976873314: Sending PROC_REQUEST 2:6 (1,1)->(0,0)
+1310976873314: Dispatching CSMOp PROC_REQUEST 2:6 (1,1)->(0,0)
+1310976873323: Sending UDP payload: 851
+1310976874143: Retrying PROC_REQUEST 2:6 (1,1)->(0,0)
+1310976874155: Dispatching CSMOp PROC_REQUEST 2:6 (1,1)->(0,0)
+1310976874163: Sending UDP payload: 851
+1310976874768: Retrying PROC_REQUEST 2:6 (1,1)->(0,0)
+1310976874774: Dispatching CSMOp PROC_REQUEST 2:6 (1,1)->(0,0)
+1310976874798: Sending UDP payload: 851
+1310976875397: Retrying PROC_REQUEST 2:6 (1,1)->(0,0)
+1310976875408: Dispatching CSMOp PROC_REQUEST 2:6 (1,1)->(0,0)
+1310976875424: Sending UDP payload: 851
+1310976876022: Request timed out, send failure PROC_REPLY 2:6 (0,0)->(1,1)
+1310976876036: Dispatching CSMOp PROC_REPLY 2:6 (0,0)->(1,1)
+1310976876062: Sending UDP payload: 851
+1310976876063: Received PROC_REPLY 2:6 (0,0)->(1,1), handing to UserServer
+1310976876064: Procedure 2:6 on (0,0) timed out, sending failure reply to client
+1310976876065: Sending UDP payload: 698
+1310976876070: UserClient decrement on (0,0) failed, value=?,latency=2804
+1310976878074: Requesting spot in (0,0)
+1310976878095: Sending UDP payload: 698
+1310976878108: UserServer handling request in (1,1)
+1310976878117: Sending PROC_REQUEST 2:7 (1,1)->(0,0)
+1310976878117: Dispatching CSMOp PROC_REQUEST 2:7 (1,1)->(0,0)
+1310976878119: Sending UDP payload: 851
+1310976879059: Retrying PROC_REQUEST 2:7 (1,1)->(0,0)
+1310976879070: Dispatching CSMOp PROC_REQUEST 2:7 (1,1)->(0,0)
+1310976879098: Sending UDP payload: 851
+1310976879686: Retrying PROC_REQUEST 2:7 (1,1)->(0,0)
+1310976879699: Dispatching CSMOp PROC_REQUEST 2:7 (1,1)->(0,0)
+1310976879714: Sending UDP payload: 851
+1310976880313: Request timed out, send failure PROC_REPLY 2:7 (0,0)->(1,1)
+1310976880319: Dispatching CSMOp PROC_REPLY 2:7 (0,0)->(1,1)
+1310976880349: Sending UDP payload: 851
+1310976880353: Received PROC_REPLY 2:7 (0,0)->(1,1), handing to UserServer
+1310976880353: Procedure 2:7 on (0,0) timed out, sending failure reply to client
+1310976880354: Sending UDP payload: 698
+1310976880355: UserClient decrement on (0,0) failed, value=?,latency=2279
+1310976882079: Sending UDP payload: 470

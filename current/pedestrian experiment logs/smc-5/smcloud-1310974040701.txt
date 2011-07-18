@@ -1,0 +1,43 @@
+1310974040703: *** Opened log file for writing ***
+1310974040703: *** Application started ***
+1310974054315: Set distribution to 90% reads.
+1310974054892: Set distribution to 60% reads.
+1310974106572: Moved to region (0,0)
+1310974111039: Requesting ticket in (0,0)
+1310974132151: Ticket request failed, error contacting cloud.
+1310974156889: Moved to region (1,0)
+1310974187839: Requesting ticket in (1,0)
+1310974195142: Ticket request succeeded, value=18,latency=7263
+1310974198231: Releasing ticket in (1,0)
+1310974199616: Ticket release succeeded, value=20,latency=1345
+1310974206236: Requesting ticket in (1,0)
+1310974208040: Ticket request succeeded, value=19,latency=1793
+1310974218774: Moved to region (1,1)
+1310974221582: Releasing ticket in (1,0)
+1310974225148: Ticket release succeeded, value=19,latency=3528
+1310974248863: Moved to region (0,1)
+1310974258065: Requesting ticket in (0,1)
+1310974260433: Ticket request succeeded, value=17,latency=2354
+1310974289833: Moved to region (0,0)
+1310974291294: Releasing ticket in (0,1)
+1310974295180: Ticket release succeeded, value=20,latency=3848
+1310974304297: Moved to region (0,1)
+1310974305383: Moved to region (0,1)
+1310974308431: Requesting ticket in (0,1)
+1310974313175: Ticket request succeeded, value=18,latency=4732
+1310974321832: Moved to region (1,1)
+1310974323505: Releasing ticket in (0,1)
+1310974328505: Ticket release succeeded, value=19,latency=4991
+1310974330260: Requesting ticket in (1,1)
+1310974331383: Ticket request succeeded, value=15,latency=1115
+1310974341149: Moved to region (0,1)
+1310974343986: Releasing ticket in (1,1)
+1310974349812: Ticket release succeeded, value=17,latency=5817
+1310974351793: Requesting ticket in (0,1)
+1310974353057: Ticket request succeeded, value=16,latency=1257
+1310974364100: Moved to region (0,0)
+1310974367506: Releasing ticket in (0,1)
+1310974370645: Ticket release succeeded, value=18,latency=3131
+1310974371954: Requesting ticket in (0,0)
+1310974374532: Ticket request succeeded, value=17,latency=2542
+1310974382876: Releasing ticket in (0,0)
