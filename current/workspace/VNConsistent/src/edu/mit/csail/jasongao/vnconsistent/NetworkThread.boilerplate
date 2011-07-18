@@ -21,7 +21,7 @@ public class NetworkThread extends Thread {
 	private Handler muxHandler;
 
 	// UDP over IPv4 Networking
-	private static final int MAX_PACKET_SIZE = 110592; // bytes
+	private static final int MAX_PACKET_SIZE = 65536; // bytes
 	private static final int PORT = 6666;
 	private DatagramSocket mySocket;
 	private boolean socketOK = true;
@@ -93,8 +93,8 @@ public class NetworkThread extends Thread {
 					mySocket.getReceiveBufferSize(),
 					mySocket.getSendBufferSize()));
 
-			mySocket.setReceiveBufferSize(MAX_PACKET_SIZE);
-			mySocket.setSendBufferSize(MAX_PACKET_SIZE);
+			// mySocket.setReceiveBufferSize(MAX_PACKET_SIZE);
+			// mySocket.setSendBufferSize(MAX_PACKET_SIZE);
 
 			Log.i(TAG, String.format(
 					"Set socket buffer sizes to: %d receive, %d send",
