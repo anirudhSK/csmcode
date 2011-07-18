@@ -99,7 +99,7 @@ public class UserServer implements CSMUser {
 	 */
 	public synchronized void handleCSMReply(CSMOp reply) {
 		// lookup the corresponding client that generated this request
-		long clientId = 0;
+		long clientId = -1;
 		if (reply.procedure != INIT) {
 			Map<Long, Long> idToClientMap = clientRequests.get(reply.srcRegion);
 			if (idToClientMap != null
@@ -110,7 +110,7 @@ public class UserServer implements CSMUser {
 		}
 
 		if (reply.timedOut) {
-			logMsg(String.format("Procedure %d:%d on %s timed out", reply.procedure,
+			logMsg(String.format("Procedure %d:%d on %s timed out, sending failure reply to client", reply.procedure,
 					reply.requestId, reply.srcRegion));
 
 			// reply back to client that their request failed

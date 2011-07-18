@@ -46,15 +46,16 @@ public class StatusActivity extends Activity implements LocationListener {
 	PrintWriter myLogWriter;
 
 	// Attributes
+	RegionKey myRegion;
 	private long maxRx = 1, maxRy = 1;
 	private double readVsWriteDistribution = 0.9;
 
 	// UI elements
-	Button benchmark, releaseparking;
-	Button requestparkingA, readparkingA;
-	Button requestparkingB, readparkingB;
-	Button requestparkingC, readparkingC;
-	Button setdistribution30, setdistribution60, setdistribution90;
+	Button r00, r01, r10, r11;
+	Button ticket_button, read_button;
+	Button bench_button, distribution_button;
+	int distributionLevel = 3;
+	int readButtonState = 0;
 	TextView opCountTv, successCountTv, failureCountTv;
 	ListView msgList;
 	ArrayAdapter<String> receivedMessages;
@@ -64,16 +65,15 @@ public class StatusActivity extends Activity implements LocationListener {
 
 	Random rand = new Random();
 
-	private boolean writeTaskOutstanding = false; // in middle of request or
-													// release?
-	private boolean spotHeld = false; // are we currently holding a parking spot
-	private RegionKey spotHeldRegion;
+	private boolean requestOutstanding = false; // in middle of inc or dec?
+	private boolean ticketHeld = false; // are we currently holding a ticket?
+	private RegionKey ticketRegion; // where are we holding a ticket for?
 
 	private long successCount = 0;
 	private long failureCount = 0;
 	private long opCount = 0;
 	private boolean benchmarkOn = false;
-	final static private long benchmarkIterationDelay = 1000L;
+	final static private long benchmarkIterationDelay = 2000L;
 
 	public class CloudResult {
 		// Status codes
@@ -104,20 +104,20 @@ public class StatusActivity extends Activity implements LocationListener {
 				// pick read or write according to distribution
 				if (rand.nextDouble() < readVsWriteDistribution) {
 					// make a read
-					readParkingClick(dstRx, dstRy);
+					readClick(dstRx, dstRy);
 				} else {
 					// make a write-involving operation (request or release)
-					if (!spotHeld) {
-						requestParkingClick(dstRx, dstRy);
+					if (!ticketHeld) {
+						requestClick(dstRx, dstRy);
 					} else {
-						releaseParkingClick();
+						releaseClick();
 					}
 				}
 			}
 		}
 	};
 
-	private class ReadParkingTask extends AsyncTask<Long, Integer, CloudResult> {
+	private class ReadTask extends AsyncTask<Long, Integer, CloudResult> {
 		protected CloudResult doInBackground(Long... args) {
 			opCount++;
 
@@ -130,24 +130,25 @@ public class StatusActivity extends Activity implements LocationListener {
 				cr.latency = System.currentTimeMillis() - t1;
 				return cr;
 			} catch (Exception e) {
-				Log.e(TAG, "ReadParkingTask exception: " + e.getMessage());
+				Log.e(TAG, "ReadTask exception: " + e.getMessage());
 				return null;
 			}
 		}
 
 		protected void onPostExecute(CloudResult cr) {
 			if (cr == null) {
-				logMsg("Parking read failed, error contacting cloud.");
+				logMsg("UserClient read failed, error contacting cloud.");
 				failureCount++;
 			} else if (cr.status == CloudResult.CR_OKAY) {
-				logMsg("Parking read succeeded, spots=" + cr.spots
+				logMsg("UserClient read succeeded, value=" + cr.spots
 						+ ",latency=" + cr.latency);
 				successCount++;
 			} else if (cr.status == CloudResult.CR_ERROR) {
-				logMsg("Parking read rejected, spots=" + cr.spots + ",latency="
-						+ cr.latency);
+				logMsg("UserClient read rejected, value=" + cr.spots
+						+ ",latency=" + cr.latency);
 				successCount++;
 			}
+			requestOutstanding = false;
 			update();
 
 			if (benchmarkOn) {
@@ -157,8 +158,7 @@ public class StatusActivity extends Activity implements LocationListener {
 		}
 	}
 
-	private class ReleaseParkingTask extends
-			AsyncTask<Long, Integer, CloudResult> {
+	private class ReleaseTask extends AsyncTask<Long, Integer, CloudResult> {
 		protected CloudResult doInBackground(Long... args) {
 			opCount++;
 
@@ -171,26 +171,27 @@ public class StatusActivity extends Activity implements LocationListener {
 				cr.latency = System.currentTimeMillis() - t1;
 				return cr;
 			} catch (Exception e) {
-				Log.e(TAG, "ReleaseParkingTask exception: " + e.getMessage());
+				Log.e(TAG, "ReleaseTask exception: " + e.getMessage());
 				return null;
 			}
 		}
 
 		protected void onPostExecute(CloudResult cr) {
 			if (cr == null) {
-				logMsg("Parking release failed, error contacting cloud.");
+				logMsg("Ticket release failed, error contacting cloud.");
 				failureCount++;
 			} else if (cr.status == CloudResult.CR_OKAY) {
-				spotHeld = false;
-				logMsg("Parking release succeeded, spots=" + cr.spots
+				ticketHeld = false;
+				ticket_button.setText("Take ticket");
+				logMsg("Ticket release succeeded, value=" + cr.spots
 						+ ",latency=" + cr.latency);
 				successCount++;
 			} else if (cr.status == CloudResult.CR_ERROR) {
-				logMsg("Parking release rejected, spots=" + cr.spots
+				logMsg("Ticket release rejected, value=" + cr.spots
 						+ ",latency=" + cr.latency);
 				successCount++;
 			}
-			writeTaskOutstanding = false;
+			requestOutstanding = false;
 			update();
 
 			if (benchmarkOn) {
@@ -200,8 +201,7 @@ public class StatusActivity extends Activity implements LocationListener {
 		}
 	}
 
-	private class RequestParkingTask extends
-			AsyncTask<Long, Integer, CloudResult> {
+	private class RequestTask extends AsyncTask<Long, Integer, CloudResult> {
 		protected CloudResult doInBackground(Long... args) {
 			opCount++;
 
@@ -214,26 +214,27 @@ public class StatusActivity extends Activity implements LocationListener {
 				cr.latency = System.currentTimeMillis() - t1;
 				return cr;
 			} catch (Exception e) {
-				Log.e(TAG, "RequestParkingTask exception: " + e.getMessage());
+				Log.e(TAG, "RequestTask exception: " + e.getMessage());
 				return null;
 			}
 		}
 
 		protected void onPostExecute(CloudResult cr) {
 			if (cr == null) {
-				logMsg("Parking request failed, error contacting cloud.");
+				logMsg("Ticket request failed, error contacting cloud.");
 				failureCount++;
 			} else if (cr.status == CloudResult.CR_OKAY) {
-				spotHeld = true;
-				logMsg("Parking request succeeded, spots=" + cr.spots
+				ticketHeld = true;
+				ticket_button.setText("Release ticket");
+				logMsg("Ticket request succeeded, value=" + cr.spots
 						+ ",latency=" + cr.latency);
 				successCount++;
 			} else if (cr.status == CloudResult.CR_ERROR) {
-				logMsg("Parking request rejected, spots=" + cr.spots
+				logMsg("Ticket request rejected, value=" + cr.spots
 						+ ",latency=" + cr.latency);
 				successCount++;
 			}
-			writeTaskOutstanding = false;
+			requestOutstanding = false;
 			update();
 
 			if (benchmarkOn) {
@@ -276,33 +277,27 @@ public class StatusActivity extends Activity implements LocationListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
+		// Default region to start off in
+		myRegion = new RegionKey(0, 0);
+
 		// Buttons
-		setdistribution30 = (Button) findViewById(R.id.setdistribution30_button);
-		setdistribution30.setOnClickListener(setdistribution30_listener);
-		setdistribution60 = (Button) findViewById(R.id.setdistribution60_button);
-		setdistribution60.setOnClickListener(setdistribution60_listener);
-		setdistribution90 = (Button) findViewById(R.id.setdistribution90_button);
-		setdistribution90.setOnClickListener(setdistribution90_listener);
+		bench_button = (Button) findViewById(R.id.bench_button);
+		bench_button.setOnClickListener(bench_button_listener);
+		distribution_button = (Button) findViewById(R.id.distribution_button);
+		distribution_button.setOnClickListener(distribution_button_listener);
+		ticket_button = (Button) findViewById(R.id.ticket_button);
+		ticket_button.setOnClickListener(ticket_button_listener);
+		read_button = (Button) findViewById(R.id.read_button);
+		read_button.setOnClickListener(read_button_listener);
 
-		benchmark = (Button) findViewById(R.id.testcsm_button);
-		benchmark.setOnClickListener(benchmark_listener);
-		releaseparking = (Button) findViewById(R.id.releaseparking_button);
-		releaseparking.setOnClickListener(releaseparking_listener);
-
-		requestparkingA = (Button) findViewById(R.id.requestparkingA_button);
-		requestparkingA.setOnClickListener(requestparkingA_listener);
-		readparkingA = (Button) findViewById(R.id.readparkingA_button);
-		readparkingA.setOnClickListener(readparkingA_listener);
-
-		requestparkingB = (Button) findViewById(R.id.requestparkingB_button);
-		requestparkingB.setOnClickListener(requestparkingB_listener);
-		readparkingB = (Button) findViewById(R.id.readparkingB_button);
-		readparkingB.setOnClickListener(readparkingB_listener);
-
-		requestparkingC = (Button) findViewById(R.id.requestparkingC_button);
-		requestparkingC.setOnClickListener(requestparkingC_listener);
-		readparkingC = (Button) findViewById(R.id.readparkingC_button);
-		readparkingC.setOnClickListener(readparkingC_listener);
+		r00 = (Button) findViewById(R.id.r00_button);
+		r00.setOnClickListener(r00_listener);
+		r01 = (Button) findViewById(R.id.r01_button);
+		r01.setOnClickListener(r01_listener);
+		r10 = (Button) findViewById(R.id.r10_button);
+		r10.setOnClickListener(r10_listener);
+		r11 = (Button) findViewById(R.id.r11_button);
+		r11.setOnClickListener(r11_listener);
 
 		// Text views
 		opCountTv = (TextView) findViewById(R.id.opcount_tv);
@@ -366,8 +361,8 @@ public class StatusActivity extends Activity implements LocationListener {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		// request updates every 60s or 5m, whichever first.
-		lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 60000, 5f, this);
+		// request updates every 5s or 5m, whichever first.
+		lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5f, this);
 	}
 
 	@Override
@@ -378,12 +373,12 @@ public class StatusActivity extends Activity implements LocationListener {
 	@Override
 	public void onDestroy() {
 		benchmarkOn = false;
-		if (spotHeld && !writeTaskOutstanding) {
-			writeTaskOutstanding = true;
-			logMsg("Releasing spot in " + spotHeldRegion);
+		if (ticketHeld && !requestOutstanding) {
+			requestOutstanding = true;
+			logMsg("Releasing ticket in " + ticketRegion);
 
-			new ReleaseParkingTask().execute(spotHeldRegion.x,
-					spotHeldRegion.y, 0L, System.currentTimeMillis());
+			new ReleaseTask().execute(ticketRegion.x, ticketRegion.y, 0L,
+					System.currentTimeMillis());
 		}
 		myLogWriter.flush();
 		myLogWriter.close();
@@ -395,110 +390,141 @@ public class StatusActivity extends Activity implements LocationListener {
 	}
 
 	/*** UI Callbacks for Buttons, etc. ***/
-	private OnClickListener setdistribution30_listener = new OnClickListener() {
-		public void onClick(View v) {
-			logMsg("Set distribution to 30% reads.");
-			readVsWriteDistribution = 0.3;
-		}
-	};
-	private OnClickListener setdistribution60_listener = new OnClickListener() {
-		public void onClick(View v) {
-			logMsg("Set distribution to 60% reads.");
-			readVsWriteDistribution = 0.6;
-		}
-	};
-	private OnClickListener setdistribution90_listener = new OnClickListener() {
-		public void onClick(View v) {
-			logMsg("Set distribution to 90% reads.");
-			readVsWriteDistribution = 0.9;
-		}
-	};
-
-	private void readParkingClick(long rx, long ry) {
-		RegionKey readSpotRegion = new RegionKey(rx, ry);
-		logMsg("Reading spot in " + readSpotRegion);
-		new ReadParkingTask().execute(readSpotRegion.x, readSpotRegion.y, 0L,
-				System.currentTimeMillis());
-	}
-
-	private OnClickListener readparkingA_listener = new OnClickListener() {
-		public void onClick(View v) {
-			readParkingClick(0, 0);
-		}
-	};
-	private OnClickListener readparkingB_listener = new OnClickListener() {
-		public void onClick(View v) {
-			readParkingClick(1, 0);
-		}
-	};
-	private OnClickListener readparkingC_listener = new OnClickListener() {
-		public void onClick(View v) {
-			readParkingClick(2, 0);
-		}
-	};
-
-	private void requestParkingClick(long rx, long ry) {
-		if (!spotHeld && !writeTaskOutstanding) {
-			writeTaskOutstanding = true;
-			spotHeldRegion = new RegionKey(rx, ry);
-			logMsg("Requesting spot in " + spotHeldRegion);
-			new RequestParkingTask().execute(spotHeldRegion.x,
-					spotHeldRegion.y, 0L, System.currentTimeMillis());
-		} else if (writeTaskOutstanding) {
-			logMsg("Wait for previous action to complete.");
-		} else if (spotHeld) {
-			logMsg("You are already holding a spot!" + spotHeldRegion);
-		}
-	}
-
-	private OnClickListener requestparkingA_listener = new OnClickListener() {
-		public void onClick(View v) {
-			requestParkingClick(0, 0);
-		}
-	};
-	private OnClickListener requestparkingB_listener = new OnClickListener() {
-		public void onClick(View v) {
-			requestParkingClick(1, 0);
-		}
-	};
-	private OnClickListener requestparkingC_listener = new OnClickListener() {
-		public void onClick(View v) {
-			requestParkingClick(2, 0);
-		}
-	};
-
-	private void releaseParkingClick() {
-		if (spotHeld && !writeTaskOutstanding) {
-			writeTaskOutstanding = true;
-			logMsg("Releasing spot in " + spotHeldRegion);
-
-			new ReleaseParkingTask().execute(spotHeldRegion.x,
-					spotHeldRegion.y, 0L, System.currentTimeMillis());
-		} else if (writeTaskOutstanding) {
-			logMsg("Wait for previous action to complete.");
-		} else if (!spotHeld) {
-			logMsg("You are not holding a spot!");
-		}
-	}
-
-	private OnClickListener releaseparking_listener = new OnClickListener() {
-		public void onClick(View v) {
-			releaseParkingClick();
-		}
-	};
-	private OnClickListener benchmark_listener = new OnClickListener() {
+	private OnClickListener bench_button_listener = new OnClickListener() {
 		public void onClick(View v) {
 			if (!benchmarkOn) {
-				benchmark.setText("Stop Bench");
+				bench_button.setText("Stop Bench");
 				logMsg("*** benchmark starting ***");
 				startBenchmark();
 			} else {
-				benchmark.setText("Start Bench");
+				bench_button.setText("Start Bench");
 				stopBenchmark();
 				logMsg("*** benchmark stopped ***");
 			}
+			update();
 		}
 	};
+
+	private OnClickListener distribution_button_listener = new OnClickListener() {
+		public void onClick(View v) {
+			switch (distributionLevel) {
+			case 3:
+				distributionLevel = 1;
+				logMsg("Set distribution to 90% reads.");
+				distribution_button.setText("90%");
+				readVsWriteDistribution = 0.9;
+				break;
+			case 1:
+				distributionLevel = 2;
+				logMsg("Set distribution to 60% reads.");
+				distribution_button.setText("60%");
+				readVsWriteDistribution = 0.6;
+				break;
+			case 2:
+				distributionLevel = 3;
+				logMsg("Set distribution to 30% reads.");
+				distribution_button.setText("30%");
+				readVsWriteDistribution = 0.3;
+			}
+		}
+	};
+
+	private OnClickListener r00_listener = new OnClickListener() {
+		public void onClick(View v) {
+			myRegion = new RegionKey(0, 0);
+			logMsg("Moved to region " + myRegion);
+		}
+	};
+	private OnClickListener r01_listener = new OnClickListener() {
+		public void onClick(View v) {
+			myRegion = new RegionKey(0, 1);
+			logMsg("Moved to region " + myRegion);
+		}
+	};
+	private OnClickListener r10_listener = new OnClickListener() {
+		public void onClick(View v) {
+			myRegion = new RegionKey(1, 0);
+			logMsg("Moved to region " + myRegion);
+		}
+	};
+	private OnClickListener r11_listener = new OnClickListener() {
+		public void onClick(View v) {
+			myRegion = new RegionKey(1, 1);
+			logMsg("Moved to region " + myRegion);
+		}
+	};
+
+	private OnClickListener read_button_listener = new OnClickListener() {
+		public void onClick(View v) {
+			switch (readButtonState) {
+			case 0:
+				readButtonState = 1;
+				readClick(0, 0);
+				break;
+			case 1:
+				readButtonState = 2;
+				readClick(1, 0);
+				break;
+			case 2:
+				readButtonState = 3;
+				readClick(0, 1);
+				break;
+			case 3:
+				readButtonState = 0;
+				readClick(1, 1);
+				break;
+			}
+		}
+	};
+
+	private OnClickListener ticket_button_listener = new OnClickListener() {
+		public void onClick(View v) {
+			if (!ticketHeld) {
+				requestClick(myRegion.x, myRegion.y);
+			} else {
+				releaseClick();
+			}
+		}
+	};
+
+	private void readClick(long rx, long ry) {
+		if (!requestOutstanding) {
+			requestOutstanding = true;
+			logMsg(String.format("Reading (%d,%d)", rx, ry));
+			new ReadTask().execute(rx, ry, 0L, System.currentTimeMillis());
+		} else {
+			logMsg("Wait for previous action to complete.");
+		}
+	}
+
+	private void requestClick(long rx, long ry) {
+		if (!ticketHeld && !requestOutstanding) {
+			requestOutstanding = true;
+			ticket_button.setText("Taking ticket...");
+			ticketRegion = new RegionKey(rx, ry);
+			logMsg("Requesting ticket in " + ticketRegion);
+			new RequestTask().execute(ticketRegion.x, ticketRegion.y, 0L,
+					System.currentTimeMillis());
+		} else if (requestOutstanding) {
+			logMsg("Wait for previous action to complete.");
+		} else if (ticketHeld) {
+			logMsg("You are already holding a ticket!" + ticketRegion);
+		}
+	}
+
+	private void releaseClick() {
+		if (ticketHeld && !requestOutstanding) {
+			requestOutstanding = true;
+			ticket_button.setText("Releasing ticket...");
+			logMsg("Releasing ticket in " + ticketRegion);
+			new ReleaseTask().execute(ticketRegion.x, ticketRegion.y, 0L,
+					System.currentTimeMillis());
+		} else if (requestOutstanding) {
+			logMsg("Wait for previous action to complete.");
+		} else if (!ticketHeld) {
+			logMsg("You are not holding a ticket!");
+		}
+	}
 
 	/** Start the benchmark iteration loop */
 	public synchronized void startBenchmark() {

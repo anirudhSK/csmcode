@@ -10,7 +10,7 @@ public class CSMOp implements Serializable {
 	final static int PROC_REQUEST = 10;
 	final static int PROC_REPLY = 11;
 	final static int WRITE_UPDATE = 12;
-	final static int WRITE_ACK = 13;
+	final static int WRITE_UPDATE_ACK = 13;
 	final static int WRITE_UPDATE_REQUEST = 14;
 
 	// attributes to be serialized
@@ -36,8 +36,8 @@ public class CSMOp implements Serializable {
 		this.lowestPendingRequestId = -2;
 		this.type = t;
 		this.procedure = p;
-		this.srcRegion = src;
-		this.dstRegion = dst;
+		this.srcRegion = new RegionKey(src);
+		this.dstRegion = new RegionKey(dst);
 		this.broadcast = false;
 		this.requestSuccess = true; // assume true for at-most-once execution
 		this.timedOut = false;
@@ -119,10 +119,13 @@ public class CSMOp implements Serializable {
 			return String.format("PROC_REPLY %d:%d %s->%s", this.procedure, this.requestId,
 					this.srcRegion, this.dstRegion);
 		case WRITE_UPDATE:
-			return String.format("WRITE_UPDATE %d %s->%s", this.requestId,
+			return String.format("WRITE_UPDATE %d %s->%s", this.order,
 					this.srcRegion, this.dstRegion);
-		case WRITE_ACK:
-			return String.format("WRITE_ACK %d %s->%s", this.requestId,
+		case WRITE_UPDATE_ACK:
+			return String.format("WRITE_UPDATE_ACK %d %s->%s", this.order,
+					this.srcRegion, this.dstRegion);
+		case WRITE_UPDATE_REQUEST:
+			return String.format("WRITE_UPDATE_REQUEST %d %s->%s", this.order,
 					this.srcRegion, this.dstRegion);
 		}
 		return String.format("UNKNOWN %d:%d %s->%s", this.procedure, this.requestId,

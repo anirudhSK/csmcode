@@ -28,9 +28,10 @@ public class StatusActivity extends Activity implements LocationListener {
 
 	// UI elements
 	Button r00, r01, r10, r11;
-	Button ticket_button;
+	Button ticket_button, read_button;
 	Button bench_button, cache_button, distribution_button;
 	int distributionLevel = 3;
+	int readButtonState = 0;
 	TextView opCountTv, successCountTv, failureCountTv;
 	TextView idTv, stateTv, regionTv, leaderTv;
 	ListView msgList;
@@ -143,7 +144,9 @@ public class StatusActivity extends Activity implements LocationListener {
 
 		ticket_button = (Button) findViewById(R.id.ticket_button);
 		ticket_button.setOnClickListener(ticket_button_listener);
-
+		read_button = (Button) findViewById(R.id.read_button);
+		read_button.setOnClickListener(read_button_listener);
+		
 		r00 = (Button) findViewById(R.id.r00_button);
 		r00.setOnClickListener(r00_listener);
 		r01 = (Button) findViewById(R.id.r01_button);
@@ -325,12 +328,26 @@ public class StatusActivity extends Activity implements LocationListener {
 		}
 	};
 
-	private OnClickListener read_all_listener = new OnClickListener() {
+	private OnClickListener read_button_listener = new OnClickListener() {
 		public void onClick(View v) {
-			mux.userClient.requestRead(0, 0);
-			mux.userClient.requestRead(0, 1);
-			mux.userClient.requestRead(1, 0);
-			mux.userClient.requestRead(1, 1);
+			switch (readButtonState) {
+			case 0:
+				readButtonState = 1;
+				mux.userClient.requestRead(0, 0);
+				break;
+			case 1:
+				readButtonState = 2;
+				mux.userClient.requestRead(1, 0);
+				break;
+			case 2:
+				readButtonState = 3;
+				mux.userClient.requestRead(0, 1);
+				break;
+			case 3:
+				readButtonState = 0;
+				mux.userClient.requestRead(1, 1);
+				break;
+			}
 		}
 	};
 
@@ -343,17 +360,6 @@ public class StatusActivity extends Activity implements LocationListener {
 				ticket_button.setText("Releasing ticket...");
 				mux.userClient.requestIncrement();
 			}
-		}
-	};
-
-	private OnClickListener readparkingA_listener = new OnClickListener() {
-		public void onClick(View v) {
-			mux.userClient.requestRead(0, 0);
-		}
-	};
-	private OnClickListener requestparkingA_listener = new OnClickListener() {
-		public void onClick(View v) {
-			mux.userClient.requestDecrement(0, 0);
 		}
 	};
 

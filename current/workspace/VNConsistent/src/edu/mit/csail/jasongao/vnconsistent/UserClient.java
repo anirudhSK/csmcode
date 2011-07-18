@@ -33,29 +33,28 @@ public class UserClient extends Thread {
 	private double readVsWriteDistribution = 0.9;
 
 	private boolean ticketHeld = false; // are we currently holding a ticket?
-	private RegionKey ticketHeldRegion;
+	private RegionKey ticketRegion;
 	private boolean requestOutstanding = false;
 	private long successCount = 0;
 	private long failureCount = 0;
 	private long opCount = 0;
 
-	private UserOp lastRequest = null; // last write requested
 	private UserOp currentRequest = null;
 	private long currentRequestTimestamp;
 
 	private boolean benchmarkOn = false;
 
-	final static private long benchmarkTimeoutCheckPeriod = 5000L;
-	final static private long benchmarkIterationDelay = 1000L;
+	final static private long requestTimeoutPeriod = 5000L;
+	final static private long benchmarkIterationDelay = 2000L;
 
 	/**
 	 * Checks to see if currentRequest has been outstanding too long. If so,
 	 * makes it as timed out and makes a new request
 	 */
-	Runnable benchmarkRequestTimeoutCheckR = new Runnable() {
+	Runnable requestTimeoutCheckR = new Runnable() {
 		@Override
 		public void run() {
-			if (currentRequest == lastRequest) { // comparing pointers is fine
+			if (currentRequest != null) {
 				failureCount++;
 				logMsg(String.format("UserClient request timed out. (%d,%d)=?",
 						currentRequest.targetRx, currentRequest.targetRy,
@@ -65,16 +64,13 @@ public class UserClient extends Thread {
 				// reset flags
 				requestOutstanding = false;
 
-				myHandler.post(benchmarkIterationR);
+				if (benchmarkOn) {
+					myHandler.post(benchmarkIterationR);
+				}
+
+				// Update display
+				updateDisplay();
 			}
-
-			lastRequest = currentRequest;
-
-			// Update display
-			updateDisplay();
-
-			myHandler.postDelayed(benchmarkRequestTimeoutCheckR,
-					benchmarkTimeoutCheckPeriod);
 		}
 	};
 
@@ -139,11 +135,14 @@ public class UserClient extends Thread {
 				.sendToTarget();
 	}
 
-	/** Send a CSMOp to the Mux to broadcast the request */
+	/** Send a request to the Mux to broadcast */
 	private void sendUserOp(UserOp uop) {
+		requestOutstanding = true;
 		opCount++;
 		uop.request = true;
 		currentRequestTimestamp = System.currentTimeMillis();
+		this.currentRequest = uop;
+		myHandler.postDelayed(requestTimeoutCheckR, requestTimeoutPeriod);
 		mux.myHandler.obtainMessage(Mux.APP_SEND, uop).sendToTarget();
 	}
 
@@ -151,13 +150,18 @@ public class UserClient extends Thread {
 	public synchronized void handleReply(UserOp uop) {
 		if (uop.requesterId != id)
 			return;
+		if (!requestOutstanding)
+			return;
+
+		myHandler.removeCallbacks(requestTimeoutCheckR);
+		currentRequest = null;
+		requestOutstanding = false;
 
 		long latency = System.currentTimeMillis() - currentRequestTimestamp;
 
 		if (uop.type == UserOp.DECREMENT) {
 			if (uop.success) {
 				successCount++;
-				requestOutstanding = false;
 				ticketHeld = true;
 				logMsg(String
 						.format("UserClient decrement on (%d,%d) from (%d,%d) succeeded, value=%d,latency=%d",
@@ -172,7 +176,6 @@ public class UserClient extends Thread {
 		} else if (uop.type == UserOp.INCREMENT) {
 			if (uop.success) {
 				successCount++;
-				requestOutstanding = false;
 				ticketHeld = false;
 				logMsg(String
 						.format("UserClient increment on (%d,%d) from (%d,%d) succeeded, value=%d,latency=%d",
@@ -242,9 +245,8 @@ public class UserClient extends Thread {
 			logMsg("Already holding a ticket!");
 		} else {
 			if (!ticketHeld && !requestOutstanding) {
-				requestOutstanding = true;
-				ticketHeldRegion = new RegionKey(rx, ry);
-				logMsg("Requesting spot in " + ticketHeldRegion);
+				ticketRegion = new RegionKey(rx, ry);
+				logMsg("Requesting spot in " + ticketRegion);
 				UserOp userRequest = new UserOp(id, UserOp.DECREMENT, myRx,
 						myRy, rx, ry);
 				currentRequest = userRequest;
@@ -252,7 +254,7 @@ public class UserClient extends Thread {
 			} else if (requestOutstanding) {
 				logMsg("Wait for previous action to complete.");
 			} else if (ticketHeld) {
-				logMsg("You are already holding a ticket!" + ticketHeldRegion);
+				logMsg("You are already holding a ticket!" + ticketRegion);
 			}
 		}
 	}
@@ -271,9 +273,8 @@ public class UserClient extends Thread {
 			logMsg("Already holding a ticket!");
 		} else {
 			if (!ticketHeld && !requestOutstanding) {
-				requestOutstanding = true;
-				ticketHeldRegion = new RegionKey(rx, ry);
-				logMsg("Requesting spot in " + ticketHeldRegion);
+				ticketRegion = new RegionKey(rx, ry);
+				logMsg("Requesting spot in " + ticketRegion);
 				UserOp userRequest = new UserOp(id, UserOp.DECREMENT, myRx,
 						myRy, rx, ry);
 				currentRequest = userRequest;
@@ -281,7 +282,7 @@ public class UserClient extends Thread {
 			} else if (requestOutstanding) {
 				logMsg("Wait for previous action to complete.");
 			} else if (ticketHeld) {
-				logMsg("You are already holding a ticket!" + ticketHeldRegion);
+				logMsg("You are already holding a ticket!" + ticketRegion);
 			}
 		}
 	}
@@ -290,10 +291,10 @@ public class UserClient extends Thread {
 	public synchronized void requestIncrement() {
 		if (ticketHeld && !requestOutstanding) {
 			requestOutstanding = true;
-			logMsg("Releasing ticket in " + ticketHeldRegion);
+			logMsg("Releasing ticket in " + ticketRegion);
 
 			UserOp userRequest = new UserOp(id, UserOp.INCREMENT, myRx, myRy,
-					ticketHeldRegion.x, ticketHeldRegion.y);
+					ticketRegion.x, ticketRegion.y);
 			currentRequest = userRequest;
 			sendUserOp(userRequest);
 		} else if (requestOutstanding) {
@@ -312,14 +313,11 @@ public class UserClient extends Thread {
 	public synchronized void startBenchmark() {
 		this.benchmarkOn = true;
 		myHandler.post(benchmarkIterationR);
-		myHandler.postDelayed(benchmarkRequestTimeoutCheckR,
-				benchmarkTimeoutCheckPeriod);
 	}
 
 	/** Stop the benchmark iteration loop */
 	public synchronized void stopBenchmark() {
 		this.benchmarkOn = false;
-		myHandler.removeCallbacks(benchmarkRequestTimeoutCheckR);
 		myHandler.removeCallbacks(benchmarkIterationR);
 	}
 

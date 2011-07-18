@@ -1,6 +1,7 @@
 package edu.mit.csail.jasongao.vnconsistent;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
@@ -35,7 +36,7 @@ public class CSMLayer implements Serializable {
 
 	// Prevent forwarding loops
 	// map source region to an incrementing long
-	transient private long nextOpNonce = 0;
+	private long nextOpNonce = 0;
 	transient private Map<RegionKey, Set<Long>> forwardedPackets;
 
 	// References to other components
@@ -47,7 +48,7 @@ public class CSMLayer implements Serializable {
 	transient private Runnable pendingRequestsRetryCheckR;
 
 	private static final long pendingRequestsRetryCheckPeriod = 600;
-	private static final long pendingRequestsRetryTimeoutPeriod = 1300;
+	private static final long pendingRequestsRetryTimeoutPeriod = 700;
 
 	// CSM procedure retry and at-most-once queues
 	// Requester side
@@ -59,8 +60,7 @@ public class CSMLayer implements Serializable {
 	// INSO
 	// Write updater / HOME side
 	private long globalOrder; // my monotonically increasing write update order
-	private Map<Long, CSMOp> sentWriteUpdates; // Map global order to update for
-												// res
+	private Map<Long, CSMOp> sentWriteUpdates; // Store for retries
 	private Map<Long, Set<RegionKey>> acksNotReceived; // who hasn't ack'd?
 	// Acknowledger / other side
 	private Map<RegionKey, Long> remoteOrders;
@@ -101,9 +101,7 @@ public class CSMLayer implements Serializable {
 		if (request.lowestPendingRequestId < 0)
 			request.lowestPendingRequestId = request.requestId;
 
-		logMsg(String.format("Sending PROC_REQUEST %d:%d %s->%s",
-				request.procedure, request.requestId, request.srcRegion,
-				request.dstRegion));
+		logMsg(String.format("Sending %s", request));
 		pendingRequests.get(request.dstRegion).put(request.requestId, request);
 
 		// handle cached read-only procedure requests
@@ -111,10 +109,7 @@ public class CSMLayer implements Serializable {
 				&& request.isWrite == false
 				&& request.type == CSMOp.PROC_REQUEST
 				&& this.blocks.get(request.dstRegion) != null) {
-			logMsg(String.format(
-					"Local cache hit on read-only PROC_REQUEST %d:%d %s->%s",
-					request.procedure, request.requestId, request.srcRegion,
-					request.dstRegion));
+			logMsg(String.format("Local cache hit on read-only %s", request));
 			CSMOp reply = userServer.handleCSMRequest(
 					this.blocks.get(request.dstRegion), request);
 			this.dispatchCSMOp(reply);
@@ -144,101 +139,95 @@ public class CSMLayer implements Serializable {
 					CSMOp reply = sentReplies.get(op.srcRegion).get(
 							op.requestId);
 
-					logMsg(String
-							.format("Received DUPLICATE PROC_REQUEST %d:%d %s->%s, replying PROC_REPLY %d:%d %s->%s",
-									op.procedure, op.requestId, op.srcRegion,
-									op.dstRegion, reply.procedure,
-									reply.requestId, reply.srcRegion,
-									reply.dstRegion));
+					logMsg(String.format("Received DUPLICATE %s, replying %s",
+							op, reply));
 
 					this.dispatchCSMOp(reply);
 					return;
 				} else {
-					if (this.blocks.get(this.region) == null) {
+					if (!this.blocks.containsKey(this.region)) {
 						this.blocks.put(this.region, new Block());
 					}
 					CSMOp reply = userServer.handleCSMRequest(
 							this.blocks.get(region), op);
-					logMsg(String
-							.format("Received PROC_REQUEST %d:%d %s->%s, replying PROC_REPLY %d:%d %s->%s",
-									op.procedure, op.requestId, op.srcRegion,
-									op.dstRegion, reply.procedure,
-									reply.requestId, reply.srcRegion,
-									reply.dstRegion));
+					logMsg(String.format("Received %s, replying %s", op, reply));
 					sentReplies.get(reply.dstRegion)
 							.put(reply.requestId, reply);
 					this.dispatchCSMOp(reply);
 
-					if (this.cacheEnabled && op.isWrite) { // send out write
-															// updates
+					if (this.cacheEnabled && op.isWrite) {
+						logMsg("Sending out write updates with threadgroup");
+						// send out WRITE_UPDATE with broadcast flag
 						CSMOp update = new CSMOp(-1, -1, CSMOp.WRITE_UPDATE,
-								this.region, new RegionKey(-2, -2));
+								region, new RegionKey(-2, -2));
 						update.broadcast = true;
-						update.block = this.blocks.get(this.region);
-						update.order = this.globalOrder;
-						this.globalOrder++;
+						update.block = new Block(blocks.get(region));
+						update.order = globalOrder;
+						globalOrder++;
 
 						// Save for later WRITE_UPDATE_REQUESTS / retries
-						this.sentWriteUpdates.put(update.order, update);
+						sentWriteUpdates.put(update.order, update);
 						Set<RegionKey> allOtherRegions = new HashSet<RegionKey>();
-						for (long x = 0; x <= this.vncDaemon.maxRx; x++) {
-							for (long y = 0; y <= this.vncDaemon.maxRy; y++) {
+						for (long x = 0; x <= vncDaemon.maxRx; x++) {
+							for (long y = 0; y <= vncDaemon.maxRy; y++) {
 								allOtherRegions.add(new RegionKey(x, y));
 							}
 						}
 						// remove ourself
-						allOtherRegions.remove(this.region);
-						this.acksNotReceived.put(update.order, allOtherRegions);
-						// send out WRITE_UPDATE with broadcast flag
-						logMsg(String.format("Sending out WRITE_UPDATE:%d",
-								update.order));
-						this.dispatchCSMOp(update);
+						allOtherRegions.remove(region);
+						acksNotReceived.put(update.order, allOtherRegions);
+						dispatchCSMOp(update);
+						/*
+						 * writeUpdateThread = new Thread( new
+						 * ThreadGroup("writeUpdateGroup").getParent(),
+						 * this.writeUpdateR, "writeUpdateThread", 256L);
+						 * writeUpdateThread.start();
+						 */
 					}
 				}
 				break;
 			case CSMOp.PROC_REPLY: // pass to userserver
 				// ignore if not in pending request queue, duplicate reply
 				if (pendingRequests.get(op.srcRegion).containsKey(op.requestId)) {
-					logMsg(String
-							.format("Received PROC_REPLY %d:%d %s->%s, handing to UserServer",
-									op.procedure, op.requestId, op.srcRegion,
-									op.dstRegion));
+					logMsg(String.format("Received %s, handing to UserServer",
+							op));
 					pendingRequests.get(op.srcRegion).remove(op.requestId);
 					userServer.handleCSMReply(op);
 				} else {
-					logMsg(String.format(
-							"Received DUPLICATE PROC_REPLY %d:%d %s->%s",
-							op.procedure, op.requestId, op.srcRegion,
-							op.dstRegion));
+					logMsg(String.format("Received DUPLICATE %s", op));
 				}
 				break;
 			case CSMOp.WRITE_UPDATE: // update cache and send back an ack
 				// don't apply our own updates, though
+				logMsg(String.format("Received %s", op));
 				if (this.cacheEnabled && !op.srcRegion.equals(this.region)) {
-					logMsg(String.format("Received WRITE_UPDATE %d %s->%s",
-							op.order, op.srcRegion, op.dstRegion));
-					this.writeBuffer.get(op.srcRegion).put(op.order, op);
-
 					if (!this.remoteOrders.containsKey(op.srcRegion)) {
 						// first write_update heard from this remote region
-						logMsg(String
-								.format("first WRITE_UPDATE ever heard from %s is order %d",
-										op.srcRegion, op.order));
+						logMsg(String.format(
+								"first WRITE_UPDATE from %s is order %d",
+								op.srcRegion, op.order));
 						this.remoteOrders.put(op.srcRegion, op.order);
 					}
 
-					// send back ack
-					CSMOp ack = new CSMOp(-1, -1, CSMOp.WRITE_ACK, this.region,
-							op.srcRegion);
-					ack.order = op.order; // this is important, durr
-					this.dispatchCSMOp(ack);
-					checkWriteBuffer(op.srcRegion);
+					// ignore if < next order expected; odd stack overflow err
+					long nextOrder = this.remoteOrders.get(op.srcRegion);
+					if (op.order >= nextOrder) {
+						this.writeBuffer.get(op.srcRegion).put(op.order, op);
+
+						// send back ack
+						CSMOp ack = new CSMOp(-1, -1, CSMOp.WRITE_UPDATE_ACK,
+								this.region, op.srcRegion);
+						ack.order = op.order;
+						this.dispatchCSMOp(ack);
+
+						// try to apply write updates
+						checkWriteBuffer(op.srcRegion);
+					}
 				}
 				break;
-			case CSMOp.WRITE_ACK:
+			case CSMOp.WRITE_UPDATE_ACK:
 				if (this.cacheEnabled) {
-					logMsg(String.format("Received WRITE_ACK:%d %s->%s",
-							op.order, op.srcRegion, op.dstRegion));
+					logMsg(String.format("Received %s", op));
 					// remove op.srcRegion from List of waiting-for-ack
 					if (this.acksNotReceived.containsKey(op.order)) {
 						this.acksNotReceived.get(op.order).remove(op.srcRegion);
@@ -255,12 +244,14 @@ public class CSMLayer implements Serializable {
 				break;
 			case CSMOp.WRITE_UPDATE_REQUEST: // resend the write_update
 				if (this.cacheEnabled) {
-					logMsg(String.format(
-							"Received WRITE_UPDATE_REQUEST %d %s->%s",
-							op.order, op.srcRegion, op.dstRegion));
+					logMsg(String.format("Received %s", op));
 					CSMOp updateToResend = this.sentWriteUpdates.get(op.order);
 					if (updateToResend != null) {
+						logMsg(String.format("Sending requested %s", op));
 						this.dispatchCSMOp(updateToResend);
+					} else {
+						logMsg(String
+								.format("Can't resend requested update, not found in sentWriteupdates"));
 					}
 				}
 				break;
@@ -279,6 +270,10 @@ public class CSMLayer implements Serializable {
 					logMsg("Forwarding CSMOp to remote region.");
 					this.forwardedPackets.get(op.srcRegion).add(op.nonce);
 					this.dispatchCSMOp(op);
+				} else if (op.broadcast) {
+					logMsg("Forwarding CSMOp because it's broadcast.");
+					this.forwardedPackets.get(op.srcRegion).add(op.nonce);
+					this.dispatchCSMOp(op);
 				}
 			} else {
 				logMsg("Received CSMOp already forwarded, ignoring...");
@@ -288,12 +283,16 @@ public class CSMLayer implements Serializable {
 
 	/** go through buffered write updates and apply the ones we can */
 	private void checkWriteBuffer(RegionKey r) {
-
 		long nextOrder = this.remoteOrders.get(r);
+
+		logMsg(String
+				.format("Applying write updates from %s, remote order = %d, write buffer contains %s",
+						r, nextOrder, this.writeBuffer.get(r).keySet()));
+
 		if (this.writeBuffer.get(r).containsKey(nextOrder)) {
 			// apply next update
 			CSMOp nextUpdate = this.writeBuffer.get(r).get(nextOrder);
-			this.blocks.put(r, nextUpdate.block);
+			this.blocks.put(r, new Block(nextUpdate.block));
 			this.writeBuffer.get(r).remove(nextOrder);
 
 			// and increment remote order expected
@@ -346,6 +345,11 @@ public class CSMLayer implements Serializable {
 		this.synced = false;
 		this.region = new RegionKey(r);
 		this.blocks = new ConcurrentHashMap<RegionKey, Block>();
+		for (long x = 0; x <= this.vncDaemon.maxRx; x++) {
+			for (long y = 0; y <= this.vncDaemon.maxRy; y++) {
+				this.blocks.put(new RegionKey(x, y), new Block());
+			}
+		}
 
 		this.nextRequestId = new ConcurrentHashMap<RegionKey, Long>();
 
@@ -389,7 +393,7 @@ public class CSMLayer implements Serializable {
 
 		this.active = true;
 
-		this.forwardedPackets = new ConcurrentHashMap<RegionKey, Set<Long>>();
+		this.forwardedPackets = new HashMap<RegionKey, Set<Long>>();
 		for (long x = 0; x <= this.vncDaemon.maxRx; x++) {
 			for (long y = 0; y <= this.vncDaemon.maxRy; y++) {
 				this.forwardedPackets.put(new RegionKey(x, y),
@@ -458,7 +462,7 @@ public class CSMLayer implements Serializable {
 
 	/** Send a CSMOp to the Mux, which will loopback or broadcast as necessary */
 	private void dispatchCSMOp(CSMOp op) {
-		// logMsg("Dispatching CSM_SEND of type " + op.type);
+		logMsg("Dispatching CSMOp " + op);
 		op.nonce = nextOpNonce++;
 		mux.myHandler.obtainMessage(Mux.CSM_SEND, op).sendToTarget();
 	}
