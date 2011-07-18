@@ -28,14 +28,14 @@ public class VNCDaemon extends Thread {
 	// Constants
 	private static final int regionWidth = 35; // ~meters, same units as above
 	// for 2x2 on soccer field
-	 private static final int minLatitude = 129730; // gps to 5 decimal places
-	 private static final int minLongitude = 10377900; // e.g. 103.77900
+	// private static final int minLatitude = 129730; // gps to 5 decimal places
+	// private static final int minLongitude = 10377900; // e.g. 103.77900
 	// for 2x2 parking lots
-	//private static final int minLatitude = 129740 - regionWidth; // TODO test
-	//private static final int minLongitude = 10378100 - regionWidth; // TODO test
+	private static final int minLatitude = 129740 - regionWidth; // TODO test
+	private static final int minLongitude = 10378100 - regionWidth; // TODO test
 
 	// Time periods
-	private final static long heartbeatPeriod = 10000;
+	private final static long heartbeatPeriod = 5000;
 	private final static long stateRequestedTimeoutPeriod = 10000;
 
 	private final static long electCandidatePeriod = 400;
@@ -93,8 +93,6 @@ public class VNCDaemon extends Thread {
 
 		mState = JOINING;
 		myRegion = new RegionKey(-1, -1); // start outside of active region
-		String line=String.format("Started VNCDaemon with parameters maxRx = %d , maxRY= %d, minLongitude = %d , minLatitude = %d",maxRx,maxRy,minLongitude,minLatitude);
-		logMsg(line); 
 	}
 
 	/** Log message to device display and to Android log. */
@@ -281,8 +279,8 @@ public class VNCDaemon extends Thread {
 				if (mState == JOINING && vnp.dstRegion.equals(myRegion)) {
 					logMsg("heard LEADER_REPLY from " + vnp.src);
 					stateTransition(NONLEADER, myRegion, vnp);
-				} else if (mState == NONLEADER && vnp.src != leaderId
-						&& vnp.dstRegion.equals(myRegion)) {
+				} else if (mState == NONLEADER && vnp.src != leaderId && vnp.dstRegion
+						.equals(myRegion)) {
 					logMsg("heard LEADER_REPLY from new leader " + vnp.src);
 					stateTransition(NONLEADER, myRegion, vnp);
 				}
@@ -380,8 +378,6 @@ public class VNCDaemon extends Thread {
 			myHandler.post(leaderRequestRetryR);
 			myHandler.postDelayed(leaderRequestTimeoutR,
 					VNCDaemon.leaderRequestTimeoutPeriod);
-			myHandler.postDelayed(stateRequestedTimeoutR,
-					VNCDaemon.stateRequestedTimeoutPeriod); // in case
 		} else if (targetState == LEADER) {
 			// Ask cloud if we can become the leader
 			Cloud.CloudResponse csmR = myCloud.takeLeadership(myRegion, mId);
@@ -505,10 +501,8 @@ public class VNCDaemon extends Thread {
 
 	/* Called upon moving from one current region to a new one, rx, ry */
 	public synchronized void changeRegion(RegionKey newRegion) {
-		if (newRegion.equals(myRegion)) // hasn't changed?
-			return;
-
 		RegionKey oldRegion = new RegionKey(myRegion);
+
 		myRegion = new RegionKey(newRegion);
 
 		logMsg(String.format("moving from region %s, to %s", oldRegion,

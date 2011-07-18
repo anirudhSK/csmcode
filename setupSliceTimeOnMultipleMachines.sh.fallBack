@@ -1,0 +1,186 @@
+#! /bin/bash
+#  IMPORTANT: To be run on the machine where ns-3+sim/sync server reside. 
+#  Arguments on the command line
+# TODO Make number of arguments flexible, for now, you have to specify a trace file even if it's not going to be used.
+## TODO: Useful command to remove the app if required and in worst case ~/ASPLOSWork/android-sdk-linux_x86/platform-tools/adb -s emulator-5556 shell rm /data/app/edu.mit.csail.jasongao.vnconsistent-2.apk
+## README: This is the command that was working earlier on , before I decided to make things faster, fallback as Amma said.
+numberOfArguments=9
+
+separation=30						# square in which all nodes lie in case they are positioned statically. , useless variable not really used at all. 
+source constants.sh 
+if [ $# -ne $numberOfArguments ]
+then
+	echo "Usage: ./setupSliceTimeOnMultipleMachines.sh <numberOfNsNodes> <numberOfEmulators> <synchronizationServerIP> <broadcastIPAddress> <username> <simulationTime> <mobilityMode> <traceFile: specify as absolute path> <csmServerName>";
+	exit ;
+fi
+
+
+numberOfNsNodes=$1 					# number of nodes in the simulator 
+numberOfEmulators=$2 					# number of Android VM's 
+synchronizationServerIP=$3 				# the IP of the syncing server, same as the local IP of this machine ie the machine which is the head node for the simulation 
+broadcastIPAddress=$4					# broadcastIPAddress for this domain 
+username=$5						# to set up the tunnels under some user name 
+simulationTime=$6					# Time to run simulation 
+mobilityMode=$7						# 1 for static , 2 for random walks and 3 for trace driven. 
+traceFile=$8						# Aggregate trace file for the simulation. 
+csmServerName=$9					# Where does the cloud run ? 
+
+
+# create all the AVD's right here right now, since this seems to be another big PITA 
+sudo killall -s 9 socat emulator screen server adhoc-android-vms staggeredSimulationSync python 
+sudo killall -s 9 ssh			# Otherwise you 'll keep getting those TUNSETIFF busy messages, I still get them , God know where they are coming from 
+# keep killing these b*** till they die 
+
+cd /afs/csail.mit.edu/u/a/anirudh/ASPLOSWork/android-sdk-linux_x86/tools
+pwd 
+rm ~/.android/avd/* -rf 				# Just clean up for good. 
+sudo -u anirudh ./createAVD.sh $numberOfEmulators	# if you don't do a -u anirudh, these avds will be created in /root/.avd 
+cd ~/MultiMachineUserSpaceSliceTime
+
+### End of killing the AVD's #### 
+
+killall -s 9 python					# destroy any previous versions of the server 
+
+
+set -v 
+set -x
+echo "CSM server is $csmServerName"
+cd $PythonAppFolder 
+python csm.py  2> ~/MultiMachineUserSpaceSliceTime/csmServer.errLogs  > ~/MultiMachineUserSpaceSliceTime/csmServer.logs &	# Jason changed the python code to run directly by auto recognizing the IP address of the host 
+cd ~/MultiMachineUserSpaceSliceTime
+set +v
+set +x 
+
+# compile VN-Consistent to reach this new address: ## fill this in 
+
+set -v
+set -x
+sed s/"18.251.7.13"/$csmServerName/ $VNConsistentFolder/src/edu/mit/csail/jasongao/vnconsistent/Cloud.boilerplate > $VNConsistentFolder/src/edu/mit/csail/jasongao/vnconsistent/Cloud.java
+set +v
+set +x
+cd $VNConsistentFolder
+ant debug
+cd ~/MultiMachineUserSpaceSliceTime
+
+
+# sync your copy of the trace files with the latest ones
+rsync $androidTraceFolder/ ~/ASPLOSWork/CabTraces/TraceConversion/AndroidTraces/ 	
+# the destinations are the master copies of the trace files. 
+rsync $traceFile ~/ASPLOSWork/CabTraces/TraceConversion/aggregateSimulatorTrace.txt 	
+# similarly for the ns-3 trace as well. 
+
+# Port is hardcoded at 5212
+
+ 
+# start server on the local machine in the background 
+# now setup the emulations on the local or the other machines
+# localname is the array of all hosts that the emulation is to run on.
+rm avd*.log 
+#sshname[0]="128.30.66.123"
+#sshname[1]="128.30.66.121"
+#sshname[2]="128.30.66.122"
+#sshname[3]="128.30.66.128"
+
+sshname[0]="hermes5.csail.mit.edu"
+sshname[1]="hermes6.csail.mit.edu"
+sshname[2]="hermes7.csail.mit.edu"
+#sshname[0]="hermes8.csail.mit.edu"
+
+localname[0]="192.168.1.5"
+localname[1]="192.168.1.6" # TODO Replace symbolic ASCII names ie localnames with an IP address string 
+localname[2]="192.168.1.7"
+#localname[0]="192.168.1.8"
+
+# FORGET this: #  declare -a localname=(element1 element2 element # use this notation later. In either case, read from a config file eventually. 
+
+numberOfPhysicalHosts=${#localname[@]}
+echo "Number of Physical hosts is $numberOfPhysicalHosts"
+numberOfVMsPerHost=`expr $numberOfEmulators '/' $numberOfPhysicalHosts`
+echo "Multiplexing factor is $numberOfVMsPerHost"
+
+
+i=0
+j=0
+counter=0
+
+while [ $i -lt $numberOfPhysicalHosts ] ; do
+	ssh $username@${sshname[$i]} sudo /afs/csail.mit.edu/u/a/anirudh/ASPLOSWork/EmulatorScripts/removeVestiges.sh # will this work 
+	i=`expr $i + 1`
+done
+sudo killall -s 9 socat emulator screen server adhoc-android-vms staggeredSimulationSync
+sudo killall -s 9 ssh			# Otherwise you 'll keep getting those TUNSETIFF busy messages, I still get them , God know where they are coming from 
+
+screen -wipe
+./SynchronizedEmulationSetup.sh $numberOfNsNodes $username
+# sets up the connections into the simulator on the ns-3 + sync server machine.
+set -v
+set -x 
+rm nohup.out
+nohup $server $broadcastIPAddress $syncInterval $androidTraceFolder &       # TODO Do some error checking here. 
+set +v
+set +x 
+
+i=0
+while [ $i -lt $numberOfPhysicalHosts ] ; do
+	j=0
+	while [ $j -lt $numberOfVMsPerHost ] ; do
+		# IP address on the 192.168.5 subnet for Jason's App. 
+		foreignADBPort=`expr $baseADBPort + $counter` # set IP addresses using telnet 
+		foreignConsolePort=`expr $baseConsolePort + $counter`
+		avdNumber=$counter
+		echo "./spawnEmulatorInstance.sh $synchronizationServerIP  $avdNumber $foreignADBPort $foreignConsolePort $icount $emulatorPath ${sshname[$i]} ${localname[$i]} $username"
+		./spawnEmulatorInstance.sh $synchronizationServerIP  $avdNumber $foreignADBPort $foreignConsolePort $icount $emulatorPath ${sshname[$i]} ${localname[$i]} $username
+		j=`expr $j + 1`
+		counter=`expr $counter + 1`	
+	done
+	i=`expr $i + 1`
+done
+echo "Waiting for emulators to boot completely ..." 
+#sleep 50 # need to wait until $adb can connect to it properly and set the IP address, ie boot up time, reduce the boot up time to 30 seconds flat by doing this concurrently.  
+# sleep 800
+sleep 800
+# now that all the emulators have booted up, set their IP, install apks and start the apk files.  
+i=0
+j=0
+counter=0
+while [ $i -lt $numberOfPhysicalHosts ] ; do
+	j=0
+	while [ $j -lt $numberOfVMsPerHost ] ; do
+		# IP address on the 192.168.5 subnet for Jason's App, 
+		foreignADBPort=`expr $baseADBPort + $counter` # set IP addresses using telnet 
+		foreignConsolePort=`expr $baseConsolePort + $counter`
+		avdNumber=$counter
+		ip=`expr $counter + 1 `
+		$adb connect ${localname[$i]}:$foreignADBPort # connect to the remote emulator. 
+		sleep 1 			# There seems to be some issue sending commands, maybe it's because you need it to stablize I have no clue. 
+		$adb -s ${localname[$i]}:$foreignADBPort shell ifconfig eth1 192.168.5.$ip netmask 255.255.0.0 
+		#$adb -s ${localname[$i]}:$foreignADBPort install -r /afs/csail.mit.edu/u/a/anirudh/ASPLOSWork/GPSDisplay/bin/GPSLogger-debug.apk
+		#$adb -s ${localname[$i]}:$foreignADBPort shell am start  -n com.app.GPSLogger/.GPSLogger -e "ComingFrom"  "Lagrange" # may interfere with GPS of my app, 
+		$adb -s ${localname[$i]}:$foreignADBPort install -r /afs/csail.mit.edu/u/a/anirudh/ASPLOSWork/VNConsistent/bin/VNConsistent-debug.apk
+		$adb -s ${localname[$i]}:$foreignADBPort shell am start -n edu.mit.csail.jasongao.vnconsistent/.StatusActivity	-e "id" "$avdNumber"	# to assign a unique ID to each node in the CSM . 
+		$adb -s ${localname[$i]}:$foreignADBPort logcat > avd$avdNumber.log & # for logging positions. 
+		# # don't add the -a andr... whatever because that seems to result in error half the time. 
+		# find the name of the app to send the intent using logcat, once you do that send it the command itself.   
+		j=`expr $j + 1`
+		counter=`expr $counter + 1`			# counter goes from 0 to numberOfEmulators  - 1 
+	done
+	i=`expr $i + 1`
+done
+simulationID=`expr $numberOfEmulators + 1`
+#echo "./waf --run "adhoc-android-vms $numberOfNsNodes 30 $simulationID $synchronizationServerIP $simulationTime" & "
+#time ./waf --run "adhoc-android-vms $numberOfNsNodes 30 $simulationID $synchronizationServerIP $simulationTime" & 
+if [ $mobilityMode -eq 3 ]
+then
+	simulationTime=$(python findMaxTraceTime.py $traceFile)		# change the simulation time here 
+
+	echo "Running the simulator for $simulationTime seconds"
+	cd $simulationFolder 
+	echo "./waf --run "staggeredSimulationSync $numberOfNsNodes $separation $mobilityMode $simulationTime 0 $simulationID $synchronizationServerIP $traceFile" & " 
+	time ./waf --run "staggeredSimulationSync $numberOfNsNodes $separation $mobilityMode $simulationTime 0 $simulationID $synchronizationServerIP $traceFile" >  ~/MultiMachineUserSpaceSliceTime/mobility.Logs  &
+else
+	echo "./waf --run "staggeredSimulationSync $numberOfNsNodes $separation $mobilityMode $simulationTime 0 $simulationID $synchronizationServerIP " & " 
+	time ./waf --run "staggeredSimulationSync $numberOfNsNodes $separation $mobilityMode $simulationTime 0 $simulationID $synchronizationServerIP"   > ~/MultiMachineUserSpaceSliceTime/mobility.Logs &
+fi
+
+# Maybe you can replace this by a static binary . 
+# check syntax for call to adhoc-android-vms. 
