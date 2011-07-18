@@ -487,7 +487,7 @@ public class VNCDaemon extends Thread {
 		long mX = Math.round((loc.getLongitude() * 100000) - minLongitude);
 		long mY = Math.round((loc.getLatitude() * 100000) - minLatitude);
 		logMsg(String.format(
-				"GPS lat,long: %f,%d mapping to cartesian x,y: %d,%d",
+				"GPS lat,long: %f,%f mapping to cartesian x,y: %d,%d",
 				loc.getLongitude(), loc.getLatitude(), mX, mY));
 
 		// Determine what region we're in now
