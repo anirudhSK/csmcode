@@ -1,0 +1,49 @@
+1310676406224: started, mId = 5106
+1310676406225: region (-1, -1) out of bounds, dormant
+1310676406229: UserClient started
+1310676413375: Received UDP payload 470
+1310676413964: Received UDP payload 470
+1310676414570: Received UDP payload 470
+1310676417898: Received UDP payload 771
+1310676417978: Received UDP payload 801
+1310676418077: Received UDP payload 6905
+1310676418138: Received UDP payload 470
+1310676420063: Received UDP payload 470
+1310676422055: Received UDP payload 470
+1310676424042: Received UDP payload 470
+1310676426070: Received UDP payload 470
+1310676426920: Received UDP payload 470
+1310676427107: Received UDP payload 6922
+1310676428065: Received UDP payload 470
+1310676430075: Received UDP payload 470
+1310676431700: Received UDP payload 470
+1310676431847: Received UDP payload 6922
+1310676432070: Received UDP payload 470
+1310676434083: Received UDP payload 470
+1310676435520: moving from region (-1,-1), to (0,-1)
+1310676435524: region (0, -1) out of bounds, dormant
+1310676435532: UserClient received REGION_CHANGE message.
+1310676435941: moving from region (0,-1), to (0,0)
+1310676435943: sending LEADER_REQUEST
+1310676436027: Sending UDP payload of size: 470
+1310676436029: UserClient received REGION_CHANGE message.
+1310676436087: Received UDP payload 470
+1310676436186: Received UDP payload 6922
+1310676436221: heard LEADER_REPLY from 5110
+1310676436223: now NONLEADER following LEADER 5110
+1310676436240: sending LEADER_REQUEST
+1310676436241: Sending UDP payload of size: 470
+1310676436426: Received UDP payload 6922
+1310676436483: heard LEADER_REPLY from 5110
+1310676436485: now NONLEADER following LEADER 5110
+1310676438123: Received UDP payload 470
+1310676440091: Received UDP payload 470
+1310676442094: Received UDP payload 470
+1310676444101: Received UDP payload 470
+1310676446109: Received UDP payload 470
+1310676448112: Received UDP payload 470
+1310676450109: Received UDP payload 470
+1310676452113: Received UDP payload 470
+1310676454120: Received UDP payload 470
+1310676456123: Received UDP payload 470
+1310676458131: Received UDP payload 470

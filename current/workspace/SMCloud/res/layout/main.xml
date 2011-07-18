@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<LinearLayout android:layout_width="fill_parent"
+		android:orientation="horizontal" android:layout_height="wrap_content"
+		android:id="@+id/TicketButtonsLayout">
+		<Button android:layout_width="160dip" android:text="Take ticket"
+			android:layout_height="match_parent" android:id="@+id/ticket_button"></Button>
+		<Button android:layout_width="160dip" android:text="Read counts"
+			android:layout_height="match_parent" android:id="@+id/read_button"></Button>
+	</LinearLayout>
+
+	<ListView android:id="@+id/msgList" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:stackFromBottom="true"
+		android:transcriptMode="alwaysScroll" android:layout_weight="1">
+	</ListView>
+
+	<LinearLayout android:layout_width="fill_parent"
+		android:orientation="horizontal" android:layout_height="75dip"
+		android:id="@+id/RegionButton1Layout">
+		<Button android:text="(0,1)" android:id="@+id/r01_button"
+			android:layout_width="160dip" android:layout_height="match_parent" />
+		<Button android:text="(1,1)" android:id="@+id/r11_button"
+			android:layout_width="160dip" android:layout_height="match_parent" />
+	</LinearLayout>
+
+	<LinearLayout android:layout_width="fill_parent"
+		android:orientation="horizontal" android:layout_height="75dip"
+		android:id="@+id/RegionButton2Layout">
+		<Button android:text="(0,0)" android:id="@+id/r00_button"
+			android:layout_width="160dip" android:layout_height="match_parent" />
+		<Button android:text="(1,0)" android:id="@+id/r10_button"
+			android:layout_width="160dip" android:layout_height="match_parent" />
+	</LinearLayout>
+	<LinearLayout android:id="@+id/CountInfoLayout"
+		android:layout_width="match_parent" android:layout_height="wrap_content">
+		<TextView android:id="@+id/opcount_tv" android:layout_width="80dip"
+			android:text="ops: 0" android:layout_height="wrap_content"></TextView>
+		<TextView android:id="@+id/successcount_tv"
+			android:layout_width="110dip" android:text="successes: 0"
+			android:layout_height="wrap_content"></TextView>
+		<TextView android:id="@+id/failurecount_tv"
+			android:layout_width="90dip" android:text="failures: 0"
+			android:layout_height="wrap_content"></TextView>
+	</LinearLayout>
+
+	<LinearLayout android:layout_width="fill_parent"
+		android:orientation="horizontal" android:layout_height="40dip"
+		android:id="@+id/TestButtonsLayout">
+		<Button android:text="Start Bench" android:layout_width="100dip"
+			android:id="@+id/bench_button" android:layout_height="match_parent"></Button>
+		<Button android:text="90%" android:id="@+id/distribution_button"
+			android:layout_height="match_parent" android:layout_width="70dip"></Button>
+	</LinearLayout>
+
+</LinearLayout>

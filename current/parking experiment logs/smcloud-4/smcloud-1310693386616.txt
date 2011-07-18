@@ -1,0 +1,37 @@
+1310693386619: *** Opened log file for writing ***
+1310693386619: *** Application started ***
+1310693388486: *** benchmark starting ***
+1310693388504: Reading spot in (1,0)
+1310693389531: Parking read succeeded, spots=19,latency=1021
+1310693389804: *** benchmark stopped ***
+1310693731995: Reading spot in (0,0)
+1310693735403: Parking read succeeded, spots=17,latency=3397
+1310693739158: Requesting spot in (0,0)
+1310693747582: Parking request succeeded, spots=16,latency=8327
+1310693791477: Releasing spot in (0,0)
+1310693794598: Parking release succeeded, spots=18,latency=3094
+1310693797942: You are not holding a spot!
+1310693834050: Requesting spot in (0,0)
+1310693841516: Parking request succeeded, spots=16,latency=7455
+1310693850682: You are already holding a spot!(0,0)
+1310693853088: Releasing spot in (0,0)
+1310693855818: Parking release succeeded, spots=17,latency=2610
+1310693880067: Requesting spot in (0,0)
+1310693882691: Parking request succeeded, spots=18,latency=2615
+1310693921393: Releasing spot in (0,0)
+1310693927413: Parking release succeeded, spots=17,latency=5957
+1310693965784: You are not holding a spot!
+1310693968983: Requesting spot in (1,0)
+1310693972848: Parking request succeeded, spots=17,latency=3852
+1310693990029: Releasing spot in (1,0)
+1310693993453: Parking release succeeded, spots=16,latency=3419
+1310694032060: Requesting spot in (0,0)
+1310694035968: Parking request succeeded, spots=17,latency=3862
+1310694072053: Releasing spot in (0,0)
+1310694076356: Parking release succeeded, spots=16,latency=4261
+1310694115291: Reading spot in (1,0)
+1310694118533: Parking read succeeded, spots=18,latency=3202
+1310694124003: Requesting spot in (1,0)
+1310694125420: Parking request succeeded, spots=17,latency=1414
+1310694157518: Releasing spot in (1,0)
+1310694161185: Parking release succeeded, spots=17,latency=3617

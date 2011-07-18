@@ -1,0 +1,56 @@
+7/28: Collect stats:
+--------------------
+
+Variables: 
+	1. join.cc :: 4*claim_period, how many old leader retries, delay for RESEND_ORIG, how many RESEND_ORIG
+	2. parking_client.cc :: RESEND_EXP delay, how many retries. make it smaller
+
+Stats: 
+	1. Delay of various types of messages. 
+	2. Completion rate.
+
+Micro Stats: 
+ok	1. Total server accesses/time
+ok	2. Total retries
+ok	3. Leader election time
+ok	4. Leader election rounds (retries)
+	5. How much replication	
+
+-------------------------
+
+4. Messaging/power overhead. 
+
+7/26: TODO next.
+-------------------------
+1. Why some 
+
+2. If LEADER_ACK_REMOTE fails, retry is not done! How to re-ask for leadership? - use ACK_ACK!
+
+3. Leader should be one whose state is preferably sync. modify to get that. - use 3 retries to find a sync node.  
+
+-------------------------
+7/23. Version 1: No. of requests that are received by leaders is very low. 2985/12000 requests are served. This is because leader is not active when request comes. 
+
+ok	1. RETRY requests at clients! because region leader msg is dropped, or no leader or region inactive. 
+ok	2. ISSUE: check why max_retries is taking place? 
+	3. Good way to measure rate of completion. 
+ok	4. Right now we change region to regionX, regionY. We need to send to original region. 
+
+	5. play around with resending times, etc. 
+
+*Next is multi-hop
+		
+-------------------------
+7/22. Version 1: The current leader is responsible for electing the new leader, until it is in communication range. 
+
+-------------------------
+7/19. VN-consistent layer:
+-------------------------
+0. Figure out why consistency breaks.
+	i. Inactive regions: A node enters a new region. how does it know there is no VN? ask multiple times? not fool proof. send broadcast to neighboring regions. wait for response. Again, not fool proof. Our assumption is that 3G server access is intermittent. So, let's assume that if 3G server does not respond, then region will not reboot. Fair assumption. Bootup with startup data. 
+		
+	ii. unsynchronized
+	iii. Multiple leaders
+1. First plug in consistency loopholes in VN.
+
+

@@ -1,0 +1,927 @@
+1310694505781: started, mId = 5109
+1310694505782: region (-1, -1) out of bounds, dormant
+1310694505800: UserClient started
+1310694518002: Received UDP payload: 470
+1310694526312: Received UDP payload: 470
+1310694526350: x,y from GPS: -5, 12
+1310694526350: moving from region (-1,-1), to (0,0)
+1310694526351: retry sending LEADER_REQUEST
+1310694526351: UserClient received REGION_CHANGE message.
+1310694526360: Sending UDP payload: 470
+1310694526952: retry sending LEADER_REQUEST
+1310694526986: Sending UDP payload: 470
+1310694527293: Received UDP payload: 487
+1310694527555: retry sending LEADER_REQUEST
+1310694527582: Sending UDP payload: 470
+1310694527850: LEADER_REQUEST timed out
+1310694528500: Received UDP payload: 470
+1310694529727: Received UDP payload: 470
+1310694530803: cloud rejected leadership request or request failed, wait to retry
+1310694531352: Received UDP payload: 470
+1310694532299: Received UDP payload: 487
+1310694533472: Received UDP payload: 470
+1310694535327: x,y from GPS: -9, 15
+1310694539324: Received UDP payload: 470
+1310694540812: been in JOINING state for a while now, start over
+1310694540814: retry sending LEADER_REQUEST
+1310694540856: Sending UDP payload: 470
+1310694541416: retry sending LEADER_REQUEST
+1310694541417: Sending UDP payload: 470
+1310694542017: retry sending LEADER_REQUEST
+1310694542056: Sending UDP payload: 470
+1310694542314: LEADER_REQUEST timed out
+1310694545521: cloud rejected leadership request or request failed, wait to retry
+1310694550556: Received UDP payload: 470
+1310694555537: been in JOINING state for a while now, start over
+1310694555539: retry sending LEADER_REQUEST
+1310694555569: Sending UDP payload: 470
+1310694556141: retry sending LEADER_REQUEST
+1310694556164: Sending UDP payload: 470
+1310694556744: retry sending LEADER_REQUEST
+1310694556768: Sending UDP payload: 470
+1310694557039: LEADER_REQUEST timed out
+1310694559323: x,y from GPS: 15, 18
+1310694560544: Received UDP payload: 470
+1310694562337: cloud rejected leadership request or request failed, wait to retry
+1310694563288: Received UDP payload: 470
+1310694572353: been in JOINING state for a while now, start over
+1310694572353: retry sending LEADER_REQUEST
+1310694572356: Sending UDP payload: 470
+1310694572954: retry sending LEADER_REQUEST
+1310694572994: Sending UDP payload: 470
+1310694573561: retry sending LEADER_REQUEST
+1310694573571: Sending UDP payload: 470
+1310694573854: LEADER_REQUEST timed out
+1310694576038: Received UDP payload: 470
+1310694580998: cloud rejected leadership request or request failed, wait to retry
+1310694591018: been in JOINING state for a while now, start over
+1310694591020: retry sending LEADER_REQUEST
+1310694591068: Sending UDP payload: 470
+1310694591640: retry sending LEADER_REQUEST
+1310694591672: Sending UDP payload: 470
+1310694591836: Received UDP payload: 470
+1310694591981: Received UDP payload: 470
+1310694592247: retry sending LEADER_REQUEST
+1310694592282: Sending UDP payload: 470
+1310694592357: You are not holding a spot!
+1310694592521: LEADER_REQUEST timed out
+1310694593339: Received UDP payload: 470
+1310694596841: Received UDP payload: 470
+1310694597718: Requesting spot in (1,0)
+1310694597779: Sending UDP payload: 698
+1310694599961: Received UDP payload: 470
+1310694600230: cloud rejected leadership request or request failed, wait to retry
+1310694600572: Received UDP payload: 470
+1310694601179: Received UDP payload: 470
+1310694604888: Reading spot in (1,0)
+1310694604935: Sending UDP payload: 698
+1310694605671: Received UDP payload: 470
+1310694606053: Reading spot in (1,0)
+1310694606102: Sending UDP payload: 698
+1310694606843: Received UDP payload: 470
+1310694606997: Reading spot in (1,0)
+1310694607029: Sending UDP payload: 698
+1310694608290: Reading spot in (1,0)
+1310694608320: Sending UDP payload: 698
+1310694608436: Received UDP payload: 851
+1310694610243: been in JOINING state for a while now, start over
+1310694610245: retry sending LEADER_REQUEST
+1310694610295: Sending UDP payload: 470
+1310694610864: retry sending LEADER_REQUEST
+1310694610914: Sending UDP payload: 470
+1310694611476: retry sending LEADER_REQUEST
+1310694611507: Sending UDP payload: 470
+1310694611745: LEADER_REQUEST timed out
+1310694615336: Received UDP payload: 487
+1310694618166: cloud rejected leadership request or request failed, wait to retry
+1310694618628: Reading spot in (1,0)
+1310694618666: Sending UDP payload: 698
+1310694619501: Reading spot in (1,0)
+1310694619541: Sending UDP payload: 698
+1310694623446: Received UDP payload: 470
+1310694628181: been in JOINING state for a while now, start over
+1310694628183: retry sending LEADER_REQUEST
+1310694628222: Sending UDP payload: 470
+1310694628785: retry sending LEADER_REQUEST
+1310694628792: Sending UDP payload: 470
+1310694629386: retry sending LEADER_REQUEST
+1310694629409: Sending UDP payload: 470
+1310694629684: LEADER_REQUEST timed out
+1310694632337: cloud rejected leadership request or request failed, wait to retry
+1310694637946: Reading spot in (1,0)
+1310694638008: Sending UDP payload: 698
+1310694639221: Reading spot in (1,0)
+1310694639223: Sending UDP payload: 698
+1310694642353: been in JOINING state for a while now, start over
+1310694642355: retry sending LEADER_REQUEST
+1310694642396: Sending UDP payload: 470
+1310694642956: retry sending LEADER_REQUEST
+1310694643008: Sending UDP payload: 470
+1310694643574: retry sending LEADER_REQUEST
+1310694643606: Sending UDP payload: 470
+1310694643855: LEADER_REQUEST timed out
+1310694647220: cloud rejected leadership request or request failed, wait to retry
+1310694648529: Wait for previous action to complete.
+1310694649334: Received UDP payload: 470
+1310694653958: Received UDP payload: 470
+1310694654545: Received UDP payload: 470
+1310694655334: Received UDP payload: 470
+1310694657236: been in JOINING state for a while now, start over
+1310694657238: retry sending LEADER_REQUEST
+1310694657294: Sending UDP payload: 470
+1310694657860: retry sending LEADER_REQUEST
+1310694657890: Sending UDP payload: 470
+1310694658462: retry sending LEADER_REQUEST
+1310694658496: Sending UDP payload: 470
+1310694658739: LEADER_REQUEST timed out
+1310694661031: cloud rejected leadership request or request failed, wait to retry
+1310694663295: x,y from GPS: 6, -14
+1310694670455: Received UDP payload: 470
+1310694671020: Received UDP payload: 470
+1310694671042: been in JOINING state for a while now, start over
+1310694671044: retry sending LEADER_REQUEST
+1310694671073: Sending UDP payload: 470
+1310694671635: Received UDP payload: 470
+1310694671646: retry sending LEADER_REQUEST
+1310694671682: Sending UDP payload: 470
+1310694672248: retry sending LEADER_REQUEST
+1310694672286: Sending UDP payload: 470
+1310694672544: LEADER_REQUEST timed out
+1310694674326: x,y from GPS: 15, -14
+1310694674338: Received UDP payload: 470
+1310694674955: Received UDP payload: 470
+1310694675335: Received UDP payload: 470
+1310694675556: Received UDP payload: 470
+1310694675798: cloud rejected leadership request or request failed, wait to retry
+1310694675965: Received UDP payload: 470
+1310694676559: Received UDP payload: 470
+1310694679499: Received UDP payload: 881
+1310694679651: Received UDP payload: 9848
+1310694680690: Received UDP payload: 470
+1310694681157: Wait for previous action to complete.
+1310694683342: Received UDP payload: 470
+1310694683972: Received UDP payload: 470
+1310694684563: Received UDP payload: 470
+1310694685302: x,y from GPS: 29, -53
+1310694685303: moving from region (0,0), to (0,-1)
+1310694685303: region (0, -1) out of bounds, dormant
+1310694685304: UserClient received REGION_CHANGE message.
+1310694688322: Received UDP payload: 2508
+1310694688343: Received UDP payload: 470
+1310694688792: Wait for previous action to complete.
+1310694689893: Received UDP payload: 470
+1310694692339: Received UDP payload: 487
+1310694693323: x,y from GPS: 30, -31
+1310694693323: moving from region (0,-1), to (0,0)
+1310694693324: retry sending LEADER_REQUEST
+1310694693324: UserClient received REGION_CHANGE message.
+1310694693325: Sending UDP payload: 470
+1310694693925: retry sending LEADER_REQUEST
+1310694693946: Sending UDP payload: 470
+1310694694305: x,y from GPS: 26, -17
+1310694694528: retry sending LEADER_REQUEST
+1310694694552: Sending UDP payload: 470
+1310694694824: LEADER_REQUEST timed out
+1310694695292: x,y from GPS: 22, -7
+1310694696288: x,y from GPS: 16, 2
+1310694705266: x,y from GPS: 11, 8
+1310694708323: x,y from GPS: 8, 12
+1310694734780: cloud rejected leadership request or request failed, wait to retry
+1310694740434: Wait for previous action to complete.
+1310694743022: Wait for previous action to complete.
+1310694744795: been in JOINING state for a while now, start over
+1310694744806: retry sending LEADER_REQUEST
+1310694744829: Sending UDP payload: 470
+1310694745419: retry sending LEADER_REQUEST
+1310694745445: Sending UDP payload: 470
+1310694746021: retry sending LEADER_REQUEST
+1310694746057: Sending UDP payload: 470
+1310694746299: LEADER_REQUEST timed out
+1310694749338: Received UDP payload: 470
+1310694752611: cloud rejected leadership request or request failed, wait to retry
+1310694754447: Reading spot in (0,0)
+1310694754489: Sending UDP payload: 698
+1310694755948: Reading spot in (0,0)
+1310694755991: Sending UDP payload: 698
+1310694756900: Reading spot in (0,0)
+1310694756926: Sending UDP payload: 698
+1310694762621: been in JOINING state for a while now, start over
+1310694762623: retry sending LEADER_REQUEST
+1310694762664: Sending UDP payload: 470
+1310694763239: retry sending LEADER_REQUEST
+1310694763277: Sending UDP payload: 470
+1310694763843: retry sending LEADER_REQUEST
+1310694763879: Sending UDP payload: 470
+1310694764124: LEADER_REQUEST timed out
+1310694766145: cloud rejected leadership request or request failed, wait to retry
+1310694771595: Received UDP payload: 470
+1310694773514: Reading spot in (0,0)
+1310694773552: Sending UDP payload: 698
+1310694776169: been in JOINING state for a while now, start over
+1310694776171: retry sending LEADER_REQUEST
+1310694776208: Sending UDP payload: 470
+1310694776789: retry sending LEADER_REQUEST
+1310694776816: Sending UDP payload: 470
+1310694777392: retry sending LEADER_REQUEST
+1310694777409: Sending UDP payload: 470
+1310694777671: LEADER_REQUEST timed out
+1310694785454: cloud rejected leadership request or request failed, wait to retry
+1310694792009: Received UDP payload: 470
+1310694792614: Received UDP payload: 470
+1310694793329: Received UDP payload: 470
+1310694795464: been in JOINING state for a while now, start over
+1310694795464: retry sending LEADER_REQUEST
+1310694795465: Sending UDP payload: 470
+1310694796066: retry sending LEADER_REQUEST
+1310694796105: Sending UDP payload: 470
+1310694796669: retry sending LEADER_REQUEST
+1310694796687: Sending UDP payload: 470
+1310694796964: LEADER_REQUEST timed out
+1310694799621: cloud rejected leadership request or request failed, wait to retry
+1310694800164: Wait for previous action to complete.
+1310694805505: Received UDP payload: 470
+1310694809635: been in JOINING state for a while now, start over
+1310694809637: retry sending LEADER_REQUEST
+1310694809671: Sending UDP payload: 470
+1310694810254: retry sending LEADER_REQUEST
+1310694810299: Sending UDP payload: 470
+1310694810856: retry sending LEADER_REQUEST
+1310694810879: Sending UDP payload: 470
+1310694811138: LEADER_REQUEST timed out
+1310694814056: cloud rejected leadership request or request failed, wait to retry
+1310694823347: Received UDP payload: 470
+1310694824069: been in JOINING state for a while now, start over
+1310694824071: retry sending LEADER_REQUEST
+1310694824102: Sending UDP payload: 470
+1310694824688: retry sending LEADER_REQUEST
+1310694824714: Sending UDP payload: 470
+1310694825290: retry sending LEADER_REQUEST
+1310694825323: Sending UDP payload: 470
+1310694825571: LEADER_REQUEST timed out
+1310694828285: cloud rejected leadership request or request failed, wait to retry
+1310694830395: Received UDP payload: 470
+1310694833335: Received UDP payload: 470
+1310694835411: Received UDP payload: 470
+1310694838294: been in JOINING state for a while now, start over
+1310694838296: retry sending LEADER_REQUEST
+1310694838320: Sending UDP payload: 470
+1310694838898: retry sending LEADER_REQUEST
+1310694838932: Sending UDP payload: 470
+1310694839501: retry sending LEADER_REQUEST
+1310694839552: Sending UDP payload: 470
+1310694839796: LEADER_REQUEST timed out
+1310694840397: Received UDP payload: 470
+1310694840615: Received UDP payload: 470
+1310694841238: Received UDP payload: 470
+1310694841834: Received UDP payload: 470
+1310694842795: cloud rejected leadership request or request failed, wait to retry
+1310694843349: Received UDP payload: 470
+1310694845425: Received UDP payload: 470
+1310694850415: Received UDP payload: 470
+1310694851310: Received UDP payload: 487
+1310694852808: been in JOINING state for a while now, start over
+1310694852814: retry sending LEADER_REQUEST
+1310694852862: Sending UDP payload: 470
+1310694853417: retry sending LEADER_REQUEST
+1310694853457: Sending UDP payload: 470
+1310694854019: retry sending LEADER_REQUEST
+1310694854046: Sending UDP payload: 470
+1310694854314: LEADER_REQUEST timed out
+1310694858342: Received UDP payload: 470
+1310694859337: Received UDP payload: 470
+1310694859973: Received UDP payload: 470
+1310694860562: Received UDP payload: 470
+1310694864788: cloud rejected leadership request or request failed, wait to retry
+1310694866255: Wait for previous action to complete.
+1310694874802: been in JOINING state for a while now, start over
+1310694874805: retry sending LEADER_REQUEST
+1310694874840: Sending UDP payload: 470
+1310694875410: retry sending LEADER_REQUEST
+1310694875441: Sending UDP payload: 470
+1310694876029: retry sending LEADER_REQUEST
+1310694876061: Sending UDP payload: 470
+1310694876305: LEADER_REQUEST timed out
+1310694878336: Received UDP payload: 470
+1310694879571: cloud rejected leadership request or request failed, wait to retry
+1310694885526: Received UDP payload: 470
+1310694886304: x,y from GPS: -28, 26
+1310694888336: Received UDP payload: 470
+1310694889582: been in JOINING state for a while now, start over
+1310694889584: retry sending LEADER_REQUEST
+1310694889608: Sending UDP payload: 470
+1310694890186: retry sending LEADER_REQUEST
+1310694890211: Sending UDP payload: 470
+1310694890789: retry sending LEADER_REQUEST
+1310694890818: Sending UDP payload: 470
+1310694891085: LEADER_REQUEST timed out
+1310694893543: Received UDP payload: 470
+1310694893562: cloud rejected leadership request or request failed, wait to retry
+1310694894541: Received UDP payload: 470
+1310694896353: Received UDP payload: 487
+1310694903345: Received UDP payload: 470
+1310694903570: been in JOINING state for a while now, start over
+1310694903572: retry sending LEADER_REQUEST
+1310694903597: Sending UDP payload: 470
+1310694903878: Received UDP payload: 698
+1310694904174: retry sending LEADER_REQUEST
+1310694904200: Sending UDP payload: 470
+1310694904776: retry sending LEADER_REQUEST
+1310694904839: Sending UDP payload: 470
+1310694905072: LEADER_REQUEST timed out
+1310694907689: cloud rejected leadership request or request failed, wait to retry
+1310694908342: Received UDP payload: 470
+1310694909453: Received UDP payload: 2518
+1310694913348: Received UDP payload: 470
+1310694914965: Received UDP payload: 470
+1310694915055: Received UDP payload: 2518
+1310694917704: been in JOINING state for a while now, start over
+1310694917706: retry sending LEADER_REQUEST
+1310694917738: Sending UDP payload: 470
+1310694918308: retry sending LEADER_REQUEST
+1310694918342: Received UDP payload: 470
+1310694918365: Sending UDP payload: 470
+1310694918910: retry sending LEADER_REQUEST
+1310694918931: Sending UDP payload: 470
+1310694919206: LEADER_REQUEST timed out
+1310694921303: x,y from GPS: 18, 0
+1310694922562: cloud rejected leadership request or request failed, wait to retry
+1310694923343: Received UDP payload: 470
+1310694925316: Received UDP payload: 470
+1310694925915: Received UDP payload: 470
+1310694926519: Received UDP payload: 470
+1310694928345: Received UDP payload: 470
+1310694929599: Received UDP payload: 2508
+1310694932571: been in JOINING state for a while now, start over
+1310694932584: retry sending LEADER_REQUEST
+1310694932596: Sending UDP payload: 470
+1310694933186: retry sending LEADER_REQUEST
+1310694933211: Sending UDP payload: 470
+1310694933350: Received UDP payload: 470
+1310694933789: retry sending LEADER_REQUEST
+1310694933825: Sending UDP payload: 470
+1310694934083: LEADER_REQUEST timed out
+1310694934596: Received UDP payload: 470
+1310694936439: cloud rejected leadership request or request failed, wait to retry
+1310694939336: x,y from GPS: 20, 7
+1310694939600: Received UDP payload: 470
+1310694940304: x,y from GPS: 16, -9
+1310694941263: x,y from GPS: 12, -25
+1310694942329: x,y from GPS: 12, -33
+1310694943302: x,y from GPS: 12, -39
+1310694943302: moving from region (0,0), to (0,-1)
+1310694943302: region (0, -1) out of bounds, dormant
+1310694943303: UserClient received REGION_CHANGE message.
+1310694943341: Received UDP payload: 470
+1310694944301: x,y from GPS: 15, -43
+1310694944605: Received UDP payload: 470
+1310694945302: x,y from GPS: 18, -47
+1310694947309: x,y from GPS: 23, -52
+1310694949606: Received UDP payload: 470
+1310694950289: x,y from GPS: 29, -55
+1310694952302: x,y from GPS: 34, -59
+1310694953352: Received UDP payload: 470
+1310694954608: Received UDP payload: 470
+1310694958342: Received UDP payload: 470
+1310694959302: x,y from GPS: 35, -64
+1310694959302: moving from region (0,-1), to (1,-1)
+1310694959302: region (1, -1) out of bounds, dormant
+1310694959303: UserClient received REGION_CHANGE message.
+1310694959607: Received UDP payload: 470
+1310694963419: Received UDP payload: 470
+1310694964599: Received UDP payload: 470
+1310694965322: x,y from GPS: 41, -62
+1310694968346: Received UDP payload: 470
+1310694969612: Received UDP payload: 470
+1310694972324: x,y from GPS: 46, -60
+1310694973344: Received UDP payload: 470
+1310694974700: Received UDP payload: 470
+1310694976324: x,y from GPS: 52, -62
+1310694977314: Received UDP payload: 470
+1310694977387: Received UDP payload: 2518
+1310694977951: Received UDP payload: 470
+1310694978023: Received UDP payload: 2518
+1310694978362: Received UDP payload: 470
+1310694979610: Received UDP payload: 470
+1310694983346: Received UDP payload: 470
+1310694984608: Received UDP payload: 470
+1310694988347: Received UDP payload: 470
+1310694989322: x,y from GPS: 50, -66
+1310694989337: Received UDP payload: 470
+1310694989615: Received UDP payload: 470
+1310694990002: Received UDP payload: 470
+1310694990581: Received UDP payload: 470
+1310694992302: x,y from GPS: 50, -72
+1310694992302: moving from region (1,-1), to (1,-2)
+1310694992302: region (1, -2) out of bounds, dormant
+1310694992303: UserClient received REGION_CHANGE message.
+1310694993430: Received UDP payload: 470
+1310694994072: Received UDP payload: 2904
+1310694994107: Received UDP payload: 470
+1310694994628: Received UDP payload: 470
+1310694998347: Received UDP payload: 470
+1310694999084: Received UDP payload: 470
+1310694999612: Received UDP payload: 470
+1310695003355: Received UDP payload: 470
+1310695004077: Received UDP payload: 470
+1310695004615: Received UDP payload: 470
+1310695007328: x,y from GPS: 54, -70
+1310695008414: Received UDP payload: 470
+1310695009089: Received UDP payload: 470
+1310695009620: Received UDP payload: 470
+1310695010326: x,y from GPS: 59, -69
+1310695010330: moving from region (1,-2), to (1,-1)
+1310695010330: region (1, -1) out of bounds, dormant
+1310695010330: UserClient received REGION_CHANGE message.
+1310695013347: Received UDP payload: 470
+1310695014065: Received UDP payload: 470
+1310695014617: Received UDP payload: 470
+1310695016334: Received UDP payload: 487
+1310695018335: Received UDP payload: 487
+1310695018344: Received UDP payload: 470
+1310695018815: Received UDP payload: 2518
+1310695018863: Received UDP payload: 487
+1310695019623: Received UDP payload: 470
+1310695020313: x,y from GPS: 53, -67
+1310695024090: Received UDP payload: 470
+1310695024649: Received UDP payload: 470
+1310695029057: Received UDP payload: 470
+1310695029096: Received UDP payload: 470
+1310695029150: Received UDP payload: 2518
+1310695029643: Received UDP payload: 470
+1310695034052: Received UDP payload: 470
+1310695034087: Received UDP payload: 470
+1310695034161: Received UDP payload: 2518
+1310695034622: Received UDP payload: 470
+1310695039066: Received UDP payload: 470
+1310695039100: Received UDP payload: 470
+1310695039183: Received UDP payload: 2518
+1310695039622: Received UDP payload: 470
+1310695044083: Received UDP payload: 470
+1310695044622: Received UDP payload: 470
+1310695049092: Received UDP payload: 470
+1310695049624: Received UDP payload: 470
+1310695054095: Received UDP payload: 470
+1310695054633: Received UDP payload: 470
+1310695059096: Received UDP payload: 470
+1310695059628: Received UDP payload: 470
+1310695064094: Received UDP payload: 470
+1310695064619: Received UDP payload: 470
+1310695069107: Received UDP payload: 470
+1310695069617: Received UDP payload: 470
+1310695074106: Received UDP payload: 470
+1310695074631: Received UDP payload: 470
+1310695077320: x,y from GPS: 66, -6
+1310695077320: moving from region (1,-1), to (1,0)
+1310695077321: retry sending LEADER_REQUEST
+1310695077321: UserClient received REGION_CHANGE message.
+1310695077323: Sending UDP payload: 470
+1310695077921: retry sending LEADER_REQUEST
+1310695077945: Sending UDP payload: 470
+1310695078524: retry sending LEADER_REQUEST
+1310695078543: Sending UDP payload: 470
+1310695078820: LEADER_REQUEST timed out
+1310695079625: Received UDP payload: 470
+1310695080328: x,y from GPS: 71, 18
+1310695080328: moving from region (1,0), to (2,0)
+1310695080328: region (2, 0) out of bounds, dormant
+1310695080329: UserClient received REGION_CHANGE message.
+1310695081330: x,y from GPS: 74, 26
+1310695081898: cloud accepted leadership request, returned csm bytes size 827
+1310695081969: CSMLayer starting
+1310695081976: UserServer started.
+1310695081979: loaded csm data from cloud
+1310695082025: Sending UDP payload: 2508
+1310695082026: now fully up as LEADER
+1310695082313: x,y from GPS: 75, 31
+1310695082314: moving from region (1,0), to (2,0)
+1310695082314: broadcasting LEADER_ELECT to old (1,0)
+1310695082315: Sending UDP payload: 487
+1310695082317: UserClient received REGION_CHANGE message.
+1310695082670: Sending UDP payload: 470
+1310695082714: UserServer stopped.
+1310695082718: CSMLayer stopped
+1310695082719: serializing CSMLayer to JSON
+1310695084081: previous region empty, uploaded state to cloud in 1362ms, json 827 bytes
+1310695084090: region (2, 0) out of bounds, dormant
+1310695084110: Received UDP payload: 470
+1310695084337: x,y from GPS: 78, 39
+1310695084347: moving from region (2,0), to (2,1)
+1310695084351: region (2, 1) out of bounds, dormant
+1310695084351: UserClient received REGION_CHANGE message.
+1310695084626: Received UDP payload: 470
+1310695086327: x,y from GPS: 81, 44
+1310695086334: Received UDP payload: 487
+1310695089624: Received UDP payload: 470
+1310695090334: x,y from GPS: 75, 45
+1310695092313: x,y from GPS: 67, 44
+1310695092314: moving from region (2,1), to (1,1)
+1310695092314: retry sending LEADER_REQUEST
+1310695092315: UserClient received REGION_CHANGE message.
+1310695092316: Sending UDP payload: 470
+1310695092916: retry sending LEADER_REQUEST
+1310695092948: Sending UDP payload: 470
+1310695093519: retry sending LEADER_REQUEST
+1310695093546: Sending UDP payload: 470
+1310695093814: LEADER_REQUEST timed out
+1310695094656: Received UDP payload: 470
+1310695096714: cloud accepted leadership request, returned csm bytes size 818
+1310695096719: CSMLayer stopped
+1310695096790: CSMLayer starting
+1310695096796: UserServer started.
+1310695096800: loaded csm data from cloud
+1310695096821: Sending UDP payload: 2518
+1310695096823: now fully up as LEADER
+1310695097674: Sending UDP payload: 470
+1310695099627: Received UDP payload: 470
+1310695102672: Sending UDP payload: 470
+1310695104625: Received UDP payload: 470
+1310695105342: x,y from GPS: 59, 49
+1310695106344: x,y from GPS: 56, 45
+1310695107675: Sending UDP payload: 470
+1310695109636: Received UDP payload: 470
+1310695111331: x,y from GPS: 51, 47
+1310695112320: Received UDP payload: 470
+1310695112673: Sending UDP payload: 470
+1310695112956: Received UDP payload: 470
+1310695113545: Received UDP payload: 470
+1310695114328: x,y from GPS: 47, 52
+1310695114630: Received UDP payload: 470
+1310695116719: Received UDP payload: 470
+1310695117331: x,y from GPS: 42, 51
+1310695117677: Sending UDP payload: 470
+1310695118340: Received UDP payload: 487
+1310695119638: Received UDP payload: 470
+1310695120334: x,y from GPS: 18, 1
+1310695120335: moving from region (1,1), to (0,0)
+1310695120335: broadcasting LEADER_ELECT to old (1,1)
+1310695120336: Sending UDP payload: 487
+1310695120337: UserClient received REGION_CHANGE message.
+1310695120738: UserServer stopped.
+1310695120744: CSMLayer stopped
+1310695120753: serializing CSMLayer to JSON
+1310695121295: x,y from GPS: 18, -4
+1310695122305: x,y from GPS: 19, -9
+1310695123333: x,y from GPS: 22, -14
+1310695123929: previous region empty, uploaded state to cloud in 3174ms, json 818 bytes
+1310695123944: retry sending LEADER_REQUEST
+1310695123968: Sending UDP payload: 470
+1310695124558: retry sending LEADER_REQUEST
+1310695124583: Sending UDP payload: 470
+1310695124634: Received UDP payload: 470
+1310695125161: retry sending LEADER_REQUEST
+1310695125188: Sending UDP payload: 470
+1310695125278: x,y from GPS: 25, -20
+1310695125439: LEADER_REQUEST timed out
+1310695125859: cloud accepted leadership request, returned csm bytes size 1633
+1310695125869: CSMLayer stopped
+1310695125935: CSMLayer starting
+1310695125942: UserServer started.
+1310695125946: loaded csm data from cloud
+1310695125965: Sending UDP payload: 2904
+1310695125967: now fully up as LEADER
+1310695127337: x,y from GPS: 29, -23
+1310695128953: Sending UDP payload: 470
+1310695129633: Received UDP payload: 470
+1310695133955: Sending UDP payload: 470
+1310695134633: Received UDP payload: 470
+1310695138954: Sending UDP payload: 470
+1310695139632: Received UDP payload: 470
+1310695143955: Sending UDP payload: 470
+1310695144644: Received UDP payload: 470
+1310695148961: Sending UDP payload: 470
+1310695149641: Received UDP payload: 470
+1310695153956: Sending UDP payload: 470
+1310695154641: Received UDP payload: 470
+1310695158957: Sending UDP payload: 470
+1310695159649: Received UDP payload: 470
+1310695163965: Sending UDP payload: 470
+1310695164637: Received UDP payload: 470
+1310695168967: Sending UDP payload: 470
+1310695169646: Received UDP payload: 470
+1310695173967: Sending UDP payload: 470
+1310695174644: Received UDP payload: 470
+1310695178972: Sending UDP payload: 470
+1310695179645: Received UDP payload: 470
+1310695183975: Sending UDP payload: 470
+1310695184643: Received UDP payload: 470
+1310695188976: Sending UDP payload: 470
+1310695189641: Received UDP payload: 470
+1310695193972: Sending UDP payload: 470
+1310695194647: Received UDP payload: 470
+1310695198977: Sending UDP payload: 470
+1310695199643: Received UDP payload: 470
+1310695203980: Sending UDP payload: 470
+1310695204648: Received UDP payload: 470
+1310695208981: Sending UDP payload: 470
+1310695209647: Received UDP payload: 470
+1310695213980: Sending UDP payload: 470
+1310695214645: Received UDP payload: 470
+1310695218977: Sending UDP payload: 470
+1310695219647: Received UDP payload: 470
+1310695223982: Sending UDP payload: 470
+1310695224648: Received UDP payload: 470
+1310695228985: Sending UDP payload: 470
+1310695229326: Received UDP payload: 487
+1310695229650: Received UDP payload: 470
+1310695233984: Sending UDP payload: 470
+1310695238989: Sending UDP payload: 470
+1310695243985: Sending UDP payload: 470
+1310695248988: Sending UDP payload: 470
+1310695253995: Sending UDP payload: 470
+1310695258987: Sending UDP payload: 470
+1310695263990: Sending UDP payload: 470
+1310695268989: Sending UDP payload: 470
+1310695273999: Sending UDP payload: 470
+1310695278998: Sending UDP payload: 470
+1310695283997: Sending UDP payload: 470
+1310695288995: Sending UDP payload: 470
+1310695294000: Sending UDP payload: 470
+1310695299001: Sending UDP payload: 470
+1310695304008: Sending UDP payload: 470
+1310695308999: Sending UDP payload: 470
+1310695313346: Received UDP payload: 470
+1310695313986: Received UDP payload: 470
+1310695314063: Sending UDP payload: 470
+1310695314546: Received UDP payload: 470
+1310695319005: Sending UDP payload: 470
+1310695319872: Received UDP payload: 2508
+1310695319898: Received UDP payload: 470
+1310695324012: Sending UDP payload: 470
+1310695324862: Received UDP payload: 470
+1310695325341: Received UDP payload: 487
+1310695328629: Received UDP payload: 470
+1310695328653: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310695328686: Sending UDP payload: 2921
+1310695329036: Sending UDP payload: 470
+1310695334010: Sending UDP payload: 470
+1310695339007: Sending UDP payload: 470
+1310695344004: Sending UDP payload: 470
+1310695349007: Sending UDP payload: 470
+1310695354007: Sending UDP payload: 470
+1310695359007: Sending UDP payload: 470
+1310695364008: Sending UDP payload: 470
+1310695369009: Sending UDP payload: 470
+1310695374010: Sending UDP payload: 470
+1310695374362: Received UDP payload: 470
+1310695374976: Received UDP payload: 470
+1310695375590: Received UDP payload: 470
+1310695379010: Sending UDP payload: 470
+1310695379672: Received UDP payload: 470
+1310695384012: Sending UDP payload: 470
+1310695384669: Received UDP payload: 470
+1310695389011: Sending UDP payload: 470
+1310695389675: Received UDP payload: 470
+1310695394012: Sending UDP payload: 470
+1310695394322: Received UDP payload: 487
+1310695394675: Received UDP payload: 470
+1310695399014: Sending UDP payload: 470
+1310695404022: Sending UDP payload: 470
+1310695409046: Sending UDP payload: 470
+1310695414008: Sending UDP payload: 470
+1310695415350: Received UDP payload: 470
+1310695415379: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310695415412: Sending UDP payload: 2921
+1310695419024: Sending UDP payload: 470
+1310695424020: Sending UDP payload: 470
+1310695429023: Sending UDP payload: 470
+1310695434020: Sending UDP payload: 470
+1310695439022: Sending UDP payload: 470
+1310695444020: Sending UDP payload: 470
+1310695449026: Sending UDP payload: 470
+1310695454027: Sending UDP payload: 470
+1310695459028: Sending UDP payload: 470
+1310695464026: Sending UDP payload: 470
+1310695469028: Sending UDP payload: 470
+1310695474029: Sending UDP payload: 470
+1310695479030: Sending UDP payload: 470
+1310695484031: Sending UDP payload: 470
+1310695489033: Sending UDP payload: 470
+1310695494033: Sending UDP payload: 470
+1310695499041: Sending UDP payload: 470
+1310695504042: Sending UDP payload: 470
+1310695509036: Sending UDP payload: 470
+1310695514036: Sending UDP payload: 470
+1310695519041: Sending UDP payload: 470
+1310695524043: Sending UDP payload: 470
+1310695529045: Sending UDP payload: 470
+1310695534035: Sending UDP payload: 470
+1310695539043: Sending UDP payload: 470
+1310695544047: Sending UDP payload: 470
+1310695549043: Sending UDP payload: 470
+1310695554049: Sending UDP payload: 470
+1310695559047: Sending UDP payload: 470
+1310695564046: Sending UDP payload: 470
+1310695569049: Sending UDP payload: 470
+1310695574050: Sending UDP payload: 470
+1310695579050: Sending UDP payload: 470
+1310695584052: Sending UDP payload: 470
+1310695589051: Sending UDP payload: 470
+1310695594052: Sending UDP payload: 470
+1310695599054: Sending UDP payload: 470
+1310695604047: Sending UDP payload: 470
+1310695609077: Sending UDP payload: 470
+1310695614088: Sending UDP payload: 470
+1310695619072: Sending UDP payload: 470
+1310695624082: Sending UDP payload: 470
+1310695629071: Sending UDP payload: 470
+1310695634073: Sending UDP payload: 470
+1310695639072: Sending UDP payload: 470
+1310695644072: Sending UDP payload: 470
+1310695649073: Sending UDP payload: 470
+1310695654067: Sending UDP payload: 470
+1310695659068: Sending UDP payload: 470
+1310695660007: Received UDP payload: 470
+1310695660026: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310695660068: Sending UDP payload: 2921
+1310695660583: Received UDP payload: 470
+1310695660608: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310695660643: Sending UDP payload: 2921
+1310695661181: Received UDP payload: 470
+1310695661223: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310695661300: Sending UDP payload: 2921
+1310695664074: Sending UDP payload: 470
+1310695669077: Sending UDP payload: 470
+1310695674077: Sending UDP payload: 470
+1310695674963: Received UDP payload: 470
+1310695674988: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310695675054: Sending UDP payload: 2921
+1310695675566: Received UDP payload: 470
+1310695675593: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310695675637: Sending UDP payload: 2921
+1310695676136: Received UDP payload: 470
+1310695676162: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310695676217: Sending UDP payload: 2921
+1310695679076: Sending UDP payload: 470
+1310695684079: Sending UDP payload: 470
+1310695689080: Sending UDP payload: 470
+1310695689955: Received UDP payload: 470
+1310695689976: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310695690015: Sending UDP payload: 2921
+1310695690557: Received UDP payload: 470
+1310695690577: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310695690614: Sending UDP payload: 2921
+1310695691118: Wait for previous action to complete.
+1310695691153: Received UDP payload: 470
+1310695691160: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310695691170: Sending UDP payload: 2921
+1310695694082: Sending UDP payload: 470
+1310695699079: Sending UDP payload: 470
+1310695704074: Sending UDP payload: 470
+1310695705305: Received UDP payload: 470
+1310695705323: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310695705343: Sending UDP payload: 2921
+1310695705918: Received UDP payload: 470
+1310695705947: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310695705967: Sending UDP payload: 2921
+1310695706509: Received UDP payload: 470
+1310695706553: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310695706571: Sending UDP payload: 2921
+1310695709082: Sending UDP payload: 470
+1310695714083: Sending UDP payload: 470
+1310695719084: Received UDP payload: 470
+1310695719089: Sending UDP payload: 470
+1310695719118: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310695719158: Sending UDP payload: 2921
+1310695719694: Received UDP payload: 470
+1310695719719: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310695719754: Sending UDP payload: 2921
+1310695720299: Received UDP payload: 470
+1310695720359: heard LEADER_REQUEST from node 5105, responding LEADER_REPLY
+1310695720385: Sending UDP payload: 2921
+1310695724085: Sending UDP payload: 470
+1310695729086: Sending UDP payload: 470
+1310695734091: Sending UDP payload: 470
+1310695739093: Sending UDP payload: 470
+1310695744086: Sending UDP payload: 470
+1310695749087: Sending UDP payload: 470
+1310695754088: Sending UDP payload: 470
+1310695759121: Sending UDP payload: 470
+1310695764140: Sending UDP payload: 470
+1310695769166: Sending UDP payload: 470
+1310695774183: Sending UDP payload: 470
+1310695779174: Sending UDP payload: 470
+1310695784181: Sending UDP payload: 470
+1310695789209: Sending UDP payload: 470
+1310695794224: Sending UDP payload: 470
+1310695799252: Sending UDP payload: 470
+1310695804307: Sending UDP payload: 470
+1310695809297: Sending UDP payload: 470
+1310695814308: Sending UDP payload: 470
+1310695819369: Sending UDP payload: 470
+1310695824310: x,y from GPS: -4, 6
+1310695824375: Sending UDP payload: 470
+1310695827277: x,y from GPS: -10, 7
+1310695828306: x,y from GPS: -15, 9
+1310695829375: Sending UDP payload: 470
+1310695834384: Sending UDP payload: 470
+1310695837278: x,y from GPS: -13, 13
+1310695839417: Sending UDP payload: 470
+1310695841268: x,y from GPS: -9, 17
+1310695844394: Sending UDP payload: 470
+1310695849389: Sending UDP payload: 470
+1310695852270: x,y from GPS: -6, 21
+1310695854387: Sending UDP payload: 470
+1310695859423: Sending UDP payload: 470
+1310695860338: x,y from GPS: -1, 22
+1310695862289: x,y from GPS: 4, 20
+1310695864415: Sending UDP payload: 470
+1310695867280: x,y from GPS: 9, 21
+1310695869410: Sending UDP payload: 470
+1310695869443: Received UDP payload: 470
+1310695869445: heard LEADER_REQUEST from node 5101, responding LEADER_REPLY
+1310695869454: Sending UDP payload: 2921
+1310695870050: Received UDP payload: 470
+1310695870069: heard LEADER_REQUEST from node 5101, responding LEADER_REPLY
+1310695870081: Sending UDP payload: 2921
+1310695870666: Received UDP payload: 470
+1310695870673: heard LEADER_REQUEST from node 5101, responding LEADER_REPLY
+1310695870684: Sending UDP payload: 2921
+1310695871315: x,y from GPS: 11, 17
+1310695874426: Sending UDP payload: 470
+1310695879434: Sending UDP payload: 470
+1310695884435: Sending UDP payload: 470
+1310695887308: x,y from GPS: 17, 14
+1310695888281: x,y from GPS: 22, 8
+1310695889289: x,y from GPS: 26, 2
+1310695889446: Sending UDP payload: 470
+1310695890285: x,y from GPS: 29, -3
+1310695891307: x,y from GPS: 33, -8
+1310695892281: x,y from GPS: 35, -12
+1310695892282: moving from region (0,0), to (1,0)
+1310695892284: broadcasting LEADER_ELECT to old (0,0)
+1310695892286: Sending UDP payload: 487
+1310695892294: UserClient received REGION_CHANGE message.
+1310695892687: UserServer stopped.
+1310695892700: CSMLayer stopped
+1310695892701: serializing CSMLayer to JSON
+1310695893803: Received UDP payload: 470
+1310695894281: x,y from GPS: 41, -18
+1310695896285: x,y from GPS: 46, -22
+1310695896290: Received UDP payload: 470
+1310695898143: previous region empty, uploaded state to cloud in 5442ms, json 1633 bytes
+1310695898149: retry sending LEADER_REQUEST
+1310695898152: Sending UDP payload: 470
+1310695898236: Received UDP payload: 2525
+1310695898282: heard LEADER_REPLY from 5103
+1310695898284: CSMLayer stopped
+1310695898284: now NONLEADER following LEADER 5103
+1310695898809: Received UDP payload: 470
+1310695899606: Received UDP payload: 470
+1310695900246: Received UDP payload: 470
+1310695900280: x,y from GPS: 49, -27
+1310695903519: Received UDP payload: 2904
+1310695903537: Received UDP payload: 470
+1310695903819: Received UDP payload: 470
+1310695908529: Received UDP payload: 470
+1310695908863: Received UDP payload: 470
+1310695913225: Received UDP payload: 470
+1310695913830: Received UDP payload: 470
+1310695913875: Received UDP payload: 470
+1310695914356: Received UDP payload: 470
+1310695914410: Received UDP payload: 470
+1310695916337: Received UDP payload: 470
+1310695916972: Received UDP payload: 470
+1310695917567: Received UDP payload: 470
+1310695923310: Received UDP payload: 470
+1310695923895: Received UDP payload: 470
+1310695924306: x,y from GPS: 50, -19
+1310695925315: x,y from GPS: 46, 2
+1310695927814: Received UDP payload: 470
+1310695928444: Received UDP payload: 470
+1310695928833: Received UDP payload: 470
+1310695929046: Received UDP payload: 470
+1310695930410: Received UDP payload: 470
+1310695931035: Received UDP payload: 470
+1310695931153: Received UDP payload: 470
+1310695931609: Received UDP payload: 470
+1310695933917: Received UDP payload: 470
+1310695938702: Received UDP payload: 470
+1310695938850: Received UDP payload: 470
+1310695939312: x,y from GPS: 42, 5
+1310695942065: Received UDP payload: 470
+1310695942655: Received UDP payload: 470
+1310695943011: Received UDP payload: 470
+1310695943252: Received UDP payload: 470
+1310695943292: x,y from GPS: 38, 16
+1310695943628: Received UDP payload: 470
+1310695943843: Received UDP payload: 470
+1310695944224: Received UDP payload: 470
+1310695944594: Received UDP payload: 470
+1310695945211: Received UDP payload: 470
+1310695945805: Received UDP payload: 470
+1310695946730: Received UDP payload: 470
+1310695948847: Received UDP payload: 470
+1310695953497: Received UDP payload: 470
+1310695953574: Received UDP payload: 2525
+1310695953994: Received UDP payload: 470
+1310695954335: x,y from GPS: 39, 16
+1310695954629: Received UDP payload: 470
+1310695955226: Received UDP payload: 470
+1310695956048: Received UDP payload: 470
+1310695958410: Received UDP payload: 470
+1310695958848: Received UDP payload: 470
+1310695958889: Received UDP payload: 470
+1310695958998: Received UDP payload: 470
+1310695959426: Received UDP payload: 470
+1310695959636: Received UDP payload: 470
+1310695960038: Received UDP payload: 470
