@@ -1,0 +1,3764 @@
+1310976498825: started, mId = 5108
+1310976498825: region (-1, -1) out of bounds, dormant
+1310976498825: UserClient started
+1310976510628: Reading spot in (0,1)
+1310976510708: Sending UDP payload: 698
+1310976512295: moving from region (-1,-1), to (1,0)
+1310976512296: sending LEADER_REQUEST
+1310976512297: Sending UDP payload: 470
+1310976512298: UserClient received REGION_CHANGE message.
+1310976512455: Received UDP payload: 470
+1310976512896: sending LEADER_REQUEST
+1310976512918: Sending UDP payload: 470
+1310976513056: Received UDP payload: 470
+1310976513500: sending LEADER_REQUEST
+1310976513528: Sending UDP payload: 470
+1310976513647: Received UDP payload: 470
+1310976513798: LEADER_REQUEST timed out
+1310976514538: Received UDP payload: 470
+1310976515121: Received UDP payload: 470
+1310976515642: UserClient request timed out. (0,1)=?
+1310976515663: Reading spot in (1,0)
+1310976515696: Sending UDP payload: 698
+1310976515718: Received UDP payload: 470
+1310976515763: Received UDP payload: 470
+1310976516125: Received UDP payload: 470
+1310976516370: Received UDP payload: 470
+1310976516708: Received UDP payload: 470
+1310976516744: Received UDP payload: 851
+1310976516778: Received UDP payload: 881
+1310976516813: Received UDP payload: 698
+1310976516953: Received UDP payload: 470
+1310976517038: cloud rejected leadership request or request failed, wait to retry
+1310976517057: Received UDP payload: 11489
+1310976517273: Received UDP payload: 11642
+1310976517275: heard LEADER_REPLY from 5109
+1310976517275: now NONLEADER following LEADER 5109
+1310976517284: Received UDP payload: 851
+1310976517291: Received UDP payload: 698
+1310976517300: Received UDP payload: 11659
+1310976517383: Received UDP payload: 11686
+1310976517417: Received UDP payload: 470
+1310976517494: Received UDP payload: 11686
+1310976517599: Received UDP payload: 11686
+1310976517654: Received UDP payload: 470
+1310976517862: Received UDP payload: 11686
+1310976518170: Received UDP payload: 470
+1310976518404: Received UDP payload: 698
+1310976518455: Received UDP payload: 851
+1310976518502: Received UDP payload: 881
+1310976518646: Received UDP payload: 12106
+1310976518839: sending LEADER_REQUEST
+1310976518872: Received UDP payload: 698
+1310976518900: Sending UDP payload: 470
+1310976518904: Received UDP payload: 470
+1310976519154: Received UDP payload: 12276
+1310976519174: heard LEADER_REPLY from 5109
+1310976519176: now NONLEADER following LEADER 5109
+1310976519217: Received UDP payload: 470
+1310976519387: Received UDP payload: 470
+1310976519463: Received UDP payload: 698
+1310976519562: Received UDP payload: 470
+1310976519583: Received UDP payload: 851
+1310976519622: Received UDP payload: 698
+1310976519781: Received UDP payload: 470
+1310976520001: Received UDP payload: 12303
+1310976520035: Received UDP payload: 698
+1310976520377: Received UDP payload: 470
+1310976520567: Received UDP payload: 698
+1310976520596: Received UDP payload: 851
+1310976520621: Received UDP payload: 881
+1310976520672: UserClient request timed out. (1,0)=?
+1310976520673: Reading spot in (1,0)
+1310976520714: Received UDP payload: 851
+1310976520728: Sending UDP payload: 698
+1310976520732: Received UDP payload: 881
+1310976520851: Received UDP payload: 12723
+1310976521096: Received UDP payload: 698
+1310976521099: Received UDP payload: 851
+1310976521102: Received UDP payload: 881
+1310976521106: Received UDP payload: 698
+1310976521109: UserClient read on (1,0) from (1,0)succeeded, value=20,latency=436
+1310976521119: Received UDP payload: 11489
+1310976521268: Received UDP payload: 11642
+1310976521271: Received UDP payload: 11659
+1310976521273: Received UDP payload: 470
+1310976521294: Received UDP payload: 851
+1310976521470: Received UDP payload: 470
+1310976521520: Received UDP payload: 470
+1310976521613: Received UDP payload: 470
+1310976521640: Received UDP payload: 698
+1310976521677: Received UDP payload: 470
+1310976521692: Received UDP payload: 698
+1310976521695: Received UDP payload: 851
+1310976521698: Received UDP payload: 851
+1310976521701: Received UDP payload: 698
+1310976521866: Received UDP payload: 13095
+1310976521985: Received UDP payload: 13095
+1310976522551: Received UDP payload: 851
+1310976522583: Received UDP payload: 881
+1310976522796: Received UDP payload: 11489
+1310976523007: Received UDP payload: 11642
+1310976523011: Received UDP payload: 698
+1310976523016: Received UDP payload: 851
+1310976523037: Received UDP payload: 851
+1310976523045: Received UDP payload: 851
+1310976523070: Received UDP payload: 881
+1310976523079: Received UDP payload: 851
+1310976523086: Received UDP payload: 698
+1310976523112: Reading spot in (0,1)
+1310976523146: Sending UDP payload: 698
+1310976523173: Received UDP payload: 881
+1310976523182: Received UDP payload: 698
+1310976523188: UserClient read on (0,1) from (1,0)succeeded, value=20,latency=76
+1310976523196: Received UDP payload: 470
+1310976523524: Received UDP payload: 851
+1310976523757: Received UDP payload: 698
+1310976523796: Received UDP payload: 470
+1310976523833: Received UDP payload: 851
+1310976523921: Received UDP payload: 698
+1310976523946: Received UDP payload: 851
+1310976523965: Received UDP payload: 881
+1310976524009: Received UDP payload: 470
+1310976524254: Received UDP payload: 851
+1310976524283: Received UDP payload: 698
+1310976524440: Received UDP payload: 12353
+1310976524525: Received UDP payload: 470
+1310976524550: Received UDP payload: 11659
+1310976524658: Received UDP payload: 11659
+1310976524772: Received UDP payload: 851
+1310976524851: Received UDP payload: 881
+1310976524923: Received UDP payload: 698
+1310976525008: Received UDP payload: 12192
+1310976525190: Requesting spot in (0,1)
+1310976525295: Sending UDP payload: 698
+1310976525296: Received UDP payload: 698
+1310976525299: Received UDP payload: 851
+1310976525302: Received UDP payload: 851
+1310976525305: Received UDP payload: 851
+1310976525308: Received UDP payload: 698
+1310976525311: Received UDP payload: 698
+1310976525313: Received UDP payload: 881
+1310976525315: Received UDP payload: 698
+1310976525318: Received UDP payload: 851
+1310976525333: Received UDP payload: 851
+1310976525368: Received UDP payload: 881
+1310976525391: Received UDP payload: 698
+1310976525399: UserClient decrement on (0,1) from (1,0) succeeded, value=19,latency=209
+1310976525556: Received UDP payload: 12205
+1310976525753: Received UDP payload: 851
+1310976525805: Received UDP payload: 851
+1310976526377: Received UDP payload: 698
+1310976526442: Received UDP payload: 881
+1310976526473: Received UDP payload: 698
+1310976526712: Received UDP payload: 698
+1310976526765: Received UDP payload: 881
+1310976526768: Received UDP payload: 698
+1310976527013: Received UDP payload: 698
+1310976527079: Received UDP payload: 881
+1310976527108: Received UDP payload: 698
+1310976527342: Received UDP payload: 698
+1310976527373: Received UDP payload: 851
+1310976527403: Reading spot in (1,0)
+1310976527428: Received UDP payload: 698
+1310976527435: Sending UDP payload: 698
+1310976527460: Received UDP payload: 881
+1310976527515: Received UDP payload: 851
+1310976527537: Received UDP payload: 881
+1310976527547: Received UDP payload: 698
+1310976527559: UserClient read on (1,0) from (1,0)succeeded, value=20,latency=141
+1310976527575: Received UDP payload: 698
+1310976527648: Received UDP payload: 12320
+1310976527828: Received UDP payload: 851
+1310976527834: Received UDP payload: 881
+1310976527837: Received UDP payload: 12901
+1310976528026: Received UDP payload: 851
+1310976528029: Received UDP payload: 851
+1310976528037: Received UDP payload: 851
+1310976528102: Received UDP payload: 851
+1310976528529: Received UDP payload: 698
+1310976528598: Received UDP payload: 881
+1310976528632: Received UDP payload: 698
+1310976528745: Received UDP payload: 698
+1310976528797: Received UDP payload: 881
+1310976528825: Received UDP payload: 698
+1310976528965: Received UDP payload: 698
+1310976528975: Received UDP payload: 851
+1310976529002: Received UDP payload: 881
+1310976529179: Received UDP payload: 698
+1310976529203: Received UDP payload: 698
+1310976529265: Received UDP payload: 881
+1310976529273: Received UDP payload: 698
+1310976529340: Received UDP payload: 470
+1310976529405: Received UDP payload: 851
+1310976529454: Received UDP payload: 470
+1310976529564: Reading spot in (0,0)
+1310976529589: Received UDP payload: 698
+1310976529623: Sending UDP payload: 698
+1310976529626: Received UDP payload: 881
+1310976529628: Received UDP payload: 698
+1310976529645: Received UDP payload: 881
+1310976529651: Received UDP payload: 698
+1310976529654: UserClient read on (0,0) from (1,0)succeeded, value=19,latency=79
+1310976529981: Received UDP payload: 470
+1310976530153: Received UDP payload: 698
+1310976530212: Received UDP payload: 12419
+1310976530238: Received UDP payload: 881
+1310976530266: Received UDP payload: 698
+1310976530356: Received UDP payload: 470
+1310976530558: Received UDP payload: 470
+1310976530681: Received UDP payload: 698
+1310976530779: Received UDP payload: 12419
+1310976530799: Received UDP payload: 881
+1310976530828: Received UDP payload: 698
+1310976530853: Received UDP payload: 698
+1310976530864: Received UDP payload: 851
+1310976530908: Received UDP payload: 881
+1310976530921: Received UDP payload: 698
+1310976531103: Received UDP payload: 13534
+1310976531318: Received UDP payload: 470
+1310976531321: Received UDP payload: 698
+1310976531324: Received UDP payload: 851
+1310976531327: Received UDP payload: 698
+1310976531335: Received UDP payload: 851
+1310976531352: Received UDP payload: 851
+1310976531360: Received UDP payload: 851
+1310976531375: Received UDP payload: 851
+1310976531409: Received UDP payload: 698
+1310976531429: Received UDP payload: 881
+1310976531451: Received UDP payload: 698
+1310976531580: Received UDP payload: 13490
+1310976531655: Reading spot in (0,1)
+1310976531844: Received UDP payload: 698
+1310976531844: Sending UDP payload: 698
+1310976531847: Received UDP payload: 881
+1310976531851: Received UDP payload: 698
+1310976531867: Received UDP payload: 851
+1310976531884: Received UDP payload: 881
+1310976531891: Received UDP payload: 698
+1310976531894: UserClient read on (0,1) from (1,0)succeeded, value=19,latency=239
+1310976532323: Received UDP payload: 698
+1310976532396: Received UDP payload: 470
+1310976532404: Received UDP payload: 881
+1310976532669: Received UDP payload: 13019
+1310976532891: Received UDP payload: 698
+1310976532905: Received UDP payload: 851
+1310976532927: Received UDP payload: 698
+1310976532962: Received UDP payload: 698
+1310976532984: Received UDP payload: 881
+1310976533008: Received UDP payload: 851
+1310976533011: Received UDP payload: 881
+1310976533014: Received UDP payload: 698
+1310976533016: Received UDP payload: 698
+1310976533331: Received UDP payload: 698
+1310976533382: Received UDP payload: 851
+1310976533410: Received UDP payload: 881
+1310976533455: Received UDP payload: 698
+1310976533485: Received UDP payload: 851
+1310976533580: Received UDP payload: 12866
+1310976533800: Received UDP payload: 698
+1310976533802: Received UDP payload: 881
+1310976533806: Received UDP payload: 13452
+1310976533896: Releasing ticket in (0,1)
+1310976533973: Sending UDP payload: 698
+1310976533975: Received UDP payload: 851
+1310976533978: Received UDP payload: 851
+1310976533981: Received UDP payload: 698
+1310976533987: Received UDP payload: 851
+1310976533995: Received UDP payload: 698
+1310976533998: Received UDP payload: 851
+1310976534001: Received UDP payload: 881
+1310976534004: Received UDP payload: 698
+1310976534090: Received UDP payload: 851
+1310976534145: Received UDP payload: 881
+1310976534174: Received UDP payload: 698
+1310976534195: UserClient increment on (0,1) from (1,0) succeeded, value=20,latency=296
+1310976534325: Received UDP payload: 12862
+1310976534528: Received UDP payload: 851
+1310976534561: Received UDP payload: 851
+1310976534571: Received UDP payload: 851
+1310976535015: Received UDP payload: 698
+1310976535054: Received UDP payload: 881
+1310976535061: Received UDP payload: 698
+1310976535091: Received UDP payload: 851
+1310976535099: Received UDP payload: 881
+1310976535106: Received UDP payload: 698
+1310976535505: Received UDP payload: 698
+1310976535536: Received UDP payload: 851
+1310976535607: Received UDP payload: 881
+1310976535638: Received UDP payload: 698
+1310976535948: Received UDP payload: 24570
+1310976536200: Reading spot in (1,1)
+1310976536350: Received UDP payload: 698
+1310976536352: Sending UDP payload: 698
+1310976536358: Received UDP payload: 851
+1310976536363: Received UDP payload: 851
+1310976536365: Received UDP payload: 881
+1310976536368: Received UDP payload: 851
+1310976536371: Received UDP payload: 698
+1310976536373: Received UDP payload: 698
+1310976536376: Received UDP payload: 851
+1310976536439: Received UDP payload: 881
+1310976536476: Received UDP payload: 698
+1310976536500: UserClient read on (1,1) from (1,0)succeeded, value=19,latency=298
+1310976536511: Received UDP payload: 881
+1310976536675: Received UDP payload: 15099
+1310976536922: Received UDP payload: 698
+1310976536924: Received UDP payload: 851
+1310976536927: Received UDP payload: 851
+1310976536930: Received UDP payload: 851
+1310976536994: Received UDP payload: 851
+1310976537004: Received UDP payload: 851
+1310976537078: Received UDP payload: 698
+1310976537120: Received UDP payload: 698
+1310976537210: Received UDP payload: 698
+1310976537296: Received UDP payload: 851
+1310976537343: Received UDP payload: 14086
+1310976537525: Received UDP payload: 698
+1310976537527: Received UDP payload: 851
+1310976537530: Received UDP payload: 851
+1310976537538: Received UDP payload: 881
+1310976537552: Received UDP payload: 698
+1310976537803: Received UDP payload: 12880
+1310976538025: Received UDP payload: 851
+1310976538031: Received UDP payload: 851
+1310976538035: Received UDP payload: 881
+1310976538038: Received UDP payload: 15097
+1310976538233: Received UDP payload: 698
+1310976538238: Received UDP payload: 881
+1310976538242: Received UDP payload: 698
+1310976538244: Received UDP payload: 851
+1310976538247: Received UDP payload: 851
+1310976538250: Received UDP payload: 851
+1310976538253: Received UDP payload: 851
+1310976538256: Received UDP payload: 851
+1310976538259: Received UDP payload: 851
+1310976538397: Received UDP payload: 13505
+1310976538502: Reading spot in (0,1)
+1310976538628: Received UDP payload: 698
+1310976538629: Sending UDP payload: 698
+1310976538635: Received UDP payload: 851
+1310976538638: Received UDP payload: 851
+1310976538645: Received UDP payload: 881
+1310976538676: Received UDP payload: 881
+1310976538688: Received UDP payload: 698
+1310976538691: UserClient read on (0,1) from (1,0)succeeded, value=19,latency=188
+1310976538710: Received UDP payload: 698
+1310976538849: Received UDP payload: 14221
+1310976539098: Received UDP payload: 698
+1310976539101: Received UDP payload: 851
+1310976539103: Received UDP payload: 851
+1310976539106: Received UDP payload: 881
+1310976539108: Received UDP payload: 698
+1310976539111: Received UDP payload: 851
+1310976539117: Received UDP payload: 851
+1310976539123: Received UDP payload: 698
+1310976539153: Received UDP payload: 851
+1310976539170: Received UDP payload: 698
+1310976539316: Received UDP payload: 14199
+1310976539549: Received UDP payload: 470
+1310976539552: Received UDP payload: 14177
+1310976539741: Received UDP payload: 470
+1310976539744: Received UDP payload: 851
+1310976539747: Received UDP payload: 13653
+1310976539922: Received UDP payload: 698
+1310976539925: Received UDP payload: 881
+1310976539927: Received UDP payload: 851
+1310976539930: Received UDP payload: 698
+1310976539932: Received UDP payload: 698
+1310976539934: Received UDP payload: 881
+1310976539937: Received UDP payload: 698
+1310976539957: Received UDP payload: 470
+1310976540197: Received UDP payload: 13165
+1310976540359: Received UDP payload: 470
+1310976540696: Requesting spot in (1,1)
+1310976540745: Sending UDP payload: 698
+1310976540772: Received UDP payload: 698
+1310976540814: Received UDP payload: 881
+1310976540820: Received UDP payload: 698
+1310976540829: Received UDP payload: 851
+1310976540875: Received UDP payload: 881
+1310976540899: Received UDP payload: 698
+1310976540919: UserClient decrement on (1,1) from (1,0) succeeded, value=18,latency=213
+1310976541000: Received UDP payload: 470
+1310976541071: Received UDP payload: 13585
+1310976541276: Received UDP payload: 851
+1310976541286: Received UDP payload: 698
+1310976541298: Received UDP payload: 851
+1310976541307: Received UDP payload: 851
+1310976541315: Received UDP payload: 851
+1310976541323: Received UDP payload: 851
+1310976541341: Received UDP payload: 881
+1310976541349: Received UDP payload: 698
+1310976541356: Received UDP payload: 698
+1310976541363: Received UDP payload: 851
+1310976541826: Received UDP payload: 14199
+1310976542064: Received UDP payload: 881
+1310976542067: Received UDP payload: 13576
+1310976542238: Received UDP payload: 698
+1310976542240: Received UDP payload: 851
+1310976542243: Received UDP payload: 851
+1310976542245: Received UDP payload: 851
+1310976542248: Received UDP payload: 698
+1310976542250: Received UDP payload: 698
+1310976542252: Received UDP payload: 851
+1310976542255: Received UDP payload: 851
+1310976542257: Received UDP payload: 881
+1310976542302: Received UDP payload: 698
+1310976542334: Received UDP payload: 698
+1310976542410: Received UDP payload: 851
+1310976542456: Received UDP payload: 881
+1310976542477: Received UDP payload: 698
+1310976542514: Received UDP payload: 14206
+1310976542730: Received UDP payload: 851
+1310976542735: Received UDP payload: 881
+1310976542738: Received UDP payload: 698
+1310976542742: Received UDP payload: 851
+1310976542924: Received UDP payload: 851
+1310976542927: Releasing ticket in (1,1)
+1310976542949: Received UDP payload: 851
+1310976542985: moving from region (1,0), to (1,1)
+1310976542986: sending LEADER_REQUEST
+1310976542987: Sending UDP payload: 698
+1310976542993: Received UDP payload: 698
+1310976542996: Received UDP payload: 851
+1310976542998: Received UDP payload: 881
+1310976543000: Received UDP payload: 698
+1310976543002: Received UDP payload: 851
+1310976543013: Sending UDP payload: 470
+1310976543015: UserClient received REGION_CHANGE message.
+1310976543020: Received UDP payload: 851
+1310976543042: Received UDP payload: 881
+1310976543055: Received UDP payload: 698
+1310976543187: Received UDP payload: 14736
+1310976543455: Received UDP payload: 698
+1310976543476: Received UDP payload: 851
+1310976543483: Received UDP payload: 851
+1310976543504: Received UDP payload: 851
+1310976543524: Received UDP payload: 698
+1310976543547: Received UDP payload: 27752
+1310976543586: sending LEADER_REQUEST
+1310976543967: Sending UDP payload: 470
+1310976543968: Received UDP payload: 14692
+1310976544149: Received UDP payload: 851
+1310976544167: Received UDP payload: 698
+1310976544187: sending LEADER_REQUEST
+1310976544192: Sending UDP payload: 470
+1310976544229: Received UDP payload: 13755
+1310976544232: heard LEADER_REPLY from 5107
+1310976544232: now NONLEADER following LEADER 5107
+1310976544261: Received UDP payload: 851
+1310976544324: Received UDP payload: 698
+1310976544349: Received UDP payload: 851
+1310976544370: Received UDP payload: 881
+1310976544379: Received UDP payload: 881
+1310976544396: Received UDP payload: 698
+1310976544647: Received UDP payload: 14741
+1310976544882: Received UDP payload: 698
+1310976544884: Received UDP payload: 698
+1310976544886: Received UDP payload: 851
+1310976544895: Received UDP payload: 851
+1310976544903: Received UDP payload: 851
+1310976544920: Received UDP payload: 851
+1310976544928: Received UDP payload: 881
+1310976545020: Received UDP payload: 698
+1310976545082: Received UDP payload: 881
+1310976545115: Received UDP payload: 698
+1310976545196: Received UDP payload: 14719
+1310976545690: Received UDP payload: 50786
+1310976546427: Received UDP payload: 698
+1310976546431: Received UDP payload: 881
+1310976546435: Received UDP payload: 698
+1310976546437: Received UDP payload: 851
+1310976546440: Received UDP payload: 851
+1310976546442: Received UDP payload: 851
+1310976546444: Received UDP payload: 851
+1310976546447: Received UDP payload: 851
+1310976546454: Received UDP payload: 851
+1310976546462: Received UDP payload: 881
+1310976546469: Received UDP payload: 881
+1310976546476: Received UDP payload: 698
+1310976546483: Received UDP payload: 698
+1310976546504: Received UDP payload: 698
+1310976546511: Received UDP payload: 881
+1310976546521: Received UDP payload: 698
+1310976546530: Received UDP payload: 851
+1310976546538: Received UDP payload: 851
+1310976546555: Received UDP payload: 881
+1310976546567: Received UDP payload: 881
+1310976546776: Received UDP payload: 14384
+1310976547004: Received UDP payload: 698
+1310976547019: Received UDP payload: 851
+1310976547042: Received UDP payload: 851
+1310976547064: Received UDP payload: 698
+1310976547084: Received UDP payload: 881
+1310976547105: Received UDP payload: 698
+1310976547132: Received UDP payload: 851
+1310976547515: Received UDP payload: 851
+1310976547545: Received UDP payload: 698
+1310976547558: Received UDP payload: 851
+1310976547561: Received UDP payload: 851
+1310976547575: Received UDP payload: 851
+1310976547583: Received UDP payload: 851
+1310976547608: Received UDP payload: 14253
+1310976547923: Received UDP payload: 881
+1310976547928: Received UDP payload: 14231
+1310976547932: UserClient request timed out. (1,1)=?
+1310976547932: Reading spot in (0,0)
+1310976548133: Sending UDP payload: 698
+1310976548134: Received UDP payload: 698
+1310976548138: Received UDP payload: 13707
+1310976548318: Received UDP payload: 851
+1310976548323: Received UDP payload: 851
+1310976548325: Received UDP payload: 851
+1310976548327: Received UDP payload: 851
+1310976548330: Received UDP payload: 851
+1310976548332: Received UDP payload: 881
+1310976548335: Received UDP payload: 881
+1310976548337: Received UDP payload: 698
+1310976548340: UserClient read on (0,0) from (1,1)succeeded, value=20,latency=407
+1310976548379: Received UDP payload: 470
+1310976548763: Received UDP payload: 698
+1310976548795: Received UDP payload: 698
+1310976548806: Received UDP payload: 851
+1310976548851: sending LEADER_REQUEST
+1310976548890: Sending UDP payload: 470
+1310976549058: Received UDP payload: 470
+1310976549117: Received UDP payload: 698
+1310976549177: Received UDP payload: 881
+1310976549204: Received UDP payload: 698
+1310976549353: Received UDP payload: 698
+1310976549399: Received UDP payload: 881
+1310976549429: Received UDP payload: 698
+1310976549442: Received UDP payload: 881
+1310976549452: sending LEADER_REQUEST
+1310976549453: Sending UDP payload: 470
+1310976549461: Received UDP payload: 698
+1310976549688: Received UDP payload: 52554
+1310976550053: sending LEADER_REQUEST
+1310976550342: Releasing ticket in (1,1)
+1310976550351: LEADER_REQUEST timed out
+1310976550512: Sending UDP payload: 470
+1310976550519: Received UDP payload: 698
+1310976550529: Sending UDP payload: 698
+1310976550536: Received UDP payload: 881
+1310976550544: Received UDP payload: 470
+1310976550546: Received UDP payload: 53144
+1310976551280: Received UDP payload: 698
+1310976551285: Received UDP payload: 851
+1310976551290: Received UDP payload: 13400
+1310976551292: Received UDP payload: 698
+1310976551294: Received UDP payload: 470
+1310976551295: Received UDP payload: 470
+1310976551297: Received UDP payload: 851
+1310976551300: Received UDP payload: 470
+1310976551301: Received UDP payload: 470
+1310976551302: Received UDP payload: 698
+1310976551305: Received UDP payload: 470
+1310976551306: Received UDP payload: 851
+1310976551309: Received UDP payload: 851
+1310976551311: Received UDP payload: 881
+1310976551319: Received UDP payload: 698
+1310976551335: Received UDP payload: 851
+1310976551345: Received UDP payload: 851
+1310976551375: Received UDP payload: 851
+1310976551388: Received UDP payload: 881
+1310976551560: Received UDP payload: 698
+1310976551582: Received UDP payload: 698
+1310976551628: Received UDP payload: 470
+1310976551973: Received UDP payload: 470
+1310976552176: Received UDP payload: 698
+1310976552199: UserClient increment on (1,1) from (1,1) succeeded, value=20,latency=1854
+1310976552219: Received UDP payload: 698
+1310976552286: Received UDP payload: 470
+1310976552506: Received UDP payload: 698
+1310976552545: Received UDP payload: 470
+1310976552569: Received UDP payload: 881
+1310976552664: cloud rejected leadership request or request failed, wait to retry
+1310976552679: heard LEADER_REPLY from 5107
+1310976552679: now NONLEADER following LEADER 5107
+1310976552683: Received UDP payload: 698
+1310976552887: Received UDP payload: 851
+1310976553168: Received UDP payload: 470
+1310976553369: Received UDP payload: 698
+1310976553418: Received UDP payload: 881
+1310976553464: Received UDP payload: 698
+1310976553834: Received UDP payload: 881
+1310976553864: Received UDP payload: 851
+1310976553892: Received UDP payload: 881
+1310976553899: Received UDP payload: 881
+1310976553902: Received UDP payload: 881
+1310976553904: Received UDP payload: 698
+1310976553906: Received UDP payload: 698
+1310976554113: Received UDP payload: 698
+1310976554171: Received UDP payload: 881
+1310976554199: Received UDP payload: 698
+1310976554211: Requesting spot in (0,1)
+1310976554269: Sending UDP payload: 698
+1310976554434: Received UDP payload: 851
+1310976554943: Received UDP payload: 851
+1310976554977: Received UDP payload: 698
+1310976554999: Received UDP payload: 851
+1310976555012: Received UDP payload: 881
+1310976555015: Received UDP payload: 698
+1310976555049: Received UDP payload: 698
+1310976555063: Received UDP payload: 851
+1310976555076: Received UDP payload: 881
+1310976555127: Received UDP payload: 881
+1310976555215: Received UDP payload: 698
+1310976555303: Received UDP payload: 881
+1310976555331: Received UDP payload: 698
+1310976555527: Received UDP payload: 698
+1310976555551: UserClient decrement on (0,1) from (1,1) succeeded, value=19,latency=1323
+1310976555564: Received UDP payload: 698
+1310976555592: Received UDP payload: 881
+1310976555595: Received UDP payload: 698
+1310976555628: Received UDP payload: 53812
+1310976556328: Received UDP payload: 851
+1310976556330: Received UDP payload: 698
+1310976556333: Received UDP payload: 851
+1310976556335: Received UDP payload: 698
+1310976556337: Received UDP payload: 881
+1310976556340: Received UDP payload: 881
+1310976556343: Received UDP payload: 14765
+1310976556521: Received UDP payload: 698
+1310976556524: Received UDP payload: 851
+1310976556526: Received UDP payload: 698
+1310976556528: Received UDP payload: 851
+1310976556531: Received UDP payload: 851
+1310976556533: Received UDP payload: 851
+1310976556535: Received UDP payload: 698
+1310976556537: Received UDP payload: 881
+1310976556540: Received UDP payload: 698
+1310976556542: Received UDP payload: 851
+1310976556544: Received UDP payload: 881
+1310976556547: Received UDP payload: 698
+1310976556549: Received UDP payload: 851
+1310976556551: Received UDP payload: 851
+1310976556553: Received UDP payload: 851
+1310976556555: Received UDP payload: 851
+1310976556571: Received UDP payload: 851
+1310976557130: Received UDP payload: 698
+1310976557157: Received UDP payload: 53738
+1310976557555: Reading spot in (1,0)
+1310976557882: Sending UDP payload: 698
+1310976557883: Received UDP payload: 698
+1310976557885: Received UDP payload: 881
+1310976557887: Received UDP payload: 698
+1310976557890: Received UDP payload: 53716
+1310976558584: Received UDP payload: 851
+1310976558588: Received UDP payload: 698
+1310976558596: Received UDP payload: 881
+1310976558599: Received UDP payload: 698
+1310976558605: Received UDP payload: 851
+1310976558608: Received UDP payload: 851
+1310976558614: Received UDP payload: 698
+1310976558617: Received UDP payload: 698
+1310976558624: Received UDP payload: 881
+1310976558632: Received UDP payload: 698
+1310976558634: Received UDP payload: 881
+1310976558637: Received UDP payload: 698
+1310976558639: UserClient read on (1,0) from (1,1)succeeded, value=19,latency=1084
+1310976558650: Received UDP payload: 851
+1310976558652: Received UDP payload: 851
+1310976558655: Received UDP payload: 698
+1310976558661: Received UDP payload: 881
+1310976558667: Received UDP payload: 698
+1310976558669: Received UDP payload: 698
+1310976558671: Received UDP payload: 881
+1310976558794: Received UDP payload: 470
+1310976558875: Received UDP payload: 470
+1310976558909: Received UDP payload: 53803
+1310976559625: Received UDP payload: 470
+1310976559627: Received UDP payload: 881
+1310976559630: Received UDP payload: 698
+1310976559631: Received UDP payload: 851
+1310976559634: Received UDP payload: 881
+1310976559637: Received UDP payload: 53781
+1310976560330: Received UDP payload: 851
+1310976560334: Received UDP payload: 698
+1310976560336: Received UDP payload: 470
+1310976560338: Received UDP payload: 470
+1310976560339: Received UDP payload: 851
+1310976560341: Received UDP payload: 881
+1310976560344: Received UDP payload: 881
+1310976560347: Received UDP payload: 698
+1310976560349: Received UDP payload: 881
+1310976560351: Received UDP payload: 698
+1310976560353: Received UDP payload: 53842
+1310976560376: Received UDP payload: 698
+1310976560378: Received UDP payload: 881
+1310976560381: Received UDP payload: 698
+1310976560461: Received UDP payload: 470
+1310976560578: Received UDP payload: 698
+1310976560613: Received UDP payload: 53842
+1310976560636: Received UDP payload: 470
+1310976560642: Reading spot in (0,0)
+1310976560669: Sending UDP payload: 698
+1310976561052: Received UDP payload: 470
+1310976561131: Received UDP payload: 470
+1310976561179: Received UDP payload: 698
+1310976561201: Received UDP payload: 851
+1310976561222: Received UDP payload: 881
+1310976561253: Received UDP payload: 698
+1310976561258: Received UDP payload: 470
+1310976561268: Received UDP payload: 881
+1310976561281: Received UDP payload: 881
+1310976561294: Received UDP payload: 698
+1310976561308: Received UDP payload: 881
+1310976561321: Received UDP payload: 698
+1310976561331: Received UDP payload: 698
+1310976561340: UserClient read on (0,0) from (1,1)succeeded, value=20,latency=688
+1310976561350: Received UDP payload: 851
+1310976561353: Received UDP payload: 698
+1310976561667: Received UDP payload: 470
+1310976561686: Received UDP payload: 698
+1310976561706: Received UDP payload: 881
+1310976561709: Received UDP payload: 698
+1310976562023: Received UDP payload: 698
+1310976562076: Received UDP payload: 851
+1310976562102: Received UDP payload: 881
+1310976562121: Received UDP payload: 698
+1310976562134: Received UDP payload: 851
+1310976562156: Received UDP payload: 881
+1310976562168: Received UDP payload: 698
+1310976562246: Received UDP payload: 470
+1310976562757: Received UDP payload: 698
+1310976562793: Received UDP payload: 851
+1310976562849: Received UDP payload: 698
+1310976562870: Received UDP payload: 881
+1310976562894: Received UDP payload: 698
+1310976563344: Reading spot in (1,0)
+1310976563372: Received UDP payload: 698
+1310976563394: Sending UDP payload: 698
+1310976563469: Received UDP payload: 851
+1310976563504: Received UDP payload: 881
+1310976563630: Received UDP payload: 54253
+1310976564345: Received UDP payload: 698
+1310976564347: Received UDP payload: 851
+1310976564350: Received UDP payload: 881
+1310976564352: Received UDP payload: 698
+1310976564354: Received UDP payload: 698
+1310976564356: Received UDP payload: 851
+1310976564358: Received UDP payload: 698
+1310976564360: Received UDP payload: 881
+1310976564362: Received UDP payload: 881
+1310976564365: Received UDP payload: 851
+1310976564367: Received UDP payload: 698
+1310976564370: Received UDP payload: 851
+1310976564372: Received UDP payload: 881
+1310976564375: Received UDP payload: 698
+1310976564715: Received UDP payload: 54843
+1310976565452: Received UDP payload: 881
+1310976565455: Received UDP payload: 698
+1310976565460: Received UDP payload: 851
+1310976565467: Received UDP payload: 881
+1310976565470: Received UDP payload: 881
+1310976565478: Received UDP payload: 698
+1310976565556: Received UDP payload: 698
+1310976565578: Received UDP payload: 851
+1310976565599: Received UDP payload: 851
+1310976565601: Received UDP payload: 851
+1310976565604: Received UDP payload: 851
+1310976565606: Received UDP payload: 881
+1310976565609: Received UDP payload: 698
+1310976565611: Received UDP payload: 698
+1310976565982: Received UDP payload: 470
+1310976565994: Received UDP payload: 56145
+1310976566744: Received UDP payload: 698
+1310976566747: Received UDP payload: 881
+1310976566750: Received UDP payload: 851
+1310976566752: Received UDP payload: 881
+1310976566755: Received UDP payload: 698
+1310976566757: Received UDP payload: 698
+1310976566759: Received UDP payload: 851
+1310976566762: Received UDP payload: 470
+1310976566763: Received UDP payload: 56123
+1310976567428: Received UDP payload: 698
+1310976567430: Received UDP payload: 851
+1310976567433: Received UDP payload: 881
+1310976567436: Received UDP payload: 698
+1310976567438: Received UDP payload: 470
+1310976567440: Received UDP payload: 698
+1310976567442: Received UDP payload: 881
+1310976567445: Received UDP payload: 851
+1310976567447: Received UDP payload: 851
+1310976567492: Received UDP payload: 698
+1310976567547: Received UDP payload: 851
+1310976568139: Received UDP payload: 56101
+1310976568364: UserClient request timed out. (1,0)=?
+1310976568364: Reading spot in (1,0)
+1310976568906: Sending UDP payload: 698
+1310976568907: Received UDP payload: 881
+1310976568909: Received UDP payload: 851
+1310976568912: Received UDP payload: 698
+1310976568914: Received UDP payload: 698
+1310976568916: Received UDP payload: 851
+1310976568918: Received UDP payload: 851
+1310976568921: Received UDP payload: 851
+1310976568923: Received UDP payload: 698
+1310976568925: Received UDP payload: 851
+1310976568928: Received UDP payload: 881
+1310976568930: Received UDP payload: 698
+1310976568933: Received UDP payload: 698
+1310976568934: Received UDP payload: 851
+1310976568937: Received UDP payload: 56691
+1310976569671: Received UDP payload: 698
+1310976569673: Received UDP payload: 881
+1310976569676: Received UDP payload: 698
+1310976569678: Received UDP payload: 698
+1310976569680: Received UDP payload: 851
+1310976569682: Received UDP payload: 881
+1310976569685: Received UDP payload: 698
+1310976569687: UserClient read on (1,0) from (1,1)succeeded, value=19,latency=1322
+1310976569694: Received UDP payload: 56145
+1310976570452: Received UDP payload: 881
+1310976570456: Received UDP payload: 698
+1310976570458: Received UDP payload: 470
+1310976570460: Received UDP payload: 851
+1310976570462: Received UDP payload: 851
+1310976570465: Received UDP payload: 56735
+1310976571170: Received UDP payload: 881
+1310976571173: Received UDP payload: 851
+1310976571176: Received UDP payload: 851
+1310976571178: Received UDP payload: 851
+1310976571181: Received UDP payload: 851
+1310976571183: Received UDP payload: 851
+1310976571185: Received UDP payload: 470
+1310976571187: Received UDP payload: 57325
+1310976571690: Reading spot in (1,0)
+1310976571906: Sending UDP payload: 698
+1310976571908: Received UDP payload: 881
+1310976571910: Received UDP payload: 698
+1310976571912: Received UDP payload: 698
+1310976571933: Received UDP payload: 851
+1310976571935: Received UDP payload: 698
+1310976571940: Received UDP payload: 698
+1310976571948: Received UDP payload: 851
+1310976571950: Received UDP payload: 851
+1310976571956: Received UDP payload: 851
+1310976571961: Received UDP payload: 698
+1310976571963: Received UDP payload: 470
+1310976571969: Received UDP payload: 851
+1310976571975: Received UDP payload: 470
+1310976571978: Received UDP payload: 851
+1310976571981: Received UDP payload: 851
+1310976571983: Received UDP payload: 851
+1310976571986: Received UDP payload: 698
+1310976571988: Received UDP payload: 698
+1310976571990: Received UDP payload: 881
+1310976571993: Received UDP payload: 698
+1310976571995: Received UDP payload: 851
+1310976571997: Received UDP payload: 698
+1310976571999: Received UDP payload: 881
+1310976572001: Received UDP payload: 881
+1310976572004: Received UDP payload: 851
+1310976572008: Received UDP payload: 698
+1310976572010: Received UDP payload: 698
+1310976572012: Received UDP payload: 881
+1310976572014: Received UDP payload: 881
+1310976572017: Received UDP payload: 698
+1310976572019: UserClient read on (1,0) from (1,1)succeeded, value=19,latency=329
+1310976572250: Received UDP payload: 57984
+1310976573010: Received UDP payload: 881
+1310976573013: Received UDP payload: 881
+1310976573016: Received UDP payload: 851
+1310976573018: Received UDP payload: 881
+1310976573038: Received UDP payload: 57962
+1310976573772: Received UDP payload: 881
+1310976573774: Received UDP payload: 851
+1310976573778: Received UDP payload: 851
+1310976573780: Received UDP payload: 851
+1310976573782: Received UDP payload: 698
+1310976573784: Received UDP payload: 851
+1310976573787: Received UDP payload: 698
+1310976573789: Received UDP payload: 851
+1310976573792: Received UDP payload: 851
+1310976573794: Received UDP payload: 698
+1310976573796: Received UDP payload: 698
+1310976573799: Received UDP payload: 881
+1310976573870: Received UDP payload: 698
+1310976573906: Received UDP payload: 698
+1310976573978: Received UDP payload: 881
+1310976574010: Received UDP payload: 698
+1310976574024: Reading spot in (0,1)
+1310976574036: Sending UDP payload: 698
+1310976574038: Received UDP payload: 881
+1310976574044: Received UDP payload: 698
+1310976574046: Received UDP payload: 698
+1310976574048: Received UDP payload: 881
+1310976574051: Received UDP payload: 698
+1310976574079: Received UDP payload: 881
+1310976574099: Received UDP payload: 698
+1310976574146: Received UDP payload: 881
+1310976574162: Received UDP payload: 698
+1310976574184: UserClient read on (0,1) from (1,1)succeeded, value=19,latency=155
+1310976574201: Received UDP payload: 881
+1310976574645: Received UDP payload: 470
+1310976574808: Received UDP payload: 698
+1310976575040: Received UDP payload: 698
+1310976575128: Received UDP payload: 698
+1310976575150: Received UDP payload: 851
+1310976575656: Received UDP payload: 58131
+1310976575679: Received UDP payload: 851
+1310976575708: Received UDP payload: 851
+1310976575736: Received UDP payload: 470
+1310976575896: Received UDP payload: 470
+1310976575912: Received UDP payload: 698
+1310976575974: Received UDP payload: 470
+1310976575988: Received UDP payload: 881
+1310976575995: Received UDP payload: 698
+1310976575998: Received UDP payload: 698
+1310976576008: Received UDP payload: 851
+1310976576014: Received UDP payload: 881
+1310976576021: Received UDP payload: 851
+1310976576029: Received UDP payload: 698
+1310976576063: Received UDP payload: 851
+1310976576072: Received UDP payload: 698
+1310976576082: Received UDP payload: 851
+1310976576095: Received UDP payload: 881
+1310976576130: Received UDP payload: 698
+1310976576165: Received UDP payload: 698
+1310976576188: Reading spot in (0,1)
+1310976576242: Sending UDP payload: 698
+1310976576269: Received UDP payload: 881
+1310976576311: Received UDP payload: 470
+1310976576919: Received UDP payload: 470
+1310976576941: Received UDP payload: 698
+1310976576961: Received UDP payload: 881
+1310976577020: Received UDP payload: 881
+1310976577033: Received UDP payload: 698
+1310976577057: Received UDP payload: 698
+1310976577119: Received UDP payload: 881
+1310976577146: Received UDP payload: 698
+1310976577633: Received UDP payload: 881
+1310976577664: Received UDP payload: 881
+1310976577729: Received UDP payload: 851
+1310976578065: Received UDP payload: 698
+1310976578282: Received UDP payload: 698
+1310976578305: Received UDP payload: 881
+1310976578325: Received UDP payload: 57901
+1310976579054: Received UDP payload: 698
+1310976579056: Received UDP payload: 58608
+1310976579058: Received UDP payload: 851
+1310976579072: Received UDP payload: 698
+1310976579074: Received UDP payload: 881
+1310976579077: Received UDP payload: 698
+1310976579079: Received UDP payload: 698
+1310976579106: Received UDP payload: 698
+1310976579130: Received UDP payload: 698
+1310976579173: Received UDP payload: 881
+1310976579195: Received UDP payload: 698
+1310976579218: Received UDP payload: 851
+1310976579220: Received UDP payload: 698
+1310976579235: Received UDP payload: 851
+1310976579242: Received UDP payload: 881
+1310976579261: Received UDP payload: 851
+1310976579269: Received UDP payload: 851
+1310976579277: Received UDP payload: 881
+1310976579284: Received UDP payload: 698
+1310976579293: Received UDP payload: 881
+1310976579300: Received UDP payload: 698
+1310976579449: Received UDP payload: 470
+1310976579647: Received UDP payload: 470
+1310976579850: Received UDP payload: 851
+1310976579877: Received UDP payload: 851
+1310976579921: Received UDP payload: 851
+1310976579946: Received UDP payload: 698
+1310976580063: Received UDP payload: 57954
+1310976580842: Received UDP payload: 698
+1310976580844: Received UDP payload: 470
+1310976580846: Received UDP payload: 698
+1310976580848: Received UDP payload: 851
+1310976580850: Received UDP payload: 881
+1310976580852: Received UDP payload: 698
+1310976580854: Received UDP payload: 470
+1310976580904: Received UDP payload: 470
+1310976581023: Received UDP payload: 470
+1310976581134: Received UDP payload: 698
+1310976581187: Received UDP payload: 851
+1310976581199: UserClient request timed out. (0,1)=?
+1310976581206: Reading spot in (1,1)
+1310976581232: Sending UDP payload: 698
+1310976581233: Received UDP payload: 698
+1310976581259: Received UDP payload: 851
+1310976581269: Received UDP payload: 881
+1310976581276: Received UDP payload: 851
+1310976581282: Received UDP payload: 698
+1310976581284: UserClient read on (1,1) from (1,1)succeeded, value=22,latency=67
+1310976581325: Received UDP payload: 698
+1310976581339: Received UDP payload: 881
+1310976581377: Received UDP payload: 698
+1310976581388: Received UDP payload: 698
+1310976581398: Received UDP payload: 851
+1310976581422: Received UDP payload: 881
+1310976581434: Received UDP payload: 698
+1310976581452: Received UDP payload: 851
+1310976581464: Received UDP payload: 851
+1310976581992: Received UDP payload: 698
+1310976582197: Received UDP payload: 698
+1310976582220: Received UDP payload: 881
+1310976582252: Received UDP payload: 698
+1310976582327: Received UDP payload: 698
+1310976582354: Received UDP payload: 851
+1310976582378: Received UDP payload: 851
+1310976582394: Received UDP payload: 851
+1310976582894: Received UDP payload: 851
+1310976582921: Received UDP payload: 851
+1310976582937: Received UDP payload: 881
+1310976582958: Received UDP payload: 851
+1310976582966: Received UDP payload: 851
+1310976582976: Received UDP payload: 851
+1310976583059: Received UDP payload: 851
+1310976583070: Received UDP payload: 851
+1310976583082: Received UDP payload: 851
+1310976583153: Received UDP payload: 851
+1310976583289: Reading spot in (0,0)
+1310976583330: Sending UDP payload: 698
+1310976583433: Received UDP payload: 881
+1310976583445: Received UDP payload: 698
+1310976583468: UserClient read on (0,0) from (1,1)succeeded, value=20,latency=164
+1310976583503: Received UDP payload: 698
+1310976583565: Received UDP payload: 851
+1310976583572: Received UDP payload: 881
+1310976583594: Received UDP payload: 698
+1310976583804: Received UDP payload: 851
+1310976583829: Received UDP payload: 698
+1310976583850: Received UDP payload: 698
+1310976584273: Received UDP payload: 698
+1310976584310: Received UDP payload: 881
+1310976584369: Received UDP payload: 698
+1310976584390: Received UDP payload: 851
+1310976584422: Received UDP payload: 851
+1310976584426: Received UDP payload: 851
+1310976584428: Received UDP payload: 698
+1310976584429: Received UDP payload: 487
+1310976584431: Received UDP payload: 881
+1310976584446: Received UDP payload: 698
+1310976584447: Received UDP payload: 470
+1310976584453: Received UDP payload: 470
+1310976584736: Received UDP payload: 881
+1310976585305: Received UDP payload: 851
+1310976585331: Received UDP payload: 851
+1310976585474: Reading spot in (1,1)
+1310976585518: Sending UDP payload: 698
+1310976585667: Received UDP payload: 851
+1310976585695: Received UDP payload: 698
+1310976585716: Received UDP payload: 881
+1310976585730: Received UDP payload: 698
+1310976585732: UserClient read on (1,1) from (1,1)succeeded, value=22,latency=246
+1310976585742: Received UDP payload: 881
+1310976585745: Received UDP payload: 698
+1310976585836: Received UDP payload: 698
+1310976585884: Received UDP payload: 851
+1310976586122: Received UDP payload: 698
+1310976586211: Received UDP payload: 698
+1310976586275: Received UDP payload: 851
+1310976586325: Received UDP payload: 851
+1310976586841: Received UDP payload: 851
+1310976587000: Received UDP payload: 698
+1310976587470: Received UDP payload: 851
+1310976587516: Received UDP payload: 851
+1310976587539: Received UDP payload: 851
+1310976587722: Received UDP payload: 698
+1310976587734: Releasing ticket in (0,1)
+1310976587768: Sending UDP payload: 698
+1310976587836: Received UDP payload: 851
+1310976588050: Received UDP payload: 470
+1310976588067: Received UDP payload: 487
+1310976588125: Received UDP payload: 851
+1310976588148: Received UDP payload: 698
+1310976588167: Received UDP payload: 851
+1310976588169: Received UDP payload: 851
+1310976588430: Received UDP payload: 698
+1310976588495: Received UDP payload: 851
+1310976588520: Received UDP payload: 881
+1310976588538: Received UDP payload: 698
+1310976588805: Received UDP payload: 851
+1310976588863: Received UDP payload: 851
+1310976588866: Received UDP payload: 851
+1310976588868: Received UDP payload: 698
+1310976588870: Received UDP payload: 698
+1310976589444: Received UDP payload: 851
+1310976589468: Received UDP payload: 470
+1310976589758: Received UDP payload: 470
+1310976589938: Received UDP payload: 470
+1310976590192: Received UDP payload: 698
+1310976590214: Received UDP payload: 851
+1310976590238: Received UDP payload: 881
+1310976590240: Received UDP payload: 698
+1310976590363: Received UDP payload: 470
+1310976590537: Received UDP payload: 851
+1310976590543: Received UDP payload: 470
+1310976590548: Received UDP payload: 698
+1310976590553: UserClient increment on (0,1) failed, value=?,latency=2817
+1310976590581: Received UDP payload: 698
+1310976590594: Received UDP payload: 881
+1310976590601: Received UDP payload: 698
+1310976590828: Received UDP payload: 698
+1310976590848: Received UDP payload: 851
+1310976590900: Received UDP payload: 698
+1310976590948: Received UDP payload: 881
+1310976590974: Received UDP payload: 698
+1310976590991: Received UDP payload: 470
+1310976591095: Received UDP payload: 698
+1310976591138: Received UDP payload: 470
+1310976591335: Received UDP payload: 470
+1310976591351: moving from region (1,1), to (0,1)
+1310976591360: sending LEADER_REQUEST
+1310976591379: Sending UDP payload: 470
+1310976591385: UserClient received REGION_CHANGE message.
+1310976591963: sending LEADER_REQUEST
+1310976591976: Sending UDP payload: 470
+1310976592029: Received UDP payload: 851
+1310976592035: Received UDP payload: 698
+1310976592243: Received UDP payload: 698
+1310976592268: Received UDP payload: 881
+1310976592292: Received UDP payload: 698
+1310976592556: Reading spot in (0,0)
+1310976592567: sending LEADER_REQUEST
+1310976592586: Sending UDP payload: 698
+1310976592609: Sending UDP payload: 470
+1310976592657: Received UDP payload: 851
+1310976592663: Received UDP payload: 698
+1310976592677: Received UDP payload: 851
+1310976592719: Received UDP payload: 881
+1310976592731: Received UDP payload: 698
+1310976592741: Received UDP payload: 698
+1310976592753: Received UDP payload: 881
+1310976592765: Received UDP payload: 698
+1310976592871: LEADER_REQUEST timed out
+1310976592990: Received UDP payload: 698
+1310976593051: Received UDP payload: 881
+1310976593076: Received UDP payload: 698
+1310976593308: Received UDP payload: 851
+1310976593351: Received UDP payload: 698
+1310976593461: Received UDP payload: 470
+1310976594052: Received UDP payload: 470
+1310976594305: Received UDP payload: 698
+1310976594324: Received UDP payload: 881
+1310976594347: Received UDP payload: 698
+1310976594655: Received UDP payload: 470
+1310976594779: Received UDP payload: 698
+1310976594828: Received UDP payload: 851
+1310976594832: Received UDP payload: 881
+1310976594835: Received UDP payload: 698
+1310976594836: Received UDP payload: 698
+1310976594888: Received UDP payload: 851
+1310976594930: Received UDP payload: 881
+1310976594973: Received UDP payload: 698
+1310976595105: Received UDP payload: 698
+1310976595124: Received UDP payload: 881
+1310976595130: Received UDP payload: 698
+1310976595339: Received UDP payload: 698
+1310976595371: Received UDP payload: 851
+1310976596137: Received UDP payload: 698
+1310976596345: Received UDP payload: 851
+1310976596368: Received UDP payload: 698
+1310976596388: Received UDP payload: 881
+1310976596392: Received UDP payload: 698
+1310976596938: Received UDP payload: 698
+1310976596972: Received UDP payload: 698
+1310976596992: Received UDP payload: 851
+1310976597017: Received UDP payload: 851
+1310976597031: Received UDP payload: 851
+1310976597039: Received UDP payload: 698
+1310976597053: Received UDP payload: 881
+1310976597066: Received UDP payload: 698
+1310976597145: Received UDP payload: 698
+1310976597224: Received UDP payload: 851
+1310976597248: Received UDP payload: 881
+1310976597265: Received UDP payload: 698
+1310976597567: UserClient request timed out. (0,0)=?
+1310976597575: Reading spot in (1,1)
+1310976597596: Received UDP payload: 851
+1310976597607: Sending UDP payload: 698
+1310976597618: Received UDP payload: 698
+1310976598225: Received UDP payload: 851
+1310976598425: Received UDP payload: 698
+1310976598453: Received UDP payload: 851
+1310976598478: Received UDP payload: 881
+1310976598499: Received UDP payload: 698
+1310976598851: Received UDP payload: 851
+1310976599128: Received UDP payload: 698
+1310976599192: Received UDP payload: 881
+1310976599215: Received UDP payload: 698
+1310976599297: Received UDP payload: 698
+1310976599352: Received UDP payload: 851
+1310976599388: Received UDP payload: 881
+1310976599448: Received UDP payload: 851
+1310976599453: Received UDP payload: 470
+1310976599476: Received UDP payload: 698
+1310976599672: Received UDP payload: 698
+1310976599705: Received UDP payload: 881
+1310976599729: Received UDP payload: 698
+1310976600502: Received UDP payload: 698
+1310976600525: Received UDP payload: 851
+1310976601164: Received UDP payload: 698
+1310976601276: Received UDP payload: 698
+1310976601327: Received UDP payload: 487
+1310976601344: Received UDP payload: 470
+1310976601359: Received UDP payload: 851
+1310976601401: Received UDP payload: 698
+1310976601461: Received UDP payload: 851
+1310976601526: Received UDP payload: 698
+1310976601546: Received UDP payload: 881
+1310976601569: Received UDP payload: 698
+1310976601749: Received UDP payload: 698
+1310976601789: Received UDP payload: 851
+1310976602013: Received UDP payload: 470
+1310976602030: Received UDP payload: 698
+1310976602499: Received UDP payload: 851
+1310976602562: Received UDP payload: 851
+1310976602590: UserClient request timed out. (1,1)=?
+1310976602590: Releasing ticket in (0,1)
+1310976602592: Sending UDP payload: 698
+1310976602599: Received UDP payload: 470
+1310976603146: Received UDP payload: 851
+1310976603170: Received UDP payload: 851
+1310976603212: Received UDP payload: 470
+1310976603621: Received UDP payload: 698
+1310976603688: Received UDP payload: 851
+1310976603712: Received UDP payload: 881
+1310976603730: Received UDP payload: 698
+1310976603753: Received UDP payload: 851
+1310976603759: Received UDP payload: 698
+1310976604145: Received UDP payload: 470
+1310976604385: Received UDP payload: 851
+1310976604393: Received UDP payload: 698
+1310976604804: Received UDP payload: 470
+1310976605427: Received UDP payload: 470
+1310976605489: Received UDP payload: 698
+1310976605543: Received UDP payload: 8629
+1310976605564: Received UDP payload: 470
+1310976605579: Received UDP payload: 881
+1310976605604: Received UDP payload: 698
+1310976605640: Received UDP payload: 8646
+1310976605718: Received UDP payload: 8646
+1310976605803: Received UDP payload: 698
+1310976605893: Received UDP payload: 6087
+1310976605937: Received UDP payload: 698
+1310976605940: Received UDP payload: 698
+1310976605956: Received UDP payload: 8646
+1310976606034: Received UDP payload: 8646
+1310976606042: Received UDP payload: 881
+1310976606048: Received UDP payload: 698
+1310976606187: Received UDP payload: 698
+1310976606303: Received UDP payload: 698
+1310976606328: Received UDP payload: 881
+1310976606356: Received UDP payload: 698
+1310976606373: Received UDP payload: 851
+1310976606383: Received UDP payload: 698
+1310976606398: Received UDP payload: 698
+1310976606413: Received UDP payload: 851
+1310976606862: cloud accepted leadership request, returned csm bytes size 7448
+1310976607063: Received UDP payload: 698
+1310976607083: Received UDP payload: 881
+1310976607089: Received UDP payload: 698
+1310976607225: CSMLayer starting
+1310976607231: UserServer started.
+1310976607231: loaded csm data from cloud
+1310976607298: Sending UDP payload: 7254
+1310976607300: now fully up as LEADER
+1310976607307: Sending UDP payload: 470
+1310976607484: Received UDP payload: 851
+1310976607509: removed replies before id 28 from sentReplies of size 0
+1310976607519: Received PROC_REQUEST 1:28 (1,1)->(0,1), replying PROC_REPLY 1:28 (0,1)->(1,1)
+1310976607523: Received UDP payload: 470
+1310976607529: Dispatching CSMOp PROC_REPLY 1:28 (0,1)->(1,1)
+1310976607530: Sending out write updates with threadgroup
+1310976607542: Dispatching CSMOp WRITE_UPDATE 20 (0,1)->(-2,-2)
+1310976607557: Sending UDP payload: 881
+1310976607585: Received UDP payload: 698
+1310976607592: UserClient request timed out. (0,1)=?
+1310976607593: Releasing ticket in (0,1)
+1310976607621: Sending UDP payload: 8325
+1310976607626: Received WRITE_UPDATE 20 (0,1)->(-2,-2)
+1310976607634: Sending UDP payload: 698
+1310976607639: UserServer handling request in (0,1)
+1310976607639: Sending PROC_REQUEST 1:9 (0,1)->(0,1)
+1310976607640: Dispatching CSMOp PROC_REQUEST 1:9 (0,1)->(0,1)
+1310976607642: Received UDP payload: 698
+1310976607648: Sending UDP payload: 851
+1310976607651: removed replies before id 9 from sentReplies of size 0
+1310976607652: Received PROC_REQUEST 1:9 (0,1)->(0,1), replying PROC_REPLY 1:9 (0,1)->(0,1)
+1310976607652: Dispatching CSMOp PROC_REPLY 1:9 (0,1)->(0,1)
+1310976607652: Sending out write updates with threadgroup
+1310976607653: Dispatching CSMOp WRITE_UPDATE 21 (0,1)->(-2,-2)
+1310976607663: Sending UDP payload: 881
+1310976607664: Received PROC_REPLY 1:9 (0,1)->(0,1), handing to UserServer
+1310976607665: Procedure 1:9 on (0,1) successful
+1310976607707: Received UDP payload: 8646
+1310976607772: Sending UDP payload: 9972
+1310976607778: Received UDP payload: 851
+1310976607780: Received WRITE_UPDATE 21 (0,1)->(-2,-2)
+1310976607782: Received UDP payload: 881
+1310976607802: Sending UDP payload: 698
+1310976607803: UserClient increment on (0,1) from (0,1) succeeded, value=19,latency=210
+1310976607829: Received UDP payload: 851
+1310976607831: Received WRITE_UPDATE_ACK 20 (1,1)->(0,1)
+1310976607836: Received UDP payload: 851
+1310976607839: Received WRITE_UPDATE_REQUEST 10 (1,1)->(0,1)
+1310976607839: Sending requested WRITE_UPDATE_REQUEST 10 (1,1)->(0,1)
+1310976607839: Dispatching CSMOp WRITE_UPDATE 10 (0,1)->(-2,-2)
+1310976607842: Sending UDP payload: 1160
+1310976607843: Received WRITE_UPDATE 10 (0,1)->(-2,-2)
+1310976607933: Received UDP payload: 851
+1310976607939: Received WRITE_UPDATE_ACK 20 (1,0)->(0,1)
+1310976607943: Received UDP payload: 851
+1310976607988: Received WRITE_UPDATE_REQUEST 10 (1,0)->(0,1)
+1310976607988: Sending requested WRITE_UPDATE_REQUEST 10 (1,0)->(0,1)
+1310976607989: Dispatching CSMOp WRITE_UPDATE 10 (0,1)->(-2,-2)
+1310976607992: Sending UDP payload: 1160
+1310976607993: Received WRITE_UPDATE 10 (0,1)->(-2,-2)
+1310976607993: Received UDP payload: 698
+1310976607996: Received UDP payload: 851
+1310976607998: Received UDP payload: 851
+1310976607999: Received WRITE_UPDATE_ACK 20 (0,0)->(0,1)
+1310976607999: WRITE_UPDATE:20 completed on all other regions.
+1310976608007: Received WRITE_UPDATE_REQUEST 10 (0,0)->(0,1)
+1310976608007: Sending requested WRITE_UPDATE_REQUEST 10 (0,0)->(0,1)
+1310976608008: Dispatching CSMOp WRITE_UPDATE 10 (0,1)->(-2,-2)
+1310976608010: Sending UDP payload: 1160
+1310976608011: Received WRITE_UPDATE 10 (0,1)->(-2,-2)
+1310976608015: Received UDP payload: 851
+1310976608020: Received UDP payload: 851
+1310976608026: Received UDP payload: 851
+1310976608032: Received UDP payload: 851
+1310976608107: Received UDP payload: 1160
+1310976608119: Received WRITE_UPDATE 9 (0,0)->(-2,-2)
+1310976608121: Dispatching CSMOp WRITE_UPDATE_ACK 9 (0,1)->(0,0)
+1310976608122: Applying write updates from (0,0), remote order = 5, write buffer contains [6, 7, 9]
+1310976608124: Received UDP payload: 698
+1310976608131: Missing WRITE_UPDATE:5 from (0,0), requesting
+1310976608135: Dispatching CSMOp WRITE_UPDATE_REQUEST 5 (0,1)->(0,0)
+1310976608155: Received UDP payload: 851
+1310976608160: Sending UDP payload: 851
+1310976608165: Received UDP payload: 851
+1310976608168: Received UDP payload: 851
+1310976608169: Sending UDP payload: 851
+1310976608172: Received WRITE_UPDATE_ACK 21 (1,1)->(0,1)
+1310976608173: Received WRITE_UPDATE_REQUEST 10 (1,1)->(0,1)
+1310976608173: Sending requested WRITE_UPDATE_REQUEST 10 (1,1)->(0,1)
+1310976608173: Dispatching CSMOp WRITE_UPDATE 10 (0,1)->(-2,-2)
+1310976608180: Sending UDP payload: 1160
+1310976608185: Received UDP payload: 851
+1310976608203: Received UDP payload: 851
+1310976608206: Received WRITE_UPDATE 10 (0,1)->(-2,-2)
+1310976608206: Received WRITE_UPDATE_ACK 21 (1,0)->(0,1)
+1310976608212: Received UDP payload: 1160
+1310976608214: Received WRITE_UPDATE_ACK 10 (1,1)->(0,1)
+1310976608215: Received WRITE_UPDATE_REQUEST 10 (1,0)->(0,1)
+1310976608216: Sending requested WRITE_UPDATE_REQUEST 10 (1,0)->(0,1)
+1310976608216: Dispatching CSMOp WRITE_UPDATE 10 (0,1)->(-2,-2)
+1310976608223: Received UDP payload: 851
+1310976608235: Sending UDP payload: 1160
+1310976608237: Received WRITE_UPDATE 10 (0,1)->(-2,-2)
+1310976608237: Received WRITE_UPDATE 11 (0,0)->(-2,-2)
+1310976608238: Dispatching CSMOp WRITE_UPDATE_ACK 11 (0,1)->(0,0)
+1310976608238: Applying write updates from (0,0), remote order = 5, write buffer contains [6, 7, 9, 11]
+1310976608238: Missing WRITE_UPDATE:5 from (0,0), requesting
+1310976608239: Dispatching CSMOp WRITE_UPDATE_REQUEST 5 (0,1)->(0,0)
+1310976608240: Received UDP payload: 851
+1310976608246: Sending UDP payload: 851
+1310976608279: Sending UDP payload: 851
+1310976608280: Received WRITE_UPDATE_ACK 21 (0,0)->(0,1)
+1310976608281: WRITE_UPDATE:21 completed on all other regions.
+1310976608281: Received WRITE_UPDATE_REQUEST 10 (0,0)->(0,1)
+1310976608281: Sending requested WRITE_UPDATE_REQUEST 10 (0,0)->(0,1)
+1310976608282: Dispatching CSMOp WRITE_UPDATE 10 (0,1)->(-2,-2)
+1310976608283: Received UDP payload: 851
+1310976608297: Sending UDP payload: 1160
+1310976608302: Received UDP payload: 698
+1310976608304: Received UDP payload: 851
+1310976608306: Received UDP payload: 851
+1310976608307: Received WRITE_UPDATE 10 (0,1)->(-2,-2)
+1310976608308: Received WRITE_UPDATE_ACK 10 (0,0)->(0,1)
+1310976608313: Received WRITE_UPDATE_REQUEST 11 (0,0)->(0,1)
+1310976608314: Sending requested WRITE_UPDATE_REQUEST 11 (0,0)->(0,1)
+1310976608314: Dispatching CSMOp WRITE_UPDATE 11 (0,1)->(-2,-2)
+1310976608320: Received UDP payload: 851
+1310976608321: Sending UDP payload: 1160
+1310976608324: Received UDP payload: 851
+1310976608325: Received UDP payload: 851
+1310976608327: Received WRITE_UPDATE 11 (0,1)->(-2,-2)
+1310976608336: Received UDP payload: 851
+1310976608370: Received UDP payload: 1160
+1310976608376: Received WRITE_UPDATE 10 (0,0)->(-2,-2)
+1310976608376: Dispatching CSMOp WRITE_UPDATE_ACK 10 (0,1)->(0,0)
+1310976608377: Applying write updates from (0,0), remote order = 5, write buffer contains [6, 7, 9, 11, 10]
+1310976608377: Missing WRITE_UPDATE:5 from (0,0), requesting
+1310976608377: Dispatching CSMOp WRITE_UPDATE_REQUEST 5 (0,1)->(0,0)
+1310976608379: Sending UDP payload: 851
+1310976608384: Sending UDP payload: 851
+1310976608393: Received UDP payload: 1160
+1310976608397: Received WRITE_UPDATE 10 (0,0)->(-2,-2)
+1310976608398: Dispatching CSMOp WRITE_UPDATE_ACK 10 (0,1)->(0,0)
+1310976608398: Applying write updates from (0,0), remote order = 5, write buffer contains [6, 7, 9, 11, 10]
+1310976608399: Missing WRITE_UPDATE:5 from (0,0), requesting
+1310976608399: Dispatching CSMOp WRITE_UPDATE_REQUEST 5 (0,1)->(0,0)
+1310976608401: Sending UDP payload: 851
+1310976608403: Received UDP payload: 1160
+1310976608408: Sending UDP payload: 851
+1310976608413: Received WRITE_UPDATE 5 (0,0)->(-2,-2)
+1310976608413: Dispatching CSMOp WRITE_UPDATE_ACK 5 (0,1)->(0,0)
+1310976608413: Applying write updates from (0,0), remote order = 5, write buffer contains [6, 7, 9, 11, 10, 5]
+1310976608414: Applied WRITE_UPDATE:5 from (0,0)
+1310976608414: Applying write updates from (0,0), remote order = 6, write buffer contains [6, 7, 9, 11, 10]
+1310976608415: Applied WRITE_UPDATE:6 from (0,0)
+1310976608415: Applying write updates from (0,0), remote order = 7, write buffer contains [7, 9, 11, 10]
+1310976608416: Applied WRITE_UPDATE:7 from (0,0)
+1310976608416: Applying write updates from (0,0), remote order = 8, write buffer contains [9, 11, 10]
+1310976608416: Missing WRITE_UPDATE:8 from (0,0), requesting
+1310976608417: Dispatching CSMOp WRITE_UPDATE_REQUEST 8 (0,1)->(0,0)
+1310976608421: Received UDP payload: 1160
+1310976608424: Sending UDP payload: 851
+1310976608433: Sending UDP payload: 851
+1310976608436: Received WRITE_UPDATE 5 (0,0)->(-2,-2)
+1310976608437: Received UDP payload: 851
+1310976608439: Received WRITE_UPDATE_ACK 11 (0,0)->(0,1)
+1310976608445: Received UDP payload: 851
+1310976608453: Received UDP payload: 851
+1310976608455: Received WRITE_UPDATE_REQUEST 12 (0,0)->(0,1)
+1310976608455: Sending requested WRITE_UPDATE_REQUEST 12 (0,0)->(0,1)
+1310976608456: Dispatching CSMOp WRITE_UPDATE 12 (0,1)->(-2,-2)
+1310976608458: Sending UDP payload: 1160
+1310976608459: Received WRITE_UPDATE 12 (0,1)->(-2,-2)
+1310976608460: Received UDP payload: 851
+1310976608504: Received UDP payload: 1160
+1310976608509: Received WRITE_UPDATE 5 (0,0)->(-2,-2)
+1310976608514: Received UDP payload: 1160
+1310976608523: Received WRITE_UPDATE 12 (0,0)->(-2,-2)
+1310976608524: Dispatching CSMOp WRITE_UPDATE_ACK 12 (0,1)->(0,0)
+1310976608526: Applying write updates from (0,0), remote order = 8, write buffer contains [9, 11, 10, 12]
+1310976608526: Missing WRITE_UPDATE:8 from (0,0), requesting
+1310976608527: Dispatching CSMOp WRITE_UPDATE_REQUEST 8 (0,1)->(0,0)
+1310976608534: Sending UDP payload: 851
+1310976608540: Received UDP payload: 851
+1310976608544: Sending UDP payload: 851
+1310976608566: Received UDP payload: 1160
+1310976608569: Received WRITE_UPDATE_ACK 10 (1,0)->(0,1)
+1310976608569: WRITE_UPDATE:10 completed on all other regions.
+1310976608570: Received UDP payload: 851
+1310976608572: Received UDP payload: 851
+1310976608573: Received WRITE_UPDATE 5 (0,0)->(-2,-2)
+1310976608574: Received WRITE_UPDATE_REQUEST 11 (1,0)->(0,1)
+1310976608574: Sending requested WRITE_UPDATE_REQUEST 11 (1,0)->(0,1)
+1310976608575: Dispatching CSMOp WRITE_UPDATE 11 (0,1)->(-2,-2)
+1310976608584: Sending UDP payload: 1160
+1310976608593: Received WRITE_UPDATE 11 (0,1)->(-2,-2)
+1310976608593: Received UDP payload: 1160
+1310976608601: Received WRITE_UPDATE 8 (0,0)->(-2,-2)
+1310976608602: Dispatching CSMOp WRITE_UPDATE_ACK 8 (0,1)->(0,0)
+1310976608602: Applying write updates from (0,0), remote order = 8, write buffer contains [9, 11, 10, 12, 8]
+1310976608602: Applied WRITE_UPDATE:8 from (0,0)
+1310976608620: Applying write updates from (0,0), remote order = 9, write buffer contains [9, 11, 10, 12]
+1310976608620: Applied WRITE_UPDATE:9 from (0,0)
+1310976608620: Applying write updates from (0,0), remote order = 10, write buffer contains [11, 10, 12]
+1310976608621: Applied WRITE_UPDATE:10 from (0,0)
+1310976608621: Applying write updates from (0,0), remote order = 11, write buffer contains [11, 12]
+1310976608622: Applied WRITE_UPDATE:11 from (0,0)
+1310976608622: Applying write updates from (0,0), remote order = 12, write buffer contains [12]
+1310976608622: Applied WRITE_UPDATE:12 from (0,0)
+1310976608623: Applying write updates from (0,0), remote order = 13, write buffer contains []
+1310976608627: Received UDP payload: 851
+1310976608632: Sending UDP payload: 851
+1310976608635: Received UDP payload: 851
+1310976608637: Received UDP payload: 851
+1310976608639: Received UDP payload: 1160
+1310976608642: Received UDP payload: 881
+1310976608647: Received WRITE_UPDATE 13 (0,0)->(-2,-2)
+1310976608647: Dispatching CSMOp WRITE_UPDATE_ACK 13 (0,1)->(0,0)
+1310976608648: Applying write updates from (0,0), remote order = 13, write buffer contains [13]
+1310976608648: Applied WRITE_UPDATE:13 from (0,0)
+1310976608649: Applying write updates from (0,0), remote order = 14, write buffer contains []
+1310976608660: Sending UDP payload: 851
+1310976608661: Received UDP payload: 1160
+1310976608664: Received UDP payload: 698
+1310976608666: Received WRITE_UPDATE 12 (0,0)->(-2,-2)
+1310976608676: Received UDP payload: 851
+1310976608711: Received UDP payload: 851
+1310976608714: Received WRITE_UPDATE_ACK 12 (0,0)->(0,1)
+1310976608719: Received UDP payload: 851
+1310976608723: Received WRITE_UPDATE_REQUEST 13 (0,0)->(0,1)
+1310976608723: Sending requested WRITE_UPDATE_REQUEST 13 (0,0)->(0,1)
+1310976608724: Dispatching CSMOp WRITE_UPDATE 13 (0,1)->(-2,-2)
+1310976608728: Received UDP payload: 851
+1310976608735: Sending UDP payload: 1160
+1310976608741: Received WRITE_UPDATE 13 (0,1)->(-2,-2)
+1310976608742: Received WRITE_UPDATE_REQUEST 13 (1,1)->(0,1)
+1310976608743: Sending requested WRITE_UPDATE_REQUEST 13 (1,1)->(0,1)
+1310976608744: Dispatching CSMOp WRITE_UPDATE 13 (0,1)->(-2,-2)
+1310976608751: Received UDP payload: 1160
+1310976608766: Sending UDP payload: 1160
+1310976608767: Received WRITE_UPDATE 13 (0,1)->(-2,-2)
+1310976608768: Received WRITE_UPDATE 14 (0,0)->(-2,-2)
+1310976608768: Dispatching CSMOp WRITE_UPDATE_ACK 14 (0,1)->(0,0)
+1310976608769: Applying write updates from (0,0), remote order = 14, write buffer contains [14]
+1310976608769: Applied WRITE_UPDATE:14 from (0,0)
+1310976608772: Applying write updates from (0,0), remote order = 15, write buffer contains []
+1310976608774: Sending UDP payload: 851
+1310976608798: Received UDP payload: 851
+1310976608849: Received UDP payload: 1160
+1310976608852: Received WRITE_UPDATE 8 (0,0)->(-2,-2)
+1310976608948: Received UDP payload: 851
+1310976608969: Received WRITE_UPDATE_ACK 13 (1,1)->(0,1)
+1310976609020: Received UDP payload: 698
+1310976609029: Received UDP payload: 851
+1310976609036: Received UDP payload: 851
+1310976609041: Received WRITE_UPDATE_ACK 13 (0,0)->(0,1)
+1310976609049: Received UDP payload: 881
+1310976609057: Received UDP payload: 851
+1310976609068: Received WRITE_UPDATE_REQUEST 17 (0,0)->(0,1)
+1310976609069: Sending requested WRITE_UPDATE_REQUEST 17 (0,0)->(0,1)
+1310976609070: Dispatching CSMOp WRITE_UPDATE 17 (0,1)->(-2,-2)
+1310976609076: Sending UDP payload: 1160
+1310976609085: Received WRITE_UPDATE 17 (0,1)->(-2,-2)
+1310976609125: Received UDP payload: 851
+1310976609127: Received WRITE_UPDATE_ACK 17 (1,1)->(0,1)
+1310976609132: Received UDP payload: 851
+1310976609135: Received WRITE_UPDATE_REQUEST 14 (1,1)->(0,1)
+1310976609136: Sending requested WRITE_UPDATE_REQUEST 14 (1,1)->(0,1)
+1310976609136: Dispatching CSMOp WRITE_UPDATE 14 (0,1)->(-2,-2)
+1310976609138: Sending UDP payload: 1160
+1310976609140: Received WRITE_UPDATE 14 (0,1)->(-2,-2)
+1310976609175: Received UDP payload: 851
+1310976609178: Received WRITE_UPDATE_ACK 14 (1,1)->(0,1)
+1310976609178: WRITE_UPDATE:14 completed on all other regions.
+1310976609183: Received UDP payload: 851
+1310976609186: Received WRITE_UPDATE_REQUEST 15 (1,1)->(0,1)
+1310976609186: Sending requested WRITE_UPDATE_REQUEST 15 (1,1)->(0,1)
+1310976609187: Dispatching CSMOp WRITE_UPDATE 15 (0,1)->(-2,-2)
+1310976609189: Sending UDP payload: 1160
+1310976609190: Received WRITE_UPDATE 15 (0,1)->(-2,-2)
+1310976609268: Received UDP payload: 698
+1310976609290: Received UDP payload: 851
+1310976609349: Received UDP payload: 881
+1310976609394: Received UDP payload: 698
+1310976609397: Received UDP payload: 851
+1310976609407: Received UDP payload: 851
+1310976609409: Received UDP payload: 851
+1310976609412: Received WRITE_UPDATE_ACK 17 (0,0)->(0,1)
+1310976609418: Received UDP payload: 851
+1310976609420: Received WRITE_UPDATE_REQUEST 18 (0,0)->(0,1)
+1310976609421: Sending requested WRITE_UPDATE_REQUEST 18 (0,0)->(0,1)
+1310976609421: Dispatching CSMOp WRITE_UPDATE 18 (0,1)->(-2,-2)
+1310976609424: Sending UDP payload: 1160
+1310976609425: Received WRITE_UPDATE 18 (0,1)->(-2,-2)
+1310976609452: Received UDP payload: 698
+1310976609460: Received UDP payload: 851
+1310976609462: Received WRITE_UPDATE_ACK 11 (1,0)->(0,1)
+1310976609462: WRITE_UPDATE:11 completed on all other regions.
+1310976609468: Received UDP payload: 851
+1310976609471: Received WRITE_UPDATE_REQUEST 12 (1,0)->(0,1)
+1310976609471: Sending requested WRITE_UPDATE_REQUEST 12 (1,0)->(0,1)
+1310976609472: Dispatching CSMOp WRITE_UPDATE 12 (0,1)->(-2,-2)
+1310976609474: Sending UDP payload: 1160
+1310976609475: Received WRITE_UPDATE 12 (0,1)->(-2,-2)
+1310976609476: Received UDP payload: 851
+1310976609494: Received UDP payload: 851
+1310976609504: Received UDP payload: 851
+1310976609512: Received UDP payload: 851
+1310976609522: Received UDP payload: 851
+1310976609525: Received WRITE_UPDATE_ACK 12 (1,0)->(0,1)
+1310976609530: Received UDP payload: 851
+1310976609533: Received WRITE_UPDATE_REQUEST 13 (1,0)->(0,1)
+1310976609534: Sending requested WRITE_UPDATE_REQUEST 13 (1,0)->(0,1)
+1310976609534: Dispatching CSMOp WRITE_UPDATE 13 (0,1)->(-2,-2)
+1310976609537: Sending UDP payload: 1160
+1310976609538: Received WRITE_UPDATE 13 (0,1)->(-2,-2)
+1310976609540: Received UDP payload: 851
+1310976609556: Received UDP payload: 851
+1310976609560: Received WRITE_UPDATE_ACK 18 (0,0)->(0,1)
+1310976609564: Received UDP payload: 851
+1310976609567: Received WRITE_UPDATE_ACK 13 (1,0)->(0,1)
+1310976609567: WRITE_UPDATE:13 completed on all other regions.
+1310976609574: Received UDP payload: 851
+1310976609577: Received WRITE_UPDATE_REQUEST 17 (1,0)->(0,1)
+1310976609578: Sending requested WRITE_UPDATE_REQUEST 17 (1,0)->(0,1)
+1310976609578: Dispatching CSMOp WRITE_UPDATE 17 (0,1)->(-2,-2)
+1310976609581: Sending UDP payload: 1160
+1310976609582: Received UDP payload: 851
+1310976609584: Received WRITE_UPDATE 17 (0,1)->(-2,-2)
+1310976609585: Received WRITE_UPDATE_ACK 17 (1,0)->(0,1)
+1310976609585: WRITE_UPDATE:17 completed on all other regions.
+1310976609604: Received UDP payload: 1160
+1310976609608: Received WRITE_UPDATE 13 (0,0)->(-2,-2)
+1310976609612: Received UDP payload: 851
+1310976609615: Received WRITE_UPDATE_REQUEST 18 (1,0)->(0,1)
+1310976609615: Sending requested WRITE_UPDATE_REQUEST 18 (1,0)->(0,1)
+1310976609616: Dispatching CSMOp WRITE_UPDATE 18 (0,1)->(-2,-2)
+1310976609618: Sending UDP payload: 1160
+1310976609619: Received WRITE_UPDATE 18 (0,1)->(-2,-2)
+1310976609620: Received UDP payload: 851
+1310976609622: Received WRITE_UPDATE_ACK 18 (1,0)->(0,1)
+1310976609640: Received UDP payload: 1160
+1310976609643: Received WRITE_UPDATE 14 (0,0)->(-2,-2)
+1310976609648: Received UDP payload: 851
+1310976609650: Received WRITE_UPDATE_REQUEST 19 (1,0)->(0,1)
+1310976609651: Sending requested WRITE_UPDATE_REQUEST 19 (1,0)->(0,1)
+1310976609651: Dispatching CSMOp WRITE_UPDATE 19 (0,1)->(-2,-2)
+1310976609653: Sending UDP payload: 1160
+1310976609654: Received WRITE_UPDATE 19 (0,1)->(-2,-2)
+1310976609682: Received UDP payload: 851
+1310976609685: Received WRITE_UPDATE_ACK 19 (1,0)->(0,1)
+1310976609737: Received UDP payload: 698
+1310976609745: Received UDP payload: 881
+1310976609752: Received UDP payload: 698
+1310976609773: Received UDP payload: 851
+1310976609784: Received UDP payload: 851
+1310976609806: Reading spot in (1,1)
+1310976609825: Received UDP payload: 851
+1310976609838: Sending UDP payload: 698
+1310976609847: UserServer handling request in (0,1)
+1310976609849: Sending PROC_REQUEST 3:9 (0,1)->(1,1)
+1310976609860: Received UDP payload: 851
+1310976609861: Local cache hit on read-only PROC_REQUEST 3:9 (0,1)->(1,1)
+1310976609867: Dispatching CSMOp PROC_REPLY 3:9 (1,1)->(0,1)
+1310976609877: Received WRITE_UPDATE_ACK 18 (1,1)->(0,1)
+1310976609878: WRITE_UPDATE:18 completed on all other regions.
+1310976609889: Received UDP payload: 1160
+1310976609893: Sending UDP payload: 881
+1310976609894: Received PROC_REPLY 3:9 (1,1)->(0,1), handing to UserServer
+1310976609894: Procedure 3:9 on (1,1) successful
+1310976609895: Received WRITE_UPDATE_REQUEST 15 (1,1)->(0,1)
+1310976609895: Sending requested WRITE_UPDATE_REQUEST 15 (1,1)->(0,1)
+1310976609913: Dispatching CSMOp WRITE_UPDATE 15 (0,1)->(-2,-2)
+1310976609913: Received WRITE_UPDATE 4 (1,0)->(-2,-2)
+1310976609915: Sending UDP payload: 698
+1310976609918: Sending UDP payload: 1160
+1310976609925: Received UDP payload: 851
+1310976609927: Received WRITE_UPDATE 15 (0,1)->(-2,-2)
+1310976609928: UserClient read on (1,1) from (0,1)succeeded, value=19,latency=121
+1310976609931: Received WRITE_UPDATE_ACK 17 (1,1)->(0,1)
+1310976609956: Received UDP payload: 851
+1310976609961: Received WRITE_UPDATE_ACK 18 (1,1)->(0,1)
+1310976609964: Received UDP payload: 851
+1310976609978: Received WRITE_UPDATE_REQUEST 15 (1,1)->(0,1)
+1310976609979: Sending requested WRITE_UPDATE_REQUEST 15 (1,1)->(0,1)
+1310976609979: Dispatching CSMOp WRITE_UPDATE 15 (0,1)->(-2,-2)
+1310976609983: Received UDP payload: 470
+1310976609996: Sending UDP payload: 1160
+1310976610000: Received UDP payload: 851
+1310976610002: Received UDP payload: 851
+1310976610004: Received UDP payload: 851
+1310976610006: Received WRITE_UPDATE 15 (0,1)->(-2,-2)
+1310976610007: Received WRITE_UPDATE_ACK 19 (1,1)->(0,1)
+1310976610007: WRITE_UPDATE:19 completed on all other regions.
+1310976610007: Received WRITE_UPDATE_REQUEST 15 (1,1)->(0,1)
+1310976610008: Sending requested WRITE_UPDATE_REQUEST 15 (1,1)->(0,1)
+1310976610008: Dispatching CSMOp WRITE_UPDATE 15 (0,1)->(-2,-2)
+1310976610010: Sending UDP payload: 1160
+1310976610015: Received WRITE_UPDATE 15 (0,1)->(-2,-2)
+1310976610021: Received UDP payload: 851
+1310976610041: Received UDP payload: 1160
+1310976610047: Received WRITE_UPDATE 6 (1,0)->(-2,-2)
+1310976610047: Dispatching CSMOp WRITE_UPDATE_ACK 6 (0,1)->(1,0)
+1310976610047: Applying write updates from (1,0), remote order = 6, write buffer contains [6]
+1310976610048: Applied WRITE_UPDATE:6 from (1,0)
+1310976610048: Applying write updates from (1,0), remote order = 7, write buffer contains []
+1310976610050: Sending UDP payload: 851
+1310976610057: Received UDP payload: 851
+1310976610059: Received WRITE_UPDATE_ACK 15 (1,1)->(0,1)
+1310976610059: WRITE_UPDATE:15 completed on all other regions.
+1310976610067: Received UDP payload: 851
+1310976610081: Received UDP payload: 851
+1310976610098: Received UDP payload: 1160
+1310976610102: Received WRITE_UPDATE 7 (1,0)->(-2,-2)
+1310976610102: Dispatching CSMOp WRITE_UPDATE_ACK 7 (0,1)->(1,0)
+1310976610103: Applying write updates from (1,0), remote order = 7, write buffer contains [7]
+1310976610103: Applied WRITE_UPDATE:7 from (1,0)
+1310976610103: Applying write updates from (1,0), remote order = 8, write buffer contains []
+1310976610106: Sending UDP payload: 851
+1310976610112: Received UDP payload: 851
+1310976610130: Received UDP payload: 851
+1310976610138: Received UDP payload: 851
+1310976610148: Received UDP payload: 1160
+1310976610152: Received WRITE_UPDATE 7 (1,0)->(-2,-2)
+1310976610160: Received UDP payload: 851
+1310976610162: removed replies before id 5 from sentReplies of size 0
+1310976610163: Received PROC_REQUEST 2:5 (0,0)->(0,1), replying PROC_REPLY 2:5 (0,1)->(0,0)
+1310976610164: Dispatching CSMOp PROC_REPLY 2:5 (0,1)->(0,0)
+1310976610164: Sending out write updates with threadgroup
+1310976610165: Dispatching CSMOp WRITE_UPDATE 22 (0,1)->(-2,-2)
+1310976610166: Sending UDP payload: 881
+1310976610170: Received UDP payload: 851
+1310976610219: Sending UDP payload: 6452
+1310976610223: Received UDP payload: 1160
+1310976610227: Received UDP payload: 851
+1310976610229: Received WRITE_UPDATE 22 (0,1)->(-2,-2)
+1310976610246: Received WRITE_UPDATE 8 (1,0)->(-2,-2)
+1310976610246: Dispatching CSMOp WRITE_UPDATE_ACK 8 (0,1)->(1,0)
+1310976610246: Applying write updates from (1,0), remote order = 8, write buffer contains [8]
+1310976610247: Applied WRITE_UPDATE:8 from (1,0)
+1310976610247: Applying write updates from (1,0), remote order = 9, write buffer contains []
+1310976610257: Received UDP payload: 698
+1310976610259: Received UDP payload: 1160
+1310976610273: Sending UDP payload: 851
+1310976610279: Received WRITE_UPDATE 8 (1,0)->(-2,-2)
+1310976610279: Received UDP payload: 851
+1310976610284: Received UDP payload: 851
+1310976610296: Received UDP payload: 851
+1310976610332: Received UDP payload: 698
+1310976610353: Received UDP payload: 851
+1310976610358: Received WRITE_UPDATE_ACK 22 (1,1)->(0,1)
+1310976610625: Received UDP payload: 15210
+1310976610786: Received WRITE_UPDATE 9 (1,0)->(-2,-2)
+1310976610786: Dispatching CSMOp WRITE_UPDATE_ACK 9 (0,1)->(1,0)
+1310976610786: Applying write updates from (1,0), remote order = 9, write buffer contains [9]
+1310976610787: Applied WRITE_UPDATE:9 from (1,0)
+1310976610787: Applying write updates from (1,0), remote order = 10, write buffer contains []
+1310976610819: Received UDP payload: 851
+1310976610823: Sending UDP payload: 851
+1310976610827: Received UDP payload: 470
+1310976610829: Received UDP payload: 851
+1310976610831: Received WRITE_UPDATE_ACK 22 (1,0)->(0,1)
+1310976610842: Received UDP payload: 698
+1310976610846: Received UDP payload: 851
+1310976610851: Received WRITE_UPDATE_ACK 22 (0,0)->(0,1)
+1310976610851: WRITE_UPDATE:22 completed on all other regions.
+1310976610918: Received UDP payload: 470
+1310976610922: heard LEADER_REQUEST from node 5104, responding LEADER_REPLY
+1310976610929: Received UDP payload: 698
+1310976610936: Received UDP payload: 881
+1310976610954: Received UDP payload: 698
+1310976610989: Sending UDP payload: 6036
+1310976611203: Received UDP payload: 698
+1310976611221: UserServer handling request in (0,1)
+1310976611226: Sending PROC_REQUEST 3:10 (0,1)->(1,1)
+1310976611232: Local cache hit on read-only PROC_REQUEST 3:10 (0,1)->(1,1)
+1310976611235: Dispatching CSMOp PROC_REPLY 3:10 (1,1)->(0,1)
+1310976611256: Sending UDP payload: 881
+1310976611257: Received PROC_REPLY 3:10 (1,1)->(0,1), handing to UserServer
+1310976611258: Procedure 3:10 on (1,1) successful
+1310976611259: Sending UDP payload: 698
+1310976611314: Received UDP payload: 698
+1310976611328: Received UDP payload: 470
+1310976611340: Received UDP payload: 851
+1310976611346: removed replies before id 6 from sentReplies of size 0
+1310976611349: Received PROC_REQUEST 1:6 (0,0)->(0,1), replying PROC_REPLY 1:6 (0,1)->(0,0)
+1310976611351: Dispatching CSMOp PROC_REPLY 1:6 (0,1)->(0,0)
+1310976611351: Sending out write updates with threadgroup
+1310976611354: Dispatching CSMOp WRITE_UPDATE 23 (0,1)->(-2,-2)
+1310976611372: Sending UDP payload: 881
+1310976611402: Received UDP payload: 698
+1310976611426: Sending UDP payload: 6452
+1310976611430: Received WRITE_UPDATE 23 (0,1)->(-2,-2)
+1310976611573: Received UDP payload: 851
+1310976611601: Received WRITE_UPDATE_ACK 23 (0,0)->(0,1)
+1310976611613: Received UDP payload: 851
+1310976611622: Received WRITE_UPDATE_ACK 23 (1,1)->(0,1)
+1310976611622: Received UDP payload: 851
+1310976611625: Received WRITE_UPDATE_ACK 23 (1,0)->(0,1)
+1310976611625: WRITE_UPDATE:23 completed on all other regions.
+1310976611789: Received UDP payload: 698
+1310976611823: Received UDP payload: 851
+1310976611898: Received UDP payload: 881
+1310976611916: Received UDP payload: 698
+1310976611933: Reading spot in (1,0)
+1310976611937: Sending UDP payload: 698
+1310976611944: UserServer handling request in (0,1)
+1310976611944: Sending PROC_REQUEST 3:5 (0,1)->(1,0)
+1310976611951: Local cache hit on read-only PROC_REQUEST 3:5 (0,1)->(1,0)
+1310976611952: Dispatching CSMOp PROC_REPLY 3:5 (1,0)->(0,1)
+1310976611958: Sending UDP payload: 881
+1310976611963: Received PROC_REPLY 3:5 (1,0)->(0,1), handing to UserServer
+1310976611963: Procedure 3:5 on (1,0) successful
+1310976611965: Sending UDP payload: 698
+1310976611966: UserClient read on (1,0) from (0,1)succeeded, value=19,latency=33
+1310976612117: Received UDP payload: 15541
+1310976612281: Received WRITE_UPDATE 11 (1,0)->(-2,-2)
+1310976612282: Dispatching CSMOp WRITE_UPDATE_ACK 11 (0,1)->(1,0)
+1310976612282: Applying write updates from (1,0), remote order = 10, write buffer contains [11]
+1310976612282: Missing WRITE_UPDATE:10 from (1,0), requesting
+1310976612282: Dispatching CSMOp WRITE_UPDATE_REQUEST 10 (0,1)->(1,0)
+1310976612287: Sending UDP payload: 851
+1310976612293: Sending UDP payload: 851
+1310976612293: Received UDP payload: 698
+1310976612319: Received UDP payload: 851
+1310976612336: Received UDP payload: 851
+1310976612344: Received UDP payload: 881
+1310976612350: Received UDP payload: 698
+1310976612568: Received UDP payload: 15519
+1310976612713: Received WRITE_UPDATE 10 (1,0)->(-2,-2)
+1310976612713: Dispatching CSMOp WRITE_UPDATE_ACK 10 (0,1)->(1,0)
+1310976612714: Applying write updates from (1,0), remote order = 10, write buffer contains [11, 10]
+1310976612714: Applied WRITE_UPDATE:10 from (1,0)
+1310976612714: Applying write updates from (1,0), remote order = 11, write buffer contains [11]
+1310976612715: Applied WRITE_UPDATE:11 from (1,0)
+1310976612715: Applying write updates from (1,0), remote order = 12, write buffer contains []
+1310976612724: Received UDP payload: 15497
+1310976612727: Sending UDP payload: 851
+1310976612886: Received WRITE_UPDATE 10 (1,0)->(-2,-2)
+1310976612893: Received UDP payload: 851
+1310976612897: Received UDP payload: 698
+1310976612930: Received UDP payload: 851
+1310976612938: Received UDP payload: 881
+1310976612945: Received UDP payload: 698
+1310976613322: Received UDP payload: 698
+1310976613340: UserServer handling request in (0,1)
+1310976613344: Sending PROC_REQUEST 3:6 (0,1)->(1,0)
+1310976613349: Local cache hit on read-only PROC_REQUEST 3:6 (0,1)->(1,0)
+1310976613352: Dispatching CSMOp PROC_REPLY 3:6 (1,0)->(0,1)
+1310976613368: Sending UDP payload: 881
+1310976613374: Received PROC_REPLY 3:6 (1,0)->(0,1), handing to UserServer
+1310976613374: Procedure 3:6 on (1,0) successful
+1310976613376: Sending UDP payload: 698
+1310976613406: Received UDP payload: 698
+1310976613414: Received UDP payload: 881
+1310976613423: Received UDP payload: 698
+1310976613940: Received UDP payload: 698
+1310976613971: Reading spot in (1,1)
+1310976614030: Received UDP payload: 851
+1310976614041: Sending UDP payload: 698
+1310976614043: UserServer handling request in (0,1)
+1310976614043: Sending PROC_REQUEST 3:11 (0,1)->(1,1)
+1310976614044: Local cache hit on read-only PROC_REQUEST 3:11 (0,1)->(1,1)
+1310976614044: Dispatching CSMOp PROC_REPLY 3:11 (1,1)->(0,1)
+1310976614046: Sending UDP payload: 881
+1310976614049: Received UDP payload: 881
+1310976614051: Received UDP payload: 698
+1310976614053: Received PROC_REPLY 3:11 (1,1)->(0,1), handing to UserServer
+1310976614053: Procedure 3:11 on (1,1) successful
+1310976614061: Received UDP payload: 470
+1310976614063: Sending UDP payload: 698
+1310976614065: UserClient read on (1,1) from (0,1)succeeded, value=19,latency=54
+1310976614416: Received UDP payload: 698
+1310976614478: Received UDP payload: 851
+1310976614519: Received UDP payload: 881
+1310976614521: Received UDP payload: 698
+1310976614607: Received UDP payload: 470
+1310976615009: Received UDP payload: 25169
+1310976615035: Received UDP payload: 698
+1310976615065: Received UDP payload: 881
+1310976615086: Received UDP payload: 698
+1310976615312: Received UDP payload: 698
+1310976615369: Received UDP payload: 851
+1310976615371: removed replies before id 29 from sentReplies of size 0
+1310976615372: Received PROC_REQUEST 1:29 (1,1)->(0,1), replying PROC_REPLY 1:29 (0,1)->(1,1)
+1310976615372: Dispatching CSMOp PROC_REPLY 1:29 (0,1)->(1,1)
+1310976615372: Sending out write updates with threadgroup
+1310976615373: Dispatching CSMOp WRITE_UPDATE 24 (0,1)->(-2,-2)
+1310976615387: Sending UDP payload: 881
+1310976615409: Received UDP payload: 698
+1310976615436: Sending UDP payload: 6443
+1310976615439: Received WRITE_UPDATE 24 (0,1)->(-2,-2)
+1310976615469: Received UDP payload: 698
+1310976615471: UserServer handling request in (0,1)
+1310976615471: Sending PROC_REQUEST 3:12 (0,1)->(1,1)
+1310976615472: Local cache hit on read-only PROC_REQUEST 3:12 (0,1)->(1,1)
+1310976615472: Dispatching CSMOp PROC_REPLY 3:12 (1,1)->(0,1)
+1310976615474: Sending UDP payload: 881
+1310976615479: Received PROC_REPLY 3:12 (1,1)->(0,1), handing to UserServer
+1310976615479: Procedure 3:12 on (1,1) successful
+1310976615480: Received UDP payload: 881
+1310976615482: Received UDP payload: 470
+1310976615488: Sending UDP payload: 698
+1310976615488: Received UDP payload: 470
+1310976615506: Received UDP payload: 698
+1310976615584: Received UDP payload: 851
+1310976615607: Received WRITE_UPDATE_ACK 24 (0,0)->(0,1)
+1310976615623: Received UDP payload: 851
+1310976615660: Received WRITE_UPDATE_ACK 24 (1,1)->(0,1)
+1310976615682: Received UDP payload: 698
+1310976615689: Received UDP payload: 851
+1310976615691: Received WRITE_UPDATE_ACK 24 (1,0)->(0,1)
+1310976615691: WRITE_UPDATE:24 completed on all other regions.
+1310976615776: Received UDP payload: 698
+1310976615888: Received UDP payload: 470
+1310976616040: Received UDP payload: 698
+1310976616061: Received UDP payload: 851
+1310976616070: Requesting spot in (0,0)
+1310976616107: Sending UDP payload: 698
+1310976616107: UserServer handling request in (0,1)
+1310976616108: Sending PROC_REQUEST 2:11 (0,1)->(0,0)
+1310976616108: Dispatching CSMOp PROC_REQUEST 2:11 (0,1)->(0,0)
+1310976616110: Sending UDP payload: 851
+1310976616111: Received UDP payload: 881
+1310976616131: Received UDP payload: 698
+1310976616143: Received UDP payload: 470
+1310976616162: Received UDP payload: 881
+1310976616165: Received PROC_REPLY 2:11 (0,0)->(0,1), handing to UserServer
+1310976616166: Procedure 2:11 on (0,0) successful
+1310976616171: Sending UDP payload: 698
+1310976616173: UserClient decrement on (0,0) from (0,1) succeeded, value=20,latency=91
+1310976616501: Received UDP payload: 851
+1310976616526: Received UDP payload: 851
+1310976616548: Received UDP payload: 851
+1310976616570: Received UDP payload: 851
+1310976616583: Received UDP payload: 698
+1310976616596: Received UDP payload: 1160
+1310976616619: Received WRITE_UPDATE 15 (0,0)->(-2,-2)
+1310976616621: Dispatching CSMOp WRITE_UPDATE_ACK 15 (0,1)->(0,0)
+1310976616624: Applying write updates from (0,0), remote order = 15, write buffer contains [15]
+1310976616626: Applied WRITE_UPDATE:15 from (0,0)
+1310976616627: Applying write updates from (0,0), remote order = 16, write buffer contains []
+1310976616650: Sending UDP payload: 851
+1310976616659: Received UDP payload: 851
+1310976616670: removed replies before id 7 from sentReplies of size 0
+1310976616673: Received PROC_REQUEST 1:7 (0,0)->(0,1), replying PROC_REPLY 1:7 (0,1)->(0,0)
+1310976616678: Received UDP payload: 851
+1310976616682: Dispatching CSMOp PROC_REPLY 1:7 (0,1)->(0,0)
+1310976616682: Sending out write updates with threadgroup
+1310976616683: Dispatching CSMOp WRITE_UPDATE 25 (0,1)->(-2,-2)
+1310976616684: Sending UDP payload: 881
+1310976616698: Received UDP payload: 851
+1310976616726: Sending UDP payload: 6425
+1310976616729: Received UDP payload: 851
+1310976616731: Received UDP payload: 851
+1310976616733: Received WRITE_UPDATE 25 (0,1)->(-2,-2)
+1310976616750: Received UDP payload: 1160
+1310976616753: Received WRITE_UPDATE 16 (0,0)->(-2,-2)
+1310976616753: Dispatching CSMOp WRITE_UPDATE_ACK 16 (0,1)->(0,0)
+1310976616754: Applying write updates from (0,0), remote order = 16, write buffer contains [16]
+1310976616754: Applied WRITE_UPDATE:16 from (0,0)
+1310976616755: Applying write updates from (0,0), remote order = 17, write buffer contains []
+1310976616756: Sending UDP payload: 851
+1310976616775: Received UDP payload: 1160
+1310976616779: Received WRITE_UPDATE 16 (0,0)->(-2,-2)
+1310976616782: Received UDP payload: 851
+1310976616810: Received UDP payload: 851
+1310976616817: Received UDP payload: 698
+1310976616837: Received UDP payload: 851
+1310976616862: Received UDP payload: 1160
+1310976616878: Received WRITE_UPDATE 17 (0,0)->(-2,-2)
+1310976616880: Dispatching CSMOp WRITE_UPDATE_ACK 17 (0,1)->(0,0)
+1310976616882: Applying write updates from (0,0), remote order = 17, write buffer contains [17]
+1310976616884: Applied WRITE_UPDATE:17 from (0,0)
+1310976616885: Received UDP payload: 1160
+1310976616885: Applying write updates from (0,0), remote order = 18, write buffer contains []
+1310976616907: Sending UDP payload: 851
+1310976616913: Received WRITE_UPDATE 17 (0,0)->(-2,-2)
+1310976616913: Received UDP payload: 851
+1310976616915: Received UDP payload: 851
+1310976616924: Received UDP payload: 851
+1310976616926: Received WRITE_UPDATE_ACK 25 (0,0)->(0,1)
+1310976616964: Received UDP payload: 1160
+1310976616968: Received WRITE_UPDATE 18 (0,0)->(-2,-2)
+1310976616968: Dispatching CSMOp WRITE_UPDATE_ACK 18 (0,1)->(0,0)
+1310976616969: Applying write updates from (0,0), remote order = 18, write buffer contains [18]
+1310976616969: Applied WRITE_UPDATE:18 from (0,0)
+1310976616970: Applying write updates from (0,0), remote order = 19, write buffer contains []
+1310976616971: Sending UDP payload: 851
+1310976616988: Received UDP payload: 851
+1310976616991: Received WRITE_UPDATE_ACK 25 (1,0)->(0,1)
+1310976617005: Received UDP payload: 851
+1310976617012: Received UDP payload: 851
+1310976617032: Received UDP payload: 851
+1310976617041: Received UDP payload: 1160
+1310976617045: Received WRITE_UPDATE 18 (0,0)->(-2,-2)
+1310976617057: Received UDP payload: 1160
+1310976617061: Received WRITE_UPDATE 19 (0,0)->(-2,-2)
+1310976617062: Dispatching CSMOp WRITE_UPDATE_ACK 19 (0,1)->(0,0)
+1310976617062: Applying write updates from (0,0), remote order = 19, write buffer contains [19]
+1310976617062: Applied WRITE_UPDATE:19 from (0,0)
+1310976617063: Applying write updates from (0,0), remote order = 20, write buffer contains []
+1310976617065: Sending UDP payload: 851
+1310976617075: Received UDP payload: 851
+1310976617100: Received UDP payload: 851
+1310976617119: Received UDP payload: 698
+1310976617122: Received UDP payload: 1160
+1310976617129: Received WRITE_UPDATE 19 (0,0)->(-2,-2)
+1310976617135: Received UDP payload: 881
+1310976617142: Received UDP payload: 698
+1310976617146: Received UDP payload: 851
+1310976617148: Received UDP payload: 851
+1310976617154: Received UDP payload: 851
+1310976617172: Received UDP payload: 851
+1310976617215: Received UDP payload: 851
+1310976617227: Received UDP payload: 1160
+1310976617235: Received WRITE_UPDATE 20 (0,0)->(-2,-2)
+1310976617235: Dispatching CSMOp WRITE_UPDATE_ACK 20 (0,1)->(0,0)
+1310976617236: Applying write updates from (0,0), remote order = 20, write buffer contains [20]
+1310976617237: Applied WRITE_UPDATE:20 from (0,0)
+1310976617238: Applying write updates from (0,0), remote order = 21, write buffer contains []
+1310976617281: Sending UDP payload: 851
+1310976617312: Sending UDP payload: 470
+1310976617510: Received UDP payload: 698
+1310976617535: Received UDP payload: 851
+1310976617623: Received UDP payload: 881
+1310976617674: Received UDP payload: 698
+1310976617743: Received UDP payload: 698
+1310976617765: UserServer handling request in (0,1)
+1310976617770: Received UDP payload: 7887
+1310976617769: Sending PROC_REQUEST 3:7 (0,1)->(1,0)
+1310976617775: Local cache hit on read-only PROC_REQUEST 3:7 (0,1)->(1,0)
+1310976617779: Dispatching CSMOp PROC_REPLY 3:7 (1,0)->(0,1)
+1310976617917: Sending UDP payload: 881
+1310976617918: Received PROC_REPLY 3:7 (1,0)->(0,1), handing to UserServer
+1310976617918: Procedure 3:7 on (1,0) successful
+1310976617926: Sending UDP payload: 698
+1310976617927: Received WRITE_UPDATE 12 (1,0)->(-2,-2)
+1310976617927: Dispatching CSMOp WRITE_UPDATE_ACK 12 (0,1)->(1,0)
+1310976617928: Applying write updates from (1,0), remote order = 12, write buffer contains [12]
+1310976617928: Applied WRITE_UPDATE:12 from (1,0)
+1310976617929: Applying write updates from (1,0), remote order = 13, write buffer contains []
+1310976617930: Received UDP payload: 698
+1310976617936: Sending UDP payload: 851
+1310976617942: Received UDP payload: 851
+1310976617955: Received UDP payload: 881
+1310976618106: Received UDP payload: 698
+1310976618151: Received UDP payload: 851
+1310976618176: Reading spot in (0,1)
+1310976618200: Sending UDP payload: 698
+1310976618211: Received UDP payload: 881
+1310976618223: UserServer handling request in (0,1)
+1310976618234: Sending PROC_REQUEST 3:10 (0,1)->(0,1)
+1310976618238: Received UDP payload: 698
+1310976618244: Dispatching CSMOp PROC_REQUEST 3:10 (0,1)->(0,1)
+1310976618246: Sending UDP payload: 851
+1310976618251: removed replies before id 10 from sentReplies of size 0
+1310976618251: Received PROC_REQUEST 3:10 (0,1)->(0,1), replying PROC_REPLY 3:10 (0,1)->(0,1)
+1310976618252: Dispatching CSMOp PROC_REPLY 3:10 (0,1)->(0,1)
+1310976618254: Sending UDP payload: 881
+1310976618257: Received PROC_REPLY 3:10 (0,1)->(0,1), handing to UserServer
+1310976618258: Procedure 3:10 on (0,1) successful
+1310976618259: Sending UDP payload: 698
+1310976618262: UserClient read on (0,1) from (0,1)succeeded, value=21,latency=85
+1310976618343: Received UDP payload: 8433
+1310976618434: Received WRITE_UPDATE 13 (1,0)->(-2,-2)
+1310976618435: Dispatching CSMOp WRITE_UPDATE_ACK 13 (0,1)->(1,0)
+1310976618435: Applying write updates from (1,0), remote order = 13, write buffer contains [13]
+1310976618436: Applied WRITE_UPDATE:13 from (1,0)
+1310976618436: Applying write updates from (1,0), remote order = 14, write buffer contains []
+1310976618437: Sending UDP payload: 851
+1310976618458: Received UDP payload: 851
+1310976618468: Received UDP payload: 851
+1310976618479: Received UDP payload: 851
+1310976618616: Received UDP payload: 8389
+1310976618776: Received WRITE_UPDATE 11 (1,0)->(-2,-2)
+1310976618792: Received UDP payload: 851
+1310976618801: Received UDP payload: 851
+1310976618838: Received UDP payload: 698
+1310976618852: Received UDP payload: 851
+1310976618860: Received UDP payload: 881
+1310976618980: Received UDP payload: 8344
+1310976619100: Received WRITE_UPDATE 23 (0,0)->(-2,-2)
+1310976619100: Dispatching CSMOp WRITE_UPDATE_ACK 23 (0,1)->(0,0)
+1310976619101: Applying write updates from (0,0), remote order = 21, write buffer contains [23]
+1310976619101: Missing WRITE_UPDATE:21 from (0,0), requesting
+1310976619101: Dispatching CSMOp WRITE_UPDATE_REQUEST 21 (0,1)->(0,0)
+1310976619103: Sending UDP payload: 851
+1310976619109: Sending UDP payload: 851
+1310976619112: Received UDP payload: 698
+1310976619114: Received UDP payload: 851
+1310976619122: Received UDP payload: 851
+1310976619128: Received UDP payload: 698
+1310976619130: Received UDP payload: 851
+1310976619135: Received UDP payload: 881
+1310976619137: Received UDP payload: 698
+1310976619245: Received UDP payload: 7767
+1310976619332: Received WRITE_UPDATE 21 (0,0)->(-2,-2)
+1310976619333: Dispatching CSMOp WRITE_UPDATE_ACK 21 (0,1)->(0,0)
+1310976619333: Applying write updates from (0,0), remote order = 21, write buffer contains [23, 21]
+1310976619334: Applied WRITE_UPDATE:21 from (0,0)
+1310976619334: Applying write updates from (0,0), remote order = 22, write buffer contains [23]
+1310976619350: Missing WRITE_UPDATE:22 from (0,0), requesting
+1310976619350: Dispatching CSMOp WRITE_UPDATE_REQUEST 22 (0,1)->(0,0)
+1310976619358: Sending UDP payload: 851
+1310976619363: Sending UDP payload: 851
+1310976619371: Received UDP payload: 470
+1310976619373: heard LEADER_REQUEST from node 5109, responding LEADER_REPLY
+1310976619480: Sending UDP payload: 13367
+1310976619563: Received UDP payload: 7221
+1310976619650: Received WRITE_UPDATE 22 (0,0)->(-2,-2)
+1310976619650: Dispatching CSMOp WRITE_UPDATE_ACK 22 (0,1)->(0,0)
+1310976619651: Applying write updates from (0,0), remote order = 22, write buffer contains [23, 22]
+1310976619651: Applied WRITE_UPDATE:22 from (0,0)
+1310976619652: Applying write updates from (0,0), remote order = 23, write buffer contains [23]
+1310976619652: Applied WRITE_UPDATE:23 from (0,0)
+1310976619652: Applying write updates from (0,0), remote order = 24, write buffer contains []
+1310976619660: Sending UDP payload: 851
+1310976619714: Received UDP payload: 698
+1310976619722: Received UDP payload: 851
+1310976619768: Received UDP payload: 881
+1310976619803: Received UDP payload: 698
+1310976619904: Received UDP payload: 7891
+1310976619995: Received WRITE_UPDATE 14 (1,0)->(-2,-2)
+1310976619995: Dispatching CSMOp WRITE_UPDATE_ACK 14 (0,1)->(1,0)
+1310976619995: Applying write updates from (1,0), remote order = 14, write buffer contains [14]
+1310976619996: Applied WRITE_UPDATE:14 from (1,0)
+1310976619996: Applying write updates from (1,0), remote order = 15, write buffer contains []
+1310976619997: Sending UDP payload: 851
+1310976620013: Received UDP payload: 698
+1310976620015: UserServer handling request in (0,1)
+1310976620015: Sending PROC_REQUEST 2:13 (0,1)->(1,1)
+1310976620015: Dispatching CSMOp PROC_REQUEST 2:13 (0,1)->(1,1)
+1310976620017: Sending UDP payload: 851
+1310976620035: Received UDP payload: 851
+1310976620045: Received UDP payload: 851
+1310976620054: Received UDP payload: 881
+1310976620056: Received PROC_REPLY 2:13 (1,1)->(0,1), handing to UserServer
+1310976620056: Procedure 2:13 on (1,1) successful
+1310976620058: Sending UDP payload: 698
+1310976620061: Received UDP payload: 851
+1310976620252: Received UDP payload: 8896
+1310976620269: Reading spot in (0,1)
+1310976620378: Sending UDP payload: 698
+1310976620379: UserServer handling request in (0,1)
+1310976620379: Sending PROC_REQUEST 3:11 (0,1)->(0,1)
+1310976620379: Dispatching CSMOp PROC_REQUEST 3:11 (0,1)->(0,1)
+1310976620381: Sending UDP payload: 851
+1310976620388: removed replies before id 11 from sentReplies of size 0
+1310976620388: Received PROC_REQUEST 3:11 (0,1)->(0,1), replying PROC_REPLY 3:11 (0,1)->(0,1)
+1310976620389: Dispatching CSMOp PROC_REPLY 3:11 (0,1)->(0,1)
+1310976620390: Received WRITE_UPDATE 12 (1,0)->(-2,-2)
+1310976620392: Sending UDP payload: 881
+1310976620413: Received PROC_REPLY 3:11 (0,1)->(0,1), handing to UserServer
+1310976620413: Procedure 3:11 on (0,1) successful
+1310976620414: Sending UDP payload: 698
+1310976620417: UserClient read on (0,1) from (0,1)succeeded, value=21,latency=140
+1310976620484: Received UDP payload: 698
+1310976620523: Received UDP payload: 851
+1310976620529: removed replies before id 18 from sentReplies of size 0
+1310976620531: Received PROC_REQUEST 1:18 (1,0)->(0,1), replying PROC_REPLY 1:18 (0,1)->(1,0)
+1310976620532: Dispatching CSMOp PROC_REPLY 1:18 (0,1)->(1,0)
+1310976620532: Sending out write updates with threadgroup
+1310976620533: Dispatching CSMOp WRITE_UPDATE 26 (0,1)->(-2,-2)
+1310976620549: Sending UDP payload: 881
+1310976620607: Received UDP payload: 698
+1310976620620: Sending UDP payload: 6981
+1310976620623: Received UDP payload: 881
+1310976620626: Received UDP payload: 698
+1310976620628: Received WRITE_UPDATE 26 (0,1)->(-2,-2)
+1310976620646: Received UDP payload: 851
+1310976620701: Received UDP payload: 487
+1310976620820: Received UDP payload: 851
+1310976620845: Received WRITE_UPDATE_ACK 26 (1,1)->(0,1)
+1310976620854: Received UDP payload: 851
+1310976620864: Received WRITE_UPDATE_REQUEST 25 (1,1)->(0,1)
+1310976620864: Sending requested WRITE_UPDATE_REQUEST 25 (1,1)->(0,1)
+1310976620865: Dispatching CSMOp WRITE_UPDATE 25 (0,1)->(-2,-2)
+1310976620904: Sending UDP payload: 6959
+1310976620906: Received WRITE_UPDATE 25 (0,1)->(-2,-2)
+1310976621113: Received UDP payload: 698
+1310976621134: Received UDP payload: 698
+1310976621151: UserServer handling request in (0,1)
+1310976621155: Sending PROC_REQUEST 1:12 (0,1)->(0,0)
+1310976621159: Dispatching CSMOp PROC_REQUEST 1:12 (0,1)->(0,0)
+1310976621166: Sending UDP payload: 851
+1310976621183: Received UDP payload: 881
+1310976621195: Received UDP payload: 881
+1310976621197: Received PROC_REPLY 1:12 (0,0)->(0,1), handing to UserServer
+1310976621197: Procedure 1:12 on (0,0) successful
+1310976621198: Sending UDP payload: 698
+1310976621201: Received UDP payload: 698
+1310976621295: Received UDP payload: 7265
+1310976621438: Received WRITE_UPDATE 24 (0,0)->(-2,-2)
+1310976621438: Dispatching CSMOp WRITE_UPDATE_ACK 24 (0,1)->(0,0)
+1310976621439: Applying write updates from (0,0), remote order = 24, write buffer contains [24]
+1310976621439: Applied WRITE_UPDATE:24 from (0,0)
+1310976621439: Applying write updates from (0,0), remote order = 25, write buffer contains []
+1310976621445: Sending UDP payload: 851
+1310976621456: Received UDP payload: 851
+1310976621459: removed replies before id 18 from sentReplies of size 1
+1310976621459: Received DUPLICATE PROC_REQUEST 1:18 (1,0)->(0,1), replying PROC_REPLY 1:18 (0,1)->(1,0)
+1310976621460: Dispatching CSMOp PROC_REPLY 1:18 (0,1)->(1,0)
+1310976621461: Sending UDP payload: 881
+1310976621464: Received UDP payload: 851
+1310976621483: Received UDP payload: 698
+1310976621818: Received UDP payload: 698
+1310976621842: Received UDP payload: 851
+1310976621864: Received UDP payload: 881
+1310976621866: Received UDP payload: 698
+1310976622189: Received UDP payload: 698
+1310976622208: UserServer handling request in (0,1)
+1310976622212: Sending PROC_REQUEST 3:8 (0,1)->(1,0)
+1310976622216: Local cache hit on read-only PROC_REQUEST 3:8 (0,1)->(1,0)
+1310976622220: Dispatching CSMOp PROC_REPLY 3:8 (1,0)->(0,1)
+1310976622244: Sending UDP payload: 881
+1310976622252: Received PROC_REPLY 3:8 (1,0)->(0,1), handing to UserServer
+1310976622253: Procedure 3:8 on (1,0) successful
+1310976622255: Sending UDP payload: 698
+1310976622309: Received UDP payload: 470
+1310976622420: Reading spot in (0,0)
+1310976622447: Received UDP payload: 698
+1310976622444: Sending UDP payload: 698
+1310976622461: UserServer handling request in (0,1)
+1310976622467: Sending PROC_REQUEST 3:13 (0,1)->(0,0)
+1310976622479: Local cache hit on read-only PROC_REQUEST 3:13 (0,1)->(0,0)
+1310976622480: Dispatching CSMOp PROC_REPLY 3:13 (0,0)->(0,1)
+1310976622485: Sending UDP payload: 881
+1310976622489: Received PROC_REPLY 3:13 (0,0)->(0,1), handing to UserServer
+1310976622489: Procedure 3:13 on (0,0) successful
+1310976622491: Sending UDP payload: 698
+1310976622492: UserClient read on (0,0) from (0,1)succeeded, value=20,latency=69
+1310976622510: Received UDP payload: 851
+1310976622579: Received UDP payload: 881
+1310976622604: Received UDP payload: 698
+1310976622725: Received UDP payload: 8480
+1310976622843: Received WRITE_UPDATE 15 (1,0)->(-2,-2)
+1310976622843: Dispatching CSMOp WRITE_UPDATE_ACK 15 (0,1)->(1,0)
+1310976622843: Applying write updates from (1,0), remote order = 15, write buffer contains [15]
+1310976622844: Applied WRITE_UPDATE:15 from (1,0)
+1310976622844: Applying write updates from (1,0), remote order = 16, write buffer contains []
+1310976622850: Sending UDP payload: 851
+1310976622876: Received UDP payload: 851
+1310976622880: Received UDP payload: 470
+1310976622932: Received UDP payload: 698
+1310976622951: Received UDP payload: 851
+1310976622974: Received UDP payload: 881
+1310976622996: Received UDP payload: 698
+1310976623072: Received UDP payload: 7891
+1310976623154: Received WRITE_UPDATE 16 (1,0)->(-2,-2)
+1310976623154: Dispatching CSMOp WRITE_UPDATE_ACK 16 (0,1)->(1,0)
+1310976623154: Applying write updates from (1,0), remote order = 16, write buffer contains [16]
+1310976623155: Applied WRITE_UPDATE:16 from (1,0)
+1310976623155: Applying write updates from (1,0), remote order = 17, write buffer contains []
+1310976623156: Sending UDP payload: 851
+1310976623233: Received UDP payload: 698
+1310976623237: UserServer handling request in (0,1)
+1310976623238: Sending PROC_REQUEST 2:14 (0,1)->(0,0)
+1310976623239: Dispatching CSMOp PROC_REQUEST 2:14 (0,1)->(0,0)
+1310976623243: Sending UDP payload: 851
+1310976623259: Received UDP payload: 698
+1310976623267: Received UDP payload: 851
+1310976623276: Received UDP payload: 881
+1310976623285: Received UDP payload: 881
+1310976623290: Received PROC_REPLY 2:14 (0,0)->(0,1), handing to UserServer
+1310976623292: Procedure 2:14 on (0,0) successful
+1310976623297: Sending UDP payload: 698
+1310976623433: Received UDP payload: 7798
+1310976623525: Received WRITE_UPDATE 25 (0,0)->(-2,-2)
+1310976623526: Dispatching CSMOp WRITE_UPDATE_ACK 25 (0,1)->(0,0)
+1310976623526: Applying write updates from (0,0), remote order = 25, write buffer contains [25]
+1310976623526: Applied WRITE_UPDATE:25 from (0,0)
+1310976623527: Applying write updates from (0,0), remote order = 26, write buffer contains []
+1310976623528: Sending UDP payload: 851
+1310976623534: Received UDP payload: 470
+1310976623561: Received UDP payload: 698
+1310976623625: Received UDP payload: 851
+1310976623641: Received UDP payload: 881
+1310976623691: Received UDP payload: 698
+1310976623789: Received UDP payload: 8353
+1310976623849: Received WRITE_UPDATE 26 (0,0)->(-2,-2)
+1310976623850: Dispatching CSMOp WRITE_UPDATE_ACK 26 (0,1)->(0,0)
+1310976623850: Applying write updates from (0,0), remote order = 26, write buffer contains [26]
+1310976623851: Applied WRITE_UPDATE:26 from (0,0)
+1310976623851: Applying write updates from (0,0), remote order = 27, write buffer contains []
+1310976623859: Sending UDP payload: 851
+1310976623874: Received UDP payload: 698
+1310976623903: Received UDP payload: 881
+1310976623910: Received UDP payload: 698
+1310976623917: Received UDP payload: 851
+1310976623926: Received UDP payload: 851
+1310976623996: Received UDP payload: 470
+1310976624046: Received UDP payload: 8300
+1310976624166: Received WRITE_UPDATE 25 (0,0)->(-2,-2)
+1310976624209: Received UDP payload: 851
+1310976624487: Received UDP payload: 14911
+1310976624495: Releasing ticket in (0,0)
+1310976624530: Sending UDP payload: 698
+1310976624531: UserServer handling request in (0,1)
+1310976624531: Sending PROC_REQUEST 1:15 (0,1)->(0,0)
+1310976624532: Dispatching CSMOp PROC_REQUEST 1:15 (0,1)->(0,0)
+1310976624550: Sending UDP payload: 851
+1310976624641: Received UDP payload: 881
+1310976624646: Received PROC_REPLY 1:15 (0,0)->(0,1), handing to UserServer
+1310976624647: Procedure 1:15 on (0,0) successful
+1310976624650: Sending UDP payload: 698
+1310976624657: UserClient increment on (0,0) from (0,1) succeeded, value=19,latency=153
+1310976624695: Received UDP payload: 698
+1310976624746: Received UDP payload: 8868
+1310976624847: Received WRITE_UPDATE 27 (0,0)->(-2,-2)
+1310976624847: Dispatching CSMOp WRITE_UPDATE_ACK 27 (0,1)->(0,0)
+1310976624847: Applying write updates from (0,0), remote order = 27, write buffer contains [27]
+1310976624848: Applied WRITE_UPDATE:27 from (0,0)
+1310976624848: Applying write updates from (0,0), remote order = 28, write buffer contains []
+1310976624849: Sending UDP payload: 851
+1310976624851: Received UDP payload: 881
+1310976624862: Received UDP payload: 698
+1310976624878: Received UDP payload: 851
+1310976624997: Received UDP payload: 698
+1310976625016: Received UDP payload: 851
+1310976625040: Received UDP payload: 881
+1310976625057: Received UDP payload: 698
+1310976625355: Received UDP payload: 698
+1310976625372: UserServer handling request in (0,1)
+1310976625376: Sending PROC_REQUEST 3:14 (0,1)->(1,1)
+1310976625382: Local cache hit on read-only PROC_REQUEST 3:14 (0,1)->(1,1)
+1310976625386: Dispatching CSMOp PROC_REPLY 3:14 (1,1)->(0,1)
+1310976625399: Sending UDP payload: 881
+1310976625405: Received PROC_REPLY 3:14 (1,1)->(0,1), handing to UserServer
+1310976625405: Procedure 3:14 on (1,1) successful
+1310976625406: Sending UDP payload: 698
+1310976625414: Received UDP payload: 698
+1310976625433: Received UDP payload: 881
+1310976625439: Received UDP payload: 698
+1310976625480: Received UDP payload: 470
+1310976625677: Received UDP payload: 698
+1310976625740: Received UDP payload: 851
+1310976625818: Received UDP payload: 470
+1310976625835: Received UDP payload: 881
+1310976625907: Received UDP payload: 698
+1310976625951: Received UDP payload: 9414
+1310976626105: Received WRITE_UPDATE 28 (0,0)->(-2,-2)
+1310976626105: Dispatching CSMOp WRITE_UPDATE_ACK 28 (0,1)->(0,0)
+1310976626105: Applying write updates from (0,0), remote order = 28, write buffer contains [28]
+1310976626106: Applied WRITE_UPDATE:28 from (0,0)
+1310976626106: Applying write updates from (0,0), remote order = 29, write buffer contains []
+1310976626118: Sending UDP payload: 851
+1310976626126: Received UDP payload: 698
+1310976626130: Received UDP payload: 881
+1310976626136: Received UDP payload: 698
+1310976626141: Received UDP payload: 487
+1310976626147: Received UDP payload: 470
+1310976626148: Received UDP payload: 851
+1310976626155: Received UDP payload: 851
+1310976626161: Received UDP payload: 851
+1310976626572: Received UDP payload: 8603
+1310976626623: Received UDP payload: 487
+1310976626661: Requesting spot in (0,0)
+1310976626693: Sending UDP payload: 698
+1310976626707: UserServer handling request in (0,1)
+1310976626714: Sending PROC_REQUEST 2:16 (0,1)->(0,0)
+1310976626714: Dispatching CSMOp PROC_REQUEST 2:16 (0,1)->(0,0)
+1310976626715: Sending UDP payload: 851
+1310976626874: Received UDP payload: 698
+1310976627030: Received UDP payload: 851
+1310976627111: Received UDP payload: 698
+1310976627130: Received UDP payload: 698
+1310976627191: Received UDP payload: 881
+1310976627215: Received UDP payload: 698
+1310976627312: Sending UDP payload: 470
+1310976627331: moving from region (0,1), to (1,1)
+1310976627333: broadcasting LEADER_ELECT to old (0,1)
+1310976627341: Sending UDP payload: 487
+1310976627353: UserClient received REGION_CHANGE message.
+1310976627393: Received UDP payload: 470
+1310976627406: received LEADER_NOMINATE from 5104, saving as candidate
+1310976627407: Received UDP payload: 470
+1310976627408: received LEADER_NOMINATE from 5109, saving as candidate
+1310976627458: Received UDP payload: 698
+1310976627497: Received UDP payload: 698
+1310976627517: Received UDP payload: 851
+1310976627545: Received UDP payload: 698
+1310976627685: Retrying PROC_REQUEST 2:16 (0,1)->(0,0)
+1310976627703: Dispatching CSMOp PROC_REQUEST 2:16 (0,1)->(0,0)
+1310976627724: Sending UDP payload: 851
+1310976627744: UserServer stopped.
+1310976627744: CSMLayer stopped
+1310976627821: Received UDP payload: 881
+1310976627853: sending LEADER_CONFIRM to node 5104
+1310976627863: Sending UDP payload: 8355
+1310976627972: Received UDP payload: 698
+1310976628023: Received UDP payload: 487
+1310976628054: Received UDP payload: 851
+1310976628089: Received UDP payload: 698
+1310976628091: Received UDP payload: 851
+1310976628417: Received UDP payload: 851
+1310976628899: Received UDP payload: 470
+1310976629105: Received UDP payload: 851
+1310976629131: Received UDP payload: 698
+1310976629148: Received UDP payload: 851
+1310976629252: Received UDP payload: 698
+1310976629390: Received UDP payload: 851
+1310976629415: Received UDP payload: 881
+1310976629437: Received UDP payload: 698
+1310976629571: Received UDP payload: 698
+1310976629621: Received UDP payload: 470
+1310976629638: Received UDP payload: 881
+1310976629664: Received UDP payload: 851
+1310976629684: Received UDP payload: 698
+1310976630274: Received UDP payload: 851
+1310976630328: Received UDP payload: 698
+1310976631009: recv LEADER_CONFIRM_ACK from 5104, released leadership to cloud in 2971ms
+1310976631015: sending LEADER_REQUEST
+1310976631016: Sending UDP payload: 470
+1310976631160: Received UDP payload: 698
+1310976631257: Received UDP payload: 8586
+1310976631317: Received UDP payload: 881
+1310976631334: Received UDP payload: 698
+1310976631355: Received UDP payload: 9023
+1310976631467: Received UDP payload: 698
+1310976631547: Received UDP payload: 851
+1310976631572: Received UDP payload: 851
+1310976631593: Received UDP payload: 851
+1310976631677: UserClient request timed out. (0,0)=?
+1310976631691: Requesting spot in (1,1)
+1310976631731: Sending UDP payload: 698
+1310976631770: Received UDP payload: 9001
+1310976631887: Received UDP payload: 851
+1310976631890: Received UDP payload: 698
+1310976631908: Received UDP payload: 881
+1310976631918: Received UDP payload: 698
+1310976631928: Received UDP payload: 851
+1310976632118: Received UDP payload: 698
+1310976632311: Received UDP payload: 698
+1310976632346: Received UDP payload: 851
+1310976632423: Received UDP payload: 881
+1310976632447: Received UDP payload: 698
+1310976632485: Received UDP payload: 698
+1310976632548: Received UDP payload: 9460
+1310976632740: Received UDP payload: 851
+1310976632751: Received UDP payload: 851
+1310976632966: Received UDP payload: 698
+1310976633024: Received UDP payload: 851
+1310976633032: Received UDP payload: 851
+1310976633313: Received UDP payload: 851
+1310976633385: Received UDP payload: 698
+1310976633405: Received UDP payload: 851
+1310976633503: Received UDP payload: 881
+1310976633613: Received UDP payload: 7212
+1310976633937: Received UDP payload: 851
+1310976633960: Received UDP payload: 698
+1310976633995: Received UDP payload: 698
+1310976634014: Received UDP payload: 470
+1310976634031: Received UDP payload: 851
+1310976634053: Received UDP payload: 851
+1310976634073: Received UDP payload: 698
+1310976634075: Received UDP payload: 881
+1310976634096: Received UDP payload: 698
+1310976634139: Received UDP payload: 851
+1310976634160: Received UDP payload: 851
+1310976634218: Received UDP payload: 7667
+1310976634340: Received UDP payload: 851
+1310976634343: Received UDP payload: 851
+1310976634376: Received UDP payload: 851
+1310976634386: Received UDP payload: 851
+1310976634453: Received UDP payload: 698
+1310976634494: Received UDP payload: 851
+1310976634515: Received UDP payload: 851
+1310976634540: Received UDP payload: 7645
+1310976634648: Received UDP payload: 851
+1310976634653: Received UDP payload: 7623
+1310976634707: Received UDP payload: 851
+1310976634741: Received UDP payload: 851
+1310976634748: Received UDP payload: 851
+1310976634907: Received UDP payload: 470
+1310976635124: Received UDP payload: 9608
+1310976635373: Received UDP payload: 851
+1310976635386: Received UDP payload: 698
+1310976635477: Received UDP payload: 470
+1310976635771: Received UDP payload: 851
+1310976635794: Received UDP payload: 851
+1310976635954: Received UDP payload: 470
+1310976636067: Received UDP payload: 698
+1310976636128: Received UDP payload: 9499
+1310976636151: Received UDP payload: 881
+1310976636180: Received UDP payload: 698
+1310976636197: Received UDP payload: 698
+1310976636214: Received UDP payload: 881
+1310976636226: Received UDP payload: 698
+1310976636395: Received UDP payload: 851
+1310976636597: Received UDP payload: 470
+1310976636624: Received UDP payload: 851
+1310976636701: UserClient request timed out. (1,1)=?
+1310976636714: Reading spot in (1,0)
+1310976636789: Sending UDP payload: 698
+1310976637039: Received UDP payload: 851
+1310976637107: Received UDP payload: 698
+1310976637149: Received UDP payload: 698
+1310976637192: Received UDP payload: 470
+1310976637358: Received UDP payload: 9499
+1310976637415: Received UDP payload: 698
+1310976637459: Received UDP payload: 881
+1310976637483: Received UDP payload: 698
+1310976637512: Received UDP payload: 698
+1310976637612: Received UDP payload: 881
+1310976637638: Received UDP payload: 698
+1310976638190: Received UDP payload: 470
+1310976638224: Received UDP payload: 698
+1310976638273: Received UDP payload: 698
+1310976638294: Received UDP payload: 881
+1310976638321: Received UDP payload: 698
+1310976638341: Received UDP payload: 881
+1310976638359: Received UDP payload: 698
+1310976638375: Received UDP payload: 698
+1310976638389: Received UDP payload: 881
+1310976638413: Received UDP payload: 698
+1310976638508: Received UDP payload: 487
+1310976638547: Received UDP payload: 470
+1310976638814: Received UDP payload: 470
+1310976638860: Received UDP payload: 470
+1310976639063: Received UDP payload: 9499
+1310976639082: Received UDP payload: 698
+1310976639106: Received UDP payload: 7247
+1310976639125: Received UDP payload: 470
+1310976639136: Received UDP payload: 881
+1310976639138: Received UDP payload: 698
+1310976639140: Received UDP payload: 487
+1310976639492: Received UDP payload: 698
+1310976639528: Received UDP payload: 851
+1310976639553: Received UDP payload: 881
+1310976639575: Received UDP payload: 698
+1310976639734: Received UDP payload: 698
+1310976640340: Received UDP payload: 698
+1310976640388: Received UDP payload: 698
+1310976640410: Received UDP payload: 881
+1310976640433: Received UDP payload: 698
+1310976640434: Received UDP payload: 881
+1310976640437: Received UDP payload: 698
+1310976640440: Received UDP payload: 698
+1310976640453: Received UDP payload: 851
+1310976641018: been in JOINING state for a while now, start over
+1310976641020: sending LEADER_REQUEST
+1310976641042: Sending UDP payload: 470
+1310976641249: Received UDP payload: 851
+1310976641273: Received UDP payload: 851
+1310976641326: Received UDP payload: 881
+1310976641531: Received UDP payload: 9914
+1310976641622: sending LEADER_REQUEST
+1310976641705: Sending UDP payload: 470
+1310976641706: Received UDP payload: 698
+1310976641708: Received UDP payload: 851
+1310976641710: Received UDP payload: 470
+1310976641712: Received UDP payload: 851
+1310976641721: UserClient request timed out. (1,0)=?
+1310976641722: Reading spot in (0,1)
+1310976641723: Sending UDP payload: 698
+1310976641890: Received UDP payload: 851
+1310976641953: Received UDP payload: 10202
+1310976642165: Received UDP payload: 698
+1310976642223: sending LEADER_REQUEST
+1310976642238: Sending UDP payload: 470
+1310976642222: Received UDP payload: 851
+1310976642451: Received UDP payload: 698
+1310976642476: Received UDP payload: 698
+1310976642508: Received UDP payload: 851
+1310976642524: LEADER_REQUEST timed out
+1310976642577: Received UDP payload: 851
+1310976642582: Received UDP payload: 851
+1310976642585: Received UDP payload: 851
+1310976643137: Received UDP payload: 851
+1310976643161: Received UDP payload: 698
+1310976643196: Received UDP payload: 851
+1310976643218: Received UDP payload: 851
+1310976643425: Received UDP payload: 698
+1310976643467: Received UDP payload: 881
+1310976643491: Received UDP payload: 698
+1310976643777: Received UDP payload: 851
+1310976643806: Received UDP payload: 851
+1310976643820: Received UDP payload: 881
+1310976643822: Received UDP payload: 698
+1310976643825: Received UDP payload: 851
+1310976643830: Received UDP payload: 698
+1310976643900: Received UDP payload: 7667
+1310976644037: Received UDP payload: 881
+1310976644040: Received UDP payload: 8379
+1310976644114: Received UDP payload: 851
+1310976644120: Received UDP payload: 851
+1310976644122: Received UDP payload: 698
+1310976644158: Received UDP payload: 851
+1310976644250: Received UDP payload: 851
+1310976644756: Received UDP payload: 698
+1310976644785: Received UDP payload: 851
+1310976644810: Received UDP payload: 881
+1310976644836: Received UDP payload: 698
+1310976645206: Received UDP payload: 698
+1310976645261: Received UDP payload: 881
+1310976645286: Received UDP payload: 698
+1310976645492: Received UDP payload: 470
+1310976645525: Received UDP payload: 698
+1310976645533: Received UDP payload: 851
+1310976645540: Received UDP payload: 851
+1310976645890: Received UDP payload: 698
+1310976645946: Received UDP payload: 881
+1310976645969: Received UDP payload: 698
+1310976646012: Received UDP payload: 470
+1310976646168: Received UDP payload: 698
+1310976646236: Received UDP payload: 881
+1310976646260: Received UDP payload: 698
+1310976646589: Received UDP payload: 470
+1310976646728: UserClient request timed out. (0,1)=?
+1310976646738: Requesting spot in (1,1)
+1310976646787: Sending UDP payload: 698
+1310976646801: Received UDP payload: 698
+1310976646809: moving from region (1,1), to (1,0)
+1310976646810: UserClient received REGION_CHANGE message.
+1310976646819: Received UDP payload: 881
+1310976646826: Received UDP payload: 698
+1310976646833: Received UDP payload: 851
+1310976646844: Received UDP payload: 851
+1310976647161: Received UDP payload: 470
+1310976647202: Received UDP payload: 698
+1310976647310: Received UDP payload: 698
+1310976647371: Received UDP payload: 881
+1310976647395: Received UDP payload: 698
+1310976647423: Received UDP payload: 851
+1310976647445: Received UDP payload: 851
+1310976648004: Received UDP payload: 698
+1310976648064: Received UDP payload: 851
+1310976648093: Received UDP payload: 698
+1310976648109: Received UDP payload: 881
+1310976648111: Received UDP payload: 698
+1310976648166: Received UDP payload: 470
+1310976648322: Received UDP payload: 698
+1310976648378: Received UDP payload: 881
+1310976648423: Received UDP payload: 698
+1310976648605: cloud accepted leadership request, returned csm bytes size 5745
+1310976648616: CSMLayer stopped
+1310976648791: Received UDP payload: 470
+1310976648857: Received UDP payload: 698
+1310976648885: CSMLayer starting
+1310976648892: UserServer started.
+1310976648892: loaded csm data from cloud
+1310976648904: Received UDP payload: 851
+1310976648947: Sending UDP payload: 6280
+1310976648949: now fully up as LEADER
+1310976648956: Sending UDP payload: 470
+1310976648959: LEADER_REQUEST timed out
+1310976648993: Received UDP payload: 698
+1310976649066: Received UDP payload: 470
+1310976649141: Received UDP payload: 10546
+1310976649331: Received WRITE_UPDATE 30 (0,0)->(-2,-2)
+1310976649331: Dispatching CSMOp WRITE_UPDATE_ACK 30 (1,1)->(0,0)
+1310976649331: Applying write updates from (0,0), remote order = 24, write buffer contains [30]
+1310976649332: Missing WRITE_UPDATE:24 from (0,0), requesting
+1310976649332: Dispatching CSMOp WRITE_UPDATE_REQUEST 24 (1,1)->(0,0)
+1310976649348: Received UDP payload: 851
+1310976649348: Sending UDP payload: 851
+1310976649352: Received UDP payload: 851
+1310976649362: Sending UDP payload: 851
+1310976649383: Received UDP payload: 470
+1310976649515: Received UDP payload: 470
+1310976649558: Received UDP payload: 698
+1310976649679: Received UDP payload: 10524
+1310976649817: Received WRITE_UPDATE 29 (0,0)->(-2,-2)
+1310976649817: Dispatching CSMOp WRITE_UPDATE_ACK 29 (1,1)->(0,0)
+1310976649817: Applying write updates from (0,0), remote order = 24, write buffer contains [30, 29]
+1310976649818: Missing WRITE_UPDATE:24 from (0,0), requesting
+1310976649818: Dispatching CSMOp WRITE_UPDATE_REQUEST 24 (1,1)->(0,0)
+1310976649819: Sending UDP payload: 851
+1310976649828: Sending UDP payload: 851
+1310976649828: Received UDP payload: 10502
+1310976649954: Received WRITE_UPDATE 24 (0,0)->(-2,-2)
+1310976649955: Dispatching CSMOp WRITE_UPDATE_ACK 24 (1,1)->(0,0)
+1310976649955: Applying write updates from (0,0), remote order = 24, write buffer contains [30, 29, 24]
+1310976649956: Applied WRITE_UPDATE:24 from (0,0)
+1310976649956: Applying write updates from (0,0), remote order = 25, write buffer contains [30, 29]
+1310976649957: Missing WRITE_UPDATE:25 from (0,0), requesting
+1310976649957: Dispatching CSMOp WRITE_UPDATE_REQUEST 25 (1,1)->(0,0)
+1310976649967: Received UDP payload: 881
+1310976649981: Sending UDP payload: 851
+1310976649986: Received UDP payload: 698
+1310976649989: Received UDP payload: 851
+1310976649994: Sending UDP payload: 851
+1310976650032: Received UDP payload: 10458
+1310976650168: Received WRITE_UPDATE 24 (0,0)->(-2,-2)
+1310976650182: Received UDP payload: 698
+1310976650209: Received UDP payload: 9921
+1310976650294: Received WRITE_UPDATE 25 (0,0)->(-2,-2)
+1310976650294: Dispatching CSMOp WRITE_UPDATE_ACK 25 (1,1)->(0,0)
+1310976650295: Applying write updates from (0,0), remote order = 25, write buffer contains [30, 29, 25]
+1310976650295: Applied WRITE_UPDATE:25 from (0,0)
+1310976650296: Applying write updates from (0,0), remote order = 26, write buffer contains [30, 29]
+1310976650296: Missing WRITE_UPDATE:26 from (0,0), requesting
+1310976650296: Dispatching CSMOp WRITE_UPDATE_REQUEST 26 (1,1)->(0,0)
+1310976650306: Received UDP payload: 698
+1310976650308: Sending UDP payload: 851
+1310976650315: Received UDP payload: 851
+1310976650317: Received UDP payload: 881
+1310976650325: Sending UDP payload: 851
+1310976650326: Received UDP payload: 698
+1310976650330: Received UDP payload: 881
+1310976650336: Received UDP payload: 698
+1310976650428: Received UDP payload: 698
+1310976650521: Received UDP payload: 9370
+1310976650679: Received WRITE_UPDATE 26 (0,0)->(-2,-2)
+1310976650680: Dispatching CSMOp WRITE_UPDATE_ACK 26 (1,1)->(0,0)
+1310976650680: Applying write updates from (0,0), remote order = 26, write buffer contains [30, 29, 26]
+1310976650680: Applied WRITE_UPDATE:26 from (0,0)
+1310976650681: Applying write updates from (0,0), remote order = 27, write buffer contains [30, 29]
+1310976650681: Missing WRITE_UPDATE:27 from (0,0), requesting
+1310976650681: Dispatching CSMOp WRITE_UPDATE_REQUEST 27 (1,1)->(0,0)
+1310976650693: Sending UDP payload: 851
+1310976650698: Received UDP payload: 851
+1310976650702: Received UDP payload: 881
+1310976650711: Sending UDP payload: 851
+1310976650800: Received UDP payload: 8777
+1310976650933: Received WRITE_UPDATE 30 (0,1)->(-2,-2)
+1310976650934: Dispatching CSMOp WRITE_UPDATE_ACK 30 (1,1)->(0,1)
+1310976650934: Applying write updates from (0,1), remote order = 25, write buffer contains [26, 30]
+1310976650934: Missing WRITE_UPDATE:25 from (0,1), requesting
+1310976650935: Dispatching CSMOp WRITE_UPDATE_REQUEST 25 (1,1)->(0,1)
+1310976650940: Sending UDP payload: 851
+1310976650942: Sending UDP payload: 851
+1310976650944: Received UDP payload: 698
+1310976650947: Received UDP payload: 8833
+1310976651063: Received WRITE_UPDATE 27 (0,0)->(-2,-2)
+1310976651063: Dispatching CSMOp WRITE_UPDATE_ACK 27 (1,1)->(0,0)
+1310976651064: Applying write updates from (0,0), remote order = 27, write buffer contains [30, 29, 27]
+1310976651064: Applied WRITE_UPDATE:27 from (0,0)
+1310976651064: Applying write updates from (0,0), remote order = 28, write buffer contains [30, 29]
+1310976651065: Missing WRITE_UPDATE:28 from (0,0), requesting
+1310976651065: Dispatching CSMOp WRITE_UPDATE_REQUEST 28 (1,1)->(0,0)
+1310976651070: Sending UDP payload: 851
+1310976651074: Sending UDP payload: 851
+1310976651075: Received UDP payload: 851
+1310976651085: Received UDP payload: 698
+1310976651100: Received UDP payload: 851
+1310976651108: Received UDP payload: 881
+1310976651134: Received UDP payload: 698
+1310976651301: Received UDP payload: 8733
+1310976651414: Received WRITE_UPDATE 25 (0,1)->(-2,-2)
+1310976651415: Dispatching CSMOp WRITE_UPDATE_ACK 25 (1,1)->(0,1)
+1310976651415: Applying write updates from (0,1), remote order = 25, write buffer contains [26, 30, 25]
+1310976651415: Applied WRITE_UPDATE:25 from (0,1)
+1310976651416: Applying write updates from (0,1), remote order = 26, write buffer contains [26, 30]
+1310976651416: Applied WRITE_UPDATE:26 from (0,1)
+1310976651417: Applying write updates from (0,1), remote order = 27, write buffer contains [30]
+1310976651417: Missing WRITE_UPDATE:27 from (0,1), requesting
+1310976651417: Dispatching CSMOp WRITE_UPDATE_REQUEST 27 (1,1)->(0,1)
+1310976651423: Sending UDP payload: 851
+1310976651427: Sending UDP payload: 851
+1310976651430: Received UDP payload: 8296
+1310976651518: Received WRITE_UPDATE 28 (0,0)->(-2,-2)
+1310976651518: Dispatching CSMOp WRITE_UPDATE_ACK 28 (1,1)->(0,0)
+1310976651519: Applying write updates from (0,0), remote order = 28, write buffer contains [30, 29, 28]
+1310976651519: Applied WRITE_UPDATE:28 from (0,0)
+1310976651519: Applying write updates from (0,0), remote order = 29, write buffer contains [30, 29]
+1310976651520: Applied WRITE_UPDATE:29 from (0,0)
+1310976651520: Applying write updates from (0,0), remote order = 30, write buffer contains [30]
+1310976651520: Applied WRITE_UPDATE:30 from (0,0)
+1310976651521: Applying write updates from (0,0), remote order = 31, write buffer contains []
+1310976651528: Sending UDP payload: 851
+1310976651529: Received UDP payload: 470
+1310976651605: Received UDP payload: 8187
+1310976651683: Received WRITE_UPDATE 27 (0,1)->(-2,-2)
+1310976651683: Dispatching CSMOp WRITE_UPDATE_ACK 27 (1,1)->(0,1)
+1310976651684: Applying write updates from (0,1), remote order = 27, write buffer contains [30, 27]
+1310976651684: Applied WRITE_UPDATE:27 from (0,1)
+1310976651684: Applying write updates from (0,1), remote order = 28, write buffer contains [30]
+1310976651685: Missing WRITE_UPDATE:28 from (0,1), requesting
+1310976651685: Dispatching CSMOp WRITE_UPDATE_REQUEST 28 (1,1)->(0,1)
+1310976651700: Sending UDP payload: 851
+1310976651707: Sending UDP payload: 851
+1310976651744: Received UDP payload: 470
+1310976651756: UserClient request timed out. (1,1)=?
+1310976651756: Reading spot in (1,0)
+1310976651759: Sending UDP payload: 698
+1310976651870: Received UDP payload: 7641
+1310976651975: Received WRITE_UPDATE 28 (0,1)->(-2,-2)
+1310976651976: Dispatching CSMOp WRITE_UPDATE_ACK 28 (1,1)->(0,1)
+1310976651976: Applying write updates from (0,1), remote order = 28, write buffer contains [30, 28]
+1310976651976: Applied WRITE_UPDATE:28 from (0,1)
+1310976651977: Applying write updates from (0,1), remote order = 29, write buffer contains [30]
+1310976651977: Missing WRITE_UPDATE:29 from (0,1), requesting
+1310976651977: Dispatching CSMOp WRITE_UPDATE_REQUEST 29 (1,1)->(0,1)
+1310976651984: Sending UDP payload: 851
+1310976651986: Sending UDP payload: 851
+1310976652002: Received UDP payload: 698
+1310976652020: Received UDP payload: 851
+1310976652031: Received UDP payload: 881
+1310976652035: Received UDP payload: 698
+1310976652166: Received UDP payload: 7095
+1310976652286: Received WRITE_UPDATE 29 (0,1)->(-2,-2)
+1310976652286: Dispatching CSMOp WRITE_UPDATE_ACK 29 (1,1)->(0,1)
+1310976652287: Applying write updates from (0,1), remote order = 29, write buffer contains [30, 29]
+1310976652287: Applied WRITE_UPDATE:29 from (0,1)
+1310976652288: Applying write updates from (0,1), remote order = 30, write buffer contains [30]
+1310976652288: Applied WRITE_UPDATE:30 from (0,1)
+1310976652288: Applying write updates from (0,1), remote order = 31, write buffer contains []
+1310976652298: Sending UDP payload: 851
+1310976652303: Received UDP payload: 698
+1310976652306: Received UDP payload: 851
+1310976652312: Received UDP payload: 470
+1310976652327: Received UDP payload: 698
+1310976652396: Received UDP payload: 698
+1310976652418: Received UDP payload: 881
+1310976652426: Received UDP payload: 698
+1310976652927: Received UDP payload: 698
+1310976652989: Received UDP payload: 881
+1310976653013: Received UDP payload: 698
+1310976653171: Received UDP payload: 698
+1310976653247: Received UDP payload: 881
+1310976653271: Received UDP payload: 698
+1310976653484: Received UDP payload: 851
+1310976654102: Received UDP payload: 698
+1310976654122: Received UDP payload: 851
+1310976654145: Received UDP payload: 851
+1310976654466: Received UDP payload: 698
+1310976654531: Received UDP payload: 851
+1310976654746: Received UDP payload: 851
+1310976654775: Received UDP payload: 698
+1310976655089: Received UDP payload: 698
+1310976655176: Received UDP payload: 881
+1310976655192: Received UDP payload: 698
+1310976655282: Received UDP payload: 698
+1310976655315: Received UDP payload: 851
+1310976655341: Received UDP payload: 881
+1310976655364: Received UDP payload: 698
+1310976655374: Received UDP payload: 851
+1310976655382: Received UDP payload: 851
+1310976655421: Received UDP payload: 881
+1310976655435: Received UDP payload: 698
+1310976655482: Received UDP payload: 470
+1310976655569: Received UDP payload: 7284
+1310976655655: Received WRITE_UPDATE 9 (1,0)->(-2,-2)
+1310976655662: Received UDP payload: 7925
+1310976655666: Received UDP payload: 881
+1310976655695: Received UDP payload: 698
+1310976655730: Received UDP payload: 7987
+1310976655811: Received WRITE_UPDATE 10 (1,0)->(-2,-2)
+1310976655817: Received UDP payload: 470
+1310976655820: heard LEADER_REQUEST from node 5104, responding LEADER_REPLY
+1310976655914: Sending UDP payload: 7421
+1310976655917: Received UDP payload: 851
+1310976655922: Received UDP payload: 698
+1310976655993: Received UDP payload: 470
+1310976656583: Received UDP payload: 470
+1310976656747: Received UDP payload: 8157
+1310976656762: UserClient request timed out. (1,0)=?
+1310976656782: Reading spot in (0,0)
+1310976656805: Received UDP payload: 698
+1310976656814: Sending UDP payload: 698
+1310976656832: Received UDP payload: 881
+1310976656839: Received UDP payload: 698
+1310976656901: Received UDP payload: 881
+1310976656912: Received UDP payload: 698
+1310976657274: Received UDP payload: 698
+1310976657294: Received UDP payload: 698
+1310976657335: Received UDP payload: 881
+1310976657365: Received UDP payload: 698
+1310976657378: Received UDP payload: 851
+1310976657380: removed replies before id 20 from sentReplies of size 0
+1310976657381: Received PROC_REQUEST 1:20 (1,0)->(1,1), replying PROC_REPLY 1:20 (1,1)->(1,0)
+1310976657381: Dispatching CSMOp PROC_REPLY 1:20 (1,1)->(1,0)
+1310976657382: Sending out write updates with threadgroup
+1310976657382: Dispatching CSMOp WRITE_UPDATE 18 (1,1)->(-2,-2)
+1310976657392: Sending UDP payload: 881
+1310976657400: Received UDP payload: 698
+1310976657438: Sending UDP payload: 7824
+1310976657441: Received UDP payload: 881
+1310976657443: Received UDP payload: 698
+1310976657445: Received UDP payload: 698
+1310976657447: Received WRITE_UPDATE 18 (1,1)->(-2,-2)
+1310976657471: Received UDP payload: 698
+1310976657521: Received UDP payload: 881
+1310976657598: Received UDP payload: 698
+1310976657619: Received UDP payload: 851
+1310976657647: Received WRITE_UPDATE_ACK 18 (0,0)->(1,1)
+1310976657660: Received UDP payload: 851
+1310976657672: Received WRITE_UPDATE_ACK 18 (0,1)->(1,1)
+1310976657676: Received UDP payload: 851
+1310976657679: Received WRITE_UPDATE_REQUEST 10 (0,1)->(1,1)
+1310976657679: Sending requested WRITE_UPDATE_REQUEST 10 (0,1)->(1,1)
+1310976657680: Dispatching CSMOp WRITE_UPDATE 10 (1,1)->(-2,-2)
+1310976657681: Sending UDP payload: 1160
+1310976657698: Received WRITE_UPDATE 10 (1,1)->(-2,-2)
+1310976657698: Received UDP payload: 851
+1310976657700: Received WRITE_UPDATE_REQUEST 7 (0,0)->(1,1)
+1310976657701: Sending requested WRITE_UPDATE_REQUEST 7 (0,0)->(1,1)
+1310976657701: Dispatching CSMOp WRITE_UPDATE 7 (1,1)->(-2,-2)
+1310976657703: Sending UDP payload: 1160
+1310976657709: Received WRITE_UPDATE 7 (1,1)->(-2,-2)
+1310976657709: Received UDP payload: 851
+1310976657714: Received WRITE_UPDATE_ACK 10 (0,1)->(1,1)
+1310976657729: Received UDP payload: 851
+1310976657731: Received WRITE_UPDATE_ACK 10 (0,0)->(1,1)
+1310976657753: Received UDP payload: 851
+1310976657755: Received UDP payload: 698
+1310976657756: Received WRITE_UPDATE_REQUEST 7 (0,0)->(1,1)
+1310976657757: Sending requested WRITE_UPDATE_REQUEST 7 (0,0)->(1,1)
+1310976657757: Dispatching CSMOp WRITE_UPDATE 7 (1,1)->(-2,-2)
+1310976657769: Sending UDP payload: 1160
+1310976657770: Received UDP payload: 851
+1310976657772: Received WRITE_UPDATE 7 (1,1)->(-2,-2)
+1310976657776: Received WRITE_UPDATE_ACK 10 (1,0)->(1,1)
+1310976657776: WRITE_UPDATE:10 completed on all other regions.
+1310976657788: Received UDP payload: 851
+1310976657791: Received WRITE_UPDATE_ACK 7 (0,0)->(1,1)
+1310976657791: WRITE_UPDATE:7 completed on all other regions.
+1310976657802: Received UDP payload: 851
+1310976657804: Received WRITE_UPDATE_REQUEST 11 (0,0)->(1,1)
+1310976657805: Sending requested WRITE_UPDATE_REQUEST 11 (0,0)->(1,1)
+1310976657805: Dispatching CSMOp WRITE_UPDATE 11 (1,1)->(-2,-2)
+1310976657807: Sending UDP payload: 1160
+1310976657808: Received WRITE_UPDATE 11 (1,1)->(-2,-2)
+1310976657810: Received UDP payload: 881
+1310976657828: Received UDP payload: 698
+1310976657837: Received UDP payload: 851
+1310976657839: Received WRITE_UPDATE_ACK 11 (0,0)->(1,1)
+1310976657851: Received UDP payload: 851
+1310976657854: Received WRITE_UPDATE_REQUEST 12 (0,0)->(1,1)
+1310976657854: Sending requested WRITE_UPDATE_REQUEST 12 (0,0)->(1,1)
+1310976657855: Dispatching CSMOp WRITE_UPDATE 12 (1,1)->(-2,-2)
+1310976657857: Sending UDP payload: 1160
+1310976657858: Received UDP payload: 851
+1310976657861: Received WRITE_UPDATE 12 (1,1)->(-2,-2)
+1310976657861: Received WRITE_UPDATE_ACK 11 (0,1)->(1,1)
+1310976657876: Received UDP payload: 851
+1310976657879: Received WRITE_UPDATE_REQUEST 12 (0,1)->(1,1)
+1310976657879: Sending requested WRITE_UPDATE_REQUEST 12 (0,1)->(1,1)
+1310976657880: Dispatching CSMOp WRITE_UPDATE 12 (1,1)->(-2,-2)
+1310976657882: Sending UDP payload: 1160
+1310976657883: Received WRITE_UPDATE 12 (1,1)->(-2,-2)
+1310976657885: Received UDP payload: 851
+1310976657888: Received WRITE_UPDATE_ACK 12 (0,0)->(1,1)
+1310976657903: Received UDP payload: 851
+1310976657906: Received WRITE_UPDATE_ACK 11 (1,0)->(1,1)
+1310976657906: WRITE_UPDATE:11 completed on all other regions.
+1310976657911: Received UDP payload: 851
+1310976657914: Received WRITE_UPDATE_REQUEST 13 (0,0)->(1,1)
+1310976657915: Sending requested WRITE_UPDATE_REQUEST 13 (0,0)->(1,1)
+1310976657915: Dispatching CSMOp WRITE_UPDATE 13 (1,1)->(-2,-2)
+1310976657917: Sending UDP payload: 1160
+1310976657918: Received WRITE_UPDATE 13 (1,1)->(-2,-2)
+1310976657922: Received UDP payload: 851
+1310976657924: Received WRITE_UPDATE_REQUEST 13 (0,1)->(1,1)
+1310976657925: Sending requested WRITE_UPDATE_REQUEST 13 (0,1)->(1,1)
+1310976657925: Dispatching CSMOp WRITE_UPDATE 13 (1,1)->(-2,-2)
+1310976657927: Sending UDP payload: 1160
+1310976657932: Received WRITE_UPDATE 13 (1,1)->(-2,-2)
+1310976657953: Received UDP payload: 851
+1310976657956: Received WRITE_UPDATE_ACK 13 (0,0)->(1,1)
+1310976657961: Received UDP payload: 851
+1310976657963: Received WRITE_UPDATE_ACK 13 (0,1)->(1,1)
+1310976657969: Received UDP payload: 851
+1310976657971: Received WRITE_UPDATE_REQUEST 14 (0,1)->(1,1)
+1310976657972: Sending requested WRITE_UPDATE_REQUEST 14 (0,1)->(1,1)
+1310976657972: Dispatching CSMOp WRITE_UPDATE 14 (1,1)->(-2,-2)
+1310976657974: Sending UDP payload: 1160
+1310976657976: Received WRITE_UPDATE 14 (1,1)->(-2,-2)
+1310976657976: Received UDP payload: 851
+1310976657979: Received WRITE_UPDATE_REQUEST 14 (0,0)->(1,1)
+1310976657979: Sending requested WRITE_UPDATE_REQUEST 14 (0,0)->(1,1)
+1310976657979: Dispatching CSMOp WRITE_UPDATE 14 (1,1)->(-2,-2)
+1310976657981: Sending UDP payload: 1160
+1310976657987: Received WRITE_UPDATE 14 (1,1)->(-2,-2)
+1310976657994: Received UDP payload: 851
+1310976657997: Received WRITE_UPDATE_ACK 13 (1,0)->(1,1)
+1310976657997: WRITE_UPDATE:13 completed on all other regions.
+1310976658012: Received UDP payload: 851
+1310976658016: Received WRITE_UPDATE_ACK 14 (0,1)->(1,1)
+1310976658020: Received UDP payload: 851
+1310976658023: Received WRITE_UPDATE_REQUEST 15 (0,1)->(1,1)
+1310976658023: Sending requested WRITE_UPDATE_REQUEST 15 (0,1)->(1,1)
+1310976658023: Dispatching CSMOp WRITE_UPDATE 15 (1,1)->(-2,-2)
+1310976658025: Sending UDP payload: 1160
+1310976658027: Received WRITE_UPDATE 15 (1,1)->(-2,-2)
+1310976658049: Received UDP payload: 851
+1310976658052: Received WRITE_UPDATE_ACK 14 (0,0)->(1,1)
+1310976658060: Received UDP payload: 851
+1310976658062: Received WRITE_UPDATE_REQUEST 15 (0,0)->(1,1)
+1310976658063: Sending requested WRITE_UPDATE_REQUEST 15 (0,0)->(1,1)
+1310976658063: Dispatching CSMOp WRITE_UPDATE 15 (1,1)->(-2,-2)
+1310976658068: Sending UDP payload: 1160
+1310976658069: Received WRITE_UPDATE 15 (1,1)->(-2,-2)
+1310976658105: Received UDP payload: 851
+1310976658108: Received WRITE_UPDATE_REQUEST 16 (0,0)->(1,1)
+1310976658109: Sending requested WRITE_UPDATE_REQUEST 16 (0,0)->(1,1)
+1310976658109: Dispatching CSMOp WRITE_UPDATE 16 (1,1)->(-2,-2)
+1310976658112: Sending UDP payload: 1160
+1310976658113: Received WRITE_UPDATE 16 (1,1)->(-2,-2)
+1310976658175: Received UDP payload: 470
+1310976658188: Received UDP payload: 851
+1310976658193: Received WRITE_UPDATE_ACK 16 (1,0)->(1,1)
+1310976658216: Received UDP payload: 851
+1310976658257: Received WRITE_UPDATE_ACK 16 (0,1)->(1,1)
+1310976658260: Received UDP payload: 851
+1310976658262: Received WRITE_UPDATE_REQUEST 15 (0,1)->(1,1)
+1310976658263: Sending requested WRITE_UPDATE_REQUEST 15 (0,1)->(1,1)
+1310976658263: Dispatching CSMOp WRITE_UPDATE 15 (1,1)->(-2,-2)
+1310976658265: Sending UDP payload: 1160
+1310976658266: Received WRITE_UPDATE 15 (1,1)->(-2,-2)
+1310976658266: Received UDP payload: 851
+1310976658268: Received UDP payload: 851
+1310976658270: Received WRITE_UPDATE_ACK 16 (0,0)->(1,1)
+1310976658270: WRITE_UPDATE:16 completed on all other regions.
+1310976658271: Received WRITE_UPDATE_REQUEST 17 (0,0)->(1,1)
+1310976658271: Sending requested WRITE_UPDATE_REQUEST 17 (0,0)->(1,1)
+1310976658271: Dispatching CSMOp WRITE_UPDATE 17 (1,1)->(-2,-2)
+1310976658280: Sending UDP payload: 1160
+1310976658281: Received WRITE_UPDATE 17 (1,1)->(-2,-2)
+1310976658311: Received UDP payload: 851
+1310976658314: Received WRITE_UPDATE_ACK 17 (0,0)->(1,1)
+1310976658332: Received UDP payload: 851
+1310976658334: Received WRITE_UPDATE_REQUEST 17 (0,1)->(1,1)
+1310976658335: Sending requested WRITE_UPDATE_REQUEST 17 (0,1)->(1,1)
+1310976658335: Dispatching CSMOp WRITE_UPDATE 17 (1,1)->(-2,-2)
+1310976658337: Sending UDP payload: 1160
+1310976658338: Received WRITE_UPDATE 17 (1,1)->(-2,-2)
+1310976658339: Received UDP payload: 851
+1310976658342: Received WRITE_UPDATE_ACK 17 (0,1)->(1,1)
+1310976658390: Received UDP payload: 8477
+1310976658398: Received UDP payload: 851
+1310976658401: Received WRITE_UPDATE_ACK 17 (1,0)->(1,1)
+1310976658401: WRITE_UPDATE:17 completed on all other regions.
+1310976658874: Received UDP payload: 698
+1310976658895: Received UDP payload: 851
+1310976658949: Received UDP payload: 881
+1310976658980: Received UDP payload: 698
+1310976658981: Sending UDP payload: 470
+1310976659073: Received UDP payload: 8766
+1310976659163: Received WRITE_UPDATE 11 (1,0)->(-2,-2)
+1310976659359: Received UDP payload: 698
+1310976659434: Received UDP payload: 881
+1310976659462: Received UDP payload: 698
+1310976659476: Received UDP payload: 698
+1310976659478: Received UDP payload: 470
+1310976659479: Received UDP payload: 851
+1310976659481: removed replies before id 16 from sentReplies of size 0
+1310976659482: Received PROC_REQUEST 2:16 (0,1)->(1,1), replying PROC_REPLY 2:16 (1,1)->(0,1)
+1310976659482: Dispatching CSMOp PROC_REPLY 2:16 (1,1)->(0,1)
+1310976659482: Sending out write updates with threadgroup
+1310976659483: Dispatching CSMOp WRITE_UPDATE 19 (1,1)->(-2,-2)
+1310976659488: Sending UDP payload: 881
+1310976659495: Received UDP payload: 698
+1310976659525: Sending UDP payload: 6736
+1310976659528: Received UDP payload: 851
+1310976659530: Received UDP payload: 698
+1310976659532: Received UDP payload: 881
+1310976659534: Received WRITE_UPDATE 19 (1,1)->(-2,-2)
+1310976659544: Received UDP payload: 698
+1310976659667: Received UDP payload: 698
+1310976659711: Received UDP payload: 851
+1310976659734: Received WRITE_UPDATE_ACK 19 (0,1)->(1,1)
+1310976659745: Received UDP payload: 851
+1310976659772: Received WRITE_UPDATE_ACK 19 (0,0)->(1,1)
+1310976659772: Received UDP payload: 881
+1310976659790: Received UDP payload: 698
+1310976659799: Received UDP payload: 851
+1310976659802: Received WRITE_UPDATE_ACK 19 (1,0)->(1,1)
+1310976659802: WRITE_UPDATE:19 completed on all other regions.
+1310976659807: Received UDP payload: 851
+1310976659810: Received WRITE_UPDATE_REQUEST 18 (1,0)->(1,1)
+1310976659810: Sending requested WRITE_UPDATE_REQUEST 18 (1,0)->(1,1)
+1310976659810: Dispatching CSMOp WRITE_UPDATE 18 (1,1)->(-2,-2)
+1310976659876: Received UDP payload: 470
+1310976659876: Sending UDP payload: 6726
+1310976659881: Received WRITE_UPDATE 18 (1,1)->(-2,-2)
+1310976659945: Received UDP payload: 698
+1310976660053: Received UDP payload: 851
+1310976660061: Received UDP payload: 851
+1310976660063: Received WRITE_UPDATE_ACK 18 (1,0)->(1,1)
+1310976660063: WRITE_UPDATE:18 completed on all other regions.
+1310976660079: Received UDP payload: 881
+1310976660090: Received UDP payload: 698
+1310976660276: Received UDP payload: 9343
+1310976660375: Received WRITE_UPDATE 12 (1,0)->(-2,-2)
+1310976660993: Received UDP payload: 698
+1310976661019: Received UDP payload: 851
+1310976661045: Received UDP payload: 881
+1310976661066: Received UDP payload: 698
+1310976661514: Received UDP payload: 698
+1310976661549: Received UDP payload: 698
+1310976661568: Received UDP payload: 851
+1310976661589: removed replies before id 17 from sentReplies of size 0
+1310976661598: Received PROC_REQUEST 1:17 (0,1)->(1,1), replying PROC_REPLY 1:17 (1,1)->(0,1)
+1310976661601: Received UDP payload: 698
+1310976661603: Received UDP payload: 851
+1310976661619: Received UDP payload: 851
+1310976661623: Dispatching CSMOp PROC_REPLY 1:17 (1,1)->(0,1)
+1310976661624: Sending out write updates with threadgroup
+1310976661624: Dispatching CSMOp WRITE_UPDATE 20 (1,1)->(-2,-2)
+1310976661639: Sending UDP payload: 881
+1310976661641: Received UDP payload: 881
+1310976661653: Received UDP payload: 881
+1310976661656: Received UDP payload: 698
+1310976661717: Sending UDP payload: 6681
+1310976661719: Received WRITE_UPDATE 20 (1,1)->(-2,-2)
+1310976661791: UserClient request timed out. (0,0)=?
+1310976661797: Requesting spot in (0,0)
+1310976661822: Received UDP payload: 698
+1310976661870: Sending UDP payload: 698
+1310976661874: Received UDP payload: 10042
+1310976661948: Received WRITE_UPDATE 13 (1,0)->(-2,-2)
+1310976661955: Received UDP payload: 851
+1310976661959: Received UDP payload: 698
+1310976661981: Received UDP payload: 698
+1310976661982: Received UDP payload: 881
+1310976661990: Received UDP payload: 698
+1310976661992: Received UDP payload: 851
+1310976661994: Received WRITE_UPDATE_ACK 20 (1,0)->(1,1)
+1310976662014: Received UDP payload: 851
+1310976662029: Received UDP payload: 851
+1310976662032: Received WRITE_UPDATE_ACK 20 (0,1)->(1,1)
+1310976662058: Received UDP payload: 851
+1310976662060: Received WRITE_UPDATE_ACK 20 (0,0)->(1,1)
+1310976662060: WRITE_UPDATE:20 completed on all other regions.
+1310976662117: Received UDP payload: 881
+1310976662126: Received UDP payload: 698
+1310976662219: Received UDP payload: 8534
+1310976662317: Received WRITE_UPDATE 31 (0,0)->(-2,-2)
+1310976662317: Dispatching CSMOp WRITE_UPDATE_ACK 31 (1,1)->(0,0)
+1310976662318: Applying write updates from (0,0), remote order = 31, write buffer contains [31]
+1310976662318: Applied WRITE_UPDATE:31 from (0,0)
+1310976662318: Applying write updates from (0,0), remote order = 32, write buffer contains []
+1310976662320: Sending UDP payload: 851
+1310976662326: Received UDP payload: 881
+1310976662335: Received UDP payload: 698
+1310976663054: Received UDP payload: 698
+1310976663091: Received UDP payload: 881
+1310976663115: Received UDP payload: 698
+1310976663701: Received UDP payload: 698
+1310976663762: Received UDP payload: 851
+1310976663785: Received UDP payload: 698
+1310976663807: Received UDP payload: 881
+1310976663835: Received UDP payload: 698
+1310976663851: Received UDP payload: 881
+1310976663853: Received UDP payload: 698
+1310976663990: Received UDP payload: 10496
+1310976664140: Received WRITE_UPDATE 14 (1,0)->(-2,-2)
+1310976664152: Received UDP payload: 698
+1310976664180: Received UDP payload: 698
+1310976664221: Received UDP payload: 881
+1310976664227: Received UDP payload: 698
+1310976664308: Received UDP payload: 881
+1310976664330: Received UDP payload: 698
+1310976664366: Received UDP payload: 698
+1310976664386: Received UDP payload: 881
+1310976664410: Received UDP payload: 698
+1310976664421: Received UDP payload: 470
+1310976664603: Received UDP payload: 10666
+1310976665125: Received UDP payload: 698
+1310976665149: Received UDP payload: 881
+1310976665175: Received UDP payload: 698
+1310976665491: Received UDP payload: 470
+1310976665832: Received UDP payload: 698
+1310976665852: Received UDP payload: 470
+1310976665867: Received UDP payload: 851
+1310976665876: Received UDP payload: 881
+1310976665882: Received UDP payload: 698
+1310976665914: Received UDP payload: 698
+1310976665927: Received UDP payload: 851
+1310976665937: Received UDP payload: 881
+1310976666084: Received UDP payload: 10666
+1310976666312: Received UDP payload: 698
+1310976666368: Received UDP payload: 851
+1310976666400: Received UDP payload: 698
+1310976666435: Received UDP payload: 881
+1310976666461: Received UDP payload: 698
+1310976666482: Received UDP payload: 698
+1310976666496: Received UDP payload: 881
+1310976666498: Received UDP payload: 851
+1310976666500: Received UDP payload: 881
+1310976666505: Received UDP payload: 698
+1310976666512: Received UDP payload: 698
+1310976666805: UserClient request timed out. (0,0)=?
+1310976666819: Reading spot in (0,1)
+1310976666860: Sending UDP payload: 698
+1310976666928: Received UDP payload: 881
+1310976666934: Received UDP payload: 698
+1310976667181: Received UDP payload: 698
+1310976667211: Received UDP payload: 881
+1310976667235: Received UDP payload: 698
+1310976667913: Received UDP payload: 698
+1310976667968: Received UDP payload: 881
+1310976667992: Received UDP payload: 698
+1310976668122: Received UDP payload: 698
+1310976668175: Received UDP payload: 851
+1310976668199: Received UDP payload: 881
+1310976668301: Received UDP payload: 9120
+1310976668478: Received WRITE_UPDATE 32 (0,0)->(-2,-2)
+1310976668478: Dispatching CSMOp WRITE_UPDATE_ACK 32 (1,1)->(0,0)
+1310976668478: Applying write updates from (0,0), remote order = 32, write buffer contains [32]
+1310976668479: Applied WRITE_UPDATE:32 from (0,0)
+1310976668479: Applying write updates from (0,0), remote order = 33, write buffer contains []
+1310976668490: Sending UDP payload: 851
+1310976668494: Received UDP payload: 698
+1310976668505: Received UDP payload: 851
+1310976668508: Received UDP payload: 851
+1310976668512: Received UDP payload: 851
+1310976668515: Received UDP payload: 851
+1310976668517: Received UDP payload: 698
+1310976668527: Received UDP payload: 881
+1310976668536: Received UDP payload: 698
+1310976668546: Received UDP payload: 698
+1310976668564: Received UDP payload: 881
+1310976668571: Received UDP payload: 698
+1310976668594: Received UDP payload: 698
+1310976668738: Received UDP payload: 9076
+1310976668898: Received WRITE_UPDATE 31 (0,0)->(-2,-2)
+1310976668905: Received UDP payload: 851
+1310976668913: Received UDP payload: 851
+1310976668915: Received UDP payload: 851
+1310976668918: Received UDP payload: 851
+1310976668920: Received UDP payload: 851
+1310976668961: Sending UDP payload: 470
+1310976669239: Received UDP payload: 698
+1310976669296: Received UDP payload: 881
+1310976669329: Received UDP payload: 698
+1310976669466: Received UDP payload: 470
+1310976669828: Received UDP payload: 851
+1310976669851: Received UDP payload: 851
+1310976669877: Received UDP payload: 470
+1310976670005: Received UDP payload: 698
+1310976670031: Received UDP payload: 881
+1310976670055: Received UDP payload: 698
+1310976670208: Received UDP payload: 487
+1310976670423: Received UDP payload: 470
+1310976670439: Received UDP payload: 698
+1310976670470: Received UDP payload: 851
+1310976670495: Received UDP payload: 851
+1310976670515: Received UDP payload: 881
+1310976670517: Received UDP payload: 698
+1310976670568: Received UDP payload: 698
+1310976670601: Received UDP payload: 698
+1310976670622: Received UDP payload: 8206
+1310976670641: Received UDP payload: 851
+1310976670663: Received UDP payload: 881
+1310976670666: Received UDP payload: 698
+1310976670667: Received UDP payload: 851
+1310976670687: Received UDP payload: 470
+1310976671112: Received UDP payload: 851
+1310976671138: Received UDP payload: 698
+1310976671172: Received UDP payload: 26367
+1310976671324: Received UDP payload: 698
+1310976671370: Received UDP payload: 881
+1310976671394: Received UDP payload: 698
+1310976671561: Received UDP payload: 851
+1310976671822: UserClient request timed out. (0,1)=?
+1310976671844: Reading spot in (0,1)
+1310976671859: Sending UDP payload: 698
+1310976671942: Received UDP payload: 881
+1310976671949: Received UDP payload: 698
+1310976672070: Received UDP payload: 698
+1310976672088: UserServer handling request in (1,1)
+1310976672092: Sending PROC_REQUEST 2:31 (1,1)->(0,1)
+1310976672096: Dispatching CSMOp PROC_REQUEST 2:31 (1,1)->(0,1)
+1310976672146: Sending UDP payload: 851
+1310976672231: Received UDP payload: 851
+1310976672716: Received UDP payload: 698
+1310976672793: Received UDP payload: 851
+1310976672803: Received UDP payload: 851
+1310976672811: Received UDP payload: 881
+1310976672971: Retrying PROC_REQUEST 2:31 (1,1)->(0,1)
+1310976672982: Dispatching CSMOp PROC_REQUEST 2:31 (1,1)->(0,1)
+1310976673010: Sending UDP payload: 851
+1310976673237: Received UDP payload: 26787
+1310976673508: Received WRITE_UPDATE 15 (1,0)->(-2,-2)
+1310976673508: Dispatching CSMOp WRITE_UPDATE_ACK 15 (1,1)->(1,0)
+1310976673508: Applying write updates from (1,0), remote order = 15, write buffer contains [15]
+1310976673509: Applied WRITE_UPDATE:15 from (1,0)
+1310976673509: Applying write updates from (1,0), remote order = 16, write buffer contains []
+1310976673515: Sending UDP payload: 851
+1310976673518: Received UDP payload: 698
+1310976673520: Received UDP payload: 698
+1310976673521: Received UDP payload: 698
+1310976673534: Received UDP payload: 851
+1310976673538: Received UDP payload: 470
+1310976673539: heard LEADER_REQUEST from node 5109, responding LEADER_REPLY
+1310976673549: Received UDP payload: 698
+1310976673575: Received UDP payload: 881
+1310976673588: Sending UDP payload: 6261
+1310976673599: Retrying PROC_REQUEST 2:31 (1,1)->(0,1)
+1310976673606: Dispatching CSMOp PROC_REQUEST 2:31 (1,1)->(0,1)
+1310976673619: Received UDP payload: 698
+1310976673607: Sending UDP payload: 851
+1310976673947: Received UDP payload: 27377
+1310976674228: Request timed out, send failure PROC_REPLY 2:31 (0,1)->(1,1)
+1310976674229: Dispatching CSMOp PROC_REPLY 2:31 (0,1)->(1,1)
+1310976674244: Sending UDP payload: 851
+1310976674245: Received PROC_REPLY 2:31 (0,1)->(1,1), handing to UserServer
+1310976674246: Procedure 2:31 on (0,1) timed out, sending failure reply to client
+1310976674247: Sending UDP payload: 698
+1310976674255: Received UDP payload: 851
+1310976674257: Received UDP payload: 881
+1310976674259: Received UDP payload: 470
+1310976674260: Received WRITE_UPDATE 16 (1,0)->(-2,-2)
+1310976674261: Dispatching CSMOp WRITE_UPDATE_ACK 16 (1,1)->(1,0)
+1310976674261: Applying write updates from (1,0), remote order = 16, write buffer contains [16]
+1310976674262: Applied WRITE_UPDATE:16 from (1,0)
+1310976674262: Applying write updates from (1,0), remote order = 17, write buffer contains []
+1310976674272: Sending UDP payload: 851
+1310976674273: heard LEADER_REQUEST from node 5109, responding LEADER_REPLY
+1310976674280: Received UDP payload: 27936
+1310976674614: Sending UDP payload: 6252
+1310976674617: Received UDP payload: 698
+1310976674620: Received WRITE_UPDATE 17 (1,0)->(-2,-2)
+1310976674621: Dispatching CSMOp WRITE_UPDATE_ACK 17 (1,1)->(1,0)
+1310976674621: Applying write updates from (1,0), remote order = 17, write buffer contains [17]
+1310976674622: Applied WRITE_UPDATE:17 from (1,0)
+1310976674622: Applying write updates from (1,0), remote order = 18, write buffer contains []
+1310976674631: Sending UDP payload: 851
+1310976675473: Received UDP payload: 698
+1310976675495: Received UDP payload: 470
+1310976675602: Received UDP payload: 698
+1310976675622: Received UDP payload: 698
+1310976675667: Received UDP payload: 698
+1310976675724: Received UDP payload: 881
+1310976675737: Received UDP payload: 881
+1310976675741: Received UDP payload: 698
+1310976675744: Received UDP payload: 881
+1310976675747: Received UDP payload: 698
+1310976675749: Received UDP payload: 698
+1310976676325: Received UDP payload: 698
+1310976676345: Received UDP payload: 698
+1310976676363: UserServer handling request in (1,1)
+1310976676368: Sending PROC_REQUEST 3:24 (1,1)->(0,0)
+1310976676372: Local cache hit on read-only PROC_REQUEST 3:24 (1,1)->(0,0)
+1310976676376: Dispatching CSMOp PROC_REPLY 3:24 (0,0)->(1,1)
+1310976676386: Received UDP payload: 851
+1310976676389: Sending UDP payload: 881
+1310976676391: Received PROC_REPLY 3:24 (0,0)->(1,1), handing to UserServer
+1310976676391: Procedure 3:24 on (0,0) successful
+1310976676393: Sending UDP payload: 698
+1310976676406: Received UDP payload: 851
+1310976676851: UserClient request timed out. (0,1)=?
+1310976676860: Requesting spot in (1,0)
+1310976676882: Sending UDP payload: 698
+1310976676984: Received UDP payload: 851
+1310976676992: Received UDP payload: 851
+1310976677640: Received UDP payload: 851
+1310976677664: Received UDP payload: 851
+1310976677709: Received UDP payload: 698
+1310976677715: Received UDP payload: 698
+1310976677724: Received UDP payload: 851
+1310976677732: Received UDP payload: 851
+1310976677737: removed replies before id 23 from sentReplies of size 0
+1310976677739: Received PROC_REQUEST 2:23 (1,0)->(1,1), replying PROC_REPLY 2:23 (1,1)->(1,0)
+1310976677740: Dispatching CSMOp PROC_REPLY 2:23 (1,1)->(1,0)
+1310976677740: Sending out write updates with threadgroup
+1310976677742: Dispatching CSMOp WRITE_UPDATE 21 (1,1)->(-2,-2)
+1310976677751: Received UDP payload: 881
+1310976677760: Sending UDP payload: 881
+1310976677767: Received UDP payload: 698
+1310976677800: Received UDP payload: 851
+1310976677836: Sending UDP payload: 6668
+1310976677840: Received UDP payload: 881
+1310976677842: Received WRITE_UPDATE 21 (1,1)->(-2,-2)
+1310976677871: Received UDP payload: 8465
+1310976677970: Received WRITE_UPDATE 33 (0,0)->(-2,-2)
+1310976677971: Dispatching CSMOp WRITE_UPDATE_ACK 33 (1,1)->(0,0)
+1310976677971: Applying write updates from (0,0), remote order = 33, write buffer contains [33]
+1310976677971: Applied WRITE_UPDATE:33 from (0,0)
+1310976677972: Applying write updates from (0,0), remote order = 34, write buffer contains []
+1310976677973: Sending UDP payload: 851
+1310976677980: Received UDP payload: 698
+1310976678041: Received UDP payload: 851
+1310976678047: Received WRITE_UPDATE_ACK 21 (0,0)->(1,1)
+1310976678206: Received UDP payload: 698
+1310976678231: Received UDP payload: 698
+1310976678257: Received UDP payload: 851
+1310976678260: Received UDP payload: 851
+1310976678262: Received UDP payload: 851
+1310976678264: Received WRITE_UPDATE_ACK 21 (1,0)->(1,1)
+1310976678270: Received UDP payload: 851
+1310976678276: Received UDP payload: 851
+1310976678278: Received UDP payload: 851
+1310976678280: Received UDP payload: 851
+1310976678907: Received UDP payload: 851
+1310976678931: Received UDP payload: 698
+1310976678964: Sending UDP payload: 470
+1310976679628: Received UDP payload: 470
+1310976679829: Received UDP payload: 698
+1310976679859: Received UDP payload: 851
+1310976679882: Received UDP payload: 881
+1310976679983: Received UDP payload: 9051
+1310976680097: Received WRITE_UPDATE 34 (0,0)->(-2,-2)
+1310976680097: Dispatching CSMOp WRITE_UPDATE_ACK 34 (1,1)->(0,0)
+1310976680097: Applying write updates from (0,0), remote order = 34, write buffer contains [34]
+1310976680098: Applied WRITE_UPDATE:34 from (0,0)
+1310976680098: Applying write updates from (0,0), remote order = 35, write buffer contains []
+1310976680099: Sending UDP payload: 851
+1310976680113: Received UDP payload: 470
+1310976680115: Received UDP payload: 698
+1310976680219: Received UDP payload: 470
+1310976680331: Received UDP payload: 698
+1310976680484: Received UDP payload: 698
+1310976680540: Received UDP payload: 470
+1310976680566: Received UDP payload: 698
+1310976680838: Received UDP payload: 470
+1310976680997: Received UDP payload: 698
+1310976681167: Received UDP payload: 470
+1310976681357: Received UDP payload: 698
+1310976681376: UserServer handling request in (1,1)
+1310976681380: Sending PROC_REQUEST 2:32 (1,1)->(0,1)
+1310976681383: Dispatching CSMOp PROC_REQUEST 2:32 (1,1)->(0,1)
+1310976681412: Sending UDP payload: 851
+1310976681876: UserClient request timed out. (1,0)=?
+1310976681884: Reading spot in (0,0)
+1310976681911: Sending UDP payload: 698
+1310976681921: Received UDP payload: 470
+1310976681953: Received UDP payload: 698
+1310976681974: Received UDP payload: 881
+1310976681984: Received UDP payload: 698
+1310976682110: Received UDP payload: 9190
+1310976682645: Retrying PROC_REQUEST 2:32 (1,1)->(0,1)
+1310976682657: Dispatching CSMOp PROC_REQUEST 2:32 (1,1)->(0,1)
+1310976682661: Received UDP payload: 470
+1310976682691: Sending UDP payload: 851
+1310976683275: Retrying PROC_REQUEST 2:32 (1,1)->(0,1)
+1310976683284: Dispatching CSMOp PROC_REQUEST 2:32 (1,1)->(0,1)
+1310976683290: Received UDP payload: 470
+1310976683316: Sending UDP payload: 851
+1310976683890: Received UDP payload: 470
+1310976683900: Request timed out, send failure PROC_REPLY 2:32 (0,1)->(1,1)
+1310976683905: Dispatching CSMOp PROC_REPLY 2:32 (0,1)->(1,1)
+1310976683937: Sending UDP payload: 851
+1310976683938: Received PROC_REPLY 2:32 (0,1)->(1,1), handing to UserServer
+1310976683938: Procedure 2:32 on (0,1) timed out, sending failure reply to client
+1310976683939: Sending UDP payload: 698
+1310976684002: Received UDP payload: 698
+1310976684009: Received UDP payload: 851
+1310976684946: Received UDP payload: 851
+1310976685033: moving from region (1,1), to (0,0)
+1310976685035: broadcasting LEADER_ELECT to old (1,1)
+1310976685042: Sending UDP payload: 487
+1310976685043: UserClient received REGION_CHANGE message.
+1310976685091: Received UDP payload: 470
+1310976685092: received LEADER_NOMINATE from 5109, saving as candidate
+1310976685108: Received UDP payload: 470
+1310976685110: received LEADER_NOMINATE from 5104, saving as candidate
+1310976685317: Received UDP payload: 698
+1310976685444: UserServer stopped.
+1310976685445: CSMLayer stopped
+1310976685473: Received UDP payload: 5619
+1310976685523: Received UDP payload: 698
+1310976685525: Received UDP payload: 881
+1310976685534: Received UDP payload: 698
+1310976685536: Received UDP payload: 470
+1310976685545: Received UDP payload: 698
+1310976685552: Received UDP payload: 851
+1310976685584: Received UDP payload: 881
+1310976685615: Received UDP payload: 698
+1310976685643: sending LEADER_CONFIRM to node 5109
+1310976685654: Sending UDP payload: 8038
+1310976685992: Received UDP payload: 698
+1310976686035: Received UDP payload: 698
+1310976686658: CSMLayer stopped
+1310976686659: serializing CSMLayer to JSON
+1310976686900: UserClient request timed out. (0,0)=?
+1310976686900: Reading spot in (1,0)
+1310976686902: Sending UDP payload: 698
+1310976686968: Received UDP payload: 881
+1310976686986: Received UDP payload: 698
+1310976686995: UserClient read on (1,0) from (0,0)succeeded, value=20,latency=94
+1310976687240: Received UDP payload: 6087
+1310976687586: Received UDP payload: 698
+1310976687605: Received UDP payload: 851
+1310976687637: Received UDP payload: 698
+1310976687659: Received UDP payload: 851
+1310976687680: Received UDP payload: 881
+1310976687739: Received UDP payload: 881
+1310976687757: Received UDP payload: 851
+1310976687857: Received UDP payload: 7380
+1310976687980: Received UDP payload: 698
+1310976687983: Received UDP payload: 9719
+1310976688042: Received UDP payload: 698
+1310976688043: Received UDP payload: 851
+1310976688045: Received UDP payload: 851
+1310976688065: Received UDP payload: 1160
+1310976688072: Received UDP payload: 851
+1310976688077: Received UDP payload: 851
+1310976688084: Received UDP payload: 851
+1310976688093: Received UDP payload: 851
+1310976688102: Received UDP payload: 1160
+1310976688110: Received UDP payload: 851
+1310976688118: Received UDP payload: 851
+1310976688134: Received UDP payload: 851
+1310976688145: Received UDP payload: 851
+1310976688153: Received UDP payload: 851
+1310976688171: Received UDP payload: 851
+1310976688256: Received UDP payload: 7152
+1310976688364: Received UDP payload: 851
+1310976688441: Received UDP payload: 851
+1310976688464: Received UDP payload: 851
+1310976689000: Requesting spot in (0,0)
+1310976689053: Sending UDP payload: 698
+1310976689123: Received UDP payload: 851
+1310976689136: Received UDP payload: 881
+1310976689274: Received UDP payload: 10200
+1310976689488: Received UDP payload: 698
+1310976689492: UserClient decrement on (0,0) from (0,0) succeeded, value=18,latency=485
+1310976689499: Received UDP payload: 851
+1310976689508: Received UDP payload: 851
+1310976689511: Received UDP payload: 851
+1310976689514: Received UDP payload: 851
+1310976689617: Received UDP payload: 10178
+1310976689676: no LEADER_CONFIRM_ACK, uploaded state to cloud in 2822ms, json 4159 bytes
+1310976689834: Received UDP payload: 470
+1310976689837: Received UDP payload: 698
+1310976689839: Received UDP payload: 851
+1310976689842: Received UDP payload: 851
+1310976689844: Received UDP payload: 851
+1310976689846: Received UDP payload: 698
+1310976689848: Received UDP payload: 851
+1310976689855: Received UDP payload: 851
+1310976689936: Received UDP payload: 470
+1310976690312: Received UDP payload: 470
+1310976690374: Received UDP payload: 698
+1310976690588: Received UDP payload: 33848
+1310976690613: Received UDP payload: 881
+1310976690640: Received UDP payload: 698
+1310976690756: Received UDP payload: 470
+1310976690796: Received UDP payload: 698
+1310976690871: Received UDP payload: 851
+1310976690896: Received UDP payload: 851
+1310976691034: Received UDP payload: 698
+1310976691069: Received UDP payload: 851
+1310976691099: Received UDP payload: 698
+1310976691120: Received UDP payload: 470
+1310976691121: Received UDP payload: 881
+1310976691124: Received UDP payload: 698
+1310976691129: Received UDP payload: 470
+1310976691160: Received UDP payload: 881
+1310976691163: Received UDP payload: 10435
+1310976691181: Received UDP payload: 851
+1310976691191: Received UDP payload: 698
+1310976691384: Received UDP payload: 470
+1310976691414: Received UDP payload: 10435
+1310976691461: Received UDP payload: 851
+1310976691484: Received UDP payload: 851
+1310976691496: Reading spot in (0,1)
+1310976691548: Sending UDP payload: 698
+1310976691611: Received UDP payload: 851
+1310976691619: Received UDP payload: 881
+1310976691628: Received UDP payload: 698
+1310976691633: UserClient read on (0,1) from (0,0)succeeded, value=22,latency=130
+1310976691975: Received UDP payload: 34956
+1310976692001: Received UDP payload: 470
+1310976692055: Received UDP payload: 851
+1310976692063: Received UDP payload: 698
+1310976692248: Received UDP payload: 851
+1310976692275: Received UDP payload: 698
+1310976692648: Received UDP payload: 698
+1310976692700: Received UDP payload: 851
+1310976692726: Received UDP payload: 881
+1310976692745: Received UDP payload: 698
+1310976693155: Received UDP payload: 698
+1310976693227: Received UDP payload: 698
+1310976693274: Received UDP payload: 851
+1310976693277: Received UDP payload: 881
+1310976693279: Received UDP payload: 851
+1310976693281: Received UDP payload: 698
+1310976693293: Received UDP payload: 881
+1310976693309: Received UDP payload: 698
+1310976693594: Received UDP payload: 17862
+1310976693636: Reading spot in (1,1)
+1310976693811: Sending UDP payload: 698
+1310976693812: Received UDP payload: 851
+1310976693815: Received UDP payload: 851
+1310976693856: Received UDP payload: 881
+1310976693864: Received UDP payload: 851
+1310976693876: Received UDP payload: 851
+1310976693887: Received UDP payload: 698
+1310976693896: UserClient read on (1,1) from (0,0)succeeded, value=21,latency=252
+1310976694041: Received UDP payload: 16373
+1310976694217: Received UDP payload: 698
+1310976694226: Received UDP payload: 851
+1310976694231: Received UDP payload: 851
+1310976694236: Received UDP payload: 881
+1310976694248: Received UDP payload: 698
+1310976694274: Received UDP payload: 851
+1310976694300: Received UDP payload: 851
+1310976694386: Received UDP payload: 10855
+1310976694491: Received UDP payload: 698
+1310976694493: Received UDP payload: 851
+1310976694495: Received UDP payload: 881
+1310976694497: Received UDP payload: 698
+1310976694596: Received UDP payload: 851
+1310976694616: Received UDP payload: 851
+1310976694789: Received UDP payload: 698
+1310976694852: Received UDP payload: 851
+1310976694876: Received UDP payload: 881
+1310976694912: Received UDP payload: 698
+1310976695335: Received UDP payload: 487
+1310976695365: Received UDP payload: 698
+1310976695386: Received UDP payload: 470
+1310976695402: Received UDP payload: 698
+1310976695440: Received UDP payload: 851
+1310976695465: Received UDP payload: 851
+1310976695515: Received UDP payload: 881
+1310976695546: Received UDP payload: 470
+1310976695548: Received UDP payload: 881
+1310976695781: Received UDP payload: 470
+1310976695900: Releasing ticket in (0,0)
+1310976695917: Received UDP payload: 698
+1310976695982: Sending UDP payload: 698
+1310976695986: Received UDP payload: 698
+1310976695988: Received UDP payload: 10894
+1310976695989: Received UDP payload: 470
+1310976696033: Received UDP payload: 698
+1310976696155: Received UDP payload: 10894
+1310976696301: Received UDP payload: 698
+1310976696323: Received UDP payload: 851
+1310976696382: Received UDP payload: 698
+1310976696399: Received UDP payload: 470
+1310976696418: Received UDP payload: 881
+1310976696445: Received UDP payload: 698
+1310976696921: Received UDP payload: 698
+1310976696977: Received UDP payload: 470
+1310976697516: Received UDP payload: 851
+1310976697643: Received UDP payload: 470
+1310976698004: Received UDP payload: 698
+1310976698025: Received UDP payload: 698
+1310976698088: Received UDP payload: 881
+1310976698109: Received UDP payload: 698
+1310976698136: Received UDP payload: 851
+1310976698292: Received UDP payload: 470
+1310976698481: Received UDP payload: 698
+1310976698508: Received UDP payload: 851
+1310976698559: Received UDP payload: 881
+1310976698811: Received UDP payload: 16897
+1310976699034: Received UDP payload: 698
+1310976699038: Received UDP payload: 851
+1310976699041: Received UDP payload: 698
+1310976699042: Received UDP payload: 470
+1310976699044: Received UDP payload: 470
+1310976699051: Received UDP payload: 851
+1310976699063: Received UDP payload: 851
+1310976699649: Received UDP payload: 470
+1310976699691: been in JOINING state for a while now, start over
+1310976699693: sending LEADER_REQUEST
+1310976699749: Sending UDP payload: 470
+1310976699949: Received UDP payload: 470
+1310976700029: Received UDP payload: 5210
+1310976700121: Received UDP payload: 698
+1310976700186: Received UDP payload: 851
+1310976700249: Received UDP payload: 881
+1310976700273: Received UDP payload: 698
+1310976700476: Received UDP payload: 17452
+1310976700720: Received UDP payload: 851
+1310976700729: Received UDP payload: 851
+1310976700745: Received UDP payload: 851
+1310976700754: Received UDP payload: 851
+1310976700783: Received UDP payload: 698
+1310976700795: Received UDP payload: 851
+1310976700831: Received UDP payload: 1160
+1310976700878: Received UDP payload: 851
+1310976700890: Received UDP payload: 851
+1310976700902: Received UDP payload: 851
+1310976700909: UserClient request timed out. (0,0)=?
+1310976700910: Reading spot in (0,0)
+1310976700928: Sending UDP payload: 698
+1310976700929: Received UDP payload: 851
+1310976700942: Received UDP payload: 470
+1310976700964: Received UDP payload: 851
+1310976700971: Received UDP payload: 851
+1310976701021: Received UDP payload: 698
+1310976701048: Received UDP payload: 698
+1310976701068: Received UDP payload: 470
+1310976701141: Received UDP payload: 881
+1310976701167: Received UDP payload: 698
+1310976701237: Received UDP payload: 17078
+1310976701451: Received UDP payload: 881
+1310976701455: Received UDP payload: 698
+1310976701468: Received UDP payload: 851
+1310976701476: Received UDP payload: 851
+1310976701485: Received UDP payload: 851
+1310976701493: Received UDP payload: 851
+1310976701536: Received UDP payload: 470
+1310976701849: Received UDP payload: 16550
+1310976702088: Received UDP payload: 851
+1310976702093: Received UDP payload: 851
+1310976702095: Received UDP payload: 851
+1310976702097: Received UDP payload: 698
+1310976702099: Received UDP payload: 851
+1310976702102: Received UDP payload: 881
+1310976702105: Received UDP payload: 698
+1310976702117: Received UDP payload: 851
+1310976702128: Received UDP payload: 851
+1310976702142: Received UDP payload: 470
+1310976702353: Received UDP payload: 698
+1310976702393: Received UDP payload: 851
+1310976702457: Received UDP payload: 881
+1310976702481: Received UDP payload: 698
+1310976702523: Received UDP payload: 470
+1310976702984: Received UDP payload: 851
+1310976703042: Received UDP payload: 698
+1310976703046: Received UDP payload: 698
+1310976703084: Received UDP payload: 470
+1310976703225: Received UDP payload: 698
+1310976703301: Received UDP payload: 851
+1310976703310: Received UDP payload: 881
+1310976703320: Received UDP payload: 698
+1310976703373: Received UDP payload: 698
+1310976703442: Received UDP payload: 881
+1310976703455: Received UDP payload: 698
+1310976703719: Received UDP payload: 470
+1310976704107: Received UDP payload: 7024
+1310976704123: heard LEADER_REPLY from 5107
+1310976704132: CSMLayer stopped
+1310976704134: now NONLEADER following LEADER 5107
+1310976704141: Received UDP payload: 470
+1310976704177: Received UDP payload: 698
+1310976704190: Received UDP payload: 881
+1310976704194: Received UDP payload: 698
+1310976704200: Received UDP payload: 7041
+1310976704269: Received UDP payload: 7041
+1310976704339: Received UDP payload: 7041
+1310976704405: Received UDP payload: 7041
+1310976704538: Received UDP payload: 698
+1310976704607: Received UDP payload: 851
+1310976704666: Received UDP payload: 881
+1310976704690: Received UDP payload: 698
+1310976704875: Received UDP payload: 16607
+1310976705081: Received UDP payload: 698
+1310976705085: Received UDP payload: 851
+1310976705088: Received UDP payload: 881
+1310976705091: Received UDP payload: 698
+1310976705099: Received UDP payload: 851
+1310976705108: Received UDP payload: 851
+1310976705118: Received UDP payload: 851
+1310976705126: Received UDP payload: 851
+1310976705134: Received UDP payload: 851
+1310976705145: Received UDP payload: 851
+1310976705345: Received UDP payload: 16594
+1310976705553: Received UDP payload: 698
+1310976705557: Received UDP payload: 16039
+1310976705724: Received UDP payload: 698
+1310976705728: Received UDP payload: 851
+1310976705731: Received UDP payload: 851
+1310976705733: Received UDP payload: 851
+1310976705735: Received UDP payload: 851
+1310976705738: Received UDP payload: 881
+1310976705741: Received UDP payload: 851
+1310976705760: Received UDP payload: 851
+1310976705807: Received UDP payload: 851
+1310976705815: Received UDP payload: 851
+1310976705823: Received UDP payload: 851
+1310976705844: Received UDP payload: 851
+1310976705855: Received UDP payload: 851
+1310976705867: Received UDP payload: 851
+1310976705880: Received UDP payload: 470
+1310976705912: UserClient request timed out. (0,0)=?
+1310976705913: Reading spot in (0,0)
+1310976705925: Sending UDP payload: 698
+1310976705926: Received UDP payload: 698
+1310976705951: Received UDP payload: 851
+1310976705961: Received UDP payload: 881
+1310976705970: Received UDP payload: 698
+1310976705974: UserClient read on (0,0) from (0,0)succeeded, value=17,latency=61
+1310976706149: Received UDP payload: 16060
+1310976706377: Received UDP payload: 851
+1310976706381: Received UDP payload: 851
+1310976706384: Received UDP payload: 698
+1310976706404: Received UDP payload: 851
+1310976706412: Received UDP payload: 851
+1310976706421: Received UDP payload: 851
+1310976706565: Received UDP payload: 851
+1310976706590: Received UDP payload: 851
+1310976706761: Received UDP payload: 698
+1310976706856: Received UDP payload: 851
+1310976706918: Received UDP payload: 881
+1310976706948: Received UDP payload: 698
+1310976707102: Received UDP payload: 698
+1310976707124: Received UDP payload: 851
+1310976707148: Received UDP payload: 881
+1310976707150: Received UDP payload: 698
+1310976707163: Received UDP payload: 851
+1310976707170: Received UDP payload: 851
+1310976707185: Received UDP payload: 851
+1310976707811: Received UDP payload: 851
+1310976707839: Received UDP payload: 851
+1310976707855: Received UDP payload: 698
+1310976707857: Received UDP payload: 851
+1310976707978: Releasing ticket in (0,0)
+1310976708008: Received UDP payload: 698
+1310976708014: Sending UDP payload: 698
+1310976708038: Received UDP payload: 851
+1310976708044: Received UDP payload: 851
+1310976708056: Received UDP payload: 881
+1310976708078: Received UDP payload: 881
+1310976708105: Received UDP payload: 698
+1310976708169: Received UDP payload: 851
+1310976708195: Received UDP payload: 881
+1310976708455: Received UDP payload: 14969
+1310976708639: Received UDP payload: 698
+1310976708641: Received UDP payload: 851
+1310976708643: Received UDP payload: 698
+1310976708645: UserClient increment on (0,0) from (0,0) succeeded, value=18,latency=667
+1310976708655: Received UDP payload: 698
+1310976708659: Received UDP payload: 851
+1310976708678: Received UDP payload: 851
+1310976708975: Received UDP payload: 698
+1310976709086: Received UDP payload: 851
+1310976709112: Received UDP payload: 698
+1310976709133: Received UDP payload: 698
+1310976709152: Received UDP payload: 851
+1310976709174: Received UDP payload: 881
+1310976709193: Received UDP payload: 698
+1310976709479: Received UDP payload: 23397

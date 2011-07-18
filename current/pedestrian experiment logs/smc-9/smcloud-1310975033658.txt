@@ -1,0 +1,23 @@
+1310975033660: *** Opened log file for writing ***
+1310975033660: *** Application started ***
+1310975036396: Set distribution to 90% reads.
+1310975037103: Set distribution to 60% reads.
+1310975084355: Moved to region (0,0)
+1310975086591: Set distribution to 30% reads.
+1310975087362: Set distribution to 90% reads.
+1310975087681: Set distribution to 60% reads.
+1310975088486: *** benchmark starting ***
+1310975088558: Reading (0,1)
+1310975091791: UserClient read succeeded, value=20,latency=3232
+1310975093799: Requesting ticket in (0,0)
+1310975095604: Ticket request succeeded, value=17,latency=1798
+1310975097614: Reading (1,0)
+1310975099974: UserClient read succeeded, value=20,latency=2352
+1310975101987: Reading (1,0)
+1310975117213: UserClient read succeeded, value=20,latency=15219
+1310975119230: Reading (1,1)
+1310975119623: UserClient read succeeded, value=18,latency=387
+1310975121635: Reading (0,0)
+1310975127726: Moved to region (1,0)
+1310975129076: Moved to region (1,0)
+1310975154016: *** benchmark stopped ***

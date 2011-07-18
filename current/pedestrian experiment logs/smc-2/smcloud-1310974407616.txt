@@ -1,0 +1,45 @@
+1310974407619: *** Opened log file for writing ***
+1310974407619: *** Application started ***
+1310974436551: *** benchmark starting ***
+1310974436596: Requesting ticket in (0,1)
+1310974440056: Ticket request succeeded, value=19,latency=3457
+1310974442060: Reading (0,1)
+1310974442517: UserClient read succeeded, value=19,latency=452
+1310974444528: Reading (1,1)
+1310974444940: UserClient read succeeded, value=19,latency=405
+1310974446951: Reading (0,0)
+1310974447498: UserClient read succeeded, value=20,latency=519
+1310974449502: Reading (0,1)
+1310974450182: UserClient read succeeded, value=19,latency=667
+1310974452193: Releasing ticket in (0,1)
+1310974452661: Ticket release succeeded, value=20,latency=453
+1310974454671: Reading (1,1)
+1310974455431: UserClient read succeeded, value=19,latency=714
+1310974457441: Reading (0,1)
+1310974458111: UserClient read succeeded, value=20,latency=662
+1310974460121: Reading (1,1)
+1310974460743: UserClient read succeeded, value=19,latency=607
+1310974462753: Reading (0,1)
+1310974463377: UserClient read succeeded, value=20,latency=570
+1310974465388: Reading (1,1)
+1310974468378: UserClient read succeeded, value=19,latency=2983
+1310974470392: Reading (1,0)
+1310974471962: UserClient read succeeded, value=20,latency=1545
+1310974473966: Reading (0,0)
+1310974477210: UserClient read succeeded, value=20,latency=3238
+1310974479220: Reading (0,1)
+1310974481191: UserClient read succeeded, value=20,latency=1961
+1310974483202: Reading (0,0)
+1310974486881: UserClient read succeeded, value=20,latency=3674
+1310974488885: Reading (1,1)
+1310974489500: UserClient read succeeded, value=19,latency=602
+1310974491509: Reading (1,1)
+1310974491562: *** benchmark stopped ***
+1310974495982: UserClient read succeeded, value=19,latency=4463
+1310974538390: *** benchmark starting ***
+1310974538441: Reading (0,1)
+1310974540938: UserClient read succeeded, value=20,latency=2495
+1310974542948: Reading (0,0)
+1310974543320: UserClient read succeeded, value=19,latency=361
+1310974545335: Reading (0,0)
+1310974548075: UserClient read succeeded, value=20,latency=2729

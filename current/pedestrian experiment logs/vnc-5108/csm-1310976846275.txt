@@ -1,0 +1,22 @@
+1310976846318: started, mId = 5108
+1310976846318: region (-1, -1) out of bounds, dormant
+1310976846320: UserClient started
+1310976846680: Received UDP payload: 851
+1310976846749: Received UDP payload: 698
+1310976848726: Received UDP payload: 698
+1310976848773: Received UDP payload: 881
+1310976848820: Received UDP payload: 698
+1310976850728: Reading spot in (1,0)
+1310976850763: Sending UDP payload: 698
+1310976850833: Received UDP payload: 698
+1310976850842: Received UDP payload: 851
+1310976850865: Received UDP payload: 881
+1310976850911: Received UDP payload: 698
+1310976851480: moving from region (-1,-1), to (1,1)
+1310976851482: sending LEADER_REQUEST
+1310976851512: Received UDP payload: 43439
+1310976851517: Sending UDP payload: 470
+1310976851524: UserClient received REGION_CHANGE message.
+1310976852084: sending LEADER_REQUEST
+1310976852149: Sending UDP payload: 470
+1310976852685: sending LEADER_REQUEST

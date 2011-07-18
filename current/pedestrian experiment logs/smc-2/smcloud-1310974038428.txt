@@ -1,0 +1,51 @@
+1310974038430: *** Opened log file for writing ***
+1310974038430: *** Application started ***
+1310974055916: Set distribution to 90% reads.
+1310974057107: Set distribution to 60% reads.
+1310974114793: Moved to region (1,1)
+1310974117683: Requesting ticket in (1,1)
+1310974120705: Ticket request succeeded, value=17,latency=3010
+1310974133763: Releasing ticket in (1,1)
+1310974137417: Ticket release succeeded, value=18,latency=3645
+1310974153525: Moved to region (0,1)
+1310974157321: Requesting ticket in (0,1)
+1310974162073: Ticket request succeeded, value=18,latency=4744
+1310974175041: Releasing ticket in (0,1)
+1310974180119: Ticket release succeeded, value=20,latency=5032
+1310974183979: Moved to region (0,0)
+1310974190604: Requesting ticket in (0,0)
+1310974193156: Ticket request succeeded, value=18,latency=2541
+1310974202401: Releasing ticket in (0,0)
+1310974203645: Ticket release succeeded, value=18,latency=1233
+1310974211185: Moved to region (1,1)
+1310974214863: Reading (0,0)
+1310974218167: UserClient read succeeded, value=18,latency=3301
+1310974219721: Requesting ticket in (1,1)
+1310974220202: Ticket request succeeded, value=16,latency=477
+1310974235821: Releasing ticket in (1,1)
+1310974242370: Ticket release succeeded, value=19,latency=6541
+1310974273992: Moved to region (0,1)
+1310974276249: Requesting ticket in (0,1)
+1310974279046: Ticket request succeeded, value=17,latency=2782
+1310974287873: Releasing ticket in (0,1)
+1310974291140: Ticket release succeeded, value=19,latency=3253
+1310974294813: Moved to region (0,0)
+1310974298649: Requesting ticket in (0,0)
+1310974300963: Ticket request succeeded, value=18,latency=2302
+1310974310340: Releasing ticket in (0,0)
+1310974312059: Ticket release succeeded, value=17,latency=1686
+1310974315853: Moved to region (1,0)
+1310974318397: Requesting ticket in (1,0)
+1310974323650: Ticket request succeeded, value=19,latency=5238
+1310974336932: Releasing ticket in (1,0)
+1310974339336: Ticket release succeeded, value=20,latency=2390
+1310974346083: Moved to region (0,0)
+1310974348380: Requesting ticket in (0,0)
+1310974350938: Ticket request succeeded, value=18,latency=2543
+1310974357274: Releasing ticket in (0,0)
+1310974359765: Ticket release succeeded, value=19,latency=2483
+1310974363975: Moved to region (1,0)
+1310974366545: Requesting ticket in (1,0)
+1310974368901: Ticket request succeeded, value=18,latency=2333
+1310974373844: Releasing ticket in (1,0)
+1310974381230: Ticket release succeeded, value=20,latency=7350
