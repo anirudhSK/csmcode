@@ -54,16 +54,16 @@ public class Mux extends Thread {
 		case Mux.PACKET_RECV:
 			Packet vnp = (Packet) msg.obj;
 			if (vnp == null) { // due to some error in networkthread loop
-				Log.d(TAG, "Received null packet...");
+				logMsg("Received null packet...");
 				return;
 			}
 			switch (vnp.type) {
 			case Packet.VNC_MSG:
-				// Log.d(TAG, "Network -> VNC");
+				logMsg("Network -> VNC");
 				vncDaemon.myHandler.sendMessage(Message.obtain(msg));
 				break;
 			case Packet.CSM_MSG:
-				Log.d(TAG, "Network -> CSM");
+				logMsg("Network -> CSM");
 				if (vncDaemon.mState == VNCDaemon.LEADER
 						&& vncDaemon.csm != null)
 					vncDaemon.csm.handleCSMOp(vnp.csm_op);
@@ -71,11 +71,12 @@ public class Mux extends Thread {
 			case Packet.APP_MSG:
 				if (vnp.user_op.requesterRx != vncDaemon.myRegion.x
 						|| vnp.user_op.requesterRy != vncDaemon.myRegion.y) {
+					logMsg("Network -> User? of other region, ignoring");
 					return; // ignore requests not originating from our region
 				}
 				if (vnp.user_op.request) {
 					if (vncDaemon.mState == VNCDaemon.LEADER) {
-						Log.d(TAG, "Network -> UserServer");
+						logMsg("Network -> UserServer");
 						if (vncDaemon.csm != null
 								&& vncDaemon.csm.userServer != null) {
 							vncDaemon.csm.userServer
@@ -84,7 +85,7 @@ public class Mux extends Thread {
 					}
 					break;
 				} else {
-					Log.d(TAG, "Network -> UserClient");
+					logMsg("Network -> UserClient");
 					if (userClient != null) {
 						userClient.handleReply(vnp.user_op);
 					}
@@ -94,7 +95,7 @@ public class Mux extends Thread {
 
 			break;
 		case Mux.PACKET_SEND:
-			// Log.d(TAG, "VNC -> Network"); // Only VNCDaemon uses PACKET_SEND
+			logMsg("VNC -> Network"); // Only VNCDaemon uses PACKET_SEND
 			this.netThread.sendPacket((Packet) msg.obj);
 			break;
 		case CSM_SEND:
@@ -104,11 +105,11 @@ public class Mux extends Thread {
 					op.dstRegion);
 			p.csm_op = op;
 			if (vncDaemon.mState == VNCDaemon.LEADER) {
-				Log.d(TAG, "CSM -> Network");
+				logMsg("CSM -> Network");
 				this.netThread.sendPacket(p);
 				vncDaemon.csm.handleCSMOp(op);
-			} else if (vncDaemon.mState == vncDaemon.NONLEADER) {
-				Log.d(TAG, "CSM -> Network (muted, buffered)");
+			} else if (vncDaemon.mState == VNCDaemon.NONLEADER) {
+				logMsg("CSM -> Network (muted, buffered)");
 				// TODO csmOpBuffer.add(op)
 			}
 
@@ -121,16 +122,16 @@ public class Mux extends Thread {
 
 			// if it's a request from our UserClient, send to net + loopback
 			if (uop.request) {
-				Log.d(TAG, "UserClient -> Network");
+				logMsg("UserClient -> Network");
 				this.netThread.sendPacket(p1);
 				myHandler.obtainMessage(Mux.PACKET_RECV, p1).sendToTarget();
 			} else { // if it's a reply from our UserServer, buffer if not lead
 				if (vncDaemon.mState == VNCDaemon.LEADER) {
-					Log.d(TAG, "UserServer -> Network");
+					logMsg("UserServer -> Network");
 					this.netThread.sendPacket(p1);
 					myHandler.obtainMessage(Mux.PACKET_RECV, p1).sendToTarget();
-				} else if (vncDaemon.mState == vncDaemon.NONLEADER) {
-					Log.d(TAG, "UserServer -> Network (muted, buffered)");
+				} else if (vncDaemon.mState == VNCDaemon.NONLEADER) {
+					logMsg("UserServer -> Network (muted, buffered)");
 					// TODO userOpBuffer.add(uop)
 				}
 			}
