@@ -343,7 +343,21 @@ public class CSMLayer implements Serializable {
 		this.cacheEnabled = cachen;
 		this.forwardingEnabled = true;
 		this.synced = false;
+		
+		logMsg("*** Starting CSM Layer ***");
+		if (this.cacheEnabled) {
+			logMsg("*** CSM Layer starting with cache enabled ***");
+		} else {
+			logMsg("*** CSM Layer starting with cache disabled ***");
+		}
+		if (this.forwardingEnabled) {
+			logMsg("*** CSM Layer starting with forwarding enabled ***");
+		} else {
+			logMsg("*** CSM Layer starting with forwarding disabled ***");
+		}
+		
 		this.region = new RegionKey(r);
+		
 		this.blocks = new ConcurrentHashMap<RegionKey, Block>();
 		for (long x = 0; x <= this.vncDaemon.maxRx; x++) {
 			for (long y = 0; y <= this.vncDaemon.maxRy; y++) {
