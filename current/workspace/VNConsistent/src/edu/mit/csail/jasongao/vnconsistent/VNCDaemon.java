@@ -20,21 +20,26 @@ import com.google.gson.GsonBuilder;
 
 import edu.mit.csail.jasongao.vnconsistent.Cloud.CloudResponse;
 
-import edu.mit.csail.jasongao.vnconsistent.Globals;
-
 public class VNCDaemon extends Thread {
 	final static private String TAG = "VNCDaemon";
 
 	public boolean cacheEnabled = false; // default false or true selectable
 
 	// Constants
-	private static final int regionWidth = Globals.REGION_WIDTH; // ~meters, same units as above
+	private static final int regionWidth = Globals.REGION_WIDTH; // ~meters,
+																	// same
+																	// units as
+																	// above
 	// for 2x2 on soccer field
-        private static final int minLatitude  = Globals.MINIMUM_LATITUDE; // gps to 5 decimal places
-        private static final int minLongitude = Globals.MINIMUM_LONGITUDE; // e.g. 103.77900
+	private static final int minLatitude = Globals.MINIMUM_LATITUDE; // gps to 5
+																		// decimal
+																		// places
+	private static final int minLongitude = Globals.MINIMUM_LONGITUDE; // e.g.
+																		// 103.77900
 	// for 2x2 parking lots
-	//private static final int minLatitude = 129740 - regionWidth; // TODO test
-	//private static final int minLongitude = 10378100 - regionWidth; // TODO test
+	// private static final int minLatitude = 129740 - regionWidth; // TODO test
+	// private static final int minLongitude = 10378100 - regionWidth; // TODO
+	// test
 
 	// Time periods
 	private final static long heartbeatPeriod = 10000;
@@ -95,8 +100,10 @@ public class VNCDaemon extends Thread {
 
 		mState = JOINING;
 		myRegion = new RegionKey(-1, -1); // start outside of active region
-		String line=String.format("Started VNCDaemon with parameters maxRx = %d , maxRY= %d, minLongitude = %d , minLatitude = %d",maxRx,maxRy,minLongitude,minLatitude);
-		logMsg(line); 
+		String line = String
+				.format("Started VNCDaemon with parameters maxRx = %d , maxRY= %d, minLongitude = %d , minLatitude = %d",
+						maxRx, maxRy, minLongitude, minLatitude);
+		logMsg(line);
 	}
 
 	/** Log message to device display and to Android log. */
@@ -454,7 +461,8 @@ public class VNCDaemon extends Thread {
 			}
 			sendPacket(reply);
 
-			logMsg("now fully up as LEADER");
+			logMsg(String.format("now fully up as LEADER (id=%d) of %s", mId,
+					myRegion));
 		} else if (targetState == NONLEADER) {
 			// Update self attributes
 			mState = NONLEADER;
@@ -477,7 +485,9 @@ public class VNCDaemon extends Thread {
 			 * } }
 			 */
 
-			logMsg("now NONLEADER following LEADER " + leaderId);
+			logMsg(String.format(
+					"now NONLEADER (id=%d) following LEADER (id=%d) in %s",
+					mId, leaderId, myRegion));
 		}
 
 		mux.myHandler.obtainMessage(Mux.VNC_STATUS_CHANGE).sendToTarget();

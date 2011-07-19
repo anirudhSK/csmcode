@@ -1,9 +1,5 @@
 package edu.mit.csail.jasongao.vnconsistent;
 
-import java.io.File;
-import java.io.PrintWriter;
-
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
