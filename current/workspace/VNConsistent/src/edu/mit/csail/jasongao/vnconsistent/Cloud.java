@@ -18,13 +18,14 @@ import org.apache.http.message.BasicNameValuePair;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import edu.mit.csail.jasongao.vnconsistent.Globals;
 
 /**
  * Some cloud / server that we talk to over 3G / cellular data with JSON
  */
 public class Cloud {
 	final static String TAG = "VNC:Cloud";
-	final static String hostname = "ec2-122-248-219-48.ap-southeast-1.compute.amazonaws.com:5212";
+	final static String hostname = Globals.CSM_SERVER_NAME;
 
 	// Status codes
 	final static int CR_ERROR = 13;
