@@ -257,6 +257,11 @@ public class CSMLayer implements Serializable {
 				break;
 			}
 		} else if (forwardingEnabled) {
+			if (!this.forwardedPackets.containsKey(op.srcRegion)) {
+				this.forwardedPackets.put(new RegionKey(op.srcRegion),
+						new HashSet<Long>());
+			}
+
 			// Don't forward an op more than once
 			if (!this.forwardedPackets.get(op.srcRegion).contains(op.nonce)) {
 				// Forward on towards destination, x-y routing
@@ -343,7 +348,7 @@ public class CSMLayer implements Serializable {
 		this.cacheEnabled = cachen;
 		this.forwardingEnabled = true;
 		this.synced = false;
-		
+
 		logMsg("*** Starting CSM Layer ***");
 		if (this.cacheEnabled) {
 			logMsg("*** CSM Layer starting with cache enabled ***");
@@ -355,9 +360,9 @@ public class CSMLayer implements Serializable {
 		} else {
 			logMsg("*** CSM Layer starting with forwarding disabled ***");
 		}
-		
+
 		this.region = new RegionKey(r);
-		
+
 		this.blocks = new ConcurrentHashMap<RegionKey, Block>();
 		for (long x = 0; x <= this.vncDaemon.maxRx; x++) {
 			for (long y = 0; y <= this.vncDaemon.maxRy; y++) {
