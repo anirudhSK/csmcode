@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import edu.mit.csail.jasongao.vnconsistent.Globals;
+
 public class StatusActivity extends Activity implements LocationListener {
 	final static private String TAG = "StatusActivity";
 
@@ -46,6 +47,24 @@ public class StatusActivity extends Activity implements LocationListener {
 
 	// Mux
 	Mux mux;
+
+	private Runnable toggleBenchmarkR = new Runnable() {
+		@Override
+		public void run() {
+			// toggle benchmark in userClient
+			if (mux != null && mux.userClient != null) {
+				if (!mux.userClient.isBenchmarkOn()) {
+					bench_button.setText("Stop Bench");
+					logMsg("*** benchmark starting ***");
+					mux.userClient.startBenchmark();
+				} else {
+					bench_button.setText("Start Bench");
+					mux.userClient.stopBenchmark();
+					logMsg("*** benchmark stopped ***");
+				}
+			}
+		}
+	};
 
 	/** Handle messages from various components */
 	private final Handler myHandler = new Handler() {
@@ -79,7 +98,7 @@ public class StatusActivity extends Activity implements LocationListener {
 
 				boolean requestOutstanding = data.get("request_oustanding") == 1L;
 				boolean ticketHeld = data.get("ticket_held") == 1L;
-				
+
 				if (requestOutstanding) {
 					if (ticketHeld)
 						ticket_button.setText("Releasing ticket...");
@@ -146,7 +165,7 @@ public class StatusActivity extends Activity implements LocationListener {
 		ticket_button.setOnClickListener(ticket_button_listener);
 		read_button = (Button) findViewById(R.id.read_button);
 		read_button.setOnClickListener(read_button_listener);
-		
+
 		r00 = (Button) findViewById(R.id.r00_button);
 		r00.setOnClickListener(r00_listener);
 		r01 = (Button) findViewById(R.id.r01_button);
@@ -213,7 +232,11 @@ public class StatusActivity extends Activity implements LocationListener {
 		long id = -1;
 		Bundle extras = getIntent().getExtras();
 		if (extras != null && extras.containsKey("id")) {
+			// we're running from within the simulator, so use given id and
+			// start benchmark after a delay
 			id = Long.valueOf(extras.getString("id"));
+			myHandler.postDelayed(toggleBenchmarkR,
+					Globals.BENCHMARK_START_DELAY);
 		}
 		mux = new Mux(id, myHandler);
 		mux.start();
@@ -230,8 +253,11 @@ public class StatusActivity extends Activity implements LocationListener {
 		super.onResume();
 		// update if phone moves 5m ( once GPS fix is acquired )
 		// or if 5s has passed since last update
-		lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, Globals.SAMPLING_DURATION, Globals.SAMPLING_DISTANCE, this);
-		String logLocationUpdateParameters=String.format("SAMPLING_DISTANCE : %d, SAMPLING_DURATION : %d",Globals.SAMPLING_DISTANCE,Globals.SAMPLING_DURATION);
+		lm.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+				Globals.SAMPLING_DURATION, Globals.SAMPLING_DISTANCE, this);
+		String logLocationUpdateParameters = String.format(
+				"SAMPLING_DISTANCE : %d, SAMPLING_DURATION : %d",
+				Globals.SAMPLING_DISTANCE, Globals.SAMPLING_DURATION);
 		logMsg(logLocationUpdateParameters);
 	}
 
@@ -373,11 +399,10 @@ public class StatusActivity extends Activity implements LocationListener {
 	/** Called when a location update is received */
 	@Override
 	public void onLocationChanged(Location loc) {
-		
-		if(loc!=null) {
+
+		if (loc != null) {
 			mux.vncDaemon.checkLocation(loc);
-		}
-		else  {
+		} else {
 			logMsg("Null Location");
 		}
 	}

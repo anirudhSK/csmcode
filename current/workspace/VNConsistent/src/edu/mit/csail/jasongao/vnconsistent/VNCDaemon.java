@@ -23,23 +23,13 @@ import edu.mit.csail.jasongao.vnconsistent.Cloud.CloudResponse;
 public class VNCDaemon extends Thread {
 	final static private String TAG = "VNCDaemon";
 
-	public boolean cacheEnabled = false; // default false or true selectable
+	public boolean cacheEnabled = Globals.CACHE_ENABLED_ON_START;
 
 	// Constants
-	private static final int regionWidth = Globals.REGION_WIDTH; // ~meters,
-																	// same
-																	// units as
-																	// above
-	// for 2x2 on soccer field
-	private static final int minLatitude = Globals.MINIMUM_LATITUDE; // gps to 5
-																		// decimal
-																		// places
-	private static final int minLongitude = Globals.MINIMUM_LONGITUDE; // e.g.
-																		// 103.77900
-	// for 2x2 parking lots
-	// private static final int minLatitude = 129740 - regionWidth; // TODO test
-	// private static final int minLongitude = 10378100 - regionWidth; // TODO
-	// test
+	private static final int regionWidth = Globals.REGION_WIDTH; // ~meters
+	// lat / long * 10^5, e.g. 103.77900 becomes 10377900
+	private static final int minLatitude = Globals.MINIMUM_LATITUDE;
+	private static final int minLongitude = Globals.MINIMUM_LONGITUDE;
 
 	// Time periods
 	private final static long heartbeatPeriod = 10000;
@@ -102,7 +92,7 @@ public class VNCDaemon extends Thread {
 		myRegion = new RegionKey(-1, -1); // start outside of active region
 		String line = String
 				.format("Started VNCDaemon with parameters maxRx = %d , maxRY= %d, minLongitude = %d , minLatitude = %d, regionWidth =%d",
-						maxRx, maxRy, minLongitude, minLatitude,regionWidth);
+						maxRx, maxRy, minLongitude, minLatitude, regionWidth);
 		logMsg(line);
 	}
 

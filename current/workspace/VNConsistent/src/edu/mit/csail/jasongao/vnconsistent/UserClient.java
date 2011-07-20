@@ -311,8 +311,10 @@ public class UserClient extends Thread {
 
 	/** Start the benchmark iteration loop */
 	public synchronized void startBenchmark() {
-		this.benchmarkOn = true;
-		myHandler.post(benchmarkIterationR);
+		if (!this.benchmarkOn) { // only allow starting once
+			this.benchmarkOn = true;
+			myHandler.post(benchmarkIterationR);
+		}
 	}
 
 	/** Stop the benchmark iteration loop */
