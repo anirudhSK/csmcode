@@ -30,7 +30,7 @@ public class UserClient extends Thread {
 	private long maxRx, maxRy;
 	private long id;
 
-	private double readVsWriteDistribution = 0.9;
+	private double readVsWriteDistribution = Globals.BENCHMARK_READ_DISTRIBUTION_ON_START;
 
 	private boolean ticketHeld = false; // are we currently holding a ticket?
 	private RegionKey ticketRegion;
@@ -312,6 +312,8 @@ public class UserClient extends Thread {
 	/** Start the benchmark iteration loop */
 	public synchronized void startBenchmark() {
 		if (!this.benchmarkOn) { // only allow starting once
+			logMsg("Starting benchmark with read distribution="
+					+ readVsWriteDistribution);
 			this.benchmarkOn = true;
 			myHandler.post(benchmarkIterationR);
 		}
@@ -319,6 +321,7 @@ public class UserClient extends Thread {
 
 	/** Stop the benchmark iteration loop */
 	public synchronized void stopBenchmark() {
+		logMsg("Stopping benchmark with read distribution");
 		this.benchmarkOn = false;
 		myHandler.removeCallbacks(benchmarkIterationR);
 	}
