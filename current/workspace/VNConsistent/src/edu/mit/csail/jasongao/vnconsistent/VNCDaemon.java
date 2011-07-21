@@ -80,7 +80,7 @@ public class VNCDaemon extends Thread {
 	}
 
 	/** VNCDaemon constructor */
-	public VNCDaemon(Mux m, long id, long maxRx_, long maxRy_) {
+	public VNCDaemon(Mux m, long id, long initRx, long initRy, long maxRx_, long maxRy_) {
 		this.mux = m;
 
 		mId = id;
@@ -89,7 +89,7 @@ public class VNCDaemon extends Thread {
 		lastHeartbeatTime = -1;
 
 		mState = JOINING;
-		myRegion = new RegionKey(-1, -1); // start outside of active region
+		myRegion = new RegionKey(initRx, initRy);
 		String line = String
 				.format("Started VNCDaemon with parameters maxRx = %d , maxRY= %d, minLongitude = %d , minLatitude = %d, regionWidth =%d",
 						maxRx, maxRy, minLongitude, minLatitude, regionWidth);

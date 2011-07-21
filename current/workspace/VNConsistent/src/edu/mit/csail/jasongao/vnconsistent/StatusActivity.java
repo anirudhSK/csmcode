@@ -48,25 +48,6 @@ public class StatusActivity extends Activity implements LocationListener {
 	// Mux
 	Mux mux;
 
-	private Runnable toggleBenchmarkR = new Runnable() {
-		@Override
-		public void run() {
-			// toggle benchmark in userClient
-			if (mux != null && mux.userClient != null) {
-				if (!mux.userClient.isBenchmarkOn()) {
-					bench_button.setText("Stop Bench");
-					logMsg(String.format("Starting the synthetic benchmark at time %d",System.currentTimeMillis())); 
-					logMsg("*** benchmark starting ***");
-					mux.userClient.startBenchmark();
-				} else {
-					bench_button.setText("Start Bench");
-					mux.userClient.stopBenchmark();
-					logMsg("*** benchmark stopped ***");
-				}
-			}
-		}
-	};
-
 	/** Handle messages from various components */
 	private final Handler myHandler = new Handler() {
 		@Override
@@ -236,9 +217,6 @@ public class StatusActivity extends Activity implements LocationListener {
 			// we're running from within the simulator, so use given id and
 			// start benchmark after a delay
 			id = Long.valueOf(extras.getString("id"));
-			logMsg(String.format("BENCHMARK_START_DELAY is %d, READ_DISTRIBTUON is %f, and CACHE_ENABLE is %b \n",Globals.BENCHMARK_START_DELAY,Globals.BENCHMARK_READ_DISTRIBUTION_ON_START,Globals.CACHE_ENABLED_ON_START));
-			myHandler.postDelayed(toggleBenchmarkR,
-					Globals.BENCHMARK_START_DELAY);
 		}
 		mux = new Mux(id, myHandler);
 		mux.start();
