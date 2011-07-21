@@ -74,26 +74,51 @@ public class UserClient extends Thread {
 		}
 	};
 
+	Runnable benchmarkSkipIterationR = new Runnable() {
+		@Override
+		public void run() {
+			if (benchmarkOn) {
+				if (myRx >= 0 && myRx <= maxRx && myRy >= 0 && myRy <= maxRy) {
+					// in bounds, do bench
+					myHandler.postDelayed(benchmarkIterationR,
+							benchmarkIterationDelay);
+				} else { // skip benchmark iteration while we're out of bounds
+					logMsg("Out of bounds, skipping benchmark iteration");
+					myHandler.postDelayed(benchmarkSkipIterationR,
+							benchmarkIterationDelay);
+				}
+			}
+		}
+	};
+
 	/** Benchmark loop iteration */
 	Runnable benchmarkIterationR = new Runnable() {
 		@Override
 		public void run() {
 			if (benchmarkOn) {
-				// Pick a random region to send request to
-				long dstRx = rand.nextInt((int) (maxRx + 1));
-				long dstRy = rand.nextInt((int) (maxRy + 1));
+				if (myRx >= 0 && myRx <= maxRx && myRy >= 0 && myRy <= maxRy) {
+					// in bounds, do bench
 
-				// pick read or write according to distribution
-				if (rand.nextDouble() < readVsWriteDistribution) {
-					// make a read
-					requestRead(dstRx, dstRy);
-				} else {
-					// make a write-involving operation (request or release)
-					if (!ticketHeld) {
-						requestDecrement(dstRx, dstRy);
+					// Pick a random region to send request to
+					long dstRx = rand.nextInt((int) (maxRx + 1));
+					long dstRy = rand.nextInt((int) (maxRy + 1));
+
+					// pick read or write according to distribution
+					if (rand.nextDouble() < readVsWriteDistribution) {
+						// make a read
+						requestRead(dstRx, dstRy);
 					} else {
-						requestIncrement();
+						// make a write-involving operation (request or release)
+						if (!ticketHeld) {
+							requestDecrement(dstRx, dstRy);
+						} else {
+							requestIncrement();
+						}
 					}
+				} else { // skip benchmark iteration while we're out of bounds
+					logMsg("Out of bounds, skipping benchmark iteration");
+					myHandler.postDelayed(benchmarkSkipIterationR,
+							benchmarkIterationDelay);
 				}
 			}
 		}
@@ -312,8 +337,12 @@ public class UserClient extends Thread {
 	/** Start the benchmark iteration loop */
 	public synchronized void startBenchmark() {
 		if (!this.benchmarkOn) { // only allow starting once
-			logMsg("Starting benchmark with read distribution="
-					+ readVsWriteDistribution);
+			logMsg(String
+					.format("Starting the synthetic benchmark at time %d, BENCHMARK_START_DELAY was %d, READ_DISTRIBTUON is %f, and CACHE_ENABLE is %b \n",
+							System.currentTimeMillis(),
+							Globals.BENCHMARK_START_DELAY,
+							Globals.BENCHMARK_READ_DISTRIBUTION_ON_START,
+							Globals.CACHE_ENABLED_ON_START));
 			this.benchmarkOn = true;
 			myHandler.post(benchmarkIterationR);
 		}
@@ -333,12 +362,12 @@ public class UserClient extends Thread {
 	/** Stuff to do right before we enter the run loop. */
 	private void onStart() {
 		logMsg("UserClient started");
-		// TODO
+		startBenchmark();
 	}
 
 	/** Stuff to do right BEFORE exiting the run loop. */
 	private void onRequestStop() {
-		// TODO
+		stopBenchmark();
 		logMsg("UserClient stopped");
 	}
 

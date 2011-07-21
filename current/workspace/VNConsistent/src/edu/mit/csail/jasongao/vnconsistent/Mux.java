@@ -176,11 +176,15 @@ public class Mux extends Thread {
 					+ netThread.getLocalAddress().getAddress()[3];
 			// nodeId = netThread.getLocalAddress().getAddress()[3]; // lastoct
 		}
+		
+		// Start outside active region
+		long initRx = -1;
+		long initRy = -1;
 
-		vncDaemon = new VNCDaemon(this, nodeId, maxRx, maxRy);
+		vncDaemon = new VNCDaemon(this, nodeId, initRx, initRy, maxRx, maxRy);
 		vncDaemon.start();
 
-		userClient = new UserClient(this, nodeId, 0, 0, maxRx, maxRy);
+		userClient = new UserClient(this, nodeId, initRx, initRx, maxRx, maxRy);
 		userClient.start();
 	}
 
