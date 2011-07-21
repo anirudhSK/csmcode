@@ -98,8 +98,12 @@ public class StatusActivity extends Activity implements LocationListener {
 
 	/** Log message and also display on screen */
 	public void logMsg(String msg) {
+		msg = String.format("%d: %s", System.currentTimeMillis(), msg);
 		receivedMessages.add(msg);
 		Log.i(TAG, msg);
+		if (myLogWriter != null) {
+			myLogWriter.println(msg);
+		}
 	}
 
 	/** Force an update of the screen views */
