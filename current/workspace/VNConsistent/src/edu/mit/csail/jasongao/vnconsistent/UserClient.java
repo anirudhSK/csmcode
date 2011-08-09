@@ -195,8 +195,9 @@ public class UserClient extends Thread {
 			} else {
 				failureCount++;
 				logMsg(String
-						.format("UserClient decrement on (%d,%d) failed, value=?,latency=%d",
-								uop.targetRx, uop.targetRy, latency));
+						.format("UserClient decrement on (%d,%d) from (%d,%d) failed, value=?,latency=%d",
+								uop.targetRx, uop.targetRy, uop.requesterRx,
+								uop.requesterRy, latency));
 			}
 		} else if (uop.type == UserOp.INCREMENT) {
 			if (uop.success) {
@@ -209,8 +210,9 @@ public class UserClient extends Thread {
 			} else {
 				failureCount++;
 				logMsg(String
-						.format("UserClient increment on (%d,%d) failed, value=?,latency=%d",
-								uop.targetRx, uop.targetRy, latency));
+						.format("UserClient increment on (%d,%d) from (%d,%d) failed, value=?,latency=%d",
+								uop.targetRx, uop.targetRy,uop.requesterRx,
+								uop.requesterRy, latency));
 			}
 		} else if (uop.type == UserOp.READ) {
 			if (uop.success) {
@@ -222,8 +224,9 @@ public class UserClient extends Thread {
 			} else {
 				failureCount++;
 				logMsg(String
-						.format("UserClient read on (%d,%d) failed, value=?,latency=%d",
-								uop.targetRx, uop.targetRy, latency));
+						.format("UserClient read on (%d,%d) from (%d,%d) failed, value=?,latency=%d",
+								uop.targetRx, uop.targetRy, uop.requesterRx,
+								uop.requesterRy,latency));
 			}
 		}
 
