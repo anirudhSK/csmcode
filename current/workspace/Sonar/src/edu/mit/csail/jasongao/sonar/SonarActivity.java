@@ -247,6 +247,12 @@ public class SonarActivity extends Activity implements LocationListener {
 	@Override
 	public void onLocationChanged(Location loc) {
 		myLoc = loc;
+                long mX = Math.round((loc.getLongitude() * 100000));
+		long mY = Math.round((loc.getLatitude() * 100000));
+		logMsg(String.format(
+				"GPS lat,long: %f,%f mapping to cartesian x,y: %d,%d",
+				loc.getLongitude(), loc.getLatitude(), mX, mY));
+
 	}
 
 	/** Location - provider disabled */
