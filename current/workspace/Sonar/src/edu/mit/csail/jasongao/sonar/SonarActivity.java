@@ -8,7 +8,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
-
+import android.app.*; 
 import android.app.Activity;
 import android.content.Context;
 import android.location.Location;
@@ -150,6 +150,10 @@ public class SonarActivity extends Activity implements LocationListener {
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+
+                  KeyguardManager mKeyGuardManager = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
+                  KeyguardManager.KeyguardLock    mLock = mKeyGuardManager.newKeyguardLock("edu.mit.csail.jasongao.sonar.SonarActivity");
+                            mLock.disableKeyguard();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
