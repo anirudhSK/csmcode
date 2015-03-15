@@ -1,0 +1,1 @@
+This is an attempt to port a form of consistent shared memory on a collection of mobile devices into the framework of the ns-3 simulation
